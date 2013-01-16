@@ -23,15 +23,30 @@ The transform law of 3 + 1 splitting physical quantities, such as the lapse, shi
 \maketitle
 
 \section{Introduction}
-The Einstein's equations are in the covariant form under spacetime diffeomorphism, which means the equations are invariant under spacetime coordinate transformations. The introuction of 3 + 1 splitting mechanism breaks the symmetry of time and space domain, although it still preserves the invariant property, the covariant structure is not manifest in the equations anymore. While constructing numerical simulations, either in ADM formulation or BSSN formulation, people use gauge conditions(such as 1 + log slicing and Gamma-driver shift condition) to evolve the lapse and shift vector along with time. Unfortunately, these gauge condition equations are neither explicitly nor implicitly covariant. This scheme works sufficiently accurate if the system is evolved in one single coordinate system with specifying the background lapse ${\bar \alpha} = 1$ and background shift vector ${\bar \beta}^{a} = 0$. However, if the same system is evolved with two different coordinate systems to the same time under this kind of gauge conditions, it is not guaranteed that we can get the same results. \\
-\\
-This situation leads to our motivation of this paper. We will try to examine the transform pattern of physical quantities in 3 + 1 splitting system under a so called ``foliation preserved coordinate transformation'', which includes time reparamerization and time dependent spatial deffeomorphism while the structure of foliations is preserved. Then we will try to write down the covariant form of the gauge conditions under this coordinate transformation and give the guideline of how to implement this into numerical simulation. 
-\\
-\\
-The paper is organized as follows. In Sec.~\ref{notation}, we explain the notation and convention we are going to follow in this paper. Then we briefly review the 3 + 1 splitting formulation in Sec.~\ref{3+1}. In Sec.~\ref{transform}, we give the definition of foliation preserved coordinate transformation, under which we derive and list the transform pattern of all significant 3 + 1 splitting physical quantities. The ordinary gauge conditions, i.e.~1 + log slicing condition and Gamma-driver shift equations, are dicussed in details in Sec.~\ref{gauge}. They are then modified to covariant forms and a guideline of how to implement this covariant gauge condition is provided. Last but not least, in Sec.~\ref{example} we demonstrate how this scheme works in a specific coordinate transformation case, time dependent spatial rotation.
+The Einstein's equations are in the covariant form under spacetime diffeomorphism, which means the equations are invariant under spacetime coordinate transformations. 3 + 1 splitting mechanism slices the spacetime into a family of spacelike hypersurfaces which is referred as foliations. On each foliation, a timelike parameter t is constant. By breaking the symmetry of time and space domain, the 3 + 1 formulation makes it possible to evolve a general relativity system along with time numerically. On the other hand, although it still preserves the invariant property, it is not manifest in the equations anymore. While constructing numerical simulations, either in ADM formulation or BSSN formulation, people use gauge conditions(such as 1 + log slicing and Gamma-driver shift condition) to evolve the lapse and shift vector along with time. Unfortunately, these gauge condition equations are neither explicitly nor implicitly covariant. This scheme works sufficiently accurate if the system is evolved in one single coordinate system with specifying the background lapse ${\bar \alpha} = 1$ and background shift vector ${\bar \beta}^{a} = 0$. However, if the same system is evolved with two different coordinate systems to the same time under this kind of gauge conditions, it is not guaranteed that we can get the same results. 
 
-\section{}\label{notation}
-\section{}\label{3+1}
+This situation leads to our motivation of this paper. We will try to examine the transform pattern of physical quantities in 3 + 1 splitting system under a so called ``foliation preserved coordinate transformation'', which includes time reparamerization and time dependent spatial deffeomorphism while the structure of foliations is preserved. Then we will try to write down the covariant form of the gauge conditions under this coordinate transformation and give the guideline of how to implement this into numerical simulation. 
+
+The paper is organized as follows. In Sec.~\ref{3+1}, we explain the notation and convention we are going to follow in this paper. Then we briefly review the 3 + 1 splitting formulation. In Sec.~\ref{transform}, we give the definition of foliation preserved coordinate transformation, under which we derive and list the transform pattern of all significant 3 + 1 splitting physical quantities. The ordinary gauge conditions, i.e.~1 + log slicing condition and Gamma-driver shift equations, are dicussed in details in Sec.~\ref{gauge}. They are then modified to covariant forms and a guideline of how to implement this covariant gauge condition is provided. Last but not least, in Sec.~\ref{example} we demonstrate how this scheme works in a specific coordinate transformation case, time dependent spatial rotation.
+\section{3 + 1 Splitting}\label{3+1}
+Throughout this paper, we use Greek letter indices $\mu$, $\nu$, ... to denote spacetime indices and Latin letters $a$, $b$, ... to denote spatial indices. $\nabla_{\mu}$ stands for the spacetime covariant derivative while $D_{a}$ is the spatial covariant derivative. $x^{\mu}$ stands for the original coordinate system and $x^{\mu '}$ the transformed coordinate system. 
+
+In 3 + 1 formulation, we have
+\begin{equation*}
+^{(4)}g_{\mu\nu} = \begin{pmatrix}-\alpha^2 + \beta^{c}\beta_{c} & \beta_{b}\\\\\beta_{a} & g_{ab}\end{pmatrix}
+\end{equation*}
+where $\alpha$ is called the lapse function, $\beta^{a}$ the shift vector and $g_{ab}$ the spatial metric. The covariant normal to each foliation is denoted as $n_{\mu} = -\alpha\delta^{0}_{\mu}$. And its dual is $n^{\mu} = (\delta^{\mu}_{0} - \beta^{c}\delta^{\mu}_{c})/\alpha$, so that we have $n_{\mu}n^{\mu} = 1$. There is also the projection operator $X^{\mu}_{a} = \delta^{\mu}_{a}$ that projects a spacetime covector into a spacelike covector. Its covariant form is $X^{a}_{\mu} = \delta^{a}_{\mu} + \beta^{a}\delta^{0}_{\mu}$, so that we have $X^{\mu}_{a}X^{b}_{\mu} = \delta^{b}_{a}$ and $X^{\mu}_{a}n_{\mu} = 0$. 
+
+With these definitions, the spacetime metric can be written in terms of the spatial metric, the normal and the projection operator as
+\begin{equation}
+^{(4)}g_{\mu\nu} = g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu}
+\end{equation}
+Spacetime indices $\mu$, $\nu$, ... are always raised and lowered with the spacetime metric $^{(4)}g_{\mu\nu}$ and its inverse $^{(4)}g^{\mu\nu}$, while spatial indices $a$, $b$, ... are always raised and lowered with the spatial metric $g_{ab}$ and its inverse $g^{ab}$. 
+
+Another important quantity in 3 + 1 splitting, the extrinsic curvature is defined as
+\begin{equation}
+K_{ab} = - \frac{1}{2\alpha}(\partial_{t}g_{ab} - 2D_{(a}\beta_{b)})
+\end{equation}
 \section{}\label{transform}
 \section{}\label{gauge}
 \section{}\label{example}
