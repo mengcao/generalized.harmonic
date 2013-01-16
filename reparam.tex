@@ -1,0 +1,216 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{mathrsfs}
+
+\begin{document}
+\title{Time Reparametrization Invariance in GH}
+\author{Meng Cao}
+\maketitle
+\section{3+1 Splitting}
+\[
+^{(4)}g_{\mu\nu} = g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu}
+\]
+\[
+^{(4)}g^{\mu\nu} = g^{ab}X^{\mu}_{a}X^{\nu}_{b} - n^{\mu}n^{\nu}
+\]
+where
+\[
+X^{a}_{\mu} = \delta^{a}_{\mu} + \beta^{a}\delta^{0}_{\mu} 
+\]
+\[
+X^{\mu}_{a} = \delta^{\mu}_{a}
+\]
+\[
+n_{\mu} = -\alpha \delta^{0}_{\mu}
+\]
+\[
+n^{\mu} = (\delta^{\mu}_{0} - \beta^{a}\delta_{a}^{\mu})/\alpha
+\]
+Time reparametrization vector
+\[
+\xi^{\mu} = (\epsilon (t),0)
+\]
+
+\begin{align*}
+\delta g_{\mu\nu} & = \mathcal{L}_{\xi} g_{\mu\nu} \\
+& = \xi^{\sigma} \partial_{\sigma}g_{\mu\nu} + g_{\mu\sigma}\partial_{\nu}\xi^{\sigma} + g_{\nu \sigma}\partial_{\mu}\xi^{\sigma}\\
+& = \epsilon \dot{g}_{\mu \nu} + g_{\mu 0} \delta^{0}_{\nu}\dot{\epsilon} + g_{\nu 0} \delta^{0}_{\mu} \dot{\epsilon}
+\end{align*}
+
+\begin{align*}
+\delta g^{\mu\nu} & = \mathcal{L}_{\xi} g^{\mu\nu} \\
+& = \xi^{\sigma} \partial_{\sigma}g^{\mu\nu} - g^{\mu\sigma}\partial_{\sigma}\xi^{\nu} + g^{\nu \sigma}\partial_{\sigma}\xi^{\mu}\\
+& = \epsilon \dot{g}^{\mu \nu} - g^{\mu 0} \delta_{0}^{\nu}\dot{\epsilon} - g^{\nu 0} \delta_{0}^{\mu} \dot{\epsilon}
+\end{align*}
+\section{$g_{ab}$}
+{\bf {\color{red}$g_{ab}$ transforms as a scalar}}
+\[
+\delta g_{ab} = \epsilon \dot{g}_{ab}
+\]
+\section{$\beta^{a}$}
+\[
+g_{a0} = g_{ab}\beta^{b}
+\]
+Hence, we have
+\begin{align*}
+\delta g_{a0} & = \delta g_{a0}\\
+\delta (g_{ab}\beta^{b}) & = \epsilon (g_{ab}\beta^{b})^{.} + g_{a0}{\dot \epsilon}\\
+(\delta g_{ab}) \beta^{b} + g_{ab} (\delta \beta^{b}) & = \epsilon (g_{ab}\beta^{b})^{.} + g_{ab}\beta^{b}{\dot \epsilon}\\
+\epsilon {\dot g}_{ab} \beta^{b} + g_{ab} (\delta \beta^{b}) & = \epsilon {\dot g}_{ab} \beta^{b} + \epsilon g_{ab} {\dot \beta}^{b} + g_{ab}\beta^{b} {\dot \epsilon}\\
+\delta \beta^{b} & = \epsilon {\dot \beta}^{b} + {\dot \epsilon} \beta^{b}
+\end{align*}
+\[
+\boxed{
+\delta \beta^{b} = (\epsilon \beta^{b})^{.}
+}
+\]
+
+{\bf{\color{red}$\beta^{a}$ transforms as a weight +1 density} }
+\section{$\alpha$}
+\[
+g_{00} = g_{ab}\beta^{a}\beta^{b}-\alpha^{2}
+\]
+Hence, we have
+\begin{align*}
+\delta g_{00} & = \delta g_{00} \\
+\delta (g_{ab}\beta^{a}\beta^{b} - \alpha^{2}) & = \epsilon (g_{ab}\beta^{a}\beta^{b} - \alpha^2)^{.} + 2(g_{ab}\beta^{a}\beta^{b} - \alpha^2) {\dot \epsilon}\\
+\delta g_{ab} \beta^{a} \beta^{b} + g_{ab} \delta \beta^{a} \beta^{b} + g_{ab} \beta^{a} \delta \beta^{b} - 2\alpha \delta \alpha & = \epsilon {\dot g}_{ab}\beta^{a}\beta^{b} + \epsilon g_{ab} {\dot \beta}^{a} \beta^{b} + \epsilon g_{ab} \beta^{a} {\dot \beta}^{b} - 2\epsilon \alpha {\dot \alpha}  + 2(g_{ab}\beta^{a}\beta^{b} - \alpha^2) {\dot \epsilon}\\
+\epsilon {\dot g}_{ab} \beta^{a} \beta^{b} + g_{ab}(\epsilon \beta^{a})^{.}\beta^{b} + g_{ab} \beta^{a} (\epsilon \beta^{b})^{.} - 2\alpha\delta\alpha & = \epsilon {\dot g}_{ab}\beta^{a}\beta^{b} + g_{ab} (\beta^{a} \epsilon)^{.} \beta^{b} + g_{ab} \beta^{a} (\epsilon \beta^{b})^{.} - 2\epsilon \alpha {\dot \alpha}  - 2\alpha^2 {\dot \epsilon}\\
+\delta \alpha & = \epsilon {\dot \alpha} + \alpha {\dot \epsilon}\\
+\end{align*}
+\[
+\boxed{
+\delta \alpha  = (\epsilon \alpha)^{.}
+}
+\]
+{\bf{\color {red}$\alpha$ transforms as a weight +1 density} }
+\section{$g^{ab}$}
+\begin{align*}
+\delta (g^{ab} - \beta^{a}\beta^{b}/\alpha^2) & = \delta (g^{ab} - \beta^{a}\beta^{b}/\alpha^2)\\
+\delta g^{ab} - \delta(\beta^{a}\beta^{b}/\alpha^2) & = \epsilon (g^{ab} - \beta^{a}\beta^{b}/\alpha^2)^{.}
+\end{align*}
+Due to the transform property of $\beta^{a}$ and $\alpha$, $\beta^{a}\beta^{b}/\alpha^2$ should transform as a scalar. Therefore, we have
+\begin{align*}
+\delta g^{ab} - \epsilon (\beta^{a}\beta^{b}/\alpha^{2})^{.} & = \epsilon {\dot g}^{ab} - \epsilon (\beta^{a}\beta^{b}/\alpha^2)^{.}
+\end{align*}
+\[
+\boxed{
+\delta g^{ab} = \epsilon {\dot g^{ab}}
+}
+\]
+{\bf {\color{red} $g^{ab}$ transforms as a scalar}}\\
+
+$?$ short cut\\
+$g^{ab}g_{bc} = \delta^{a}_{c}$ should transform as a scalar, and $g_{bc}$ transforms as a scalar, so $g^{ab}$ transforms as a scalar.  
+\section{$\Gamma^{a}_{~bc}$}
+$\Gamma^{a}_{~bc}$ is a combination of $g^{ab}$ and $\partial_{c}g_{ab}$, so {\bf {\color {red} it should also transform as a scalar}}.
+\section{${\dot g}_{ab}$ ,${\dot g}^{ab}$}
+\[
+\boxed{
+\delta {\dot g}_{ab} = (\delta g_{ab})^{.} = (\epsilon {\dot g_{ab}})^{.}
+}
+\]
+
+\[
+\boxed{
+\delta {\dot g}^{ab} = (\delta g^{ab})^{.} = (\epsilon {\dot g^{ab}})^{.}
+}
+\]
+{\bf {\color{red} Both ${\dot g}_{ab}$ and ${\dot g}^{ab}$ transform as weight +1 densities}}.
+\section{$\sqrt{g}$}
+\[
+\boxed{
+\delta g = g g^{ab}\delta g_{ab} = g g^{ab}\epsilon{\dot g}_{ab} = \epsilon {\dot g}
+}
+\]
+{\bf{\color{red} Therefore, both $g$ and $\sqrt{g}$ transform as a scalar}}.
+\section{$R$}
+Since $R$ is all about $g_{ab}$, $g^{ab}$ and $\Gamma^{a}_{~bc}$, {\bf {\color{red}R should transform as a scalar}}. 
+\section{$D_{a}\beta_{b}$}
+\begin{align*}
+\delta (D_{a}\beta_{b}) & = \delta (\partial_{a} \beta_{b} - \Gamma^{c}_{~ab}\beta_{c})\\
+& = \partial_{a} (\delta \beta_{b}) - \delta \Gamma^{c}_{~ab} \beta_{c} - \Gamma^{c}_{~ab} \delta \beta_{c}
+\end{align*}
+Since $\beta_{a} = \beta^{b}g_{ab}$ and $g_{ab}$ transforms as a scalar, $\beta^{b}$ transforms as a weight +1 density, $\beta_{a}$ transforms as a weight +1 density. Hence, we have
+\begin{align*}
+\delta (D_{a}\beta_{b}) & = \partial_{a} (\epsilon \beta_{b})^{.} - \epsilon {\dot \Gamma}^{c}_{~ab} \beta_{c} - \Gamma^{c}_{ab}(\epsilon \beta_{c})^{.}\\
+& = (\partial_{a} (\epsilon \beta_{b}) - \epsilon \Gamma^{c}_{~ab}\beta_{c})^{.}\\
+& = (\epsilon (\partial_{a} \beta_{b} - \Gamma^{c}_{ab}\beta_{c}))^{.}\\
+& = (\epsilon D_{a}\beta_{b})^{.}
+\end{align*}
+\[
+\boxed{
+\delta (D_{a}\beta_{b}) = (\epsilon D_{a}\beta_{b})^{.}
+}
+\]
+{\bf {\color{red} $D_{a}\beta_{b}$ transforms as a weight +1 density}}.
+\section{$K_{ab}$}
+\[
+K_{ab} = -\frac{1}{2\alpha}({\dot g}_{ab} - \mathcal{L}_{\beta}g_{ab}) =  -\frac{1}{2\alpha}({\dot g}_{ab} - D_{a}\beta_{b} - D_{b}\beta_{a})
+\]
+Therefore, {\bf{\color{red}$K_{ab}$ transforms as a scalar}}. 
+\section{$C_{\perp}$, $C_{a}$}
+Since $C_{\mu}$ is a covector in spacetime, we have
+\begin{align*}
+\delta C_{\mu} & = \mathcal{L}_{\xi} C_{\mu}\\
+& = \xi^{\sigma}\partial_{\sigma}C_{\mu} + C_{\sigma}\partial_{\mu}\xi^{\sigma}\\
+& = \epsilon {\dot C}_{\mu} + C_{0}{\dot \epsilon}\delta^{0}_{\mu} 
+\end{align*}
+Therefore, we can see that the spatial component of $C_{\mu}$ transform as a scalar, the time component of $C_{\mu}$ transforms as a weight +1 density. \\
+\\
+Hence, we have
+\[
+\boxed{
+\delta C_{a} = \delta (C_{\mu}X_{a}^{\mu}) = \delta_{a}^{\mu} \delta C_{\mu} = \epsilon {\dot C}_{a}
+}
+\]
+{\bf {\color {red}$C_{a}$ transforms as a scalar}}.
+\[
+n^{\mu} = (\delta^{\mu}_{0} - \beta^{a}\delta_{a}^{\mu})/\alpha
+\]
+We can tell from the above equation that the time component of $n^{\mu}$ transforms as a weight -1 density and the spatial component of $n^{\mu}$ transform as scalars. Therefore, {\bf {\color{red}$C_{\perp} = C_{\mu}n^{\mu}$ should transform as a scalar}}.
+\section{$P^{ab}$}
+According to the formula of $P^{ab}$
+\[
+P^{ab} = \sqrt{g}(Kg^{ab} - K^{ab} -\frac{C_{\perp}}{2}g^{ab})
+\]
+{\bf {\color{red} $P^{ab}$ should transform as a scalar}}.
+\section{$\pi$}
+Since we have
+\[
+\pi = \frac{\sqrt{g}}{\alpha}C_{\perp}
+\]
+{\bf{\color{red}$\pi$ transforms as a weight -1 density}}.
+\section{$\rho_{a}$}
+Since we have
+\[
+\rho_{a} = \frac{\sqrt{g}}{\alpha}C_{a}
+\]
+{\bf{\color{red}$\rho_{a}$ transforms as a weight -1 density}}.
+\section{$\mathring{\alpha}$}
+The covariant derivative of $\alpha$ in time domain is defined as
+\[
+\mathring{\alpha} = \dot{\alpha} - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}}\alpha
+\]
+So we have
+\begin{align*}
+\delta \mathring{\alpha} & = \delta \dot{\alpha} - \delta (\frac{\dot{\bar{\alpha}}}{\bar{\alpha}}\alpha)\\
+& = \delta \dot{\alpha} - \frac{\alpha}{\bar{\alpha}}\delta \dot{\bar{\alpha}} - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}}\delta\alpha + \frac{\dot{\bar{\alpha}}}{\bar{\alpha}^2}\alpha \delta \bar{\alpha}\\
+& = (\delta \alpha)^{.} - \frac{\alpha}{\bar{\alpha}}(\delta \bar{\alpha})^{.} - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}}\delta\alpha + \frac{\dot{\bar{\alpha}}}{\bar{\alpha}^2}\alpha \delta \bar{\alpha}\\
+& = (\epsilon \alpha)^{..} - \frac{\alpha}{\bar{\alpha}}(\epsilon \bar{\alpha})^{..} - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}}(\epsilon\alpha)^{.} + \frac{\dot{\bar{\alpha}}}{\bar{\alpha}^2}\alpha (\epsilon \bar{\alpha})^{.}\\
+& = \ddot{\epsilon}\alpha + 2\dot{\epsilon}\dot{\alpha} + \epsilon\ddot{\alpha} -  \frac{\alpha}{\bar{\alpha}}\ddot{\epsilon}\bar{\alpha} - 2 \frac{\alpha}{\bar{\alpha}}\dot{\epsilon}\dot{\bar{\alpha}} -  \frac{\alpha}{\bar{\alpha}}\epsilon\ddot{\bar{\alpha}} - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}} \dot{\epsilon}\alpha - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}}\epsilon\dot{\alpha} +  \frac{\dot{\bar{\alpha}}}{\bar{\alpha}^2}\alpha \dot{\epsilon}\bar{\alpha} +  \frac{\dot{\bar{\alpha}}}{\bar{\alpha}^2}\alpha \epsilon\dot{\bar{\alpha}}\\
+& = \epsilon(\ddot{\alpha} - \frac{\ddot{\bar{\alpha}}}{\bar{\alpha}}\alpha - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}}\dot{\alpha} + \frac{\dot{\bar{\alpha}}}{\bar{\alpha}^2}\alpha \dot{\bar{\alpha}}) + 2\dot{\epsilon}(\dot{\alpha} - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}}\alpha)\\
+& = \epsilon(\mathring{\alpha})^{.} + 2\dot{\epsilon}\mathring{\alpha}
+\end{align*}
+{\bf {\color{red} Therefore we claim that $\mathring{\alpha}$ transforms as a weight +2 density}}
+\section{$\mathring{\beta}^{a}$}
+Following the same steps as previous section, we can show that {\bf {\color{red} $\mathring{\beta}^{a}$ also transforms as a weight +2 density}}.
+\end{document}

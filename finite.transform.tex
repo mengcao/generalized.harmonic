@@ -1,0 +1,478 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{mathrsfs}
+
+\begin{document}
+\title{3 + 1 Finite Transform in GH}
+\author{Meng Cao}
+\maketitle
+\section{3 + 1 Splitting}
+\[
+^{(4)}g_{\mu\nu} = g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu}
+\]
+\[
+^{(4)}g^{\mu\nu} = g^{ab}X^{\mu}_{a}X^{\nu}_{b} - n^{\mu}n^{\nu}
+\]
+where
+\[
+X^{a}_{\mu} = \delta^{a}_{\mu} + \beta^{a}\delta^{0}_{\mu} 
+\]
+\[
+X^{\mu}_{a} = \delta^{\mu}_{a}
+\]
+\[
+n_{\mu} = -\alpha \delta^{0}_{\mu}
+\]
+\[
+n^{\mu} = (\delta^{\mu}_{0} - \beta^{a}\delta_{a}^{\mu})/\alpha
+\]
+\section{Time Dependent Spatial Finite Transform}
+Under this time dependent spatial finite transformation, we have
+\begin{align*}
+t' & = t\\
+x^{a'} & = x^{a'}(t,x^{a})
+\end{align*}
+and vice versa, we have
+\begin{align*}
+t & = t'\\
+x^{a} & = x^{a}(t',x^{a'})
+\end{align*}
+\begin{align*}
+g_{\mu'\nu'} & = g_{\mu\nu}\frac{\partial x^{\mu}}{\partial x^{\mu'}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}\\
+& = (g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu})\frac{\partial x^{\mu}}{\partial x^{\mu'}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}\\
+& = g_{ab}X^{a}_{\mu}\frac{\partial x^{\mu}}{\partial x^{\mu'}}X^{b}_{\nu}\frac{\partial x^{\nu}}{\partial x^{\nu'}} - n_{\mu}\frac{\partial x^{\mu}}{\partial x^{\mu'}}n_{\nu}\frac{\partial x^{\nu}}{\partial x^{\nu'}}\\
+& = g_{ab}(\frac{\partial x^{a}}{\partial x^{\mu '}} + \beta^{a}\frac{\partial x^{0}}{\partial x^{\mu '}})(\frac{\partial x^{b}}{\partial x^{\nu '}} + \beta^{b}\frac{\partial x^{0}}{\partial x^{\nu '}}) - \alpha^2\frac{\partial x^{0}}{\partial x^{\mu '}}\frac{\partial x^{0}}{\partial x^{\nu '}}
+\end{align*}
+Useful identity
+\[
+\delta^{a}_{b} = \frac{\partial x^{a}}{\partial x^{b}} = \frac{\partial x^{a}}{\partial x^{\mu'}}\frac{\partial x^{\mu'}}{\partial x^{b}} = \frac{\partial x^{a}}{\partial t'}\frac{\partial t'}{\partial x^{b}} + \frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{a'}}{\partial x^{b}}
+\]
+since $t' = t$, we have
+\[
+\frac{\partial t'}{\partial x^{b}} = 0
+\]
+and hence,
+\[
+\boxed{
+\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{a'}}{\partial x^{b}} = \delta^{a}_{b}
+}
+\]
+and vice versa, 
+\[
+\boxed{
+\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial x^{b'}} = \delta^{a'}_{b'}
+}
+\]
+\subsection{$g_{ab}$}
+According to the formula above, 
+\[
+\boxed{
+g_{a'b'} = g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}
+}
+\]
+{\bf {\color{red}Therefore, $g_{ab}$ transforms as a (0,2) tensor.}}
+\subsection{$g^{ab}$}
+Since
+\[
+g^{ab}g_{ac} = \delta^{b}_{c}
+\]
+is a (1,1) tensor, {\bf {\color{red}$g^{ab}$ transforms as a (2,0) tensor. }}
+\subsection{$g$}
+\[
+g' = |g_{a'b'}| = |g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}| = |g_{ab}||\frac{\partial x^{a}}{\partial x^{a'}}||\frac{\partial x^{b}}{\partial x^{b'}}| = g|\frac{\partial x}{\partial x'}|^{2}
+\]
+{\bf {\color{red}Hence, $g$ transforms as a weight +2 density.}} 
+\subsection{$\beta_{a}$}
+\begin{align*}
+g_{a'0'} & = \beta_{a'}\\
+& =  g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}(\frac{\partial x^{b}}{\partial t'} + \beta^{b}\frac{\partial t}{\partial t'})\\
+& = \beta_{a}\frac{\partial x^{a}}{\partial x^{a'}} + g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial t'}
+\end{align*}
+\subsection{$\beta^{a}$}
+\begin{align*}
+\beta^{a'} & = \beta_{b'}g^{a'b'}\\
+& = (\beta_{b}\frac{\partial x^{b}}{\partial x^{b'}} + g_{cb}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial t'})g^{ab}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b'}}{\partial x^{b}}\\
+& = \beta^{a}\frac{\partial x^{a'}}{\partial x^{a}} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}
+\end{align*}
+\subsection{$\Delta \beta^{a}$}
+From the section above, we have that
+\[
+\boxed{
+\Delta \beta^{a'} = \beta^{a'} - {\bar \beta}^{a'} = \Delta \beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}
+}
+\]
+{\bf {\color{red}Therefore, $\Delta \beta^{a}$ transforms as a (1,0) tensor.}}
+\subsection{$\alpha$}
+\begin{align*}
+g_{0'0'} & = g_{0'0'}\\
+-\alpha'^{2} + g_{a'b'}\beta^{a'}\beta^{b'} & = g_{ab}(\frac{\partial x^{a}}{\partial x^{\mu '}} + \beta^{a}\frac{\partial x^{0}}{\partial x^{\mu '}})(\frac{\partial x^{b}}{\partial x^{\nu '}} + \beta^{b}\frac{\partial x^{0}}{\partial x^{\nu '}}) - \alpha^2\frac{\partial x^{0}}{\partial x^{\mu '}}\frac{\partial x^{0}}{\partial x^{\nu '}}\\
+\alpha' & = \alpha
+\end{align*}
+{\bf {\color{red}Therefore, $\alpha$ transforms as a scalar.}} 
+\subsection{$\partial_{c}g_{ab}$}
+\begin{align*}
+\partial_{c'}g_{a'b'} & = \partial_{c'}(g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}})\\
+& = \partial_{c}g_{ab}\frac{\partial x^{c}}{\partial x^{c'}}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\partial_{c'}(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}})
+\end{align*}
+\subsection{$\Gamma^{c}_{~ab}$}
+\begin{align*}
+\Gamma^{c'}_{~a'b'} & = \frac{1}{2}g^{c'd'}(\partial_{a'}g_{d'b'} + \partial_{b'}g_{d'a'} - \partial_{d'}g_{a'b'})\\
+& = \frac{1}{2}g^{cd}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{d'}}{\partial x^{d}}(\partial_{a}g_{db}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{d}}{\partial x^{d'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{db}\partial_{a'}(\frac{\partial x^{d}}{\partial x^{d'}}\frac{\partial x^{b}}{\partial x^{b'}})\\
+&+ \partial_{b}g_{da}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{d}}{\partial x^{d'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{da}\partial_{b'}(\frac{\partial x^{d}}{\partial x^{d'}}\frac{\partial x^{a}}{\partial x^{a'}})\\
+&- \partial_{d}g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{d}}{\partial x^{d'}}\frac{\partial x^{b}}{\partial x^{b'}} - g_{ab}\partial_{d'}(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}))\\
+& = \Gamma^{c}_{~ab}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + \frac{1}{2}g^{cd}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{d'}}{\partial x^{d}}(g_{db}\partial_{a'}(\frac{\partial x^{d}}{\partial x^{d'}}\frac{\partial x^{b}}{\partial x^{b'}}) + g_{da}\partial_{b'}(\frac{\partial x^{d}}{\partial x^{d'}}\frac{\partial x^{a}}{\partial x^{a'}}) -  g_{ab}\partial_{d'}(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}))\\
+& = \Gamma^{c}_{~ab}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + \frac{1}{2}g^{cd}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{d'}}{\partial x^{d}}(g_{db}\frac{\partial x^{d}}{\partial x^{d'}}\frac{\partial^2 x^{b}}{\partial x^{b'}\partial x^{a'}} + g_{da}\frac{\partial x^{d}}{\partial x^{d'}}\frac{\partial^2 x^{a}}{\partial x^{a'}\partial x^{b'}} \\
+& + g_{db}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial^2 x^{d}}{\partial x^{d'}\partial x^{a'}} + g_{da}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial^2 x^{d}}{\partial x^{d'}\partial x^{b'}} - g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial^2 x^{b}}{\partial x^{b'}\partial x^{d'}} - g_{ab}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial^2 x^{a}}{\partial x^{a'}\partial x^{d'}})\\
+& = \Gamma^{c}_{~ab}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + \frac{\partial x^{c'}}{\partial x^{d}}\frac{\partial^2 x^{d}}{\partial x^{a'}\partial x^{b'}}
+\end{align*}
+\subsection{$D_{a}\beta_{b}$}
+\begin{align*}
+D_{a'}\beta_{b'} & = \partial_{a'}\beta_{b'} - \Gamma^{c'}_{~a'b'}\beta_{c'}\\
+& = \partial_{a'}(\beta_{b}\frac{\partial x^{b}}{\partial x^{b'}} + g_{cb}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial t'}) - (\Gamma^{c}_{~ab}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + \frac{\partial x^{c'}}{\partial x^{d}}\frac{\partial^2 x^{d}}{\partial x^{a'}\partial x^{b'}})(\beta_{c}\frac{\partial x^{c}}{\partial x^{c'}} + g_{ce}\frac{\partial x^{c}}{\partial x^{c'}}\frac{\partial x^{e}}{\partial t'})\\
+& = D_{a}\beta_{b}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + D_{a'}(g_{cb}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial t'})\\
+& = D_{a}\beta_{b}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{c'b'}D_{a'}(\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'})
+\end{align*}
+\subsection{${\dot g_{ab}}$}
+\begin{align*}
+\frac{\partial}{\partial t'}g_{a'b'} & = \frac{\partial}{\partial {t'}}(g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}})\\
+& = (\frac{\partial}{\partial t'}g_{ab})\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\frac{\partial}{\partial t'}(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}})\\
+& = (\frac{\partial}{\partial t}g_{ab})\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + \frac{\partial x^{c}}{\partial t'}\partial_{c}g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\frac{\partial}{\partial t'}(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}})
+\end{align*}
+\subsection{$K_{ab}$}
+\[
+K_{ab} = -\frac{1}{2\alpha}({\dot g}_{ab} - 2 D_{(a}\beta_{b)}) = -\frac{1}{2\alpha}({\dot g}_{ab} - D_{a}\beta_{b} - D_{b}\beta_{a})
+\]
+Therefore, we have
+\begin{align*}
+K_{a'b'} & = -\frac{1}{2\alpha'}(\frac{\partial}{\partial t'}g_{a'b'} - D_{a'}\beta_{b'} - D_{b'}\beta_{a'})\\
+& = -\frac{1}{2\alpha}[{\dot g}_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} - D_{a}\beta_{b}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} - D_{b}\beta_{a}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{a}}{\partial x^{a'}}\\
+& + g_{ab}\frac{\partial}{\partial t'}(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}) +  \frac{\partial x^{c}}{\partial t'}\partial_{c}g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} - g_{c'b'}D_{a'}(\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'}) - g_{c'a'}D_{b'}(\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'})]\\
+& = K_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} \\
+& - \frac{1}{2\alpha}[g_{ab}\frac{\partial}{\partial t'}(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}) - g_{c'b'}\partial_{a'}(\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'})  - g_{c'a'}\partial_{b'}(\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'})\\
+&  - g_{c'b'}\Gamma^{c'}_{~a'd'}\frac{\partial x^{d'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'} - g_{c'a'}\Gamma^{c'}_{~b'd'}\frac{\partial x^{d'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'} + \frac{\partial x^{c}}{\partial t'}\partial_{c}g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}]\\
+& = K_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\\
+& + \frac{1}{2\alpha}(g_{c'b'}\frac{\partial x^{c}}{\partial t'}\partial_{a'}\frac{\partial x^{c'}}{\partial x^{c}} + g_{c'a'}\frac{\partial x^{c}}{\partial t'}\partial_{b'}\frac{\partial x^{c'}}{\partial x^{c}} + \partial_{d'}g_{a'b'}\frac{\partial x^{d'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'} - \frac{\partial x^{c}}{\partial t'}\partial_{c}g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}})\\
+& = K_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\\
+& + \frac{1}{2\alpha}(g_{c'b'}\frac{\partial x^{c}}{\partial t'}\partial_{a'}\frac{\partial x^{c'}}{\partial x^{c}} + g_{c'a'}\frac{\partial x^{c}}{\partial t'}\partial_{b'}\frac{\partial x^{c'}}{\partial x^{c}} + \partial_{c}g_{a'b'}\frac{\partial x^{c}}{\partial t'} - \frac{\partial x^{c}}{\partial t'}\partial_{c}g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}})\\
+& = K_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\\
+& + \frac{1}{2\alpha}[g_{c'b'}\partial_{a'}\frac{\partial x^{c'}}{\partial x^{c}} + g_{c'a'}\partial_{b'}\frac{\partial x^{c'}}{\partial x^{c}} + g_{ab}\partial_{c}(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}})]\frac{\partial x^{c}}{\partial t'}\\
+& = K_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\\
+& + \frac{1}{2\alpha}[g_{db}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{d}}{\partial x^{c'}}\partial_{a'}\frac{\partial x^{c'}}{\partial x^{c}} + g_{da}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{d}}{\partial x^{c'}}\partial_{b'}\frac{\partial x^{c'}}{\partial x^{c}}  + g_{ab}\partial_{c}(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}})]\frac{\partial x^{c}}{\partial t'}\\
+& = K_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\\
+& + \frac{1}{2\alpha}[-g_{db}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial^2 x^{d}}{\partial x^{c'}\partial x^{a'}} - g_{da}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial^2 x^{d}}{\partial x^{c'}\partial x^{b'}} + g_{ab}\frac{\partial x^{c'}}{\partial x^{c}}\partial_{c'}(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}})]\frac{\partial x^{c}}{\partial t'}\\
+& = K_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}
+\end{align*}
+\[
+\boxed{
+K_{a'b'} = K_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}
+}
+\]
+{\bf {\color{red}Therefore, $K_{ab}$ transforms as a (0,2) tensor.}}
+\subsection{$C_{\perp}$, $C_{a}$}
+Since
+\[
+C_{\mu'} = C_{\mu}\frac{\partial x^{\mu}}{\partial x^{\mu'}}
+\]
+we have
+\[
+\boxed{
+C_{a'} = C_{\mu}\frac{\partial x^{\mu}}{\partial x^{a'}} = C_{0}\frac{\partial t}{\partial x^{a'}} + C_{a}\frac{\partial x^{a}}{\partial x^{a'}} = C_{a}\frac{\partial x^{a}}{\partial x^{a'}}
+}
+\]
+\[
+\boxed{
+C_{\perp'} = C^{\mu'}n_{\mu'} = C^{\mu}\frac{\partial x^{\mu'}}{\partial x^{\mu}}n_{\mu}\frac{\partial x^{\mu}}{\partial x^{\mu'}} = C^{\mu}n_{\mu} = C_{\perp}
+}
+\]
+{\bf {\color{red}Therefore, $C_{a}$ transforms as a (0,1) tensor and $C_{\perp}$ transforms as a scalar.}}
+\subsection{$P^{ab}$}
+According to the formula
+\[
+P^{ab} = \sqrt{g}(Kg^{ab} - K^{ab} - \frac{C_{\perp}}{2}g^{ab})
+\]
+We can say that {\bf {\color{red}$P^{ab}$ transforms as a weight +1 (2,0) tensor density.}}
+\subsection{$\pi$}
+We have
+\[
+\pi = \frac{\sqrt{g}}{\alpha}C_{\perp}
+\]
+Therefore, {\bf {\color{red}$\pi$ transforms as a weight +1 density.}}
+\subsection{$\rho_{a}$}
+We have
+\[
+\rho_{a} = \frac{\sqrt{g}}{\alpha}C_{a}
+\]
+Therefore, {\bf {\color{red}$\rho_{a}$ transforms as a weight +1 (0,1) tensor density.}}
+\subsection{${\dot \alpha}$}
+\begin{align*}
+\partial_{t'}\alpha' & = \partial_{t'}\alpha\\
+& = \partial_{t}\alpha + \frac{\partial x^{a}}{\partial t'}\partial_{a}\alpha
+\end{align*} 
+\subsection{$\partial_{a}\alpha$}
+\[
+\boxed{
+\partial_{a'}\alpha' = \frac{\partial x^{a}}{\partial x^{a'}}\partial_{a}\alpha' = \frac{\partial x^{a}}{\partial x^{a'}}\partial_{a}\alpha
+}
+\]
+{\bf {\color{red}Therefore, $\partial_{a}\alpha$ transforms as a (0,1) tensor.}}
+\subsection{$\partial_{\perp}\alpha$}
+\[
+\partial_{\perp}\alpha = \partial_{t}\alpha - \beta^{a}\partial_{a}\alpha
+\]
+Hence
+\begin{align*}
+\partial_{\perp'}\alpha' & = \partial_{t'}\alpha' - \beta^{a'}\partial_{a'}\alpha'\\
+& = \partial_{t'}\alpha - \beta^{a'}\partial_{a'}\alpha\\
+& = \partial_{t}\alpha + \frac{\partial x^{a}}{\partial t'}\partial_{a}\alpha - (\beta^{a}\frac{\partial x^{a'}}{\partial x^{a}} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'})\frac{\partial x^{a}}{\partial x^{a'}}\partial_{a}\alpha\\
+& = \partial_{t}\alpha - \beta^{a}\partial_{a}\alpha + \frac{\partial x^{a}}{\partial t'}\partial_{c}\alpha -  \frac{\partial x^{a}}{\partial t'}\partial_{c}\alpha\\
+& = \partial_{\perp}\alpha
+\end{align*}
+{\bf {\color{red}Therefore, $\partial_{\perp}\alpha$ transforms as a scalar. }}
+\subsection{$\Delta {\dot \beta}^{a}$ and extension}
+\begin{align*}
+\frac{\partial}{\partial t'}\Delta\beta^{a'} & = \frac{\partial }{\partial t'}(\Delta \beta^{a}\frac{\partial x^{a'}}{\partial x^{a}})\\
+& = (\frac{\partial}{\partial t'}\Delta\beta^{a})\frac{\partial x^{a'}}{\partial x^{a}} + \Delta\beta^{a}\frac{\partial}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}\\
+& = (\frac{\partial}{\partial t}\Delta \beta^{a})\frac{\partial x^{a'}}{\partial x^{a}} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{c}}{\partial t'}\partial_{c}\Delta \beta^{a} + \Delta \beta^{c'}\frac{\partial x^{a}}{\partial x^{c'}}\frac{\partial}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}\\
+& = (\frac{\partial}{\partial t}\Delta \beta^{a})\frac{\partial x^{a'}}{\partial x^{a}} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{c}}{\partial t'}\partial_{c}\Delta \beta^{a} - \Delta \beta^{c'}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial^2 x^{a}}{\partial t' \partial x^{c'}}\\
+\end{align*}
+To construct an invariance form of $\Delta {\dot \beta}^{a}$, consider a term as
+\[
+\beta^{c}{\bar D}_{c}\beta^{a}
+\]
+It transforms as
+\begin{align*}
+\beta^{c'}{\bar D}_{c'}\beta^{a'} & = (\beta^{c}\frac{\partial x^{c'}}{\partial x^{c}} + \frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'})({\bar D}_{c}\beta^{a}\frac{\partial x^{c}}{\partial x^{c'}}\frac{\partial x^{a'}}{\partial x^{a}} + {\bar D}_{c'}(\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}))\\
+& = \beta^{c}{\bar D}_{c}\beta^{a}\frac{\partial x^{a'}}{\partial x^{a}} + \frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}{\bar D}_{c}\beta^{a} + \beta^{c}\frac{\partial x^{c'}}{\partial x^{c}}{\bar D}_{c'}(\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}) +  \frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'} {\bar D}_{c'}(\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'})
+\end{align*}
+One can notice that there are some extra terms can be cancelled if we arrange the terms correctly. \\
+\\
+We claim the invariant form of $\Delta {\dot \beta}^{a}$ is ${\dot B}^{a}$, where ${\dot B}^{a}$
+\[
+{\dot B}^{a} = \Delta {\dot \beta}^{a} + c_{1}\beta^{c}{\bar D}_{c}\beta^{a} + c_{2}\beta^{c}{\bar D}_{c}{\bar \beta}^{a} + c_{3}{\bar \beta}^{c}{\bar D}_{c}\beta^{a} + c_{4}{\bar \beta}^{c}{\bar D}_{c}{\bar \beta}^{a}
+\]
+Hence we have
+\begin{align*}
+\partial_{t'}B^{a'} & = (\partial_{t}B^{a})\frac{\partial x^{a'}}{\partial x^{a}} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{c}}{\partial t'}\partial_{c}\Delta \beta^{a} - \Delta \beta^{c'}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial^2 x^{a}}{\partial t' \partial x^{c'}}\\
+& + (c_{1}+c_{3})\frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}{\bar D}_{c}\beta^{a} + (c_{2} + c_{4})\frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}{\bar D}_{c}{\bar \beta}^{a}\\
+& + (c_{1} + c_{2})\beta^{c}\frac{\partial x^{c'}}{\partial x^{c}}{\bar D}_{c'}(\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}) + (c_{3} + c_{4})){\bar \beta}^{c}\frac{\partial x^{c'}}{\partial x^{c}}{\bar D}_{c'}(\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'})\\
+& + (c_{1} + c_{2} + c_{3} + c_{4}) \frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'} {\bar D}_{c'}(\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'})
+\end{align*}
+Then we require
+\begin{align*}
+c_{1} + c_{3} &= -1\\
+c_{2} + c_{4} & = 1\\
+c_{1} + c_{2} & = 1\\
+c_{3} + c_{4} & = -1\\
+c_{1} + c_{2} + c_{3} + c_{4} &= 0
+\end{align*}
+Then we have
+\begin{align*}
+\partial_{t'}B^{a'} & = \partial_{t}B^{a}\frac{\partial x^{a'}}{\partial x^{a}}  + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{c}}{\partial t'}\partial_{c}\Delta \beta^{a} - \Delta \beta^{c'}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial^2 x^{a}}{\partial t' \partial x^{c'}}\\
+& - \frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}{\bar D}_{c}\Delta \beta^{a} +  \Delta \beta^{c'}{\bar D}_{c'}(\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'})\\
+\\
+& = \partial_{t}B^{a}\frac{\partial x^{a'}}{\partial x^{a}} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{c}}{\partial t'}\partial_{c}\Delta \beta^{a} - \Delta \beta^{c'}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial^2 x^{a}}{\partial t' \partial x^{c'}}\\
+& - \frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}\partial_{c}\Delta \beta^{a} - \frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}{\bar \Gamma}^{a}_{~cb}\Delta \beta^{b}\\
+& + \Delta \beta^{c'}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial^2 x^{a}}{\partial x^{c'}\partial t'} + \Delta \beta^{c'}\frac{\partial x^{a}}{\partial t'}\frac{\partial}{\partial x^{c'}}\frac{\partial  x^{a'}}{\partial x^{a}} + \Delta \beta^{c'}\frac{\partial x^{b'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}{\bar \Gamma}^{a'}_{~c'b'}\\
+\\
+& = \partial_{t}B^{a}\frac{\partial x^{a'}}{\partial x^{a}} - \frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}{\bar \Gamma}^{a}_{~cb}\Delta \beta^{b} + \Delta \beta^{c'}\frac{\partial x^{a}}{\partial t'}\frac{\partial}{\partial x^{c'}}\frac{\partial  x^{a'}}{\partial x^{a}} + \Delta \beta^{c'}\frac{\partial x^{b'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}{\bar \Gamma}^{a'}_{~c'b'}\\
+\\
+& = \partial_{t}B^{a}\frac{\partial x^{a'}}{\partial x^{a}} - \frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}{\bar \Gamma}^{a}_{~cb}\Delta \beta^{b} + \Delta \beta^{c'}\frac{\partial x^{a}}{\partial t'}\frac{\partial}{\partial x^{c'}}\frac{\partial  x^{a'}}{\partial x^{a}} \\
+& + \Delta \beta^{c'}\frac{\partial x^{b'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}({\bar \Gamma}^{d}_{~bc}\frac{\partial x^{a'}}{\partial x^{d}}\frac{\partial x^{c}}{\partial x^{c'}}\frac{\partial x^{b}}{\partial x^{b'}} + \frac{\partial x^{a'}}{\partial x^{d}}\frac{\partial^2 x^{d}}{\partial x^{b'}\partial x^{c'}})\\
+\\
+& = \partial_{t}B^{a}\frac{\partial x^{a'}}{\partial x^{a}} - \frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}{\bar \Gamma}^{a}_{~cb}\Delta \beta^{b} + \Delta \beta^{c'}\frac{\partial x^{a}}{\partial t'}\frac{\partial}{\partial x^{c'}}\frac{\partial  x^{a'}}{\partial x^{a}}\\
+& + \Delta \beta^{c}\frac{\partial x^{b}}{\partial t'}\frac{\partial x^{a'}}{\partial x^{d}}{\bar \Gamma}^{d}_{~bc} + \frac{\partial x^{a'}}{\partial x^{d}}\frac{\partial^2 x^{d}}{\partial x^{b'}\partial x^{c'}}\Delta \beta^{c'}\frac{\partial x^{b'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}\\
+\\
+& = \partial_{t}B^{a}\frac{\partial x^{a'}}{\partial x^{a}} +  \Delta \beta^{c'}\frac{\partial x^{a}}{\partial t'}\frac{\partial}{\partial x^{c'}}\frac{\partial  x^{a'}}{\partial x^{a}} - \Delta \beta^{c'}\frac{\partial x^{a}}{\partial t'}\frac{\partial x^{b'}}{\partial x^{a}}\frac{\partial x^{d}}{\partial x^{b'}}\frac{\partial }{\partial x^{c'}}\frac{\partial x^{a'}}{\partial x^{d}}\\
+\\
+& = \partial_{t}B^{a}\frac{\partial x^{a'}}{\partial x^{a}}
+\end{align*}
+Let
+\begin{align*}
+c_{1} & = \sigma\\
+c_{2} & = 1 - \sigma\\
+c_{3} & = -(1+\sigma)\\
+c_{4} & = \sigma
+\end{align*}
+and we have
+\[
+{\dot B}^{a} = \Delta {\dot \beta}^{a} + \sigma \beta^{c}{\bar D}_{c}\beta^{a} + (1 - \sigma)\beta^{c}{\bar D}_{c}{\bar \beta}^{a} - (1 + \sigma){\bar \beta}^{c}{\bar D}_{c}\beta^{a} + \sigma{\bar \beta}^{c}{\bar D}_{c}{\bar \beta}^{a}
+\]
+and
+\[
+\boxed{
+\partial_{t'}B^{a'} = \partial_{t}B^{a}\frac{\partial x^{a'}}{\partial x^{a}}
+}
+\]
+{\bf {\color{red}${\dot B}^{a}$ transforms as a (1,0) tensor.}}
+\section{Finite Time Reparameterization}
+\begin{align*}
+t' & = t'(t)\\
+x^{a'} & = x^{a}
+\end{align*}
+and vice versa
+\begin{align*}
+t & = t(t')\\
+x^{a} & = x^{a'}
+\end{align*}
+
+\begin{align*}
+g_{\mu'\nu'} & = g_{\mu\nu}\frac{\partial x^{\mu}}{\partial x^{\mu'}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}\\
+& = (g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu})\frac{\partial x^{\mu}}{\partial x^{\mu'}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}\\
+& = g_{ab}X^{a}_{\mu}\frac{\partial x^{\mu}}{\partial x^{\mu'}}X^{b}_{\nu}\frac{\partial x^{\nu}}{\partial x^{\nu'}} - n_{\mu}\frac{\partial x^{\mu}}{\partial x^{\mu'}}n_{\nu}\frac{\partial x^{\nu}}{\partial x^{\nu'}}\\
+& = g_{ab}(\frac{\partial x^{a}}{\partial x^{\mu '}} + \beta^{a}\frac{\partial x^{0}}{\partial x^{\mu '}})(\frac{\partial x^{b}}{\partial x^{\nu '}} + \beta^{b}\frac{\partial x^{0}}{\partial x^{\nu '}}) - \alpha^2\frac{\partial x^{0}}{\partial x^{\mu '}}\frac{\partial x^{0}}{\partial x^{\nu '}}
+\end{align*}
+\subsection{$g_{ab}$}
+According to the formula above, we have
+\[
+\boxed{
+g_{a'b'} = g_{ab}
+}
+\]
+{\bf {\color{red} Therefore, $g_{ab}$ transforms as a scalar.}}
+\subsection{$g^{ab}$}
+Since
+\[
+g^{ab}g_{bc} = \delta^{a}_{c}
+\]
+and
+\[
+\delta^{a'}_{c'} = \delta^{a}_{c}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{c}}{\partial x^{c'}} = \delta^{a}_{c}
+\]
+$\delta^{a}_{c}$ transforms as a scalar, and {\bf {\color{red}hence $g^{ab}$ transforms as a scalar.}}
+\subsection{$g$}
+\[
+\boxed{
+g' = |g_{a'b'}| = |g_{ab}| = g
+}
+\]
+{\bf {\color{red}Therefore, $g$ transforms as a scalar.}}
+\subsection{$\beta_{a}$}
+\[
+\boxed{
+\beta_{a'} = g_{a'0'} = g_{ab}\beta^{b}\frac{\partial t}{\partial t'} = \beta_{a}\frac{\partial t}{\partial t'}
+}
+\]
+{\bf {\color{red}Therefore, $\beta_{a}$ transforms as a weight +1 density.}}
+\subsection{$\beta^{a}$}
+Since
+\[
+\beta^{a} = \beta_{b}g^{ab}
+\]
+{\bf {\color{red}$\beta^{a}$ transforms as a weight +1 density.}}
+\subsection{$\alpha$}
+\begin{align*}
+g_{0'0'} & = -\alpha'^2 + g_{a'b'}\beta^{a'}\beta^{b'}\\
+g_{ab}\beta^{a}\beta^{b}\frac{\partial t}{\partial t'}\frac{\partial t}{\partial t'} - \alpha^2\frac{\partial t}{\partial t'}\frac{\partial t}{\partial t'} & =  -\alpha'^2 + g_{ab}\beta^{a}\beta^{b}\frac{\partial t}{\partial t'}\frac{\partial t}{\partial t'}\\
+\alpha' & = \alpha\frac{\partial t}{\partial t'}
+\end{align*}
+{\bf {\color{red}Therefore, $\alpha$ transforms as a weight +1 density.}}
+\subsection{$\Gamma^{a}_{~bc}$}
+Since $\Gamma^{a}_{~bc}$ is a combination of $g_{ab}$ and $\partial_{c}g_{ab}$ and $g_{ab}$ transforms as a scalar, {\bf {\color{red}$\Gamma^{a}_{~bc}$ transforms as a scalar.}}
+\subsection{$C_{a}$, $C_{\perp}$}
+Since we have
+\[
+C_{\mu'} = C_{\mu}\frac{\partial x^{\mu}}{\partial x^{\mu'}}
+\]
+\[
+\boxed{
+C_{a'} = C_{\mu}\frac{\partial x^{\mu}}{\partial x^{a'}} = C_{0}\frac{\partial t}{\partial x^{a'}} + C_{a}\frac{\partial x^{a}}{\partial x^{a'}} = C_{a}
+}
+\]
+\begin{align*}
+C_{\perp'} & = C^{\mu'}n_{\mu'}\\
+& = -C^{\mu}\frac{\partial x^{\mu'}}{\partial x^{\mu}}\alpha \frac{\partial t}{\partial t'}\delta^{t'}_{\mu'}\\
+& = -C^{0}\frac{\partial t'}{\partial t}\alpha\frac{\partial t}{\partial t'}\\
+& = -C^{0}\alpha\\
+& = -C^{\mu}\alpha\delta^{0}_{\mu}\\
+& = C^{\mu}n_{\mu}\\
+& = C_{\perp}
+\end{align*}
+{\bf{\color{red}Therefore, both $C_{\perp}$ and $C_{a}$ transform as scalars. }}
+\subsection{${\dot g}_{ab}$}
+\[
+\partial_{t'}g_{a'b'} = \partial_{t'}g_{ab} = \frac{\partial x^{\mu}}{\partial t'}\partial_{\mu}g_{ab} = \frac{\partial t}{\partial t'}\partial_{t}g_{ab}
+\] 
+{\bf {\color{red}Therefore, $\partial_{t}g_{ab}$ transforms as a weight +1 density.}}
+\subsection{$D_{a}\beta_{b}$}
+\begin{align*}
+D_{a'}\beta_{b'} & = \partial_{a'}\beta_{b'} - \Gamma^{c'}_{a'b'}\beta_{c'}\\
+& = \partial_{a'}(\beta_{b}\frac{\partial t}{\partial t'}) - \Gamma^{c}_{ab}\beta_{c}\frac{\partial t}{\partial t'}\\
+& = (\partial_{a'}\beta_{b})\frac{\partial t}{\partial t'} - \Gamma^{c}_{ab}\beta_{c}\frac{\partial t}{\partial t'}\\
+& = \frac{\partial x^{a}}{\partial x^{a'}}\partial_{a}\beta_{b}\frac{\partial t}{\partial t'} + \frac{\partial t}{\partial x^{a'}}\partial_{t}\beta_{b}\frac{\partial t}{\partial t'} - \Gamma^{c}_{ab}\beta_{c}\frac{\partial t}{\partial t'}\\
+& = \partial_{a}\beta_{b}\frac{\partial t}{\partial t'} -  \Gamma^{c}_{ab}\beta_{c}\frac{\partial t}{\partial t'}\\
+& = D_{a}\beta_{b}\frac{\partial t}{\partial t'}
+\end{align*}
+{\bf {\color{red}Therefore, $D_{a}\beta_{b}$ transforms as a weight +1 density.}}
+\subsection{$K_{ab}$}
+Since
+\[
+K_{ab} = -\frac{1}{2\alpha}(\partial_{t}g_{ab} - D_{a}\beta_{b} - D_{b}\beta_{a})
+\]
+{\bf {\color{red}Therefore, $K_{ab}$ transforms as a scalar.}}
+\subsection{$P^{ab}$}
+According to the formula of $P^{ab}$
+\[
+P^{ab} = \sqrt{g}(Kg^{ab} - K^{ab} -\frac{C_{\perp}}{2}g^{ab})
+\]
+{\bf {\color{red} $P^{ab}$ should transform as a scalar}}.
+\subsection{$\pi$}
+Since we have
+\[
+\pi = \frac{\sqrt{g}}{\alpha}C_{\perp}
+\]
+{\bf{\color{red}$\pi$ transforms as a weight -1 density}}.
+\subsection{$\rho_{a}$}
+Since we have
+\[
+\rho_{a} = \frac{\sqrt{g}}{\alpha}C_{a}
+\]
+{\bf{\color{red}$\rho_{a}$ transforms as a weight -1 density}}.
+\subsection{${\dot \alpha}$}
+\begin{align*}
+\frac{\partial}{\partial t'}\alpha'& = \frac{\partial}{\partial t'}(\alpha\frac{\partial t}{\partial t'})\\
+& = (\frac{\partial}{\partial t'}\alpha)\frac{\partial t}{\partial t'} + \alpha\frac{\partial^2 t}{{\partial t'}^2}\\
+& = (\frac{\partial }{\partial t}\alpha){\frac{\partial t}{\partial t'}}^2 +  \alpha\frac{\partial^2 t}{{\partial t'}^2}
+\end{align*}
+\subsection{$\mathring{\alpha}$}
+The covariant derivative of $\alpha$ in time domain is defined as
+\[
+\mathring{\alpha} = {\dot \alpha} - \frac{\alpha}{{\bar \alpha}}{\dot {\bar \alpha}}
+\]
+Hence we have
+\begin{align*}
+\partial_{t'}\alpha' - \frac{\alpha'}{{\bar \alpha}'}\partial_{t'}{\bar \alpha}' & =  (\frac{\partial }{\partial t}\alpha){\frac{\partial t}{\partial t'}}^2 +  \alpha\frac{\partial^2 t}{{\partial t'}^2} - \frac{\alpha}{{\bar \alpha}}[ (\frac{\partial }{\partial t}{\bar\alpha}){\frac{\partial t}{\partial t'}}^2 +  {\bar \alpha}\frac{\partial^2 t}{{\partial t'}^2}]\\
+& = (\partial_{t}\alpha - \frac{\alpha}{{\bar \alpha}}\partial_{t}\alpha){\frac{\partial t}{\partial t'}}^2
+\end{align*}
+\[
+\mathring{\alpha}' = \mathring{\alpha}{\frac{\partial t}{\partial t'}}^2
+\]
+{\bf {\color{red}Therefore, $\mathring{\alpha}$ transforms as a weight +2 density.}}
+\subsection{$\mathring{\beta}^{a}$}
+Define
+\[
+\mathring{\beta}^{a} = {\dot \beta}^{a} - \frac{\beta^{a}}{{\bar \alpha}}{\dot {\bar \alpha}}
+\]
+Following the same logic as previous section, we claim that {\bf {\color{red}$\mathring{\beta}^{a}$ transforms as a weight +2 density. }}
+
+\section{Conclusion}
+According to the discussion above, we need to require ${\dot \alpha}$ appears in the following form
+\[
+\boxed{
+({\dot \alpha} - \beta^{c}\partial_{c}\alpha) - \frac{\alpha}{{\bar \alpha}}({\dot {\bar \alpha}} - {\bar \beta}^{c} \partial_{c}{\bar \alpha})
+}
+\]
+and ${\dot \beta}^{a}$ should appear in the following form
+\[
+\boxed{
+\Delta {\dot \beta}^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}({\dot {\bar \alpha}} - {\bar \beta}^{c}\partial_{c}{\bar \alpha}) + \sigma \beta^{c}{\bar D}_{c}\beta^{a} + (1 - \sigma)\beta^{c}{\bar D}_{c}{\bar \beta}^{a} - (1 + \sigma){\bar \beta}^{c}{\bar D}_{c}\beta^{a} + \sigma{\bar \beta}^{c}{\bar D}_{c}{\bar \beta}^{a} 
+}
+\]
+\end{document}

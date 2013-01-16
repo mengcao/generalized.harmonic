@@ -1,0 +1,520 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{mathrsfs}
+
+\begin{document}
+\title{3 + 1 Diffeomorphism in GH}
+\author{Meng Cao}
+\maketitle
+\section{3+1 Splitting}
+\[
+^{(4)}g_{\mu\nu} = g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu}
+\]
+\[
+^{(4)}g^{\mu\nu} = g^{ab}X^{\mu}_{a}X^{\nu}_{b} - n^{\mu}n^{\nu}
+\]
+where
+\[
+X^{a}_{\mu} = \delta^{a}_{\mu} + \beta^{a}\delta^{0}_{\mu} 
+\]
+\[
+X^{\mu}_{a} = \delta^{\mu}_{a}
+\]
+\[
+n_{\mu} = -\alpha \delta^{0}_{\mu}
+\]
+\[
+n^{\mu} = (\delta^{\mu}_{0} - \beta^{a}\delta_{a}^{\mu})/\alpha
+\]
+Time dependent spatial diffeomorphism vector
+\[
+\xi^{\mu} = (0,\xi^{a}(t,x))
+\]
+Time reparametrization vector
+\[
+\xi^{\mu} = (\epsilon (t),0)
+\]
+\section{Time Dependent Spatial Diffeomorphism}
+
+\begin{align*}
+\delta g_{\mu\nu} & = \mathcal{L}_{\xi} g_{\mu\nu} \\
+& = \xi^{\sigma} \partial_{\sigma}g_{\mu\nu} + g_{\mu\sigma}\partial_{\nu}\xi^{\sigma} + g_{\nu \sigma}\partial_{\mu}\xi^{\sigma}\\
+& = \xi^{c}\partial_{c}g_{\mu\nu} + g_{\mu c}\partial_{\nu}\xi^{c} + g_{\nu c}\partial_{\mu}\xi^{c}
+\end{align*}
+
+\subsection{$g_{ab}$}
+\[
+\boxed{
+\delta g_{ab} = \xi^{c}\partial_{c}g_{ab} + g_{ac}\partial_{b}\xi^{c} + g_{bc}\partial_{a}\xi^{c} = \mathcal{L}_{\xi}g_{ab}
+}
+\]
+{\bf {\color{red} Therefore, $g_{ab}$ transforms as a (0,2) tensor}}.
+\subsection{$g^{ab}$}
+Since
+\begin{align*}
+\delta (g_{bc}g^{ab}) & = \delta \delta^{a}_{c} = 0\\
+& = \xi^{d} \partial_{d} \delta^{a}_{c} + \delta^{a}_{d}\partial_{c}\xi^{d} - \delta^{d}_{c}\partial_{d}\xi^{a}\\
+& = \partial_{c}\xi^{a} - \partial_{c}\xi^{a}\\
+& = 0
+\end{align*}
+We claim that $\delta^{a}_{c}$ transforms as a (1,1) tensor, and {\bf {\color{red}hence $g^{ab}$ transforms as a (2,0) tensor.}}
+\[
+\boxed{
+\delta g^{ab} = \mathcal{L}_{\xi}g^{ab}
+}
+\]
+\subsection{$g$}
+$g$ is the determinent of $g_{ab}$ and we have that
+\begin{align*}
+\delta g & = gg^{ab}\delta g_{ab} = gg^{ab}(\xi^{c}\partial_{c}g_{ab} + g_{ac}\partial_{b}\xi^{c} + g_{bc}\partial_{a}\xi^{c})\\
+& = gg^{ab}\xi^{c}\partial_{c}g_{ab} + g\delta^{b}_{c}\partial_{b}\xi^{c} + g\delta^{a}_{c}\partial_{a}\xi^{c}\\
+& = \xi^{c}\partial_{c}g + 2g\partial_{c}\xi^{c}
+\end{align*}
+{\bf {\color{red}Therefore, $g$ transforms as a weight +2 scalar density.}}
+\[
+\boxed{
+\delta g = \mathcal{L}_{\xi}g
+}
+\]
+\subsection{$\beta^{a}$}
+We have
+\[
+g_{a0} = g_{ab}\beta^{b}
+\]
+Hence
+\begin{align*}
+\delta g_{a0} & = \delta g_{a0}\\
+\xi^{c}\partial_{c}g_{a0} + g_{ac}\partial_{0}\xi^{c} + g_{0c}\partial_{a}\xi^{c} & = g_{ab}\delta \beta^{b} + \beta^{b}\delta g_{ab}\\
+\xi^{c}\beta^{b}\partial_{c}g_{ab} + \xi^{c}g_{ab}\partial_{c}\beta^{b} + g_{ac}{\dot \xi}^{c} + g_{cb}\beta^{b}\partial_{a}\xi^{c} & = g_{ab}\delta \beta^{b} + \beta^{b}\xi^{c}\partial_{c}g_{ab} + \beta^{b}g_{ac}\partial_{b}\xi^{c} + \beta^{b}g_{bc}\partial_{a}\xi^{c}\\
+g_{ab}\delta \beta^{b} & = g_{ab}\xi^{c}\partial_{c}\beta^{b} - \beta^{b}g_{ac}\partial_{b}\xi^{c} + g_{ac}{\dot \xi}^{c}\\
+\delta \beta^{a} & = \xi^{b}\partial_{b}\beta^{a} - \beta^{b}\partial_{b}\xi^{a} + {\dot \xi}^{a}
+\end{align*}
+\[
+\boxed{
+\delta \beta^{a} = \mathcal{L}_{\xi}\beta^{a} + {\dot \xi}^{a}
+}
+\]
+\subsection{$\Delta \beta^{a}$}
+If we define
+\[
+\Delta \beta^{a} \equiv \beta^{a} - {\bar \beta}^{a}
+\]
+we can see that
+\[
+\boxed{
+\delta \Delta \beta^{a} = \mathcal{L}_{\xi}\beta^{a} + {\dot \xi}^{a} - \mathcal{L}_{\xi}{\bar \beta}^{a} - {\dot \xi}^{a} = \mathcal{L}_{\xi}\Delta \beta^{a}
+}
+\]
+{\bf{\color{red} $\Delta \beta^{a}$ transforms as a (1,0) tensor. }}
+\subsection{$\alpha$}
+We have
+\[
+g_{00} = -\alpha^2 + \beta^{a}\beta^{b}g_{ab}
+\]
+Hence
+\begin{align*}
+\delta g_{00} & = \delta g_{00}\\
+\xi^{c}\partial_{c}g_{00} + 2g_{0c}\partial_{0}\xi^{c} & = -2\alpha\delta\alpha + \beta^{a}\beta^{b}\delta g_{ab} + 2g_{ab}\beta^{b} \delta \beta^{a}\\
+-2\xi^{c}\alpha \partial_{c}\alpha + \xi^{c} \beta^{a}\beta^{b}\partial_{c}g_{ab} + 2\xi^{c}g_{ab}\beta^{b} \partial_{c}\beta^{a} + 2g_{ac}\beta^{a}{\dot \xi}^{c} & = -2\alpha\delta \alpha + \beta^{a}\beta^{b}\mathcal{L}_{\xi}g_{ab} + 2g_{ab}\beta^{b}(\mathcal{L}_{\xi}\beta^{a} + {\dot \xi}^{a})
+\end{align*}
+Simplify this, we have
+\[
+\boxed{
+\delta \alpha = \xi^{c}\partial_{c}\alpha = \mathcal{L}_{\xi}\alpha
+}
+\]
+{\bf {\color{red}Therefore, $\alpha$ transforms as a scalar.}}
+\subsection{$\partial_{c}g_{ab}$}
+\begin{align*}
+\delta \partial_{c}g_{ab} & = \partial_{c}\delta g_{ab}\\
+& = \partial_{c} (\xi^{d}\partial_{d}g_{ab} + g_{ad}\partial_{b}\xi^{d} + g_{bd}\partial_{a}\xi^{d})\\
+& = (\partial_{c}\xi^{d})(\partial_{d}g_{ab}) + \xi^{d}\partial_{c}\partial_{d}g_{ab} + (\partial_{c}g_{ad})(\partial_{b}\xi^{d}) + g_{ad}\partial_{c}\partial_{b}\xi^{d} +  (\partial_{c}g_{bd})(\partial_{a}\xi^{d}) + g_{bd}\partial_{c}\partial_{a}\xi^{d}\\
+& = \mathcal{L}_{\xi}\partial_{c}g_{ab} + g_{ad}\partial_{c}\partial_{b}\xi^{d} + g_{bd}\partial_{c}\partial_{a}\xi^{d}
+\end{align*}
+\subsection{$\Gamma^{a}_{~bc}$}
+\begin{align*}
+\delta \Gamma^{a}_{~bc} & = \delta [\frac{1}{2}g^{ad}(\partial_{b}g_{cd} + \partial_{c}g_{bd} -\partial_{d}g_{bc})]\\
+& = \frac{1}{2}\delta g^{ad}(\partial_{b}g_{cd} + \partial_{c}g_{bd} -\partial_{d}g_{bc}) + \frac{1}{2}g^{ad}(\delta \partial_{b}g_{cd} + \delta \partial_{c}g_{bd} - \delta \partial_{d}g_{bc})\\
+& = \frac{1}{2}\mathcal{L}_{\xi}g^{cd}(\partial_{b}g_{cd} + \partial_{c}g_{bd} -\partial_{d}g_{bc})\\
+& + \frac{1}{2}g^{ad}(\mathcal{L}_{\xi}\partial_{b}g_{cd} + g_{ce}\partial_{b}\partial_{d}\xi^{e} + g_{de}\partial_{b}\partial_{c}\xi^{e})\\
+& + \frac{1}{2}g^{ad}(\mathcal{L}_{\xi}\partial_{c}g_{bd} + g_{be}\partial_{c}\partial_{d}\xi^{e} + g_{de}\partial_{c}\partial_{b}\xi^{e})\\
+& - \frac{1}{2}g^{ad}(\mathcal{L}_{\xi}\partial_{d}g_{bc} + g_{be}\partial_{d}\partial_{c}\xi^{e} + g_{ce}\partial_{d}\partial_{b}\xi^{e})\\
+& = \frac{1}{2}\mathcal{L}_{\xi}g^{cd}(\partial_{b}g_{cd} + \partial_{c}g_{bd} -\partial_{d}g_{bc}) + \frac{1}{2}g^{ad}(\mathcal{L}_{\xi}\partial_{b}g_{cd} + \mathcal{L}_{\xi}\partial_{c}g_{bd} - \mathcal{L}_{\xi}\partial_{d}g_{bc}) + \partial_{b}\partial_{c}\xi^{a}\\
+& = \mathcal{L}_{\xi}\Gamma^{a}_{~bc} + \partial_{b}\partial_{c}\xi^{a}
+\end{align*}
+\subsection{$\Delta \Gamma^{a}_{~bc}$}
+If we define
+\[
+\Delta \Gamma^{a}_{~bc} \equiv \Gamma^{a}_{~bc} - {\bar \Gamma}^{a}_{~bc}
+\]
+It is clear to see that
+\[
+\boxed{
+\delta \Delta \Gamma^{a}_{~bc} = \mathcal{L}_{\xi}\Gamma^{a}_{~bc} + \partial_{b}\partial_{c}\xi^{a} - \mathcal{L}_{\xi}{\bar \Gamma}^{a}_{~bc} - \partial_{b}\partial_{c}\xi^{a} = \mathcal{L}_{\xi}\Delta \Gamma^{a}_{~bc}
+}
+\]
+{\bf {\color{red}Therefore, $\Delta \Gamma^{a}_{~bc}$ transforms as a (1,2) tensor.}}
+\subsection{$C_{\perp}$, $C_{a}$}
+Since $C_{\mu}$ is a covector in spacetime, we have
+\[
+\delta C_{\mu} = \mathcal{L}_{\xi}C_{\mu} = \xi^{\sigma}\partial_{\sigma}C_{\mu} + C_{\sigma}\partial_{\mu}\xi^{\sigma} = \xi^{c}\partial_{c}C_{\mu} + ^{(4)}C_{d}\partial_{\mu}\xi^{d}
+\]
+\[
+\delta C^{\mu} = \mathcal{L}_{\xi}C^{\mu} = \xi^{\sigma}\partial_{\sigma}C^{\mu} - C^{\sigma}\partial_{\sigma}\xi^{\mu} = \xi^{c}\partial_{c}C^{\mu} - C^{\sigma}\partial_{\sigma}\xi^{\mu}
+\]
+We also have
+\[
+C_{a} = C_{\mu}X^{\mu}_{a} = C_{\mu}\delta^{\mu}_{a} = ^{(4)}C_{a}
+\]
+Therefore, 
+\[
+\boxed{
+\delta C_{a} = \xi^{c}\partial_{c}C_{a} + C_{d}\partial_{a}\xi^{d} = \mathcal{L}_{\xi}C_{a}
+}
+\]
+Hence we have, {\bf {\color{red}$C_{a}$ transforms as a (0,1) tensor.}}\\
+\\
+For $C_{\perp}$ we have
+\[
+C_{\perp} = C^{\mu}n_{\mu} = -\alpha C^{\mu}\delta_{\mu}^{0} = -\alpha ~^{(4)}C^{0}
+\]
+Hence, 
+\[
+\delta C_{\perp} = -\alpha \delta ~^{(4)}C^{0}  - ^{(4)}C^{0}\delta\alpha = -\alpha \xi^{c}\partial_{c}~^{(4)}C^{0} - ^{(4)}C^{0}\xi^{c}\partial_{c}\alpha = \xi^{c}\partial_{c}(-\alpha~^{(4)}C^{0}) = \xi^{c}\partial_{c}C_{\perp}
+\]
+\[
+\boxed{
+\delta C_{\perp} = \mathcal{L}_{\xi}C_{\perp}
+}
+\]
+and {\bf {\color{red}$C_{\perp}$ transforms as a scalar.}}
+\subsection{$\pi$}
+We have
+\[
+\pi = \frac{\sqrt{g}}{\alpha}C_{\perp}
+\]
+Therefore, {\bf {\color{red}$\pi$ transforms as a weight +1 density.}}
+\subsection{$\rho_{a}$}
+We have
+\[
+\rho_{a} = \frac{\sqrt{g}}{\alpha}C_{a}
+\]
+Therefore, {\bf {\color{red}$\rho_{a}$ transforms as a weight +1 (0,1) tensor density.}}
+\subsection{${\dot g}_{ab}$}
+\begin{align*}
+\delta {\dot g}_{ab} & = \frac{d}{dt}\delta g_{ab}\\
+& = \frac{d}{dt}(\xi^{c}\partial_{c}g_{ab} + g_{ac}\partial_{b}\xi^{c} + g_{bc}\partial_{a}\xi^{c})\\
+& = {\dot \xi}^{c}\partial_{c}g_{ab} + \xi^{c}\partial_{c}{\dot g}_{ab} + {\dot g}_{ac}\partial_{b}\xi^{c} + g_{ac}\partial_{b}{\dot \xi}^{c} + {\dot g}_{bc}\partial_{a}\xi^{c} + g_{bc}\partial_{a}{\dot \xi}^{c}\\
+& = \mathcal{L}_{\xi}{\dot g}_{ab} + \mathcal{L}_{{\dot \xi}}g_{ab}
+\end{align*}
+\subsection{$D_{a}\beta_{b}$}
+First consider $\delta \beta_{b}$, 
+\begin{align*}
+\delta \beta_{b} & = \delta g_{ab}\beta^{a}\\
+& = (\delta g_{ab})\beta^{a} + g_{ab}(\delta \beta^{a})\\
+& = (\mathcal{L}_{\xi}g_{ab})\beta^{a} + g_{ab}(\mathcal{L}_{\xi}\beta^{a} + {\dot \xi}^{a})\\
+& = \mathcal{L}_{\xi}(g_{ab}\beta^{a}) + g_{ab}{\dot \xi}^{a}\\
+& = \mathcal{L}_{\xi}\beta_{b} + g_{ab}{\dot \xi}^{a}
+\end{align*}
+Then consider $\delta (D_{a}\beta_{b})$
+\begin{align*}
+\delta (D_{a}\beta_{b}) & = \delta(\partial_{a}\beta_{b} - \Gamma^{c}_{~ab}\beta_{c})\\
+& = \partial_{a}\delta\beta_{b} - (\delta \Gamma^{c}_{~ab})\beta_{c} - \Gamma^{c}_{~ab}(\delta\beta_{c})\\
+& = \partial_{a}(\xi^{c}\partial_{c}\beta_{b} + \beta_{c}\partial_{b}\xi^{c} + g_{cb}{\dot \xi}^{c}) - (\mathcal{L}_{\xi}\Gamma^{c}_{~ab} + \partial_{a}\partial_{b}\xi^{c})\beta_{c} - \Gamma^{c}_{~ab}(\mathcal{L}_{\xi}\beta_{c} + g_{cd}{\dot \xi}^{d})\\
+& = \xi^{c}\partial_{c}\partial_{a}\beta_{b} + (\partial_{c}\beta_{b})(\partial_{a}\xi^{c}) + (\partial_{a}\beta_{c})(\partial_{b}\xi^{c}) - \beta_{c}\mathcal{L}_{\xi}\Gamma^{c}_{~ab} - \Gamma^{c}_{~ab}\mathcal{L}_{\xi}\beta_{c} + \partial_{a}(g_{cb}{\dot \xi}^{c}) - \Gamma^{c}_{~ab}(g_{cd}{\dot \xi}^{d})\\
+& = \mathcal{L}_{\xi}(\partial_{a}\beta_{b}) + \mathcal{L}_{\xi}(\Gamma^{c}_{~ab}\beta_{c}) - D_{a}(g_{cb}{\dot \xi}^{c})\\
+& = \mathcal{L}_{\xi}(D_{a}\beta_{b}) + g_{cb}D_{a}{\dot \xi}^{c}
+\end{align*}
+\subsection{$K_{ab}$}
+\begin{align*}
+K_{ab} & = -\frac{1}{2\alpha}({\dot g}_{ab} - \mathcal{L}_{\beta}g_{ab})\\
+& = -\frac{1}{2\alpha}({\dot g}_{ab} - D_{a}\beta_{b} - D_{b}\beta_{a})
+\end{align*}
+Therefore, 
+\begin{align*}
+\delta K_{ab} &= -\delta(\frac{1}{2\alpha})({\dot g}_{ab} - D_{a}\beta_{b} - D_{b}\beta_{a}) - \frac{1}{2\alpha}(\delta{\dot g}_{ab} - \delta(D_{a}\beta_{b}) - \delta(D_{b}\beta_{a}))\\
+& = -\mathcal{L}_{\xi}(\frac{1}{2\alpha})({\dot g}_{ab} - D_{a}\beta_{b} - D_{b}\beta_{a})  - \frac{1}{2\alpha}(\mathcal{L}_{\xi}{\dot g}_{ab} + \mathcal{L}_{{\dot \xi}}g_{ab} - \mathcal{L}_{\xi}(D_{a}\beta_{b}) - g_{ac}D_{b}{\dot \xi}^{c} - \mathcal{L}_{\xi}(D_{b}\beta_{a}) - g_{bc}D_{a}{\dot \xi}^{c})\\
+& = -\mathcal{L}_{\xi}(\frac{1}{2\alpha})({\dot g}_{ab} - D_{a}\beta_{b} - D_{b}\beta_{a})  - \frac{1}{2\alpha}\mathcal{L}_{\xi}({\dot g}_{ab} - D_{a}\beta_{b} - D_{b}\beta_{a})
+\end{align*}
+\[
+\boxed{
+\delta K_{ab} = \mathcal{L}_{\xi}K_{ab}
+}
+\]
+Therefore, {\bf {\color{red}$K_{ab}$ transforms as a (0,2) tensor.}}
+\subsection{$P_{ab}$}
+According to the formula
+\[
+P^{ab} = \sqrt{g}(Kg^{ab} - K^{ab} - \frac{C_{\perp}}{2}g^{ab})
+\]
+We can say that {\bf {\color{red}$P^{ab}$ transforms as a weight +1 (2,0) tensor density.}}
+\subsection{${\dot \alpha}$}
+\[
+\delta {\dot \alpha} = \frac{d}{dt} \delta \alpha = \frac{d}{dt}(\xi^{c}\partial_{c}\alpha) = {\dot \xi}^{c}\partial_{c}\alpha + \xi^{c}\partial_{c}{\dot \alpha} = \mathcal{L}_{\xi}{\dot \alpha} + {\dot \xi}^{a}\partial_{a}\alpha
+\]
+\subsection{$\partial_{a}\alpha$}
+\[
+\delta (\partial_{a}\alpha) = \partial_{a} \delta \alpha = \partial_{a} (\xi^{c}\partial_{c}\alpha) = \xi^{c}\partial_{c}\partial_{a}\alpha + (\partial_{c}\alpha)(\partial_{a}\xi^{c}) = \mathcal{L}_{\xi}(\partial_{a}\alpha)
+\]
+Therefore, {\bf {\color{red}$\partial_{a}\alpha$ transforms as a (0,1) tensor.}} 
+\subsection{$\partial_{\perp}\alpha$}
+\[
+\partial_{\perp}\alpha \equiv {\dot \alpha} - \mathcal{L}_{\beta}\alpha = {\dot \alpha} - \beta^{a}\partial_{a}\alpha
+\]
+Hence, 
+\begin{align*}
+\delta \partial_{\perp} \alpha & = \delta {\dot \alpha} - (\delta\beta^{a})\partial_{a}\alpha - \beta^{a}(\delta\partial_{a}\alpha)\\
+& = \mathcal{L}_{\xi}{\dot \alpha} + {\dot \xi}^{a}\partial_{a}\alpha - (\mathcal{L}_{\xi}\beta^{a} + {\dot \xi}^{a})\partial_{a}\alpha - \beta^{a}\mathcal{L}_{\xi}(\partial_{a}\alpha)\\
+& = \mathcal{L}_{\xi}{\dot \alpha} - \mathcal{L}_{\xi}(\beta^{a}\partial_{a}\alpha)
+\end{align*}
+\[
+\boxed{
+\delta (\partial_{\perp}\alpha) = \mathcal{L}_{\xi}(\partial_{\perp}\alpha)
+}
+\]
+{\bf {\color{red}$\partial_{\perp}\alpha$ transforms as a scalar.}}
+\subsection{$\Delta {\dot \beta}^{a}$ and extension}
+\[
+\delta \Delta {\dot \beta}^{a} = \frac{d}{dt} \delta \Delta\beta^{a} = \frac{d}{dt}(\xi^{c}\partial_{c}\Delta \beta^{a} - \Delta \beta^{c}\partial_{c}\xi^{a}) = \mathcal{L}_{\xi}\Delta {\dot \beta}^{a} + {\dot \xi}^{c}\partial_{c}\Delta \beta^{a} - \Delta \beta^{c} \partial_{c}{\dot \xi}^{a}
+\]
+In order to construct a formula containing ${\dot \beta}^{a}$ which transforms as a (1,0) tensor, try this:
+\[
+{\dot B}^{a} = \Delta {\dot \beta}^{a} + c_{1}\beta^{c}{\bar D}_{c}\beta^{a} + c_{2}\beta^{c}{\bar D}_{c}{\bar \beta}^{a} + c_{3}{\bar \beta}^{c}{\bar D}_{c}\beta^{a} + c_{4}{\bar \beta}^{c}{\bar D}_{c}{\bar \beta}^{a}
+\]
+where $c_{1}$, $c_{2}$, $c_{3}$ and $c_{4}$ are just constants. \\
+\\
+We have
+\begin{align*}
+\delta {\dot B}^{a} & = \mathcal{L}_{\xi}{\dot B}^{a} + {\dot \xi}^{c}\partial_{c} \Delta \beta^{a} - \Delta \beta^{c}\partial_{c}{\dot \xi}^{a}\\
+& + (c_{1} + c_{3}){\dot \xi}^{c}{\bar D}_{c}\beta^{a} + (c_{2} + c_{4}) {\dot \xi}^{c}{\bar D}_{c}{\bar \beta}^{a} +(c_{1} + c_{2})\beta^{c}{\bar D}_{c}{\dot \xi}^{a} + (c_{3} + c_{4}){\bar \beta}^{c}{\bar D}_{c}{\dot \xi}^{a}
+\end{align*}
+We should have
+\begin{align*}
+c_{1} + c_{3} & = -1\\
+c_{2} + c_{4} & = 1\\
+c_{1} + c_{2} & = 1\\
+c_{3} + c_{4} & = -1
+\end{align*}
+and one can check that under this choice, all the Christoffel symbol terms will cancel each other.\\
+\\
+Let $c_{1} = \sigma$ and we have
+\begin{align*}
+c_{1} & = \sigma\\
+c_{2} & = 1 - \sigma\\
+c_{3} & = -(1+\sigma)\\
+c_{4} & = \sigma 
+\end{align*}
+Therefore, we have
+\[
+{\dot B}^{a} = \Delta {\dot \beta}^{a} + \sigma \beta^{c}{\bar D}_{c}\beta^{a} + (1 - \sigma)\beta^{c}{\bar D}_{c}{\bar \beta}^{a} - (1 + \sigma){\bar \beta}^{c}{\bar D}_{c}\beta^{a} + \sigma{\bar \beta}^{c}{\bar D}_{c}{\bar \beta}^{a}
+\]
+and
+\[
+\boxed{
+\delta {\dot B}^{a} = \mathcal{L}_{\xi}{\dot B}^{a}
+}
+\]
+{\bf {\color{red}${\dot B}^{a}$ transforms as a (1,0) tensor.}}
+
+\section{Time Reparametrization Invariance}
+\begin{align*}
+\delta g_{\mu\nu} & = \mathcal{L}_{\xi} g_{\mu\nu} \\
+& = \xi^{\sigma} \partial_{\sigma}g_{\mu\nu} + g_{\mu\sigma}\partial_{\nu}\xi^{\sigma} + g_{\nu \sigma}\partial_{\mu}\xi^{\sigma}\\
+& = \epsilon \dot{g}_{\mu \nu} + g_{\mu 0} \delta^{0}_{\nu}\dot{\epsilon} + g_{\nu 0} \delta^{0}_{\mu} \dot{\epsilon}
+\end{align*}
+
+\begin{align*}
+\delta g^{\mu\nu} & = \mathcal{L}_{\xi} g^{\mu\nu} \\
+& = \xi^{\sigma} \partial_{\sigma}g^{\mu\nu} - g^{\mu\sigma}\partial_{\sigma}\xi^{\nu} + g^{\nu \sigma}\partial_{\sigma}\xi^{\mu}\\
+& = \epsilon \dot{g}^{\mu \nu} - g^{\mu 0} \delta_{0}^{\nu}\dot{\epsilon} - g^{\nu 0} \delta_{0}^{\mu} \dot{\epsilon}
+\end{align*}
+
+\subsection{$g_{ab}$}
+{\bf {\color{red}$g_{ab}$ transforms as a scalar}}
+\[
+\delta g_{ab} = \epsilon \dot{g}_{ab}
+\]
+\subsection{$\beta^{a}$}
+\[
+g_{a0} = g_{ab}\beta^{b}
+\]
+Hence, we have
+\begin{align*}
+\delta g_{a0} & = \delta g_{a0}\\
+\delta (g_{ab}\beta^{b}) & = \epsilon (g_{ab}\beta^{b})^{.} + g_{a0}{\dot \epsilon}\\
+(\delta g_{ab}) \beta^{b} + g_{ab} (\delta \beta^{b}) & = \epsilon (g_{ab}\beta^{b})^{.} + g_{ab}\beta^{b}{\dot \epsilon}\\
+\epsilon {\dot g}_{ab} \beta^{b} + g_{ab} (\delta \beta^{b}) & = \epsilon {\dot g}_{ab} \beta^{b} + \epsilon g_{ab} {\dot \beta}^{b} + g_{ab}\beta^{b} {\dot \epsilon}\\
+\delta \beta^{b} & = \epsilon {\dot \beta}^{b} + {\dot \epsilon} \beta^{b}
+\end{align*}
+\[
+\boxed{
+\delta \beta^{b} = (\epsilon \beta^{b})^{.}
+}
+\]
+
+{\bf{\color{red}$\beta^{a}$ transforms as a weight +1 density} }
+\subsection{$\alpha$}
+\[
+g_{00} = g_{ab}\beta^{a}\beta^{b}-\alpha^{2}
+\]
+Hence, we have
+\begin{align*}
+\delta g_{00} & = \delta g_{00} \\
+\delta (g_{ab}\beta^{a}\beta^{b} - \alpha^{2}) & = \epsilon (g_{ab}\beta^{a}\beta^{b} - \alpha^2)^{.} + 2(g_{ab}\beta^{a}\beta^{b} - \alpha^2) {\dot \epsilon}\\
+\delta g_{ab} \beta^{a} \beta^{b} + g_{ab} \delta \beta^{a} \beta^{b} + g_{ab} \beta^{a} \delta \beta^{b} - 2\alpha \delta \alpha & = \epsilon {\dot g}_{ab}\beta^{a}\beta^{b} + \epsilon g_{ab} {\dot \beta}^{a} \beta^{b} + \epsilon g_{ab} \beta^{a} {\dot \beta}^{b} - 2\epsilon \alpha {\dot \alpha}  + 2(g_{ab}\beta^{a}\beta^{b} - \alpha^2) {\dot \epsilon}\\
+\epsilon {\dot g}_{ab} \beta^{a} \beta^{b} + g_{ab}(\epsilon \beta^{a})^{.}\beta^{b} + g_{ab} \beta^{a} (\epsilon \beta^{b})^{.} - 2\alpha\delta\alpha & = \epsilon {\dot g}_{ab}\beta^{a}\beta^{b} + g_{ab} (\beta^{a} \epsilon)^{.} \beta^{b} + g_{ab} \beta^{a} (\epsilon \beta^{b})^{.} - 2\epsilon \alpha {\dot \alpha}  - 2\alpha^2 {\dot \epsilon}\\
+\delta \alpha & = \epsilon {\dot \alpha} + \alpha {\dot \epsilon}\\
+\end{align*}
+\[
+\boxed{
+\delta \alpha  = (\epsilon \alpha)^{.}
+}
+\]
+{\bf{\color {red}$\alpha$ transforms as a weight +1 density} }
+\subsection{$g^{ab}$}
+\begin{align*}
+\delta (g^{ab} - \beta^{a}\beta^{b}/\alpha^2) & = \delta (g^{ab} - \beta^{a}\beta^{b}/\alpha^2)\\
+\delta g^{ab} - \delta(\beta^{a}\beta^{b}/\alpha^2) & = \epsilon (g^{ab} - \beta^{a}\beta^{b}/\alpha^2)^{.}
+\end{align*}
+Due to the transform property of $\beta^{a}$ and $\alpha$, $\beta^{a}\beta^{b}/\alpha^2$ should transform as a scalar. Therefore, we have
+\begin{align*}
+\delta g^{ab} - \epsilon (\beta^{a}\beta^{b}/\alpha^{2})^{.} & = \epsilon {\dot g}^{ab} - \epsilon (\beta^{a}\beta^{b}/\alpha^2)^{.}
+\end{align*}
+\[
+\boxed{
+\delta g^{ab} = \epsilon {\dot g^{ab}}
+}
+\]
+{\bf {\color{red} $g^{ab}$ transforms as a scalar}}\\
+
+$?$ short cut\\
+$g^{ab}g_{bc} = \delta^{a}_{c}$ should transform as a scalar, and $g_{bc}$ transforms as a scalar, so $g^{ab}$ transforms as a scalar.  
+\subsection{$\Gamma^{a}_{~bc}$}
+$\Gamma^{a}_{~bc}$ is a combination of $g^{ab}$ and $\partial_{c}g_{ab}$, so {\bf {\color {red} it should also transform as a scalar}}.
+\subsection{${\dot g}_{ab}$ ,${\dot g}^{ab}$}
+\[
+\boxed{
+\delta {\dot g}_{ab} = (\delta g_{ab})^{.} = (\epsilon {\dot g_{ab}})^{.}
+}
+\]
+
+\[
+\boxed{
+\delta {\dot g}^{ab} = (\delta g^{ab})^{.} = (\epsilon {\dot g^{ab}})^{.}
+}
+\]
+{\bf {\color{red} Both ${\dot g}_{ab}$ and ${\dot g}^{ab}$ transform as weight +1 densities}}.
+\subsection{$\sqrt{g}$}
+\[
+\boxed{
+\delta g = g g^{ab}\delta g_{ab} = g g^{ab}\epsilon{\dot g}_{ab} = \epsilon {\dot g}
+}
+\]
+{\bf{\color{red} Therefore, both $g$ and $\sqrt{g}$ transform as a scalar}}.
+\subsection{$R$}
+Since $R$ is all about $g_{ab}$, $g^{ab}$ and $\Gamma^{a}_{~bc}$, {\bf {\color{red}R should transform as a scalar}}. 
+\subsection{$D_{a}\beta_{b}$}
+\begin{align*}
+\delta (D_{a}\beta_{b}) & = \delta (\partial_{a} \beta_{b} - \Gamma^{c}_{~ab}\beta_{c})\\
+& = \partial_{a} (\delta \beta_{b}) - \delta \Gamma^{c}_{~ab} \beta_{c} - \Gamma^{c}_{~ab} \delta \beta_{c}
+\end{align*}
+Since $\beta_{a} = \beta^{b}g_{ab}$ and $g_{ab}$ transforms as a scalar, $\beta^{b}$ transforms as a weight +1 density, $\beta_{a}$ transforms as a weight +1 density. Hence, we have
+\begin{align*}
+\delta (D_{a}\beta_{b}) & = \partial_{a} (\epsilon \beta_{b})^{.} - \epsilon {\dot \Gamma}^{c}_{~ab} \beta_{c} - \Gamma^{c}_{ab}(\epsilon \beta_{c})^{.}\\
+& = (\partial_{a} (\epsilon \beta_{b}) - \epsilon \Gamma^{c}_{~ab}\beta_{c})^{.}\\
+& = (\epsilon (\partial_{a} \beta_{b} - \Gamma^{c}_{ab}\beta_{c}))^{.}\\
+& = (\epsilon D_{a}\beta_{b})^{.}
+\end{align*}
+\[
+\boxed{
+\delta (D_{a}\beta_{b}) = (\epsilon D_{a}\beta_{b})^{.}
+}
+\]
+{\bf {\color{red} $D_{a}\beta_{b}$ transforms as a weight +1 density}}.
+\subsection{$K_{ab}$}
+\[
+K_{ab} = -\frac{1}{2\alpha}({\dot g}_{ab} - \mathcal{L}_{\beta}g_{ab}) =  -\frac{1}{2\alpha}({\dot g}_{ab} - D_{a}\beta_{b} - D_{b}\beta_{a})
+\]
+Therefore, {\bf{\color{red}$K_{ab}$ transforms as a scalar}}. 
+\subsection{$C_{\perp}$, $C_{a}$}
+Since $C_{\mu}$ is a covector in spacetime, we have
+\begin{align*}
+\delta C_{\mu} & = \mathcal{L}_{\xi} C_{\mu}\\
+& = \xi^{\sigma}\partial_{\sigma}C_{\mu} + C_{\sigma}\partial_{\mu}\xi^{\sigma}\\
+& = \epsilon {\dot C}_{\mu} + C_{0}{\dot \epsilon}\delta^{0}_{\mu} 
+\end{align*}
+Therefore, we can see that the spatial component of $C_{\mu}$ transform as a scalar, the time component of $C_{\mu}$ transforms as a weight +1 density. \\
+\\
+Hence, we have
+\[
+\boxed{
+\delta C_{a} = \delta (C_{\mu}X_{a}^{\mu}) = \delta_{a}^{\mu} \delta C_{\mu} = \epsilon {\dot C}_{a}
+}
+\]
+{\bf {\color {red}$C_{a}$ transforms as a scalar}}.
+\[
+n^{\mu} = (\delta^{\mu}_{0} - \beta^{a}\delta_{a}^{\mu})/\alpha
+\]
+We can tell from the above equation that the time component of $n^{\mu}$ transforms as a weight -1 density and the spatial component of $n^{\mu}$ transform as scalars. Therefore, {\bf {\color{red}$C_{\perp} = C_{\mu}n^{\mu}$ should transform as a scalar}}.
+\subsection{$P^{ab}$}
+According to the formula of $P^{ab}$
+\[
+P^{ab} = \sqrt{g}(Kg^{ab} - K^{ab} -\frac{C_{\perp}}{2}g^{ab})
+\]
+{\bf {\color{red} $P^{ab}$ should transform as a scalar}}.
+\subsection{$\pi$}
+Since we have
+\[
+\pi = \frac{\sqrt{g}}{\alpha}C_{\perp}
+\]
+{\bf{\color{red}$\pi$ transforms as a weight -1 density}}.
+\subsection{$\rho_{a}$}
+Since we have
+\[
+\rho_{a} = \frac{\sqrt{g}}{\alpha}C_{a}
+\]
+{\bf{\color{red}$\rho_{a}$ transforms as a weight -1 density}}.
+\subsection{$\mathring{\alpha}$}
+The covariant derivative of $\alpha$ in time domain is defined as
+\[
+\mathring{\alpha} = \dot{\alpha} - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}}\alpha
+\]
+So we have
+\begin{align*}
+\delta \mathring{\alpha} & = \delta \dot{\alpha} - \delta (\frac{\dot{\bar{\alpha}}}{\bar{\alpha}}\alpha)\\
+& = \delta \dot{\alpha} - \frac{\alpha}{\bar{\alpha}}\delta \dot{\bar{\alpha}} - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}}\delta\alpha + \frac{\dot{\bar{\alpha}}}{\bar{\alpha}^2}\alpha \delta \bar{\alpha}\\
+& = (\delta \alpha)^{.} - \frac{\alpha}{\bar{\alpha}}(\delta \bar{\alpha})^{.} - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}}\delta\alpha + \frac{\dot{\bar{\alpha}}}{\bar{\alpha}^2}\alpha \delta \bar{\alpha}\\
+& = (\epsilon \alpha)^{..} - \frac{\alpha}{\bar{\alpha}}(\epsilon \bar{\alpha})^{..} - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}}(\epsilon\alpha)^{.} + \frac{\dot{\bar{\alpha}}}{\bar{\alpha}^2}\alpha (\epsilon \bar{\alpha})^{.}\\
+& = \ddot{\epsilon}\alpha + 2\dot{\epsilon}\dot{\alpha} + \epsilon\ddot{\alpha} -  \frac{\alpha}{\bar{\alpha}}\ddot{\epsilon}\bar{\alpha} - 2 \frac{\alpha}{\bar{\alpha}}\dot{\epsilon}\dot{\bar{\alpha}} -  \frac{\alpha}{\bar{\alpha}}\epsilon\ddot{\bar{\alpha}} - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}} \dot{\epsilon}\alpha - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}}\epsilon\dot{\alpha} +  \frac{\dot{\bar{\alpha}}}{\bar{\alpha}^2}\alpha \dot{\epsilon}\bar{\alpha} +  \frac{\dot{\bar{\alpha}}}{\bar{\alpha}^2}\alpha \epsilon\dot{\bar{\alpha}}\\
+& = \epsilon(\ddot{\alpha} - \frac{\ddot{\bar{\alpha}}}{\bar{\alpha}}\alpha - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}}\dot{\alpha} + \frac{\dot{\bar{\alpha}}}{\bar{\alpha}^2}\alpha \dot{\bar{\alpha}}) + 2\dot{\epsilon}(\dot{\alpha} - \frac{\dot{\bar{\alpha}}}{\bar{\alpha}}\alpha)\\
+& = \epsilon(\mathring{\alpha})^{.} + 2\dot{\epsilon}\mathring{\alpha}
+\end{align*}
+{\bf {\color{red} Therefore we claim that $\mathring{\alpha}$ transforms as a weight +2 density}}
+\subsection{$\mathring{\beta}^{a}$}
+Define
+\[
+\mathring{\beta}^{a} = {\dot \beta}^{a} - \frac{\beta^{a}}{{\bar \alpha}}{\dot {\bar \alpha}}
+\]
+Following the same steps as previous section, we can show that {\bf {\color{red} $\mathring{\beta}^{a}$ also transforms as a weight +2 density}}.
+\section{Conclusion}
+According to the discussion above, we need to require ${\dot \alpha}$ appears in the following form
+\[
+\boxed{
+({\dot \alpha} - \beta^{c}\partial_{c}\alpha) - \frac{\alpha}{{\bar \alpha}}({\dot {\bar \alpha}} - {\bar \beta}^{c} \partial_{c}{\bar \alpha})
+}
+\]
+and ${\dot \beta}^{a}$ should appear in the following form
+\[
+\boxed{
+\Delta {\dot \beta}^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}({\dot {\bar \alpha}} - {\bar \beta}^{c}\partial_{c}{\bar \alpha}) + \sigma \beta^{c}{\bar D}_{c}\beta^{a} + (1 - \sigma)\beta^{c}{\bar D}_{c}{\bar \beta}^{a} - (1 + \sigma){\bar \beta}^{c}{\bar D}_{c}\beta^{a} + \sigma{\bar \beta}^{c}{\bar D}_{c}{\bar \beta}^{a} 
+}
+\]
+\end{document}

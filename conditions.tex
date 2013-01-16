@@ -1,0 +1,73 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{mathrsfs}
+
+\begin{document}
+\title{Invariant Form of Slicing and Shift Conditions}
+\author{Meng Cao}
+\maketitle
+Under the transformation
+\begin{align*}
+t' &= t'(t)\\
+x^{a'} &= x^{a'}(t,x^{a})
+\end{align*}
+and vice versa
+\begin{align*}
+t & = t(t')\\
+x^{a} & = x^{a}(t',x^{a'})
+\end{align*}
+We have $\mathring{\alpha}$ transforms as
+\[
+\mathring{\alpha}' = \mathring{\alpha}(\frac{\partial t}{\partial t'})^{2}
+\]
+where
+\[
+\mathring{\alpha} = ({\dot \alpha} - \beta^{a}\partial_{a}\alpha) - \frac{\alpha}{{\bar \alpha}}({\dot {\bar \alpha}} - {\bar \beta}^{a}\partial_{a}{\bar \alpha})
+\]
+And $\mathring{\beta}^{a}$ transforms as
+\[
+\mathring{\beta}^{a'} = \mathring{\beta}^{a}\frac{\partial x^{a'}}{\partial x^{a}}(\frac{\partial t}{\partial t'})^{2}
+\]
+where
+\[
+\mathring{\beta}^{a} =  \Delta {\dot \beta}^{a} -\frac{\Delta \beta^{a}}{{\bar \alpha}}({\dot {\bar \alpha}} - {\bar \beta}^{a}\partial_{a}{\bar \alpha})+ \sigma \beta^{c}{\bar D}_{c}\beta^{a} + (1 - \sigma)\beta^{c}{\bar D}_{c}{\bar \beta}^{a} - (1 + \sigma){\bar \beta}^{c}{\bar D}_{c}\beta^{a} + \sigma{\bar \beta}^{c}{\bar D}_{c}{\bar \beta}^{a}
+\]
+Therefore, the invariant form of 1 + log slicing should be
+\[
+\mathring{\alpha} = -2\alpha{\bar \alpha}K
+\]
+and the invariant form of gamma-driver shift condition should be
+\[
+\mathring{\beta}^{a} = \frac{3}{4}\sqrt{\frac{g}{{\bar g}}}^{2/3}{\bar \alpha}^{2}(\Delta \Gamma^{a}_{~bc}g^{bc} + \frac{1}{3}g^{ab}\Delta\Gamma^{c}_{~bc}) - \eta {\bar \alpha}\Delta\beta^{a} 
+\]
+where
+\[
+\Delta \Gamma^{a}_{~bc} = \Gamma^{a}_{~bc} - {\bar \Gamma}^{a}_{~bc}
+\]
+\[
+\Delta \beta^{a} = \beta^{a} - {\bar \beta}^{a}
+\]
+Under the transformation mentioned above, we should evolve the transformed lapse and shift along with time as following
+\[
+\partial_{t'}\alpha' = \beta^{a'}\partial_{a'}\alpha' + \frac{\alpha'}{{\bar \alpha}'}(\partial_{t'}{\bar \alpha}' - {\bar \beta}^{a'}\partial_{a'}{\bar \alpha}') - 2\alpha'{\bar \alpha}'K'
+\]
+\begin{align*}
+\partial_{t'}\beta^{a'} & = \partial_{t'}{\bar \beta}^{a'} + \frac{\Delta \beta^{a'}}{{\bar \alpha}'}(\partial_{t'} {\bar \alpha}' - {\bar \beta}^{a'}\partial_{a'}{\bar \alpha}') - \sigma \beta^{c'}{\bar D}_{c'}\beta^{a'} - (1 - \sigma)\beta^{c'}{\bar D}_{c'}{\bar \beta}^{a'} + (1 + \sigma){\bar \beta}^{c'}{\bar D}_{c'}\beta^{a'} - \sigma{\bar \beta}^{c'}{\bar D}_{c'}{\bar \beta}^{a'}\\
+&+ \frac{3}{4}\sqrt{\frac{g'}{{\bar g}'}}^{2/3}{\bar \alpha}'^{2}(\Delta \Gamma^{a'}_{~b'c'}g^{b'c'} + \frac{1}{3}g^{a'b'}\Delta\Gamma^{c'}_{~b'c'}) - \eta {\bar \alpha}'\Delta\beta^{a'} 
+\end{align*}
+where
+\begin{align*}
+{\bar g}'& = {\bar g}(\frac{\partial x}{\partial x'})^{2}\\
+{\bar \Gamma}^{a'}_{~b'c'} & = {\bar \Gamma}^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}} + \frac{\partial x^{a'}}{\partial x^{d}}\frac{\partial^{2} x^{d}}{\partial x^{b'}\partial x^{c'}}\\
+{\bar \alpha}' & = {\bar \alpha}\frac{\partial t}{\partial t'}\\
+{\bar \beta}^{a'} & = {\bar \beta}^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}
+\end{align*}
+\end{document}

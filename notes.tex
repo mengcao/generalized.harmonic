@@ -1,0 +1,290 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{mathrsfs}
+
+\begin{document}
+\title{Hamiltonian in GH}
+\author{Meng Cao}
+\maketitle
+
+\section{Action}
+In 4D spacetime, 
+\[
+S = \int \sqrt{-^{(4)}g}(^{(4)}R - \frac{1}{2}C^{\mu}C_{\mu}) d^4 x
+\]
+Splitting in 3+1
+\[
+\sqrt{-^{(4)}g} = \alpha \sqrt{g}
+\]
+
+\[
+^{(4)}R = R + K^{ab}K_{ab} - K^2 + boundary~~term
+\]
+\begin{align*}
+C^{\mu}C_{\mu} & = C_{\mu}~^{(4)}g^{\mu\nu}C_{\nu}\\
+& = C_{\mu}C_{\nu}(g^{ab}X^{\mu}_{a}X^{\nu}_{b} - n^{\mu}n^{\nu})\\
+& = C^{a}C_{a} - C_{\perp}^2
+\end{align*}
+Therefore, the action in 3+1 splitting is
+\[
+S[g_{ab},\alpha,\beta^{a}] = \int  \alpha \sqrt{g}(R + K^{ab}K_{ab} - K^{2} - \frac{1}{2} C^{a}C_{a} + \frac{1}{2}C_{\perp}^2) d^{4} x = \int \mathscr{L} d^4 x
+\]
+where
+\[
+K_{ab} \equiv -\frac{1}{2\alpha}(\partial_{\perp}g_{ab})
+\]
+\[
+\partial_{\perp} \equiv \partial_{t} - \mathcal{L}_{\beta}
+\]
+\[
+C_{\perp} \equiv H_{\perp} + K + \frac{1}{\alpha^2}\partial_{\perp}\alpha
+\]
+\[
+C_{a} \equiv H_{a} + \Delta \Gamma_{abc}g^{bc} - \frac{1}{\alpha} \partial_{a} \alpha - \frac{1}{\alpha^2}g_{ab}(\partial_{t}\beta^{b} - \beta^{c}{\bar D}_{c}\beta^{b})
+\]
+\section{Momenta}
+To find the conjugate momenta, we have
+\[
+P^{ab} = \frac{\partial \mathscr{L}}{\partial {\dot g_{ab}}}
+\]
+\[
+\pi = \frac{\partial \mathscr{L}}{\partial {\dot \alpha}}
+\]
+\[
+\rho_{a} = \frac{\partial \mathscr{L}}{\partial {\dot \beta^{a}}}
+\]
+For the partial derivatives, we have
+\[
+\frac{\partial K_{ab}}{\partial {\dot g_{ab}}} = -\frac{1}{2\alpha}
+\]
+\[
+\frac{\partial K_{ab}}{\partial {\dot \alpha}} = \frac{\partial K_{ab}}{\partial {\dot \beta^{a}}} = 0
+\]
+\[
+\frac{\partial C_{\perp}}{\partial {\dot g_{ab}}} = -\frac{1}{2\alpha}g^{ab}
+\]
+\[
+\frac{\partial C_{\perp}}{\partial {\dot \alpha}} = \frac{1}{\alpha^2}
+\]
+\[
+\frac{\partial C_{\perp}}{\partial {\dot \beta^{a}}} = 0
+\]
+\[
+\frac{\partial C_{a}}{\partial {\dot g_{ab}}} = \frac{\partial C_{a}}{\partial {\dot \alpha}} = 0
+\]
+\[
+\frac{\partial C_{a}}{\partial {\dot \beta^{b}}} = -\frac{1}{\alpha^2}g_{ab}
+\]
+Therefore, we have
+\[
+\boxed{
+P^{ab} = \sqrt{g}(Kg^{ab} - K^{ab} - \frac{C_{\perp}}{2}g^{ab})
+}
+\]
+\[
+\boxed{
+\pi = \frac{\sqrt{g}}{\alpha}C_{\perp}
+}
+\]
+\[
+\boxed{
+\rho_{a} = \frac{\sqrt{g}}{\alpha}C_{a}
+}
+\]
+As you can see here, $P^{ab}$ is a weight 1 tensor density, $\pi$ is a weight 1 scalar density and $\rho_{a}$ is a weight 1 covector density.  
+\section{Hamiltonian}
+For the Hamiltonian, we have
+\[
+H = \int( P^{ab}{\dot g_{ab}} + \pi {\dot \alpha} + \rho_{a} {\dot \beta^{a}} - \mathscr{L} )d^3 x
+\]
+We have to write $\mathcal{H}$ in terms of $g_{ab},P^{ab},\alpha,\pi,\beta^{a},\rho_{a}$, so we need to do some inversions as following
+\[
+\boxed{C_{\perp} = \frac{\alpha}{\sqrt{g}}\pi}
+\]
+\[
+\boxed{C_{a} = \frac{\alpha}{\sqrt{g}}\rho_{a}}
+\]
+Contract $P^{ab}$, we have
+
+\[
+P = \sqrt{g}(2K - \frac{3}{2}C_{\perp}) = \sqrt{g}(2K - \frac{3\alpha}{2\sqrt{g}}\pi)
+\]
+Therefore, we have
+\[
+\boxed{K = \frac{P}{2\sqrt{g}} + \frac{3\alpha}{4\sqrt{g}}\pi}
+\]
+\[
+\boxed{
+K^{ab} = -\frac{P^{ab}}{\sqrt{g}} + \frac{Pg^{ab}}{2\sqrt{g}} + \frac{\alpha \pi g^{ab}}{4\sqrt{g}}
+}
+\]
+Then use the definition of $K^{ab}$ to rewrite ${\dot g_{ab}}$
+\[
+\boxed{
+{\dot g_{ab}} = \mathcal{L}_{\beta}g_{ab} + \frac{2\alpha}{\sqrt{g}}P_{ab} - \frac{\alpha P}{\sqrt{g}}g_{ab} - \frac{\alpha^2 \pi }{2\sqrt{g}}g_{ab}
+}
+\]
+Use the definition of $C_{\perp}$ to rewrite ${\dot \alpha }$, we have
+\[
+\boxed{
+{\dot \alpha} = \mathcal{L}_{\beta}\alpha + \frac{\alpha^3 \pi}{4 \sqrt{g}} - H_{\perp}\alpha^2 - \frac{\alpha^2 P}{2\sqrt{g}}
+}
+\]
+Use the definition of $C_{a}$ to rewrite ${\dot \beta_{a}}$, we have
+\[
+\boxed{
+{\dot \beta^{a}} = \alpha^2 H^{a} + \alpha^2\Delta \Gamma^{a}_{~bc}g^{bc} - \alpha g^{ab}\partial_{b}\alpha + \beta^{b}{\bar D}_{b}\beta^{a} - \frac{\alpha^3}{\sqrt{g}} \rho^{a}
+}
+\]
+Plug in, we have the formula of Hamiltonian, 
+\begin{align*}
+H & = \int \mathcal{H} d^3 x \\
+&\equiv \int (P^{ab}{\dot g}_{ab} + \pi {\dot \alpha} + \rho_{a}{\dot \beta^{a}} - \mathscr{L} ) d^3x 
+\\&= \int [ \frac{\alpha}{\sqrt{g}}(P^{ab}P_{ab} - \frac{1}{2}P^2 - \frac{1}{2}\alpha \pi P + \frac{1}{8}\alpha^2 \pi^2 - \frac{1}{2}\alpha^2 \rho^{a}\rho_{a}) \\
+\\
+&- \alpha^2 \pi H_{\perp} + \pi \mathcal{L}_{\beta} \alpha + \alpha^2 H^{a}\rho_{a} + \alpha^2 \rho_{a} \Delta \Gamma^{a}_{~bc}g^{bc} - \alpha \rho^{a}\partial_{a} \alpha + \rho_{a}\beta^{b}{\bar D}_{b}\beta^{a} - \alpha \sqrt{g} R - 2\beta^{a}D_{b}P^{b}_{a} ]d^3 x
+\end{align*}
+\section{Hamilton's Equations}
+So we have the following Hamilton's Equations
+\begin{align*}
+{\dot P}^{ab} &= -\frac{\delta \mathcal{H}}{\delta g_{ab}} \\ &
+= \mathcal{L}_{\beta}P^{ab} + \frac{\alpha}{\sqrt{g}}(\frac{1}{2}P^{cd}P_{cd}g^{ab} - \frac{1}{4}P^{2}g^{ab} - 2P^{ac}P^{bd}g_{cd} + PP^{ab} \\
+&-\frac{1}{4}\alpha \pi P g^{ab} + \frac{1}{16}\alpha^2 \pi^2 g^{ab} - \frac{1}{4}\alpha^2 \rho^{c}\rho_{c}g^{ab} + \frac{1}{2}\alpha \pi P^{ab} + \frac{1}{2}\alpha^2\rho^{a}\rho^{b}) \\
+&+ \alpha^2 \rho_{e}\Delta \Gamma^{e}_{~cd}g^{ac}g^{bd} - \frac{1}{2}D_{c}(\rho^{c} \alpha^2)g^{ab} + D^{(a}(\rho^{b)} \alpha^2) - \frac{1}{2}\rho^{(a}D^{b)}\alpha^2\\
+& - \alpha \sqrt{g}G^{ab} + \sqrt{g} D^{a}D^{b}\alpha - \sqrt{g}g^{ab}D_{c}D^{c} \alpha
+\end{align*}
+\begin{align*}
+{\dot \pi} & = - \frac{\delta \mathcal{H}}{\delta \alpha} \\
+& = \mathcal{L}_{\beta} \pi + \frac{1}{\sqrt{g}}(-P^{ab}P_{ab} + \frac{P^2}{2} + \alpha \pi P - \frac{3}{8}\alpha^2 \pi^2 + \frac{3}{2}\alpha^2 \rho^{a}\rho_{a}) + 2\alpha \pi H_{\perp} \\
+& - 2 \alpha H^{a}\rho_{a} - 2\alpha \rho_{a} \Delta \Gamma^{a}_{~bc}g^{bc} - \alpha (D_{a}\rho^{a}) + \sqrt{g}R
+\end{align*}
+\begin{align*}
+{\dot \rho}_{a} &= -\frac{\delta \mathcal{H}}{\delta \beta^{a}}\\
+& = -\pi D_{a} \alpha + 2(D_{b}P^{cb})g_{ac} + {\bar D}_{b}(\rho_{a}\beta^{b}) - \rho_{b}({\bar D}_{a}\beta^{b})
+\end{align*}
+\section{Extended Hamiltonian}
+Introduce new variables
+\[
+\Lambda \equiv -\alpha^2 H_{\perp}
+\]
+\[
+\Omega^{a} \equiv \alpha^2 H^{a}
+\]
+Rewrite the Hamiltonian in the following form
+\[
+H = \int [\alpha \mathscr{H} + \beta^{a}\mathscr{M}_{a} + \pi (\Lambda + {\hat \Lambda}) + \rho_{a}(\Omega^{a} + {\hat \Omega}^{a}) ]d^3 x
+\]
+where
+\[
+\mathscr{H} = \frac{1}{\sqrt{g}}(P^{ab}P_{ab} - \frac{P^2}{2}) - \sqrt{g}R
+\]
+\[
+\mathscr{M}_{a} = -2D_{b}P^{b}_{a}
+\]
+\[
+{\hat \Lambda} = \mathcal{L}_{\beta}\alpha - \frac{\alpha^2}{2\sqrt{g}}P + \frac{\alpha^3}{8\sqrt{g}}\pi
+\]
+\[
+{\hat \Omega}^{a} = \alpha^2 \Delta \Gamma^{a}_{~bc}g^{bc} - \alpha g^{ab}\partial_{b} \alpha + \beta^{b}{\bar D}_{b} \beta^{a} - \frac{\alpha^3}{2\sqrt{g}}\rho^{a}
+\]
+Introduce the congugate momenta of $\Lambda$ and $\Omega^a$
+\[
+\mathscr{P} = \frac{\partial \mathscr{L}}{\partial {\dot \Lambda}} = 0
+\]
+\[
+\mathscr{P}_{a} = \frac{\partial \mathscr{L}}{\partial {\dot \Omega^{a}}} = 0
+\]
+Now add new constraint terms into Hamiltonian
+\[
+H = \int [\alpha \mathscr{H} + \beta^{a} \mathscr{M}_{a} + \pi (\Lambda + {\hat \Lambda}) + \rho_{a}(\Omega^{a} + {\hat \Omega}^{a}) + \mathscr{P}(\lambda + {\hat \lambda}) +  \mathscr{P}_{a}(\omega^{a} + {\hat \omega}^{a})]d^3 x
+\]
+Therefore, the new set of Hamilton's equations are
+\begin{align*}
+{\dot g_{ab}} & = \mathcal{L}_{\beta}g_{ab} + \frac{2\alpha}{\sqrt{g}}P_{ab} - \frac{\alpha P}{\sqrt{g}}g_{ab} - \frac{\alpha^2 \pi }{2\sqrt{g}}g_{ab} \\
+& + \frac{\partial {\hat \lambda}}{\partial P^{ab}}\mathscr{P} + \frac{\partial {\hat \omega}^{c}}{\partial P^{ab}}\mathscr{P}_{c}
+\end{align*}
+\begin{align*}
+{\dot P^{ab}} & = -\frac{\delta \mathcal{H}}{\delta g_{ab}} \\ &
+= \mathcal{L}_{\beta}P^{ab} + \frac{\alpha}{\sqrt{g}}(\frac{1}{2}P^{cd}P_{cd}g^{ab} - \frac{1}{4}P^{2}g^{ab} - 2P^{ac}P^{bd}g_{cd} + PP^{ab} \\
+&-\frac{1}{4}\alpha \pi P g^{ab} + \frac{1}{16}\alpha^2 \pi^2 g^{ab} - \frac{1}{4}\alpha^2 \rho^{c}\rho_{c}g^{ab} + \frac{1}{2}\alpha \pi P^{ab} + \frac{1}{2}\alpha^2\rho^{a}\rho^{b}) \\
+&+ \alpha^2 \rho_{e}\Delta \Gamma^{e}_{~cd}g^{ac}g^{bd} - \frac{1}{2}D_{c}(\rho^{c} \alpha^2)g^{ab} + D^{(a}(\rho^{b)} \alpha^2) - \frac{1}{2}\rho^{(a}D^{b)}\alpha^2\\
+& - \alpha \sqrt{g}G^{ab} + \sqrt{g} D^{a}D^{b}\alpha - \sqrt{g}g^{ab}D_{c}D^{c} \alpha\\
+& - \frac{\partial {\hat \lambda}}{\partial g_{ab}}\mathscr{P} - \frac{\partial {\hat \omega}^{c}}{\partial g_{ab}}\mathscr{P}_{c}\\
+& + \partial_{d}[\frac{\partial {\hat \lambda}}{\partial(\partial_{d}g_{ab})}\mathscr{P}] + \partial_{d}[\frac{\partial {\hat \omega^{c}}}{\partial(\partial_{d}g_{ab})}\mathscr{P}_{c}]
+\end{align*}
+\begin{align*}
+{\dot \alpha} & = \mathcal{L}_{\beta}\alpha + \frac{\alpha^3 \pi}{4 \sqrt{g}} - H_{\perp}\alpha^2 - \frac{\alpha^2 P}{2\sqrt{g}}\\
+& + \frac{\partial {\hat \lambda}}{\partial \pi}\mathscr{P} + \frac{\partial {\hat \omega}^{c}}{\partial \pi}\mathscr{P}_{c}
+\end{align*}
+\begin{align*}
+{\dot \pi} & = - \frac{\delta \mathcal{H}}{\delta \alpha} \\
+& = \mathcal{L}_{\beta} \pi + \frac{1}{\sqrt{g}}(-P^{ab}P_{ab} + \frac{P^2}{2} + \alpha \pi P - \frac{3}{8}\alpha^2 \pi^2 + \frac{3}{2}\alpha^2 \rho^{a}\rho_{a}) + 2\alpha \pi H_{\perp} \\
+& - 2 \alpha H^{a}\rho_{a} - 2\alpha \rho_{a} \Delta \Gamma^{a}_{~bc}g^{bc} - \alpha (D_{a}\rho^{a}) + \sqrt{g}R\\
+& - \frac{\partial {\hat \lambda}}{\partial \alpha}\mathscr{P} - \frac{\partial {\hat \omega}^{c}}{\partial \alpha}\mathscr{P}_{c}\\
+& + \partial_{d}[\frac{\partial {\hat \lambda}}{\partial(\partial_{d}\alpha)}\mathscr{P}] + \partial_{d}[\frac{\partial {\hat \omega^{c}}}{\partial(\partial_{d}\alpha)}\mathscr{P}_{c}]
+\end{align*}
+\begin{align*}
+{\dot \beta}^{a} & = \alpha^2 H^{a} + \alpha^2\Delta \Gamma^{a}_{~bc}g^{bc} - \alpha g^{ab}\partial_{b}\alpha + \beta^{b}{\bar D}_{b}\beta^{a} - \frac{\alpha^3}{\sqrt{g}} \rho^{a}\\
+& + \frac{\partial {\hat \lambda}}{\partial \rho_{a}}\mathscr{P} + \frac{\partial {\hat \omega}^{c}}{\partial \rho_{a}}\mathscr{P}_{c}
+\end{align*}
+\begin{align*}
+{\dot \rho}_{a} & = -\frac{\delta \mathcal{H}}{\delta \beta^{a}}\\
+& = -\pi D_{a} \alpha + 2(D_{b}P^{cb})g_{ac} + {\bar D}_{b}(\rho_{a}\beta^{b}) - \rho_{b}({\bar D}_{a}\beta^{b})\\
+& - \frac{\partial {\hat \lambda}}{\partial \beta^{a}}\mathscr{P} - \frac{\partial {\hat \omega}^{c}}{\partial \beta^{a}}\mathscr{P}_{c}\\
+& + \partial_{d}[\frac{\partial {\hat \lambda}}{\partial(\partial_{d}\beta^{a})}\mathscr{P}] + \partial_{d}[\frac{\partial {\hat \omega^{c}}}{\partial(\partial_{d}\beta^{a})}\mathscr{P}_{c}]
+\end{align*}
+\begin{align*}
+{\dot \Lambda} = \lambda + {\hat \lambda} + \frac{\partial {\hat \lambda}}{\partial \mathscr{P}}\mathscr{P} + \frac{\partial {\hat \omega}^{c}}{\partial \mathscr{P}}\mathscr{P}_{c}
+\end{align*}
+\begin{align*}
+\frac{ d \mathscr{P}}{dt} & = -\pi - \frac{\partial {\hat \lambda}}{\partial \Lambda}\mathscr{P} - \frac{\partial {\hat \omega}^{c}}{\partial \Lambda}\mathscr{P}_{c}\\
+& + \partial_{d}[\frac{\partial {\hat \lambda}}{\partial(\partial_{d}\Lambda)}\mathscr{P}] + \partial_{d}[\frac{\partial {\hat \omega^{c}}}{\partial(\partial_{d}\Lambda)}\mathscr{P}_{c}] 
+\end{align*}
+\begin{align*}
+{\dot \Omega}^{a} & = \omega^{a} + {\hat \omega^{a}} + \frac{\partial {\hat \lambda}}{\partial \mathscr{P}_{a}}\mathscr{P} + \frac{\partial {\hat \omega}^{c}}{\partial \mathscr{P}_{a}}\mathscr{P}_{c}
+\end{align*}
+\begin{align*}
+\frac{d \mathscr{P}_{a}}{dt} & = -\rho_{a} -  \frac{\partial {\hat \lambda}}{\partial \Omega^{a}}\mathscr{P} - \frac{\partial {\hat \omega}^{c}}{\partial \Omega^{a}}\mathscr{P}_{c}\\
+& + \partial_{d}[\frac{\partial {\hat \lambda}}{\partial(\partial_{d}\Omega^{a})}\mathscr{P}] + \partial_{d}[\frac{\partial {\hat \omega^{c}}}{\partial(\partial_{d}\Omega^{a})}\mathscr{P}_{c}] 
+\end{align*}
+\[
+\mathscr{P}  = 0
+\]
+\[
+\mathscr{P}_{a} = 0
+\]
+\section{Appendix}
+\[
+C_{\perp} = H_{\perp} + K + \frac{\partial_{\perp}\alpha}{\alpha^2} - \frac{\alpha}{{\bar \alpha}}{\bar K}_{ab}g^{ab} + \frac{{\bar K}_{ab}}{\alpha {\bar \alpha}}\Delta \beta^{a} \Delta \beta^{b} - \frac{1}{\alpha {\bar \alpha}}(\partial_{t}{\bar \alpha} + {\bar \beta}^{a}\partial_{a}{\bar \alpha} - 2\beta^{a}\partial_{a}{\bar \alpha})
+\]
+\begin{align*}
+C_{i} & = H_{i} + \Delta\Gamma^{a}_{~cd}g^{cd}g_{ai} - \frac{\partial_{i}\alpha}{\alpha} - \frac{g_{ai}}{\alpha^2}(\partial_{t}\beta^{a} - \beta^{b}{\bar D}_{b}\beta^{a}) + \frac{{\bar \alpha}}{\alpha^2}g_{ai}{\bar g}^{ab}\partial_{b}{\bar \alpha} + \frac{g_{ai}}{\alpha^2}(\partial_t {\bar \beta}^{a} + {\bar \beta}^{b}{\bar D}_{b}{\bar \beta}^{a} - 2\beta^{b}{\bar D}_{b}{\bar \beta}^{a})\\
+& + \frac{g_{ai}\Delta \beta^{a}}{\alpha^2 {\bar \alpha}}(\partial_{t}{\bar \alpha} + {\bar \beta}^{b}\partial_{b}{\bar \alpha} - 2\beta^{b}\partial_{b}{\bar \alpha} + \alpha^2g^{cd}{\bar K}_{cd}) - \frac{g_{ai}{\bar K}_{bc}\Delta \beta^{b}}{\alpha^2 {\bar \alpha}}(\Delta \beta^{a}\Delta \beta^{c} - 2{\bar \alpha}^2{\bar g}^{ca})
+\end{align*}
+Rearrange the terms so that it obeys the coordinate transform invariance, we have
+\[
+C_{\perp} = H_{\perp} + K + \frac{1}{\alpha^2}(\partial_{t}\alpha - \beta^{a}\partial_{a}\alpha - \frac{{\dot{\bar\alpha}}}{{\bar \alpha}}\alpha) - \frac{\alpha}{{\bar \alpha}}{\bar K}_{ab}g^{ab} + \frac{{\bar K}_{ab}}{\alpha{\bar \alpha}}\Delta \beta^{a} \Delta \beta^{b} + \frac{2}{\alpha {\bar \alpha}}\Delta \beta^{a} \partial_{a}{\bar \alpha} + {\color{red}\frac{1}{\alpha{\bar \alpha}}{\bar \beta}^{a}\partial_{a}{\bar \alpha}}
+\]
+\begin{align*}
+C_{i} & = H_{i} + \Delta \Gamma^{a}_{cd}g^{cd}g_{ai} - \frac{\partial_{i}\alpha}{\alpha} + \frac{{\bar \alpha}}{\alpha^2}g_{ai}{\bar g}^{ab}\partial_{b}{\bar \alpha} + \frac{g_{ai}\Delta \beta^{a}}{\alpha^2 {\bar \alpha}}(\alpha^2g^{cd}{\bar K}_{cd} - 2\Delta\beta^{b}\partial_{b}{\bar \alpha} - {\color{red}{\bar \beta}^{b}\partial_{b}{\bar \alpha}})\\
+& - \frac{g_{ai}{\bar K}_{bc}\Delta \beta^{b}}{\alpha^2{\bar \alpha}}(\Delta \beta^{a}\Delta \beta^{c} - 2{\bar \alpha}^2{\bar g}^{ac})\\
+& - \frac{g_{ai}}{\alpha^2}(\partial_{t}\beta^{a} - \beta^{b}{\bar D}_{b}\beta^{a} - \beta^{a}\frac{{\dot{\bar \alpha} }}{{\bar \alpha}}) + \frac{g_{ai}}{\alpha^2}(\partial_{t}{\bar \beta}^{a} - {\bar \beta}^{a}\frac{{\dot {\bar \alpha}}}{{\bar \alpha}} + {\bar \beta}^{b}{\bar D}_{b}{\bar \beta}^{a} - 2\beta^{b}{\bar D}_{b}{\bar \beta}^{a})
+\end{align*}
+Rearrange the terms so that it obeys the coordinate transform invariance, we have
+\[
+C_{\perp} = H_{\perp} + K + \frac{1}{\alpha^2}[{\dot \alpha} - \beta^{a}\partial_{a}\alpha - \frac{\alpha}{{\bar \alpha}}({\dot{\bar\alpha}}- {\bar\beta}^{a}\partial_{a}{\bar \alpha})] - \frac{\alpha}{{\bar \alpha}}{\bar K}_{ab}g^{ab} + \frac{{\bar K}_{ab}}{\alpha{\bar \alpha}}\Delta \beta^{a} \Delta \beta^{b} + \frac{2}{\alpha {\bar \alpha}}\Delta \beta^{a} \partial_{a}{\bar \alpha}
+\]
+\begin{align*}
+C_{i} & = H_{i} + \Delta \Gamma^{a}_{cd}g^{cd}g_{ai} - \frac{\partial_{i}\alpha}{\alpha} + \frac{{\bar \alpha}}{\alpha^2}g_{ai}{\bar g}^{ab}\partial_{b}{\bar \alpha} + \frac{g_{ai}\Delta \beta^{a}}{\alpha^2 {\bar \alpha}}(\alpha^2g^{cd}{\bar K}_{cd} - 2\Delta\beta^{b}\partial_{b}{\bar \alpha})\\
+& - \frac{g_{ai}{\bar K}_{bc}\Delta \beta^{b}}{\alpha^2{\bar \alpha}}(\Delta \beta^{a}\Delta \beta^{c} - 2{\bar \alpha}^2{\bar g}^{ac})\\
+& - \frac{g_{ai}}{\alpha^2}[{\dot \beta}^{a} - \beta^{b}{\bar D}_{b}\beta^{a} - \frac{\beta^{a}}{{\bar \alpha}}({\dot {\bar \alpha}} - {\bar \beta}^{b}\partial_{b}{\bar \alpha})] + \frac{g_{ai}}{\alpha^2}[{\dot {\bar \beta}}^{a} -\frac{{\bar \beta}^{a}}{{\bar \alpha}}({\dot {\bar \alpha}} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}) + {\bar \beta}^{b}{\bar D}_{b}{\bar \beta}^{a} - 2\beta^{b}{\bar D}_{b}{\bar \beta}^{a}]
+\end{align*}
+\end{document}

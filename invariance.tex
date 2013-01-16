@@ -1,0 +1,36 @@
+\documentclass[letterpaper,nofootinbib,prd,amsmath,onecolumn]{revtex4-1}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{mathrsfs}
+
+\begin{document}
+\special{papersize=8.5in,11in}
+
+\title{Invariant Gauge Conditions under Foliation Preserved Coordinate Transformation}
+\author{J.~David Brown, Meng Cao}
+\affiliation{Department of Physics, North Carolina State University, Raleigh, NC 27695 USA}
+
+\begin{abstract}
+The transform law of 3 + 1 splitting physical quantities, such as the lapse, shift vector, extrinsic curvature and etc., under a foliation preserved coordinate transformation are presented. The covariant forms of time derivative of the lapse and time derivative of the shift vector are given. The invariant form of 1 + log slicing condition and gamma-driver shift equation are derived from those covariant time derivatives. Utilize these invariant gauge conditions, we are able to evolve the same system with two different coordinate systems and reach the same result. A time dependent spatial rotation coordinate transformation is discussed in details as a specific example of this case.  
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+The Einstein's equations are in the covariant form under spacetime diffeomorphism, which means the equations are invariant under spacetime coordinate transformations. The introuction of 3 + 1 splitting mechanism breaks the symmetry of time and space domain, although it still preserves the invariant property, the covariant structure is not manifest in the equations anymore. While constructing numerical simulations, either in ADM formulation or BSSN formulation, people use gauge conditions(such as 1 + log slicing and Gamma-driver shift condition) to evolve the lapse and shift vector along with time. Unfortunately, these gauge condition equations are neither explicitly nor implicitly covariant. This scheme works sufficiently accurate if the system is evolved in one single coordinate system with specifying the background lapse ${\bar \alpha} = 1$ and background shift vector ${\bar \beta}^{a} = 0$. However, if the same system is evolved with two different coordinate systems to the same time under this kind of gauge conditions, it is not guaranteed that we can get the same results. \\
+\\
+This situation leads to our motivation of this paper. We will try to examine the transform pattern of physical quantities in 3 + 1 splitting system under a so called ``foliation preserved coordinate transformation'', which includes time reparamerization and time dependent spatial deffeomorphism while the structure of foliations is preserved. Then we will try to write down the covariant form of the gauge conditions under this coordinate transformation and give the guideline of how to implement this into numerical simulation. 
+\\
+\\
+The paper is organized as follows. In Sec.~\ref{notation}, we explain the notation and convention we are going to follow in this paper. In Sec.~\ref{transform}, we give the definition of foliation preserved coordinate transformation, derive and list the transform pattern of all significant 3 + 1 splitting physical quantities. The ordinary gauge conditions, such as 1 + log slicing condition and Gamma-driver shift equations, are dicussed in details in Sec.~\ref{gauge}. They are then modified to covariant forms
+
+\section{}\label{notation}
+\section{}\label{transform}
+\section{}\label{gauge}
+\end{document}
