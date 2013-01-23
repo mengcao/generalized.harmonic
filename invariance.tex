@@ -35,17 +35,35 @@ In 3 + 1 formulation, we have
 \begin{equation*}
 ^{(4)}g_{\mu\nu} = \begin{pmatrix}-\alpha^2 + \beta^{c}\beta_{c} & \beta_{b}\\\\\beta_{a} & g_{ab}\end{pmatrix}
 \end{equation*}
-where $\alpha$ is called the lapse function, $\beta^{a}$ the shift vector and $g_{ab}$ the spatial metric. The covariant normal to each foliation is denoted as $n_{\mu} = -\alpha\delta^{0}_{\mu}$. And its dual is $n^{\mu} = (\delta^{\mu}_{0} - \beta^{c}\delta^{\mu}_{c})/\alpha$, so that we have $n_{\mu}n^{\mu} = 1$. There is also the projection operator $X^{\mu}_{a} = \delta^{\mu}_{a}$ that projects a spacetime covector into a spacelike covector. Its covariant form is $X^{a}_{\mu} = \delta^{a}_{\mu} + \beta^{a}\delta^{0}_{\mu}$, so that we have $X^{\mu}_{a}X^{b}_{\mu} = \delta^{b}_{a}$ and $X^{\mu}_{a}n_{\mu} = 0$. 
+where $\alpha$ is called the lapse function, $\beta^{a}$ the shift vector and $g_{ab}$ the spatial metric. The covariant normal to each foliation is denoted as
+\begin{equation}\label{normal covector}
+n_{\mu} = -\alpha\delta^{0}_{\mu}
+\end{equation}
+ And its dual is
+\begin{equation}\label{normal vector}
+n^{\mu} = (\delta^{\mu}_{0} - \beta^{c}\delta^{\mu}_{c})/\alpha
+\end{equation}
+so that we have $n_{\mu}n^{\mu} = 1$. 
+
+There is also the projection operator
+\begin{equation}\label{projection 1}
+X^{\mu}_{a} = \delta^{\mu}_{a}
+\end{equation}
+that projects a spacetime covector into a spacelike covector. Its covariant form is
+\begin{equation}\label{projection 2}
+X^{a}_{\mu} = \delta^{a}_{\mu} + \beta^{a}\delta^{0}_{\mu}
+\end{equation}
+so that we have $X^{\mu}_{a}X^{b}_{\mu} = \delta^{b}_{a}$ and $X^{\mu}_{a}n_{\mu} = 0$. 
 
 With these definitions, the spacetime metric can be written in terms of the spatial metric, the normal and the projection operator as
-\begin{equation}
+\begin{equation}\label{spacetime metric 3 + 1}
 ^{(4)}g_{\mu\nu} = g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu}
 \end{equation}
 Spacetime indices $\mu$, $\nu$, ... are always raised and lowered with the spacetime metric $^{(4)}g_{\mu\nu}$ and its inverse $^{(4)}g^{\mu\nu}$, while spatial indices $a$, $b$, ... are always raised and lowered with the spatial metric $g_{ab}$ and its inverse $g^{ab}$. 
 
 Another important quantity in 3 + 1 splitting, the extrinsic curvature is defined as
 \begin{equation}
-K_{ab} = - \frac{1}{2\alpha}(\partial_{t}g_{ab} - 2D_{(a}\beta_{b)})
+K_{ab} = - \frac{1}{2\alpha}\left[\partial_{t}g_{ab} - 2D_{(a}\beta_{b)}\right]
 \end{equation}
 \section{Foliation Preserving Coordinate Transformation}\label{transform}
 {\bf {\color{red}PROPERTY OF THIS TRANSFORMATION.
@@ -62,17 +80,66 @@ and vice versa, we have
 t & = t(t')\\
 x^{a} & = x^{a}(t',x^{a'})
 \end{align*}
-Under this transformation, the spacetime metric transforms as
+Use the chain rule of partial differentiation to inspect the delta function for this tranformation, we have
+\[
+\delta^{a}_{b} = \frac{\partial x^{a}}{\partial x^{b}} = \frac{\partial x^{a}}{\partial x^{\mu'}}\frac{\partial x^{\mu'}}{\partial x^{b}} = \frac{\partial x^{a}}{\partial t'}\frac{\partial t'}{\partial x^{b}} + \frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{a'}}{\partial x^{b}}
+\]
+and since $t' = t'(t)$, $\partial t'/\partial x^{b} = 0$, hence we reached an important identity of this coordinate transformation
+\begin{equation}
+\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{a'}}{\partial x^{b}} = \delta^{a}_{b}
+\end{equation}
+and equivalently
+\begin{equation}
+\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial x^{b'}} = \delta^{a'}_{b'}
+\end{equation}
+The spacetime metric transforms regularly under this transformation
 \begin{align}\label{spacetime metric}
 ^{(4)}g_{\mu'\nu'} &=~^{(4)}g_{\mu\nu}\frac{\partial x^{\mu}}{\partial x^{\mu'}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}\notag\\
 & = (g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu})\frac{\partial x^{\mu}}{\partial x^{\mu'}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}
 \end{align}
 By substituting the indices $\mu'$ and $\nu'$ for $a'$ and $b'$ respectively in Eq.~\ref{spacetime metric}, we can obtain the transformation law of the spatial metric
-\begin{align*}
+\begin{align}
 g_{a'b'} & = (g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu})\frac{\partial x^{\mu}}{\partial x^{a'}}\frac{\partial x^{\nu}}{\partial x^{b'}}\notag\\
 &= g_{ab}(\frac{\partial x^{a}}{\partial x^{a'}} + \beta^{a}\frac{\partial t}{\partial x^{a'}})(\frac{\partial x^{b}}{\partial x^{b'}} + \beta^{b}\frac{\partial t}{\partial x^{b'}}) - \alpha^2\frac{\partial t}{\partial x^{a'}}\frac{\partial t}{\partial x^{b'}}\notag\\
 & = g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}
+\end{align}
+And its inverse should transform as
+\begin{equation}
+g^{a'b'} = g^{ab}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b'}}{\partial x^{b}}\label{spatial metric}
+\end{equation}
+Let $g$ denote the determinant of the spatial metric $g_{ab}$. It should transform as
+\begin{equation}
+g' = |g_{a'b'}| = |g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}| = |g_{ab}||\frac{\partial x^{a}}{\partial x^{a'}}||\frac{\partial x^{b}}{\partial x^{b'}}| = g|\frac{\partial x}{\partial x'}|^{2}
+\end{equation}
+Besides from the spatial metric, the lapse $\alpha$ and the shift vector $\beta^{a}$ are two significant variables in the 3 + 1 splitting scheme. 
+
+From equations [\ref{normal covector}-\ref{spacetime metric 3 + 1}], we have that
+\begin{align}
+^{(4)}g_{a0} & = \beta_{a}\label{lapse}\\
+^{(4)}g_{00} & = -\alpha^2 + g_{ab}\beta^{a}\beta^{b}\label{shift}
+\end{align}
+According to Eq.~\ref{lapse} and Eq.~\ref{spacetime metric}, we have
+\begin{align}
+\beta_{a'} & = (g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu})\frac{\partial x^{\mu}}{\partial x^{a'}}\frac{\partial x^{\nu}}{\partial t'}\notag\\
+& = g_{ab}X^{a}_{\mu}X^{b}_{\nu}\delta_{c}^{\mu}\frac{\partial x^{c}}{\partial x^{a'}}\frac{\partial x^{\nu}}{\partial t'}\notag\\
+& = g_{ab}(\delta^{b}_{\nu} + \beta^{b}\delta^{0}_{\nu})\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{\nu}}{\partial t'}\notag\\
+& = \beta_{a}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial t}{\partial t'} + g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial t'}\label{shift covector transform}
+\end{align}
+Use the results from Eq.~\ref{spatial metric} and Eq.~\ref{shift covector transform}, we can easily derive the transform law of the shift vector
+\begin{align}
+\beta^{a'} & = \beta_{b'}g^{a'b'}\notag\\
+& = \left(\beta_{b}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial t}{\partial t'} + g_{cd}\frac{\partial x^{d}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial t'}\right)g^{ab}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b'}}{\partial x^{b}}\notag\\
+& = \beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}
+\end{align}
+Use the result from Eq.~\ref{shift transform} along with Eq.~\ref{lapse} and Eq.~\ref{spacetime metric}, we can derive the transform law of the lapse function. 
+\begin{align*}
+\alpha'^{2} & = - (g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu})\frac{\partial x^{\mu}}{\partial t'}\frac{\partial x^{\nu}}{\partial t'} + g_{a'b'}\beta^{a'}\beta^{b'}\notag\\ 
+& = \alpha^2\left(\frac{\partial t}{\partial t'}\right)^{2}
 \end{align*}
+Therefore we have
+\begin{equation}
+\alpha' = \alpha\frac{\partial t}{\partial t'}\label{lapse transform}
+\end{equation}
 \section{}\label{gauge}
 \section{}\label{example}
 \end{document}

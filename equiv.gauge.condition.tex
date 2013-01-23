@@ -1,0 +1,144 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{mathrsfs}
+
+\begin{document}
+\title{Equivalent Gauge Condition}
+\author{Meng Cao}
+\maketitle
+
+\section{1 + log slicing}
+The regular 1 + log slicing equation is
+\begin{equation}\label{regular slicing}
+{\dot \alpha} = -2\alpha K
+\end{equation}
+and our invariant form is
+\begin{equation}\label{invariant slicing}
+\mathring{\alpha} = -2\alpha{\bar \alpha}K
+\end{equation}
+where
+\[
+\mathring{\alpha} = ({\dot \alpha} - {\bar \beta}^{a}\partial_{a}\alpha) - \frac{\alpha}{{\bar \alpha}}({\dot {\bar \alpha}} - {\bar \beta}^{a}\partial_{a}{\bar \alpha})
+\]
+{\color{red} note that this is a little bit different from our previous definition}
+{\color{red}
+\[
+\mathring{\alpha} = ({\dot \alpha} - \beta^{a}\partial_{a}\alpha) - \frac{\alpha}{{\bar \alpha}}({\dot {\bar \alpha}} - {\bar \beta}^{a}\partial_{a}{\bar \alpha})
+\]
+}
+for the transform law, we have that
+\begin{align*}
+\alpha' & = \alpha\frac{\partial t}{\partial t'}\\
+{\bar \alpha}' & = {\bar \alpha}\frac{\partial t}{\partial t'}\\
+K' & = K\\
+\mathring{\alpha}' & = \mathring{\alpha}\left(\frac{\partial t}{\partial t'}\right)^{2}\\
+\end{align*}
+We try to break $\mathring{\alpha}$ into two parts
+\[
+\mathring{\alpha} = {\dot \alpha} + A
+\]
+and assume they transform separately as
+\begin{align*}
+{\dot \alpha}' & = ({\dot \alpha} + \delta)\left(\frac{\partial t}{\partial t'}\right)^{2}\\
+A' & = (A - \delta)\left(\frac{\partial t}{\partial t'}\right)
+\end{align*}
+where $\delta$ is the extra term we get when we try to transform ${\dot \alpha}$. In such way, we can recover the transform law of $\mathring{\alpha}$.\\
+\\
+Therefore, when we try to invert ${\dot \alpha}$ to ${\dot \alpha}'$, we have
+\[
+{\dot \alpha} = {\dot \alpha}'\left(\frac{\partial t'}{\partial t}\right)^{2} - \delta
+\]
+Plug this and the transforms laws listed above into Eq.~\ref{regular slicing}, we can have the 1 + log slicing equation in the transformed coordinate system. 
+\begin{equation}\label{transformed regular slicing}
+{\dot \alpha}'\left(\frac{\partial t'}{\partial t}\right)^{2} - \delta = - 2 \alpha' \frac{\partial t'}{\partial t}K'
+\end{equation}
+The other way to get the transformed 1 + log slicing equation is from our invariant 1 + log slicing equation. Since it is invariant, we should have
+\[
+{\dot \alpha}' + A' = - 2\alpha'{\bar \alpha}'K'
+\]
+Try to rewrite all the background metric terms into unprimed version, we have
+\[
+{\dot \alpha}' + (A - \delta)\left(\frac{\partial t}{\partial t'}\right)^{2} = -2\alpha' {\bar \alpha}\frac{\partial t}{\partial t'}K'
+\]
+By assuming the background metric is trivial, we should have ${\bar \alpha} = 1$ and $A = 0$. Therefore, the equation ends up to be
+\begin{equation}\label{transformed invariant slicing}
+{\dot \alpha}'  - \delta\left(\frac{\partial t}{\partial t'}\right)^{2} = -2\alpha'\frac{\partial t}{\partial t'}K'
+\end{equation}
+One can easily tell that Eq.~\ref{transformed regular slicing} and Eq.~\ref{transformed invariant slicing} are identical except for a factor of $\left(\frac{\partial t'}{\partial t}\right)^{2}$.
+\section{Gamma-driver Shift Equation}
+The regular Gamma-driver shift equation is
+\begin{equation}\label{regular gamma-driver}
+{\dot \beta}^{a} - \beta^{b}\partial_{b}\beta^{a} = \frac{3}{4}\sqrt{g}^{2/3}(\Gamma^{a}_{~bc}g^{bc} + \frac{1}{3}g^{ab}\Gamma^{c}_{~bc}) - \eta \beta^{a} 
+\end{equation}
+and our invariant form is
+\begin{equation}\label{invariant gamma-driver}
+\mathring{\beta}^{a} = \frac{3}{4}\sqrt{\frac{g}{{\bar g}}}^{2/3}{\bar \alpha}^{2}(\Delta \Gamma^{a}_{~bc}g^{bc} + \frac{1}{3}g^{ab}\Delta\Gamma^{c}_{~bc}) - \eta {\bar \alpha}\Delta\beta^{a} 
+\end{equation}
+where
+\[
+\mathring{\beta}^{a} =  \Delta {\dot \beta}^{a} -\frac{\Delta \beta^{a}}{{\bar \alpha}}({\dot {\bar \alpha}} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}) - \beta^{b}{\bar D}_{b}\beta^{a} + 2\beta^{b}{\bar D}_{b}{\bar \beta}^{a} - {\bar \beta}^{b}{\bar D}_{b}{\bar \beta}^{a}
+\]
+We can also try to break up $\mathring{\beta}^{a}$ into two parts
+\[
+\mathring{\beta}^{a} = {\dot \beta}^{a} - \beta^{b}\partial_{b}\beta^{a} + B^{a}
+\]
+For the transform laws, we have
+\begin{align*}
+\beta^{a'} & = \beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}\\
+{\bar \beta}^{a'} & = {\bar\beta}^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}\\
+{\dot \beta}^{a'} - \beta^{b'}\partial_{b'}\beta^{a'} & = ({\dot \beta}^{a} - \beta^{b}\partial_{b}\beta^{a} + \sigma^{a})\frac{\partial x^{a'}}{\partial x^{a}}\left(\frac{\partial t}{\partial t'}\right)^{2}\\
+B^{a'} & = (B^{a} - \sigma^{a})\frac{\partial x^{a'}}{\partial x^{a}}\left(\frac{\partial t}{\partial t'}\right)^{2}\\
+\mathring{\beta}^{a'} & = \mathring{\beta}^{a}\frac{\partial x^{a'}}{\partial x^{a}}\left(\frac{\partial t}{\partial t'}\right)^{2}\\
+\Gamma^{a'}_{~b'c'} & = \Gamma^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial^{2}x^{a}}{\partial x^{b'}\partial x^{c'}}\\
+{\bar\Gamma}^{a'}_{~b'c'} & = {\bar \Gamma}^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial^{2}x^{a}}{\partial x^{b'}\partial x^{c'}}\\
+g_{a'b'} & = g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\\
+g' & = g\left|\frac{\partial x}{\partial x'}\right|^{2}
+\end{align*}
+where $\sigma^{a}$ is also the extra term under this transformation.\\
+\\ 
+If we try to invert $\beta^{a} - \beta^{b}\partial_{b}\beta^{a}$ to $\beta^{a'} - \beta^{b'}\partial_{b'}\beta^{a'}$, we have
+\[
+\beta^{a} - \beta^{b}\partial_{b}\beta^{a} = (\beta^{a'} - \beta^{b'}\partial_{b'}\beta^{a'})\frac{\partial x^{a}}{\partial x^{a'}}\left(\frac{\partial t'}{\partial t}\right)^{2} - \sigma^{a}
+\]
+Plug this and the transforms laws listed above into Eq.~\ref{regular gamma-driver}, we can have the Gamma-driver shift equation in the transformed coordinate system. 
+\begin{align}\label{transformed gamma-driver}
+(\beta^{a'} - \beta^{b'}\partial_{b'}\beta^{a'})\frac{\partial x^{a}}{\partial x^{a'}}\left(\frac{\partial t'}{\partial t}\right)^{2} - \sigma^{a} & = \frac{3}{4}\sqrt{g'}^{2/3}\left|\frac{\partial x'}{\partial x}\right|^{2/3}(\Gamma^{a'}_{~b'c'}g^{b'c'}\frac{\partial x^{a}}{\partial x^{a'}} - g^{b'c'}\frac{\partial^{2} x^{a}}{\partial x^{b'}\partial x^{c'}}\notag\\
+& + \frac{1}{3}\Gamma^{c'}_{~b'c'}g^{a'b'}\frac{\partial x^{a}}{\partial x^{a'}} - \frac{1}{3}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial^{2} x^{c}}{\partial x^{c'}\partial x^{b'}}\frac{\partial x^{a}}{\partial x^{a'}}g^{a'b'})\notag\\
+& - \eta \beta^{a'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial t'}{\partial t} + \eta \frac{\partial x^{a}}{\partial t'}\frac{\partial t'}{\partial t}
+\end{align}
+The other way to get the transformed Gamma-driver shift equation is from our invariant Gamma-driver shift equation. Since it is invariant, we should have
+\[
+{\dot \beta}^{a'} - \beta^{b'}\partial_{b'}\beta^{a'} + B^{a'} = \frac{3}{4}\sqrt{\frac{g'}{{\bar g}'}}^{2/3}{\bar \alpha}^{2}(\Delta \Gamma^{a}_{~b'c'}g^{b'c'} + \frac{1}{3}g^{a'b'}\Delta\Gamma^{c'}_{~b'c'}) - \eta {\bar \alpha}'\Delta\beta^{a'}
+\]
+Try to rewrite all the background metric terms into unprimed version, we have
+\begin{align*}
+&{\dot \beta}^{a'} - \beta^{b'}\partial_{b'}\beta^{a'} + (B^{a} - \sigma^{a})\frac{\partial x^{a'}}{\partial x^{a}}\left(\frac{\partial t}{\partial t'}\right)^{2} = \notag\\
+& \frac{3}{4}\sqrt{\frac{g'}{{\bar g}}}^{2/3}\left|\frac{\partial x'}{\partial x}\right|^{2/3}{\bar \alpha}^{2}\left(\frac{\partial t}{\partial t'}\right)^{2}(\Gamma^{a'}_{~b'c'}g^{b'c'} - {\bar \Gamma}^{a}_{~bc}g^{bc}\frac{\partial x^{a'}}{\partial x^{a}} - \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial^{2}x^{a}}{\partial x^{b'}\partial x^{c'}}g^{b'c'} )\\
+&\frac{1}{3}\Gamma^{c'}_{~b'c'}g^{a'b'} - \frac{1}{3}{\bar\Gamma}^{c}_{~bc}g^{ab}\frac{\partial x^{a'}}{\partial x^{a}} - \frac{1}{3}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial^{2}x^{c}}{\partial x^{c'}\partial x^{b'}}g^{a'b'})\\
+& - \eta {\bar\alpha}\frac{\partial t}{\partial t'}\beta^{a'} + \eta {\bar\alpha}\frac{\partial t}{\partial t'}{\bar\beta}^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \eta {\bar \alpha} \frac{\partial t}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}
+\end{align*}
+By assuming the background metric is trivial, we have
+\begin{align*}
+{\bar \alpha} & = 1\\
+{\bar \beta}^{a} & = 0\\
+{\bar \Gamma}^{a}_{~bc} & = 0\\
+{\bar g} & = 1\\
+B^{a} & = 0
+\end{align*}
+Therefore the equation above becomes
+\begin{align}\label{transformed invariant gamma-driver}
+&{\dot \beta}^{a'} - \beta^{b'}\partial_{b'}\beta^{a'} - \sigma^{a}\frac{\partial x^{a'}}{\partial x^{a}}\left(\frac{\partial t}{\partial t'}\right)^{2} = \notag\\
+& \frac{3}{4}\sqrt{g'}^{2/3}\left|\frac{\partial x'}{\partial x}\right|^{2/3}\left(\frac{\partial t}{\partial t'}\right)^{2}(\Gamma^{a'}_{~b'c'}g^{b'c'} - \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial^{2}x^{a}}{\partial x^{b'}\partial x^{c'}}g^{b'c'} )\notag\\
+&\frac{1}{3}\Gamma^{c'}_{~b'c'}g^{a'b'}  - \frac{1}{3}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial^{2}x^{c}}{\partial x^{c'}\partial x^{b'}}g^{a'b'})\notag\\
+& - \eta\frac{\partial t}{\partial t'}\beta^{a'} + \eta \frac{\partial t}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}
+\end{align}
+One can also easily tell that Eq.~\ref{transformed gamma-driver} and Eq.~\ref{transformed invariant gamma-driver} are identical except for a factor of $\frac{\partial x^{a}}{\partial x^{a'}}\left(\frac{\partial t'}{\partial t}\right)^{2}$.
+\end{document}
