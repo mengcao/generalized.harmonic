@@ -62,7 +62,7 @@ With these definitions, the spacetime metric can be written in terms of the spat
 Spacetime indices $\mu$, $\nu$, ... are always raised and lowered with the spacetime metric $^{(4)}g_{\mu\nu}$ and its inverse $^{(4)}g^{\mu\nu}$, while spatial indices $a$, $b$, ... are always raised and lowered with the spatial metric $g_{ab}$ and its inverse $g^{ab}$. 
 
 Another important quantity in 3 + 1 splitting, the extrinsic curvature is defined as
-\begin{equation}
+\begin{equation}\label{extrinsic}
 K_{ab} = - \frac{1}{2\alpha}\left[\partial_{t}g_{ab} - 2D_{(a}\beta_{b)}\right]
 \end{equation}
 \section{Foliation Preserving Coordinate Transformation}\label{transform}
@@ -140,6 +140,30 @@ Therefore we have
 \begin{equation}
 \alpha' = \alpha\frac{\partial t}{\partial t'}\label{lapse transform}
 \end{equation}
+From the calculation above we can tell that the shift vector $\beta^{a}$ doesn't transform as a vector under this coordinate transformation. In order to resolve this, we introduce the backgrond metric denoted as ${\bar g}_{\mu\nu}$. The background metric was initially introduced to make the Christoffel symbols transform as a tensor and it is usually defined as a trivial metric, i.e., ${\bar g}_{\mu\nu} = diag(-1,1,1,1)$. Therefore, we should have ${\bar g} = -1, $${\bar \Gamma}^{a}_{~bc} = 0$, ${\bar \alpha} = 1$ and ${\bar \beta}^{a} = 0$. The background shift vector ${\bar \beta}^{a}$ follows the same transform law of $\beta^{a}$
+\[
+{\bar \beta}^{a'} = {\bar \beta}^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}
+\]
+and hence the difference between $\beta^{a}$ and ${\bar \beta}^{a}$ should transform as a vector
+\begin{equation}
+\Delta \beta^{a'} = \Delta \beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}
+\end{equation}
+where $\Delta \beta^{a} = \beta^{a} - {\bar \beta}^{a}$. 
+
+According to the definition of extrinsic curvature in Eq.~\ref{extrinsic}, in order to learn how it transforms, we need to write down the transform law of $\partial_{t}g_{ab}$ and $D_{a}\beta^{b}$ first. For $\partial_{t}g_{ab}$, we have
+\begin{align}
+\partial_{t'}g_{a'b'} & = (\partial_{t'}g_{ab})\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\partial_{t'}\left(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\right)\notag\\
+& =  (\partial_{t}g_{ab})\frac{\partial t}{\partial t'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + (\partial_{c}g_{ab})\frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\partial_{t'}\left(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\right)
+\end{align}
+For $D_{a}\beta_{b}$, we have
+\begin{align}
+D_{a'}\beta_{b'} & = D_{a'}\left(\beta_{b}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial t}{\partial t'}\right) + D_{a'}\left(g_{bc}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial t'}\right)\notag\\
+& = D_{a}\beta_{b}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial t}{\partial t'} + g_{b'c'}D_{a'}\left(\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'}\right)
+\end{align}
+As a result, the extrinsic curvature transforms as a (0,2) tensor, we omitted the tedious calculation and list the result below
+\begin{equation}
+K_{a'b'} = K_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}
+\end{equation}  
 \section{}\label{gauge}
 \section{}\label{example}
 \end{document}
