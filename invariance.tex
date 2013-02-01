@@ -146,11 +146,11 @@ From the calculation above we can tell that the shift vector $\beta^{a}$ doesn't
 \]
 and hence the difference between $\beta^{a}$ and ${\bar \beta}^{a}$ should transform as a vector
 \begin{equation}
-\Delta \beta^{a'} = \Delta \beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}
+\Delta \beta^{a'} = \Delta \beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'}
 \end{equation}
 where $\Delta \beta^{a} = \beta^{a} - {\bar \beta}^{a}$.
  
-Now we have investigated the transform law of the terms without any derivatives. However, since the 1 + log slicing condition and Gamma-driver shift equation are both first order partial derivative equations, we still need to learn how partial derivative terms transform under the foliation preserving coordinate transformation. 
+Now we have investigated the transform law of the terms without any derivatives. However, since the 1 + log slicing condition and Gamma-driver shift equation are both first order partial differentiation equations, we still need to learn how partial derivative terms transform under the foliation preserving coordinate transformation. 
 
 In order to study how partial derivatives transform, let's review the chain rule for this diffeomorphism briefly. The chain rule in spacetime domain states as below
 \begin{equation*}
@@ -164,7 +164,7 @@ and if $\mu' = a'$, since $\partial t/\partial x^{a'} = 0$, we have
 \begin{equation}\label{spatial derivative}
 \partial_{a'} = \frac{\partial x^{c}}{\partial x^{a'}}\partial_{c}
 \end{equation}
-From Eq.~\ref{time derivative} and Eq.~\ref{spatial derivative} we can tell that the spatial derivative transforms just like tensor without introducing any extra terms. On the other hand, in the time derivative transformations, there are one extra term $(\partial t/\partial t')\partial_{t}$ involved, since $\partial t\partial t' \ne 0$. According to this analysis, the spatial Christoffel symbol should transform as the spacetime Christoffel symbol, since it is only constructed by the spatial metric and its spatial derivatives. 
+From Eq.~\ref{time derivative} and Eq.~\ref{spatial derivative} we can tell that the spatial derivative transforms just like tensor without introducing any extra terms. On the other hand, in the time derivative transformations, there are one extra term $(\partial t/\partial t')\partial_{t}$ involved, since $\partial t/\partial t' \ne 0$. According to this analysis, the spatial Christoffel symbol should transform as the spacetime Christoffel symbol, since it is only constructed by the spatial metric and its spatial derivatives. 
 \begin{equation}
 \Gamma^{a'}_{~b'c'} = \Gamma^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}} + \frac{\partial x^{a'}}{\partial x^{d}}\frac{\partial^{2} x^{d}}{\partial x^{b'}\partial x^{c'}}
 \end{equation}
@@ -260,7 +260,10 @@ After the analysis in Sec.~\ref{transform}, one can notice that neither the righ
 & = -2\left(\alpha\frac{\partial t}{\partial t'}\right)\left({\bar \alpha}\frac{\partial t}{\partial t'}\right)K\\
 & = -2\alpha'{\bar \alpha}'K'
 \end{align*}
-Therefore, we have reached the invariant form of 1 + log slicing condition. 
+Therefore, we have reached the invariant form of 1 + log slicing condition as below
+\begin{equation}
+\mathscr{D}_{t}\alpha = -2\alpha{\bar \alpha}K
+\end{equation}
 
 We can follow the same strategy to alter the Gamma-driver shift equation, replacing the left hand side by $\mathscr{D}_{t}\beta^{a}$, changing every non-tensorial term on the right hand side to its corresponding tensorial term and balance the transform factor on both sides. Therefore, the regular Gamma-driver shift equation
 \begin{equation}
@@ -270,5 +273,29 @@ becomes
 \begin{equation}
 \mathscr{D}_{t}\beta^{a} = \frac{3}{4}\sqrt{\frac{g}{{\bar g}}}^{2/3}{\bar \alpha}^{2}(\Delta \Gamma^{a}_{~bc}g^{bc} + \frac{1}{3}g^{ab}\Delta\Gamma^{c}_{~bc}) - \eta {\bar \alpha}\Delta\beta^{a}
 \end{equation}
-\section{}\label{example}
+Writing down these invariant gauge conditions creates more possibilities for numerical simulation. When the need of evolving the system in a different coordinates system rises, one can just use the following equations as gauge conditions
+\begin{align*}
+\mathscr{D}_{t'}\alpha' & = -2\alpha'{\bar \alpha}'K'\\
+\mathscr{D}_{t'}\beta^{a'} & = \frac{3}{4}\sqrt{\frac{g'}{{\bar g}'}}^{2/3}{\bar \alpha}'^{2}(\Delta \Gamma^{a'}_{~b'c'}g^{b'c'} + \frac{1}{3}g^{a'b'}\Delta\Gamma^{c'}_{~b'c'}) - \eta {\bar \alpha}'\Delta\beta^{a'}
+\end{align*}
+while the transformed background metric terms are associated with the original terms as below
+\begin{align}
+{\bar g}_{a'b'} & = {\bar g}_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\\
+{\bar g'} & = {\bar g}|\frac{\partial x}{\partial x'}|^{2}\\
+{\bar \alpha}' & = {\bar \alpha}\frac{\partial t}{\partial t'}\\
+{\bar \beta}^{a'} & = {\bar \beta}^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'}\\
+{\bar \Gamma}^{a'}_{~b'c'} & = {\bar \Gamma}^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}}
+\end{align}
+We will explain how this scheme works in detail with a specific example in the next section. 
+\section{Time Dependent Spatial Rotation Coordinate Transformation}\label{example}
+In this section, we examine a specific kind of coordinate transformation, the time dependent spatial rotation coordinate transformation, and demonstrate how the invariant gauge conditions work
+in action. 
+
+In this coordinate transformation, we keep the $t$ coordinate intact while let the spatial coordinate rotates around the $z$ axis at a constant angular speed $\omega$. Hence the transformed coordinates can be expressed in terms of the original terms as below
+\begin{align}
+t' & = t\notag\\
+x' & = x \cos(\omega t) + y\sin(\omega t)\notag\\
+y' & = -x\sin(\omega t) + y\cos(\omega t)\notag\\
+z' & = z
+\end{align}
 \end{document}
