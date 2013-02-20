@@ -103,14 +103,17 @@ g_{a'b'} & = (g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu})\frac{\partial x^{\m
 &= g_{ab}(\frac{\partial x^{a}}{\partial x^{a'}} + \beta^{a}\frac{\partial t}{\partial x^{a'}})(\frac{\partial x^{b}}{\partial x^{b'}} + \beta^{b}\frac{\partial t}{\partial x^{b'}}) - \alpha^2\frac{\partial t}{\partial x^{a'}}\frac{\partial t}{\partial x^{b'}}\notag\\
 & = g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}
 \end{align}
-And its inverse should transform as
+And its inverse transforms as
 \begin{equation}
 g^{a'b'} = g^{ab}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b'}}{\partial x^{b}}\label{spatial metric}
 \end{equation}
-Let $g$ denote the determinant of the spatial metric $g_{ab}$. It should transform as
+Let $g$ denote the determinant of the spatial metric $g_{ab}$. It transforms as
 \begin{equation}
 g' = |g_{a'b'}| = |g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}| = |g_{ab}||\frac{\partial x^{a}}{\partial x^{a'}}||\frac{\partial x^{b}}{\partial x^{b'}}| = g|\frac{\partial x}{\partial x'}|^{2}
 \end{equation}
+where $|\partial x/\partial x'|$ stands for the Jacobian matrix determinant of this coordinate transformation. 
+
+
 Besides from the spatial metric, the lapse $\alpha$ and the shift vector $\beta^{a}$ are two significant variables in the 3 + 1 splitting scheme. 
 
 From equations [\ref{normal covector}-\ref{spacetime metric 3 + 1}], we have that
@@ -129,9 +132,9 @@ Use the results from Eq.~\ref{spatial metric} and Eq.~\ref{shift covector transf
 \begin{align}
 \beta^{a'} & = \beta_{b'}g^{a'b'}\notag\\
 & = \left(\beta_{b}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial t}{\partial t'} + g_{cd}\frac{\partial x^{d}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial t'}\right)g^{ab}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b'}}{\partial x^{b}}\notag\\
-& = \beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}
+& = \beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}\label{shift vector transform}
 \end{align}
-Use the result from Eq.~\ref{shift transform} along with Eq.~\ref{lapse} and Eq.~\ref{spacetime metric}, we can derive the transform law of the lapse function. 
+Use the result from Eq.~\ref{shift vector transform} along with Eq.~\ref{lapse} and Eq.~\ref{spacetime metric}, we can derive the transform law of the lapse function. 
 \begin{align*}
 \alpha'^{2} & = - (g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu})\frac{\partial x^{\mu}}{\partial t'}\frac{\partial x^{\nu}}{\partial t'} + g_{a'b'}\beta^{a'}\beta^{b'}\notag\\ 
 & = \alpha^2\left(\frac{\partial t}{\partial t'}\right)^{2}
@@ -140,11 +143,11 @@ Therefore we have
 \begin{equation}
 \alpha' = \alpha\frac{\partial t}{\partial t'}\label{lapse transform}
 \end{equation}
-From the calculation above we can tell that the shift vector $\beta^{a}$ doesn't transform as a vector under this coordinate transformation. In order to resolve this, we introduce the backgrond metric denoted as ${\bar g}_{\mu\nu}$. The background metric was initially introduced to make the Christoffel symbols transform as a tensor and it is usually defined as a trivial metric, i.e., ${\bar g}_{\mu\nu} = diag(-1,1,1,1)$. Therefore, we should have ${\bar g} = -1, $${\bar \Gamma}^{a}_{~bc} = 0$, ${\bar \alpha} = 1$ and ${\bar \beta}^{a} = 0$. The background shift vector ${\bar \beta}^{a}$ follows the same transform law of $\beta^{a}$
+From the calculation above we can tell that the shift vector $\beta^{a}$ doesn't transform as a vector under this coordinate transformation. In order to resolve this, we introduce the backgrond metric denoted as ${\bar g}_{\mu\nu}$. The background metric was initially introduced to make the Christoffel symbols transform as a tensor and it is usually defined as a trivial metric, i.e., ${\bar g}_{\mu\nu} = diag(-1,1,1,1)$. Therefore, we have ${\bar g} = -1, $${\bar \Gamma}^{a}_{~bc} = 0$, ${\bar \alpha} = 1$ and ${\bar \beta}^{a} = 0$. The background shift vector ${\bar \beta}^{a}$ follows the same transform law of $\beta^{a}$
 \[
 {\bar \beta}^{a'} = {\bar \beta}^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}
 \]
-and hence the difference between $\beta^{a}$ and ${\bar \beta}^{a}$ should transform as a vector
+and hence the difference between $\beta^{a}$ and ${\bar \beta}^{a}$ transform as a vector
 \begin{equation}
 \Delta \beta^{a'} = \Delta \beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'}
 \end{equation}
@@ -164,15 +167,15 @@ and if $\mu' = a'$, since $\partial t/\partial x^{a'} = 0$, we have
 \begin{equation}\label{spatial derivative}
 \partial_{a'} = \frac{\partial x^{c}}{\partial x^{a'}}\partial_{c}
 \end{equation}
-From Eq.~\ref{time derivative} and Eq.~\ref{spatial derivative} we can tell that the spatial derivative transforms just like tensor without introducing any extra terms. On the other hand, in the time derivative transformations, there are one extra term $(\partial t/\partial t')\partial_{t}$ involved, since $\partial t/\partial t' \ne 0$. According to this analysis, the spatial Christoffel symbol should transform as the spacetime Christoffel symbol, since it is only constructed by the spatial metric and its spatial derivatives. 
+From Eq.~\ref{time derivative} and Eq.~\ref{spatial derivative} we can tell that the spatial derivative transforms just like tensor without introducing any extra terms. On the other hand, in the time derivative transformations, there are one extra term $(\partial t/\partial t')\partial_{t}$ involved, since $\partial t/\partial t' \ne 0$. According to this analysis, the spatial Christoffel symbol transforms as the spacetime Christoffel symbol, since it is only constructed by the spatial metric and its spatial derivatives. 
 \begin{equation}
 \Gamma^{a'}_{~b'c'} = \Gamma^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}} + \frac{\partial x^{a'}}{\partial x^{d}}\frac{\partial^{2} x^{d}}{\partial x^{b'}\partial x^{c'}}
 \end{equation}
-In addition, the tensorial form of Christoffel symbol should be $\Delta \Gamma^{a}_{~bc} \equiv \Gamma^{a}_{~bc} - {\bar \Gamma}^{a}_{~bc}$ and
+In addition, the tensorial form of Christoffel symbol is $\Delta \Gamma^{a}_{~bc} \equiv \Gamma^{a}_{~bc} - {\bar \Gamma}^{a}_{~bc}$ and
 \begin{equation}
 \Delta \Gamma^{a'}_{~b'c'} = \Delta \Gamma^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}}
 \end{equation}
-Furthermore, the spatial covariant derivative of a tensor should also transforms as a tensor. Specifically, the spatial covariant derivative of the shift covector should transform as
+Furthermore, the spatial covariant derivative of a tensor also transforms as a tensor. Specifically, the spatial covariant derivative of the shift covector transforms as
 \begin{align}
 D_{a'}\beta_{b'} &= D_{a'}\left(\beta^{b}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial t}{\partial t'}\right) + D_{a'}\left(g_{bc}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial t'}\right)\notag\\
 & = \frac{\partial t}{\partial t'}D_{a'}\left(\beta_{b}\frac{\partial x^{b}}{\partial x^{b'}}\right) + D_{a'}\left(g_{b'c'}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'}\right)\notag\\
@@ -229,7 +232,7 @@ By observing the transform laws of $\partial_{t}\Delta\beta^{a}$, $\beta^{a}$, $
 \end{equation}
 and $c_{1}$, $c_{2}$, $c_{3}$ and $c_{4}$ are all constants. 
 
-Determining the values of these constants involves tedious calculation, so we skip to the conclusion here. The constants should obey the following constraints
+Determining the values of these constants involves tedious calculation, so we skip to the conclusion here. The constants obey the following constraints
 \begin{align*}
 c_{1} + c_{3} & = -1\\
 c_{2} + c_{4} & = 1\\
@@ -261,16 +264,16 @@ After the analysis in Sec.~\ref{transform}, one can notice that neither the righ
 & = -2\alpha'{\bar \alpha}'K'
 \end{align*}
 Therefore, we have reached the invariant form of 1 + log slicing condition as below
-\begin{equation}
+\begin{equation}\label{invariant 1 + log slicing}
 \mathscr{D}_{t}\alpha = -2\alpha{\bar \alpha}K
 \end{equation}
 
-We can follow the same strategy to alter the Gamma-driver shift equation, replacing the left hand side by $\mathscr{D}_{t}\beta^{a}$, changing every non-tensorial term on the right hand side to its corresponding tensorial term and balance the transform factor on both sides. Therefore, the regular Gamma-driver shift equation
+We can follow the same strategy to alter the Gamma-driver shift equation, replacing the left hand side by $\mathscr{D}_{t}\beta^{a}$ and setting $\sigma$ to be -1, changing every non-tensorial term on the right hand side to its corresponding tensorial term and balance the transform factor on both sides. Therefore, the regular Gamma-driver shift equation
 \begin{equation}
 {\dot \beta}^{a} - \beta^{b}\partial_{b}\beta^{a} = \frac{3}{4}\sqrt{g}^{2/3}(\Gamma^{a}_{~bc}g^{bc} + \frac{1}{3}g^{ab}\Gamma^{c}_{~bc}) - \eta \beta^{a} 
 \end{equation}
 becomes
-\begin{equation}
+\begin{equation}\label{invariant Gamma-driver shift}
 \mathscr{D}_{t}\beta^{a} = \frac{3}{4}\sqrt{\frac{g}{{\bar g}}}^{2/3}{\bar \alpha}^{2}(\Delta \Gamma^{a}_{~bc}g^{bc} + \frac{1}{3}g^{ab}\Delta\Gamma^{c}_{~bc}) - \eta {\bar \alpha}\Delta\beta^{a}
 \end{equation}
 Writing down these invariant gauge conditions creates more possibilities for numerical simulation. When the need of evolving the system in a different coordinates system rises, one can just use the following equations as gauge conditions
@@ -283,13 +286,12 @@ while the transformed background metric terms are associated with the original t
 {\bar g}_{a'b'} & = {\bar g}_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\\
 {\bar g'} & = {\bar g}|\frac{\partial x}{\partial x'}|^{2}\\
 {\bar \alpha}' & = {\bar \alpha}\frac{\partial t}{\partial t'}\\
-{\bar \beta}^{a'} & = {\bar \beta}^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'}\\
-{\bar \Gamma}^{a'}_{~b'c'} & = {\bar \Gamma}^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}}
+{\bar \beta}^{a'} & = {\bar \beta}^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'}\label{background shift}\\
+{\bar \Gamma}^{a'}_{~b'c'} & = {\bar \Gamma}^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}} + \frac{\partial x^{a'}}{\partial x^{d}}\frac{\partial x^{d}}{\partial x^{b'}\partial x^{c'}}
 \end{align}
 We will explain how this scheme works in detail with a specific example in the next section. 
 \section{Time Dependent Spatial Rotation Coordinate Transformation}\label{example}
-In this section, we examine a specific kind of coordinate transformation, the time dependent spatial rotation coordinate transformation, and demonstrate how the invariant gauge conditions work
-in action. 
+In this section, we examine a specific kind of coordinate transformation, the time dependent spatial rotation coordinate transformation, and demonstrate how the invariant gauge conditions work in action. 
 
 In this coordinate transformation, we keep the $t$ coordinate intact while let the spatial coordinate rotates around the $z$ axis at a constant angular speed $\omega$. Hence the transformed coordinates can be expressed in terms of the original terms as below
 \begin{align}
@@ -297,5 +299,67 @@ t' & = t\notag\\
 x' & = x \cos(\omega t) + y\sin(\omega t)\notag\\
 y' & = -x\sin(\omega t) + y\cos(\omega t)\notag\\
 z' & = z
+\end{align}
+and equivalently, 
+\begin{align}
+t & = t'\notag\\
+x & = x'\cos(\omega t') - y'\sin(\omega t')\notag\\
+y & = x'\sin(\omega t') + y'\cos(\omega t')\notag\\
+z & = z'
+\end{align}
+We also assume that the background metric is trivial
+\begin{align}
+{\bar g}_{ab} & = diag(1,1,1)\notag\\
+{\bar \alpha} & = 1\notag\\
+{\bar \beta} & = 0 
+\end{align}
+Under this transformation, we have $\partial t/\partial t' = 1$, therefore ${\bar \alpha}' = {\bar \alpha}$ and hence the invariant time derivative of $\alpha$ will collapse to
+\begin{equation}
+\mathscr{D}_{t}\alpha = \partial_{t}\alpha - \beta^{a}\partial_{a}\alpha
+\end{equation}
+Then the invariant 1 + log slicing condition under this transformation becomes
+\begin{equation}\label{transformed 1 + log slicing}
+\partial_{t'}\alpha' - \beta^{a'}\partial_{a'}\alpha' = -2\alpha'K'
+\end{equation}
+One would argue that this equation is identical to the regular 1 + log slicing equation. This is only true under this specific coordinate transformation, especially when we have $\partial t/\partial t' = 1$. One will see the difference in the Gamma-driver shift equation discussed below. 
+
+According to Eq.~\ref{background shift} and the choice that ${\bar \beta}^{a} = 0$, we have that
+\[
+{\bar \beta}^{a'} = \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}
+\]
+Therefore, for each component, we have
+\begin{align*}
+{\bar \beta}^{1'} & = -\omega y'\\
+{\bar \beta}^{2'} & = \omega x'\\
+{\bar \beta}^{3'} & = 0
+\end{align*}
+Similarly, for the background Christoffel symbol, we have
+\[
+{\bar \Gamma}^{a'}_{b'c'} = \frac{\partial x^{a'}}{\partial x^{d}}\frac{\partial x^{d}}{\partial x^{b'}\partial x^{c'}}
+\]
+however, since in this coordinate transformation, $x^{a}$ is a first order function of $x^{a'}$, ${\bar \Gamma}^{a'}_{b'c'}$ vanishes. 
+
+Also, it is easy to check that $|\partial x/\partial x'| = 1$, this result yields that $g' = g = 1$. According to these results above, the transformed Gamma-driver Shift equation becomes
+\begin{equation}
+\partial_{t'}\beta^{a'} - \beta^{b'}\partial_{b'}\beta^{a'} + 2\beta^{b'}\partial_{b'}{\bar \beta}^{a'} - {\bar \beta}^{b'}\partial_{b'}{\bar \beta}^{a'} = \frac{3}{4}\sqrt{g'}^{2/3}\left(\Gamma^{a'}_{~b'c'}g^{b'c'} + \frac{1}{3}g^{a'b'}\Gamma^{c'}_{~b'c'}\right) - \eta \Delta \beta^{a'}
+\end{equation}
+and for each component, we have
+\begin{align}
+\partial_{t'}\beta^{1'} - \beta^{b'}\partial_{b'}\beta^{1'} - 2\omega\beta^{2'} + \omega^{2}x' &= \frac{3}{4}\sqrt{g'}^{2/3}\left(\Gamma^{1'}_{~b'c'}g^{b'c'} + \frac{1}{3}g^{1'b'}\Gamma^{c'}_{~b'c'}\right) - \eta (\beta^{1'} + \omega y')\label{transformed Gamma-driver shift x}\\
+\partial_{t'}\beta^{2'} - \beta^{b'}\partial_{b'}\beta^{2'} + 2\omega\beta^{1'} - \omega^{2}y' &= \frac{3}{4}\sqrt{g'}^{2/3}\left(\Gamma^{2'}_{~b'c'}g^{b'c'} + \frac{1}{3}g^{2'b'}\Gamma^{c'}_{~b'c'}\right) - \eta (\beta^{a'} - \omega x')\label{transformed Gamma-driver shift y}\\
+\partial_{t'}\beta^{3'} - \beta^{b'}\partial_{b'}\beta^{3'} & = \frac{3}{4}\sqrt{g'}^{2/3}\left(\Gamma^{3'}_{~b'c'}g^{b'c'} + \frac{1}{3}g^{3'b'}\Gamma^{c'}_{~b'c'}\right) - \eta \beta^{3'}\label{transformed Gamma-driver shift z}
+\end{align}
+To verify the transformed gauge conditions(Eq.~\ref{transformed 1 + log slicing} and equations [\ref{transformed Gamma-driver shift x}-\ref{transformed Gamma-driver shift y}]) obtained by the invariant gauge conditions, we try to write down the transformed gauge conditions by transforming the variables in the regular gauge conditions explicitly and compare with the equations we already have. 
+
+According to the transform rules we obtained in \ref{transform}, let's write the untransformed variables in terms of the transformed variables. 
+\begin{align}
+\alpha & = \alpha'\frac{\partial t'}{\partial t} = \alpha\\
+\beta^{a} & = \left(\beta^{a'} - \frac{\partial x^{a'}}{\partial x^{b}}\frac{\partial x^{b}}{\partial t'}\right)\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial t'}{\partial t}\\
+g_{ab} & = g_{a'b'}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b'}}{\partial x^{b}}\\
+\Gamma^{a}_{~bc} & = \left(\Gamma^{a'}_{~b'c'} - \frac{\partial x^{a'}}{\partial x^{d}}\frac{\partial x^{d}}{\partial x^{b'}\partial x^{c'}}\right)\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b'}}{\partial x^{b}}\frac{\partial x^{c'}}{\partial x^{c}} = \Gamma^{a'}_{~b'c'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b'}}{\partial x^{b}}\frac{\partial x^{c'}}{\partial x^{c}}
+\end{align}
+Plug these equations into Eq.~\ref{invariant 1 + log slicing} and Eq.~\ref{invariant Gamma-driver shift}, we have
+\begin{align}
+\partial_{t'}\alpha
 \end{align}
 \end{document}
