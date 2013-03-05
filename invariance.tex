@@ -4,8 +4,8 @@
 \usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{listings}
-\usepackage{pdfpages}
+%\usepackage{listings}
+%\usepackage{pdfpages}
 \usepackage{courier}
 \usepackage{color}
 \usepackage{mathrsfs}
@@ -13,28 +13,116 @@
 \begin{document}
 \special{papersize=8.5in,11in}
 
-\title{Invariant Gauge Conditions under Foliation Preserving Coordinate Transformation}
+\title{Covarian Gauge Conditions for Foliation Preserving Coordinate Transformations}
 \author{J.~David Brown, Meng Cao}
 \affiliation{Department of Physics, North Carolina State University, Raleigh, NC 27695 USA}
 
 \begin{abstract}
-I am in!
 The transform rules of 3 + 1 splitting variables, such as the lapse, shift vector, extrinsic curvature and etc., under a foliation preserving coordinate transformation are presented. The covariant forms of time derivative of the lapse and time derivative of the shift vector are given. The invariant form of 1 + log slicing condition and Gamma-driver shift equation are derived from those covariant time derivatives. Utilize these invariant gauge conditions, it allows one to evolve the same system with two different coordinate systems and reach the same result. A time dependent spatial rotation coordinate transformation is discussed in details as a specific example of this case.  
 \end{abstract}
 \maketitle
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 The Einstein's equations are in the covariant form under spacetime diffeomorphism, which means the equations are invariant under spacetime coordinate transformations. 3 + 1 splitting mechanism slices the spacetime into a family of spacelike hypersurfaces which is referred as foliations. On each foliation, a timelike parameter t is constant. By breaking the symmetry of time and space domain, the 3 + 1 formulation makes it possible to evolve a general relativity system along with time numerically. On the other hand, although it still preserves the invariant property, it is not manifest in the equations anymore. While constructing numerical simulations, either in ADM formulation or BSSN formulation, people use gauge conditions(such as 1 + log slicing and Gamma-driver shift condition) to evolve the lapse and shift vector along with time. Unfortunately, these gauge condition equations are neither explicitly nor implicitly covariant. This scheme works sufficiently accurate if the system is evolved in one single coordinate system. However, if the same system is evolved with two different coordinate systems to the same time under this kind of gauge conditions, it is not guaranteed that we can get the same results. 
 
 This situation leads to our motivation of this paper. We will try to examine the transform pattern of physical quantities in 3 + 1 splitting system under a so called ``foliation preserving coordinate transformation'', which includes time reparamerization and time dependent spatial deffeomorphism while the structure of foliations is preserved. Then we will try to write down the covariant form of the gauge conditions under this coordinate transformation and give the guideline of how to implement this into numerical simulation. 
 
 The paper is organized as follows. In Sec.~\ref{3+1}, we explain the notation and convention we are going to follow in this paper. Then we briefly review the 3 + 1 splitting formulation while introducing several significant terms which will be used in latter sections. In Sec.~\ref{transform}, we give the definition of foliation preserving coordinate transformation, under which we derive and list the transform pattern of all significant 3 + 1 splitting physical quantities. The ordinary gauge conditions, i.e.~1 + log slicing condition and Gamma-driver shift equations, are dicussed in details in Sec.~\ref{gauge}. They are then modified to covariant forms and a guideline of how to implement this covariant gauge condition is provided. Last but not least, in Sec.~\ref{example} we demonstrate how this scheme works in a specific coordinate transformation case, time dependent spatial rotation.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{General covariance}
+Einstein's theory is generally covariant, That is, Einstein's field equations take the same 
+form in any spacetime coordinate system (reference Weinberg, Wald? others?). More precisely, the Einstein 
+equations written in the form $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ are {\em manifestly covariant}. What we mean 
+by manifest covariance is that the transformation properties of each term in the equations makes it obvious that the 
+form of the equations is unchanged when we change coordinate systems. For example, each of the terms $G_{\mu\nu}$ and 
+$T_{\mu\nu}$ transforms as a type $0\choose 2$ tensor under changes of spacetime coordinates. Thus, under the coordinate 
+transformation $x^{\mu'} = x^{\mu'}(x^\mu)$, the Einstein tensor becomes
+\begin{equation}
+	G_{\mu\nu} = \frac{\partial x^{\mu'}}{\partial x^{\mu}} \frac{\partial x^{\nu'}}{\partial x^{\nu}} G_{\mu'\nu'} \ .
+\end{equation}
+A corresponding expression holds for the stress--energy tensor $T_{\mu\nu}$. By applying the transformation 
+to all terms in the Einstein equations we find that the factors 
+$(\partial x^{\mu'}/\partial x^{\mu}) (\partial x^{\nu'}/\partial x^{\nu})$
+cancel, leaving $G_{\mu'\nu'} = 8\pi G T_{\mu'\nu'}$. 
+
+Now consider the $3+1$ splitting, with matter fields set to zero for simplicity. We have the ADM (York) equations 
+\begin{subequations}
+\begin{eqnarray}
+	\partial_t g_{ab} - {\cal L}_\beta g_{ab} & = & -2\alpha K_{ab} \ , \\
+	\partial_t K_{ab} - {\cal L}_\beta K_{ab} & = & \alpha K K_{ab} - 2\alpha K_{ac}K^c_b 
+		+ \alpha R_{ab} - D_a D_b\alpha \ ,
+\end{eqnarray}
+\end{subequations}
+where $K_{ab}$, $g_{ab}$, $\alpha$, and $\beta^a$ are the extrinsic curvature, spatial metric, lapse and shift, respectively, 
+and $D_a$ is the spatial covariant derivative. 
+These equations hold in any spacetime coordinate system. However, they are not 
+manifestly covariant because they are written in terms of new 
+fields, $K_{ab}$, $g_{ab}$, $\alpha$ and $\beta^a$, that do not transform as tensors under 
+spacetime coordinate transformations. The ADM equations are generally covariant but 
+not manifestly so. 
+
+Although the ADM equations are not manifestly covariant under {\em spacetime} coordinate transformations, they are 
+manifestly covariant under changes of {\em spatial} coordinates. This is seen from the fact that each term 
+transforms as a type $0\choose 2$ tensor under spatial coordinate transformations. In fact, we will show that these 
+equations are manifestly 
+covariant under {\em time--dependent} spatial coordinate tranformations as well as time reparametrizations. Together, these 
+transformations form the subset of spacetime coordinate transformations that preserve the foliation of spacetime 
+into spacelike hypersurfaces. Thus, we refer to these transformations as ``foliation preserving". 
+
+The 3+1 split equations is the starting point for the initial value problem and the Hamiltonian formulation. And 
+of course numerical treatments. The lack of manifest covariance is not a problem. The point of view has shifted. 
+We now view the theory as a set of fields on 3d space, that evolve in time. Thus the emphasis on invariance is 
+in space. But just as the spatial fields evolve in time, so can the coordinate system. And the time labels 
+are not physical, so we should be able to relabel these. Thus we focus on the 
+``foliation preserving" transformations. 
+
+Say words about what invariance means in the 3+1 context. Really, a coordinate system has little meaning apart from 
+topological restrictions. For example, if our manifold is Real 4, or $S^4$ in which case we would need periodic identifications. 
+What does have definite meaning is the comparison of two different coordinate systems. Say $x^{\mu}$ and $x^{\mu'}$ are 
+related by $x^{\mu'} = x^{\mu'}(x^\mu)$. We want to evolve in one coordinate system, then the other. We want the results of the 
+two simulations to be related by the given transformation. We do this by using the transformation to relate the data at the 
+intial time. Let's assume that the initial time is $t = t' = 0$, so the initial slices coincide. Then we need to use the 
+transformation to show how the lapse and shift are related. In the end we should be able to 
+relate the results according to the transformation. We also assume at this stage that the foliations coincide? If not, the comparison 
+is very difficult; we would need to construct the 4D metric. Practically speaking, we restrict ourselves to the same slices, 
+we again are focused on foliation preserving transformations. Then we compare spatial metric and extrinsic curvature. 
+
+Display the coordinate transformation: 
+\begin{align*}
+t' & = t'(t)\\
+x^{a'} & = x^{a'}(t,x^{a})
+\end{align*}
+These are foliation preserving. 
+
+Now with BSSN, we introduce object as independent variables that are not spatial tensors $\tilde\Gamma^a$. 
+And $\tilde g$ is a scalar, which means $\tilde g_{ab}$ is a type $0\choose 2$ tensor density of 
+weight $-2/3$. The equations can be applied in any coordinate 
+system, but it is difficult to  compare results unless we re-combine into simple tensor objects. 
+We thus loose manifest covariance under foliation preserving transformations. All this assumes that we choose the 
+lapse and shift in the appropriate way, as dictated by the spacetime coordinate transformation. 
+
+Much the same for GH. In spacetime form, introduce 
+a nontensor; in 3+1 form we have non spatial tensor $\Gamma^a$. Part of the purpose of this paper is to rewrite 
+these equations in such a way that manifest covariance is restored. (Done in my other papers, right?) 
+
+Note we are not dealing with gauge conditions yet. Gauge conditions break invariance. In particular, the 
+1+log slicing keeps time--independent spatial coordinate invariance, but does not preserve time 
+reparametrizations (or time--dependent spatial?). The gamma driver shift breaks everything. Then we 
+can no longer compare results from two different coordinate systems. 
+
+Our goal is to restore manifest covariance to the gauge and non--guage equations, under 
+foliation preserving transformations. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{3 + 1 Splitting}\label{3+1}
 Throughout this paper, we use Greek letter indices $\mu$, $\nu$, ... to denote spacetime indices and Latin letters $a$, $b$, ... to denote spatial indices. $\nabla_{\mu}$ stands for the spacetime covariant derivative while $D_{a}$ is the spatial covariant derivative.
 
 In 3 + 1 formulation, we have
 \begin{equation*}
-^{(4)}g_{\mu\nu} = \begin{pmatrix}-\alpha^2 + \beta^{c}\beta_{c} & \beta_{b}\\\\\beta_{a} & g_{ab}\end{pmatrix}
+	{}^{(4)}g_{\mu\nu} = (-\alpha^2 + \beta^{c}\beta_{c})\delta_\mu^0\delta_\nu^0 
+	+ 2\beta_{b}\delta_{(\mu}^a\delta_{\nu)}^0 + g_{ab} \delta^a_\mu \delta^b_\nu \ ,
 \end{equation*}
 where $\alpha$ is called the lapse function, $\beta^{a}$ the shift vector and $g_{ab}$ the spatial metric. The covariant normal to each foliation is denoted as
 \begin{equation}\label{normal covector}
@@ -66,11 +154,9 @@ Another important quantity in 3 + 1 splitting, the extrinsic curvature is define
 \begin{equation}\label{extrinsic}
 K_{ab} = - \frac{1}{2\alpha}\left[\partial_{t}g_{ab} - 2D_{(a}\beta_{b)}\right]
 \end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Foliation Preserving Coordinate Transformation}\label{transform}
-{\bf {\color{red}PROPERTY OF THIS TRANSFORMATION.
-
-WHY WE ARE FOCUS ON THIS TRANSFORMATION.}} 
-
 This foliation preserving coordinate transformation is a time dependent spatial diffeomorphism combined with time reparameterization. We use $x^{\mu}$ to denote the original coordinate basis and $x^{\mu'}$ the transformed coordinate basis. Therefore, the transformation can be described as
 \begin{align*}
 t' & = t'(t)\\
