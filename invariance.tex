@@ -182,11 +182,6 @@ Now let's examine the time derivative of the spatial metric
 \partial_{t'}g_{a'b'} & = (\partial_{t'}g_{ab})\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\partial_{t'}\left(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\right)\notag\\
 & =  (\partial_{t}g_{ab})\frac{\partial t}{\partial t'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + (\partial_{c}g_{ab})\frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\partial_{t'}\left(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\right)
 \end{align}
-As a result, the extrinsic curvature transforms as a type $0 \choose 2$ tensor under the spatial diffeomorphism and a scalar under the time reparameterization, we omitted the tedious calculation and list the result below
-\begin{align}
-K_{a'b'} & = -\frac{1}{2\alpha'}\left(\partial_{t'}g_{a'b'} - D_{a'}\beta_{b'} - D_{b'}\beta_{a'}\right)\notag\\
-& = K_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}
-\end{align}
 The spatial partial derivative of $\alpha$, which appears in the advection term of the 1 + log slicing equation, transforms as 
 \begin{align}
 \partial_{a'}\alpha' & = \frac{\partial x^{c}}{\partial x^{a'}}\partial_{c}\left(\alpha \frac{\partial t}{\partial t'}\right)\\
@@ -226,6 +221,24 @@ In addition, the tensorial form of Christoffel symbol is $\Delta \Gamma^{a}_{~bc
 \Delta \Gamma^{a'}_{~b'c'} = \Delta \Gamma^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}}
 \end{equation}
 As we can tell, it transforms as a type $1 \choose 2$ tensor under spatial diffeomorphism and a scalar under time reparameterization. 
+
+The invariant time derivative of the spatial metric is defined as
+\begin{equation}
+\mathscr{D}_{t}g_{ab} \equiv \partial_{t}g_{ab} - 2D_{(a}\beta_{b)}
+\end{equation}
+The calculation is tedious but one can always check that $\mathscr{D}_{t}g_{ab}$ transforms as a type $0 \choose 2$ tensor under spatial diffeomorphism and a weight +1 density under time reparameterization. 
+\begin{equation}
+\mathscr{D}_{t'}g_{a'b'} = \mathscr{D}_{t}g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial t}{\partial t'}
+\end{equation}
+
+As a result, since the extrinsic curvature is defined as
+\begin{equation}
+K_{ab} = -\frac{1}{2\alpha}[\partial_{t}g_{ab} - 2D_{(a}\beta_{b)}] = -\frac{1}{2\alpha}\mathscr{D}_{t}g_{ab}
+\end{equation}
+it transforms as a type $0 \choose 2$ tensor under the spatial diffeomorphism and a scalar under the time reparameterization
+\begin{equation}
+K_{a'b'} = K_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}
+\end{equation}
 
 In order to construct an invariant form of the time derivative of the lapse function $\mathscr{D}_{t}\alpha$ such that it transforms as a scalar under spatial diffeomorphism and a weight +2 density under time reparameterization.
 \[
@@ -274,8 +287,6 @@ Therefore, we define $\sigma \equiv c_{1}$ and write the rest of those constants
 \begin{equation}
 \mathscr{D}_{t}\beta^{a} = \partial_{t}\Delta \beta^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}) + \sigma\beta^{b}{\bar D}_{b}\beta^{a} + (1-\sigma)\beta^{b}{\bar D}_{b}{\bar \beta}^{a} - (1 + \sigma){\bar \beta}^{b}{\bar D}_{b}\beta^{a} + \sigma{\bar \beta}^{b}{\bar D}_{b}{\bar \beta}^{a}
 \end{equation}
-
-{\bf {\color{red} DEFINE $\mathscr{D}_{t}g_{ab} = \partial_{t}g_{ab} - 2D_{(a}\beta_{b)}$.}}
 \section{Invariant Gauge Condition}\label{gauge}
 We studied the transform rules of all the important variables in 3 + 1 splitting mechanism under the foliation preserving coordinate transformation in Sec.~\ref{transform}, now we will use these results to construct the invariant form of the 1 + log slicing condition and Gamma-driver shift equation. 
 
