@@ -417,7 +417,7 @@ We also assume that the background metric is trivial
 {\bar \alpha} & = 1\notag\\
 {\bar \beta} & = 0 
 \end{align}
-Under this transformation, we have $\partial t/\partial t' = 1$, therefore ${\bar \alpha}' = {\bar \alpha}$ and hence the invariant time derivative of $\alpha$ will collapse to
+Under this transformation, we have $\partial t/\partial t' = 1$, therefore ${\bar \alpha}' = {\bar \alpha} = 1$ and hence the invariant time derivative of $\alpha$ will collapse to
 \begin{equation}
 \mathscr{D}_{t}\alpha = \partial_{t}\alpha - \beta^{a}\partial_{a}\alpha
 \end{equation}
@@ -445,13 +445,13 @@ however, since in this coordinate transformation, $x^{a}$ is a first order funct
 
 Also, it is easy to check that $|\partial x/\partial x'| = 1$, this result yields that $g' = g = 1$. According to these results above, the transformed Gamma-driver Shift equation becomes
 \begin{equation}
-\partial_{t'}\beta^{a'} - \beta^{b'}\partial_{b'}\beta^{a'} + 2\beta^{b'}\partial_{b'}{\bar \beta}^{a'} - {\bar \beta}^{b'}\partial_{b'}{\bar \beta}^{a'} = \frac{3}{4}\sqrt{g'}^{2/3}\left(\Gamma^{a'}_{~b'c'}g^{b'c'} + \frac{1}{3}g^{a'b'}\Gamma^{c'}_{~b'c'}\right) - \eta \Delta \beta^{a'}
+\partial_{t'}\beta^{a'} - \beta^{b'}\partial_{b'}\beta^{a'} + 2\beta^{b'}\partial_{b'}{\bar \beta}^{a'} - {\bar \beta}^{b'}\partial_{b'}{\bar \beta}^{a'} = \frac{3}{4}{\tilde \Gamma}^{a'} - \eta \Delta \beta^{a'}
 \end{equation}
 and for each component, we have
 \begin{align}
-\partial_{t'}\beta^{1'} - \beta^{b'}\partial_{b'}\beta^{1'} - 2\omega\beta^{2'} + \omega^{2}x' &= \frac{3}{4}\sqrt{g'}^{2/3}\left(\Gamma^{1'}_{~b'c'}g^{b'c'} + \frac{1}{3}g^{1'b'}\Gamma^{c'}_{~b'c'}\right) - \eta (\beta^{1'} + \omega y')\label{transformed Gamma-driver shift x}\\
-\partial_{t'}\beta^{2'} - \beta^{b'}\partial_{b'}\beta^{2'} + 2\omega\beta^{1'} + \omega^{2}y' &= \frac{3}{4}\sqrt{g'}^{2/3}\left(\Gamma^{2'}_{~b'c'}g^{b'c'} + \frac{1}{3}g^{2'b'}\Gamma^{c'}_{~b'c'}\right) - \eta (\beta^{2'} - \omega x')\label{transformed Gamma-driver shift y}\\
-\partial_{t'}\beta^{3'} - \beta^{b'}\partial_{b'}\beta^{3'} & = \frac{3}{4}\sqrt{g'}^{2/3}\left(\Gamma^{3'}_{~b'c'}g^{b'c'} + \frac{1}{3}g^{3'b'}\Gamma^{c'}_{~b'c'}\right) - \eta \beta^{3'}\label{transformed Gamma-driver shift z}
+\partial_{t'}\beta^{1'} - \beta^{b'}\partial_{b'}\beta^{1'} - 2\omega\beta^{2'} + \omega^{2}x' &= \frac{3}{4}{\tilde \Gamma}^{1'} - \eta (\beta^{1'} + \omega y')\label{transformed Gamma-driver shift x}\\
+\partial_{t'}\beta^{2'} - \beta^{b'}\partial_{b'}\beta^{2'} + 2\omega\beta^{1'} + \omega^{2}y' &= \frac{3}{4}{\tilde \Gamma}^{2'} - \eta (\beta^{2'} - \omega x')\label{transformed Gamma-driver shift y}\\
+\partial_{t'}\beta^{3'} - \beta^{b'}\partial_{b'}\beta^{3'} & = \frac{3}{4}{\tilde \Gamma}^{3'} - \eta \beta^{3'}\label{transformed Gamma-driver shift z}
 \end{align}
 To verify the transformed gauge conditions(Eq.~\ref{transformed 1 + log slicing} and equations [\ref{transformed Gamma-driver shift x}-\ref{transformed Gamma-driver shift z}]) obtained by the invariant gauge conditions, we try to write down the transformed gauge conditions by transforming the variables in the regular gauge conditions explicitly and compare with the equations we already have. 
 
@@ -488,7 +488,9 @@ Then the right hand side is
 \end{align}
 Multiply $\partial x^{a'}/\partial x^{a}$ on both sides of the equation, we have
 \begin{equation}
-\partial_{t'}\beta^{a'} - \beta^{b'}\partial_{b'}\beta^{a'} - 2\beta^{b'}\frac{\partial x^{c}}{\partial x^{b'}}\frac{\partial^{2}x^{a'}}{\partial x^{c}\partial t} + \frac{\partial^{2} x^{a'}}{\partial t^{2}} +  2\frac{\partial^{2} x^{a'}}{\partial t\partial x^{c}}\frac{\partial x^{c}}{\partial t'}= \frac{3}{4}\sqrt{g'}^{2/3}\left(\Gamma^{a'}_{~b'c'}g^{b'c'} + \frac{1}{3}g^{a'b'}\Gamma^{c'}_{~b'c'}\right) - \eta\left(\beta^{a'} - \frac{\partial x^{a'}}{\partial x^{b}}\frac{\partial x^{b}}{\partial t'}\right)\label{inverted Gamma-driver shift}
+\partial_{t'}\beta^{a'} - \beta^{b'}\partial_{b'}\beta^{a'} - 2\beta^{b'}\frac{\partial x^{c}}{\partial x^{b'}}\frac{\partial^{2}x^{a'}}{\partial x^{c}\partial t} + \frac{\partial^{2} x^{a'}}{\partial t^{2}} +  2\frac{\partial^{2} x^{a'}}{\partial t\partial x^{c}}\frac{\partial x^{c}}{\partial t'} = \frac{3}{4}{\tilde \Gamma}^{a'} - \eta\left(\beta^{a'} - \frac{\partial x^{a'}}{\partial x^{b}}\frac{\partial x^{b}}{\partial t'}\right)\label{inverted Gamma-driver shift}
 \end{equation}
 and one can easily check that Eq.~\ref{inverted Gamma-driver shift} is equivalent to equations [\ref{transformed Gamma-driver shift x} - \ref{transformed Gamma-driver shift z}].
+\section{Conclusions}
+In this paper, we have investigated the transformation rules of 3 + 1 variables under foliation preserving coordinate transformation. The non-tensor terms are modified to their covariant counterparts so that we are able to formulate the covariant gauge conditions. We have presented the covariant 1 + log slicing and Gamma-driver shift conditions. In the last part of this paper, a specific coordinate transformation example is given as a guideline for people want to implement these invariant gauge conditions in their numerical work. In the future, we plan to use the results in this paper to achieve a symmetric hyperbolic generalized harmonic formulation for general relativity.  
 \end{document}
