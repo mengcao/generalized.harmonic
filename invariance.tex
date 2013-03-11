@@ -285,7 +285,11 @@ so that $\mathscr{D}_{t} \beta^{a}$ transforms as a tensor density.
 
 Therefore, we define $\sigma \equiv c_{1}$ and write the rest of those constants in terms of $\sigma$ to get the final formulation of $\mathscr{D}_{t}\beta^{a}$ as below
 \begin{equation}
-\mathscr{D}_{t}\beta^{a} = \partial_{t}\Delta \beta^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}) + \sigma\beta^{b}{\bar D}_{b}\beta^{a} + (1-\sigma)\beta^{b}{\bar D}_{b}{\bar \beta}^{a} - (1 + \sigma){\bar \beta}^{b}{\bar D}_{b}\beta^{a} + \sigma{\bar \beta}^{b}{\bar D}_{b}{\bar \beta}^{a}
+\mathscr{D}_{t}\beta^{a} \equiv \partial_{t}\Delta \beta^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}) + \sigma\beta^{b}{\bar D}_{b}\beta^{a} + (1-\sigma)\beta^{b}{\bar D}_{b}{\bar \beta}^{a} - (1 + \sigma){\bar \beta}^{b}{\bar D}_{b}\beta^{a} + \sigma{\bar \beta}^{b}{\bar D}_{b}{\bar \beta}^{a}
+\end{equation}
+In the rest of this paper, we take $\sigma = -1$ since there is one $-\beta^{c}\partial_{c}\beta^{a}$ term in the regular Gamma-driver shift condition. Hence the definition of $\mathscr{D}_{t}\beta^{a}$ becomes
+\begin{equation}
+\mathscr{D}_{t}\beta^{a} \equiv \partial_{t}\Delta \beta^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}) - \beta^{b}{\bar D}_{b}\Delta \beta^{a} + \Delta \beta^{b}{\bar D}_{b}{\bar \beta}^{a}
 \end{equation}
 \section{Invariant Gauge Condition}\label{gauge}
 We studied the transform rules of all the important variables in 3 + 1 splitting mechanism under the foliation preserving coordinate transformation in Sec.~\ref{transform}, now we will use these results to construct the invariant form of the 1 + log slicing condition and Gamma-driver shift equation. 
@@ -306,18 +310,42 @@ Therefore, we have reached the invariant form of 1 + log slicing condition as be
 \mathscr{D}_{t}\alpha = -2\alpha{\bar \alpha}K
 \end{equation}
 
-We can follow the same strategy to alter the Gamma-driver shift equation, replacing the left hand side by $\mathscr{D}_{t}\beta^{a}$ and setting $\sigma$ to be -1, changing every non-tensorial term on the right hand side to its corresponding tensorial term and balance the transform factor on both sides. Therefore, the regular Gamma-driver shift equation
-\begin{equation}\label{Gamma-driver shift}
-{\dot \beta}^{a} - \beta^{b}\partial_{b}\beta^{a} = \frac{3}{4}\sqrt{g}^{2/3}(\Gamma^{a}_{~bc}g^{bc} + \frac{1}{3}g^{ab}\Gamma^{c}_{~bc}) - \eta \beta^{a} 
+The Gamma-driver shift condition is usually written as a system of two first order equations
+\begin{subequations}\label{Gamma-driver shift set}
+\begin{align}
+\partial_{t}\beta^{a} & = \beta^{b}\partial_{b}\beta^{a} + \frac{3}{4}B^{a}\\
+\partial_{t}B^{a} & = \beta^{b}\partial_{b}B^{a} + \partial_{t}{\tilde \Gamma}^{a} - \beta^{b}\partial_{b}{\tilde \Gamma}^{a} - \eta B^{a}
+\end{align}
+\end{subequations}
+where ${\tilde \Gamma}^{a}$ is the trace of the conformal Christoffel symbols and is defined as
+\begin{equation}
+{\tilde \Gamma}^{a} \equiv \sqrt{g}^{2/3}\left(\Gamma^{a}_{~bc}g^{bc} + \frac{1}{3}g^{ab}\Gamma^{c}_{~bc}\right)
 \end{equation}
-becomes
+and $\eta$ is a constant parameter. 
+
+We can follow the same strategy to alter the Gamma-driver shift condition, replacing $\partial_{t}\beta^{a}$ by $\mathscr{D}_{t}\beta^{a}$, changing every non-tensorial term on the right hand side to its corresponding tensorial term and balance the transform factor on both sides. Therefore, we have
+\begin{subequations}
+\begin{align}\label{invariant Gamma-driver shift set}
+\partial_{t}\Delta \beta^{a} & = \beta^{b}{\bar D}_{b}\Delta\beta^{a} - \Delta \beta^{b}{\bar D}_{b}{\bar \beta}^{a} + \frac{\Delta\beta^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}) + \frac{3}{4}{\bar \alpha}B^{a}\\
+\partial_{t}B^{a} & = \partial_{t}\Delta {\tilde \Gamma}^{a} + \beta^{b}{\bar D}_{b}(B^{a} - \Delta{\tilde \Gamma}^{a}) - (B^{b} - \Delta{\tilde \Gamma}^{b}){\bar D}_{b}{\bar \beta}^{a} + \frac{B^{a} - \Delta{\tilde \Gamma}^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}) + \frac{3}{4}{\bar \alpha}B^{a}
+\end{align}
+\end{subequations}
+where
+\begin{equation}
+\Delta {\tilde \Gamma}^{a} = {\bar \alpha}\sqrt{\frac{g}{{\bar g}}}^{2/3}\left(\Delta \Gamma^{a}_{~bc}g^{bc} + \frac{1}{3}g^{ab}\Delta \Gamma^{c}_{~bc}\right)
+\end{equation}
+In some literatures, the Equation Set \ref{Gamma-driver shift set} can be integrated with the initial condition $\beta^{a}(t=0) = B^{a}(t=0) = {\tilde \Gamma}^{a}(t = 0) = 0$ and yields a single first order equation of Gamma-driver shift condition
+\begin{equation}\label{Gamma-driver shift}
+\partial_{t}\beta^{a} = \beta^{b}\partial_{b}\beta^{a} + \frac{3}{4}{\tilde \Gamma}^{a} - \eta \beta^{a}
+\end{equation} 
+Similarly, we can also integrate the Equation Set \ref{invariant Gamma-driver shift set} with the same initial condition mentioned before to get the invariant form of Eq.~\ref{Gamma-driver shift}
 \begin{equation}\label{invariant Gamma-driver shift}
-\mathscr{D}_{t}\beta^{a} = \frac{3}{4}\sqrt{\frac{g}{{\bar g}}}^{2/3}{\bar \alpha}^{2}(\Delta \Gamma^{a}_{~bc}g^{bc} + \frac{1}{3}g^{ab}\Delta\Gamma^{c}_{~bc}) - \eta {\bar \alpha}\Delta\beta^{a}
+\mathscr{D}_{t}\Delta \beta^{a} = \frac{3}{4}{\bar \alpha}\Delta {\tilde \Gamma}^{a} - \eta {\bar \alpha}\Delta\beta^{a}
 \end{equation}
 Writing down these invariant gauge conditions creates more possibilities for numerical simulation. When the need of evolving the system in a different coordinates system rises, one can just use the following equations as gauge conditions
 \begin{align*}
 \mathscr{D}_{t'}\alpha' & = -2\alpha'{\bar \alpha}'K'\\
-\mathscr{D}_{t'}\beta^{a'} & = \frac{3}{4}\sqrt{\frac{g'}{{\bar g}'}}^{2/3}{\bar \alpha}'^{2}(\Delta \Gamma^{a'}_{~b'c'}g^{b'c'} + \frac{1}{3}g^{a'b'}\Delta\Gamma^{c'}_{~b'c'}) - \eta {\bar \alpha}'\Delta\beta^{a'}
+\mathscr{D}_{t'}\beta^{a'} & = \frac{3}{4}{\bar \alpha}'\Delta {\tilde \Gamma}^{a'} - \eta {\bar \alpha}'\Delta\beta^{a'}
 \end{align*}
 while the transformed background metric terms are associated with the original terms as below
 \begin{align}
