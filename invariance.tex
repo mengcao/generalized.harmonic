@@ -317,7 +317,7 @@ The Gamma-driver shift condition is usually written as a system of two first ord
 \partial_{t}B^{a} & = \beta^{b}\partial_{b}B^{a} + \partial_{t}{\tilde \Gamma}^{a} - \beta^{b}\partial_{b}{\tilde \Gamma}^{a} - \eta B^{a}
 \end{align}
 \end{subequations}
-where ${\tilde \Gamma}^{a}$ is the trace of the conformal Christoffel symbols and is defined as
+where ${\tilde \Gamma}^{a}$ is the trace of the conformal Christoffel symbols defined as
 \begin{equation}
 {\tilde \Gamma}^{a} \equiv \sqrt{g}^{2/3}\left(\Gamma^{a}_{~bc}g^{bc} + \frac{1}{3}g^{ab}\Gamma^{c}_{~bc}\right)
 \end{equation}
@@ -327,7 +327,7 @@ We can follow the same strategy to alter the Gamma-driver shift condition, repla
 \begin{subequations}
 \begin{align}\label{invariant Gamma-driver shift set}
 \partial_{t}\Delta \beta^{a} & = \beta^{b}{\bar D}_{b}\Delta\beta^{a} - \Delta \beta^{b}{\bar D}_{b}{\bar \beta}^{a} + \frac{\Delta\beta^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}) + \frac{3}{4}{\bar \alpha}B^{a}\\
-\partial_{t}B^{a} & = \partial_{t}\Delta {\tilde \Gamma}^{a} + \beta^{b}{\bar D}_{b}(B^{a} - \Delta{\tilde \Gamma}^{a}) - (B^{b} - \Delta{\tilde \Gamma}^{b}){\bar D}_{b}{\bar \beta}^{a} + \frac{B^{a} - \Delta{\tilde \Gamma}^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}) + \frac{3}{4}{\bar \alpha}B^{a}
+\partial_{t}B^{a} & = \partial_{t}\Delta {\tilde \Gamma}^{a} + \beta^{b}{\bar D}_{b}(B^{a} - \Delta{\tilde \Gamma}^{a}) - (B^{b} - \Delta{\tilde \Gamma}^{b}){\bar D}_{b}{\bar \beta}^{a} + \frac{B^{a} - \Delta{\tilde \Gamma}^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}) - \eta{\bar \alpha}B^{a}
 \end{align}
 \end{subequations}
 where
@@ -340,7 +340,7 @@ In some literatures, the Equation Set \ref{Gamma-driver shift set} can be integr
 \end{equation} 
 Similarly, we can also integrate the Equation Set \ref{invariant Gamma-driver shift set} with the same initial condition mentioned before to get the invariant form of Eq.~\ref{Gamma-driver shift}
 \begin{equation}\label{invariant Gamma-driver shift}
-\mathscr{D}_{t}\Delta \beta^{a} = \frac{3}{4}{\bar \alpha}\Delta {\tilde \Gamma}^{a} - \eta {\bar \alpha}\Delta\beta^{a}
+\mathscr{D}_{t}\beta^{a} = \frac{3}{4}{\bar \alpha}\Delta {\tilde \Gamma}^{a} - \eta {\bar \alpha}\Delta\beta^{a}
 \end{equation}
 Writing down these invariant gauge conditions creates more possibilities for numerical simulation. When the need of evolving the system in a different coordinates system rises, one can just use the following equations as gauge conditions
 \begin{align*}
@@ -356,7 +356,7 @@ while the transformed background metric terms are associated with the original t
 {\bar \Gamma}^{a'}_{~b'c'} & = {\bar \Gamma}^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}} + \frac{\partial x^{a'}}{\partial x^{d}}\frac{\partial x^{d}}{\partial x^{b'}\partial x^{c'}}
 \end{align}
 
-We can also achieve the transformed gauge conditions from the regular gauge conditions. All we need to do is using the transform rules we derived above to write the non-transformed variables in terms of the transformed terms. And we argue as following that these two methods should yield identical transformed gauge conditions. 
+We can also achieve the transformed gauge conditions from the regular gauge conditions. All we need to do is using the transformation rules we derived above to write the non-transformed variables in terms of the transformed terms. And we argue as following that these two methods should yield identical transformed gauge conditions. 
 
 Assume we have some variables $v$. Under a change of coordinates, they transform to $v' = T(v)$ where $T$ is some function. We also introduce a 
 set of background fields that transform in the same way; thus $\bar v' = T(\bar v)$. The gauge conditions in covariant form are $F^A(v,\bar v) = 0$, 
@@ -425,7 +425,7 @@ Then the invariant 1 + log slicing condition under this transformation becomes
 \begin{equation}\label{transformed 1 + log slicing}
 \partial_{t'}\alpha' - \beta^{a'}\partial_{a'}\alpha' = -2\alpha'K'
 \end{equation}
-One would argue that this equation is identical to the regular 1 + log slicing equation. This is only true under this specific coordinate transformation, especially when we have $\partial t/\partial t' = 1$. One will see the difference in the Gamma-driver shift equation discussed below. 
+One would argue that this equation is identical to the regular 1 + log slicing equation. This is only true under this specific coordinate transformation, especially when we have $\partial t/\partial t' = 1$. One will see the difference in the Gamma-driver shift condition discussed below. 
 
 According to Eq.~\ref{background shift} and the choice that ${\bar \beta}^{a} = 0$, we have that
 \[
@@ -443,7 +443,7 @@ Similarly, for the background Christoffel symbol, we have
 \]
 however, since in this coordinate transformation, $x^{a}$ is a first order function of $x^{a'}$, ${\bar \Gamma}^{a'}_{b'c'}$ vanishes. 
 
-Also, it is easy to check that $|\partial x/\partial x'| = 1$, this result yields that $g' = g = 1$. According to these results above, the transformed Gamma-driver Shift equation becomes
+Also, it is easy to check that $|\partial x/\partial x'| = 1$, this result yields that ${\bar g}' = {\bar g} = 1$. According to these results above, the transformed Gamma-driver Shift equation becomes
 \begin{equation}
 \partial_{t'}\beta^{a'} - \beta^{b'}\partial_{b'}\beta^{a'} + 2\beta^{b'}\partial_{b'}{\bar \beta}^{a'} - {\bar \beta}^{b'}\partial_{b'}{\bar \beta}^{a'} = \frac{3}{4}{\tilde \Gamma}^{a'} - \eta \Delta \beta^{a'}
 \end{equation}
