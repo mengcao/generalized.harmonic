@@ -18,7 +18,7 @@
 \affiliation{Department of Physics, North Carolina State University, Raleigh, NC 27695 USA}
 
 \begin{abstract}
-The transformation rules of 3 + 1 splitting variables, such as the lapse function, shift vector, extrinsic curvature and etc., under a foliation preserving coordinate transformation are presented. The covariant forms of time derivative of the lapse function and time derivative of the shift vector are given. The invariant form of 1 + log slicing condition and Gamma-driver shift equation are derived from those covariant time derivatives. Utilizing these invariant gauge conditions allows one to evolve the same system with two different coordinate systems and reach the same result. A time dependent spatial rotation coordinate transformation is discussed in details as a specific example of this case.  
+The transformation rules of 3 + 1 splitting variables, such as the lapse function, shift vector, extrinsic curvature and etc., under a foliation preserving coordinate transformation are presented. The covariant forms of time derivative of the lapse function and time derivative of the shift vector are given. The invariant forms of 1 + log slicing condition and Gamma-driver shift condition are derived from those covariant time derivatives. Utilizing these invariant gauge conditions allows one to evolve the same system with two different coordinate systems and reach the same result. A time dependent spatial rotation coordinate transformation is discussed in details as a specific example of this case.  
 \end{abstract}
 \maketitle
 
@@ -97,7 +97,7 @@ The spacetime metric transforms regularly under this transformation
 ^{(4)}g_{\mu'\nu'} &=~^{(4)}g_{\mu\nu}\frac{\partial x^{\mu}}{\partial x^{\mu'}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}\notag\\
 & = (g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu})\frac{\partial x^{\mu}}{\partial x^{\mu'}}\frac{\partial x^{\nu}}{\partial x^{\nu'}}
 \end{align}
-By substituting the indices $\mu'$ and $\nu'$ for $a'$ and $b'$ respectively in Eq.~\ref{spacetime metric}, we can obtain the transformation law of the spatial metric
+By substituting the indices $\mu'$ and $\nu'$ for $a'$ and $b'$ respectively in Eq.~\ref{spacetime metric}, we can obtain the transformation rule of the spatial metric
 \begin{align}
 g_{a'b'} & = (g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu})\frac{\partial x^{\mu}}{\partial x^{a'}}\frac{\partial x^{\nu}}{\partial x^{b'}}\notag\\
 &= g_{ab}(\frac{\partial x^{a}}{\partial x^{a'}} + \beta^{a}\frac{\partial t}{\partial x^{a'}})(\frac{\partial x^{b}}{\partial x^{b'}} + \beta^{b}\frac{\partial t}{\partial x^{b'}}) - \alpha^2\frac{\partial t}{\partial x^{a'}}\frac{\partial t}{\partial x^{b'}}\notag\\
@@ -119,7 +119,7 @@ g' = |g_{a'b'}| = |g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^
 \end{equation}
 where $|\partial x/\partial x'|$ stands for the Jacobian matrix determinant of this coordinate transformation. This shows that $g$ transforms as a weight +2 density under the spatial diffeomorphism and a scalar under the time reparameterization. 
  
-Besides from the spatial metric, the lapse $\alpha$ and the shift vector $\beta^{a}$ are two significant variables in the 3 + 1 splitting scheme. 
+Besides the spatial metric, the lapse $\alpha$ and the shift vector $\beta^{a}$ are two significant variables in 3 + 1 splitting scheme. 
 
 From equations [\ref{normal covector}-\ref{spacetime metric 3 + 1}], we have that
 \begin{align}
@@ -152,7 +152,7 @@ Therefore we have
 \end{equation}
 and hence the lapse function transforms as a scalar under the spatial diffeomorphism and a weight +1 density under the time reparameterization. 
  
-Now we have investigated the transform rule of the terms without any derivatives. However, since the 1 + log slicing condition and Gamma-driver shift equation are both first order partial differentiation equations, we still need to learn how partial derivative terms transform under the foliation preserving coordinate transformation. 
+Now we have investigated the transform rule of the terms without any derivatives. However, since the 1 + log slicing condition and Gamma-driver shift condition are both first order partial differential equations, we still need to learn how partial derivative terms transform under the foliation preserving coordinate transformation. 
 
 In order to study how partial derivatives transform, let's review the chain rule for this diffeomorphism briefly. The chain rule in spacetime domain states as below
 \begin{equation*}
@@ -166,7 +166,7 @@ and if $\mu' = a'$, since $\partial t/\partial x^{a'} = 0$, we have
 \begin{equation}\label{spatial derivative}
 \partial_{a'} = \frac{\partial x^{c}}{\partial x^{a'}}\partial_{c}
 \end{equation}
-From Eq.~\ref{time derivative} and Eq.~\ref{spatial derivative} we can tell that the spatial derivative transforms just like a type $0 \choose 1$ tensor without introducing any extra terms. On the other hand, in the time derivative transformations, there are one extra term $(\partial t/\partial t')\partial_{t}$ involved, since $\partial t/\partial t' \ne 0$. According to this analysis, the spatial Christoffel symbol transforms as the spacetime Christoffel symbol, since it is only constructed by the spatial metric and its spatial derivatives. 
+From Eq.~\ref{time derivative} and Eq.~\ref{spatial derivative} we can tell that the spatial derivative transforms just like a type $0 \choose 1$ tensor without introducing any extra terms. On the other hand, in the time derivative transformations, there are one extra term $(\partial t/\partial t')\partial_{t}$ involved, since $\partial t/\partial t' \ne 0$. According to this analysis, the spatial Christoffel symbol transforms regularly, since it is only constructed by the spatial metric and its spatial derivatives. 
 \begin{equation}
 \Gamma^{a'}_{~b'c'} = \Gamma^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}} + \frac{\partial x^{a'}}{\partial x^{d}}\frac{\partial^{2} x^{d}}{\partial x^{b'}\partial x^{c'}}
 \end{equation}
@@ -177,18 +177,18 @@ D_{a'}\beta_{b'} &= D_{a'}\left(\beta^{b}\frac{\partial x^{b}}{\partial x^{b'}}\
 & = \frac{\partial t}{\partial t'}D_{a'}\left(\beta_{b}\frac{\partial x^{b}}{\partial x^{b'}}\right) + D_{a'}\left(g_{b'c'}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'}\right)\notag\\
 & = D_{a}\beta^{b}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial t}{\partial t'} + g_{b'c'}D_{a'}\left(\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'}\right)
 \end{align} 
-Now let's examine the time derivative of the spatial metric
-\begin{align}
-\partial_{t'}g_{a'b'} & = (\partial_{t'}g_{ab})\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\partial_{t'}\left(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\right)\notag\\
-& =  (\partial_{t}g_{ab})\frac{\partial t}{\partial t'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + (\partial_{c}g_{ab})\frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\partial_{t'}\left(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\right)
-\end{align}
 The spatial partial derivative of $\alpha$, which appears in the advection term of the 1 + log slicing equation, transforms as 
 \begin{align}
 \partial_{a'}\alpha' & = \frac{\partial x^{c}}{\partial x^{a'}}\partial_{c}\left(\alpha \frac{\partial t}{\partial t'}\right)\\
 & = \frac{\partial t}{\partial t'}\frac{\partial x^{c}}{\partial x^{a'}}\partial_{c}\alpha
 \end{align}
-which behaves as a type $0 \choose 1$ tensor under spatial diffeomorphism and a weight +1 density under time reparameterization.
+It is a type $0 \choose 1$ tensor under spatial diffeomorphism and a weight +1 density under time reparameterization.
 
+Now let's examine the time derivative of the spatial metric
+\begin{align}
+\partial_{t'}g_{a'b'} & = (\partial_{t'}g_{ab})\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\partial_{t'}\left(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\right)\notag\\
+& =  (\partial_{t}g_{ab})\frac{\partial t}{\partial t'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + (\partial_{c}g_{ab})\frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\partial_{t'}\left(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\right)
+\end{align}
 Due to the extra term introduced by time derivative transformation, the time derivative of $\alpha$ raises a more interesting case, 
 \begin{align}
 \partial_{t'}\alpha' & = \partial_{t'}\left(\alpha\frac{\partial t}{\partial t'}\right)\notag\\
@@ -204,9 +204,9 @@ Finally the time derivative of $\beta^{a}$ transforms as
 & + \frac{\partial x^{c}}{\partial t'}\partial_{c}\left(\beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}\right)
 \end{align}
 \section{Tensorial Variables}\label{tensorial}
-In Sec.~\ref{transform}, we listed the transform rules of all the important 3 + 1 variables and as one can easily notice that some of them do not transform tensorially. In order to solve this, we introduce the backgrond metric denoted as ${\bar g}_{\mu\nu}$. The background metric was initially introduced to make the Christoffel symbols transform as a tensor and it is usually defined as a trivial metric, i.e., ${\bar g}_{\mu\nu} = diag(-1,1,1,1)$. Therefore, we have ${\bar g} = -1, $${\bar \Gamma}^{a}_{~bc} = 0$, ${\bar \alpha} = 1$ and ${\bar \beta}^{a} = 0$. 
+In Sec.~\ref{transform}, we listed the transformation rules of all the important 3 + 1 variables and as one can easily notice that some of them do not transform tensorially. In order to solve this, we introduce the backgrond metric denoted as ${\bar g}_{\mu\nu}$. The background metric was initially introduced to make the Christoffel symbols transform as a tensor and it is usually defined as a trivial metric, i.e., ${\bar g}_{\mu\nu} = diag(-1,1,1,1)$. Therefore, we have ${\bar g} = 1, $${\bar \Gamma}^{a}_{~bc} = 0$, ${\bar \alpha} = 1$ and ${\bar \beta}^{a} = 0$. 
 
-The background shift vector ${\bar \beta}^{a}$ follows the same transform rule of $\beta^{a}$
+The background shift vector ${\bar \beta}^{a}$ follows the same transformation rule of $\beta^{a}$
 \[
 {\bar \beta}^{a'} = {\bar \beta}^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}
 \]
@@ -255,8 +255,7 @@ and check how it transforms
 & - \frac{\alpha}{{\bar \alpha}}\left[\partial_{t}{\bar \alpha}\left(\frac{\partial t}{\partial t'}\right)^{2} + \partial_{c}{\bar \alpha}\frac{\partial x^{c}}{\partial t'}\frac{\partial t}{\partial t'} + {\bar \alpha}\frac{\partial^{2}t}{\partial {t'}^{2}} - \left({\bar\beta}^{c}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial t}{\partial t'} + \frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'}\right)\frac{\partial t}{\partial t'}\frac{\partial x^{d}}{\partial x^{c'}}\partial_{d}{\bar\alpha}\right]\notag\\
 & = \mathscr{D}_{t}\alpha\left(\frac{\partial t}{\partial t'}\right)^{2}
 \end{align}
-For formulating the invariant form of the shift vector's time derivative, $\partial_{t}\Delta \beta^{a}$ would b
-e a suitable candidate, since $\Delta \beta^{a}$ itself behaves tensorially already. Let's try to transform $\partial_{t} \Delta \beta^{a}$
+For formulating the invariant form of the shift vector's time derivative, $\partial_{t}\Delta \beta^{a}$ would be a suitable candidate, since $\Delta \beta^{a}$ itself behaves tensorially already. Let's try to transform $\partial_{t} \Delta \beta^{a}$
 \begin{align}\label{time derivative delta beta} 
 \partial_{t'}\Delta \beta^{a'} & = \left(\partial_{t'}\Delta \beta^{a}\right)\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \Delta \beta^{a}\partial_{t'}\left(\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'}\right)\notag\\
 & = \partial_{t}\Delta \beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\left(\frac{\partial t}{\partial t'}\right)^{2} + \partial_{c}\Delta \beta^{a}\frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'}\notag\\
@@ -264,7 +263,7 @@ e a suitable candidate, since $\Delta \beta^{a}$ itself behaves tensorially alre
 \end{align}
 As we expected, there are several extra terms in Eq.~\ref{time derivative delta beta} prevent $\partial_{t}\Delta\beta^{a}$ from being a tensor density. 
 
-By observing the transform rules of $\partial_{t}\Delta\beta^{a}$, $\beta^{a}$, $D_{a}\beta_{b}$ and $\partial_{a}\alpha$, we propose an ansatz of $\mathscr{D}_{t}\beta^{a}$ such that $\mathscr{D}_{t}\beta^{a}$ transforms as a type $1 \choose 0$ tensor under spatial diffeomorphism and a weight +2 density under time reparameterization, 
+By observing the transformation rules of $\partial_{t}\Delta\beta^{a}$, $\beta^{a}$, $D_{a}\beta_{b}$ and $\partial_{a}\alpha$, we propose an ansatz of $\mathscr{D}_{t}\beta^{a}$ such that $\mathscr{D}_{t}\beta^{a}$ transforms as a type $1 \choose 0$ tensor under spatial diffeomorphism and a weight +2 density under time reparameterization, 
 \begin{equation}
 \mathscr{D}_{t'}\beta^{a'} = \mathscr{D}_{t}\beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\left(\frac{\partial t}{\partial t'}\right)^{2}
 \end{equation}
@@ -292,13 +291,13 @@ In the rest of this paper, we take $\sigma = -1$ since there is one $-\beta^{c}\
 \mathscr{D}_{t}\beta^{a} \equiv \partial_{t}\Delta \beta^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}) - \beta^{b}{\bar D}_{b}\Delta \beta^{a} + \Delta \beta^{b}{\bar D}_{b}{\bar \beta}^{a}
 \end{equation}
 \section{Invariant Gauge Condition}\label{gauge}
-We studied the transform rules of all the important variables in 3 + 1 splitting mechanism under the foliation preserving coordinate transformation in Sec.~\ref{transform}, now we will use these results to construct the invariant form of the 1 + log slicing condition and Gamma-driver shift equation. 
+We studied the transformation rules of all the important variables in 3 + 1 splitting mechanism under the foliation preserving coordinate transformation in Sec.~\ref{transform} and Sec.~\ref{tensorial}, now we will use these results to construct the invariant form of the 1 + log slicing condition and Gamma-driver shift equation. 
 
 The regular 1 + log slicing condition reads as
 \begin{equation}\label{1 + log slicing}
 \partial_{t}\alpha - \beta^{c}\partial_{c}\alpha = -2\alpha K
 \end{equation}
-After the analysis in Sec.~\ref{transform}, one can notice that neither the right hand side nor the left hand side transforms tensorially. We start by replacing the left hand side by $\mathscr{D}_{t}\alpha$. Since $\mathscr{D}_{t'}\alpha' = \mathscr{D}_{t}\alpha(\partial t/\partial t')^{2}$, in order to balance the right hand side, we modify it to be $-2\alpha {\bar \alpha}K$. After this modification, we have
+Due to the analysis in Sec.~\ref{transform}, one can notice that neither the right hand side nor the left hand side transforms tensorially. We start by replacing the left hand side by $\mathscr{D}_{t}\alpha$. Since $\mathscr{D}_{t'}\alpha' = \mathscr{D}_{t}\alpha(\partial t/\partial t')^{2}$, in order to balance the right hand side, we modify it to be $-2\alpha {\bar \alpha}K$. After this modification, we have
 \begin{align*}
 \mathscr{D}_{t'}\alpha' & = \mathscr{D}_{t}\alpha\left(\frac{\partial t}{\partial t'}\right)^{2}\\
 & = -2\alpha{\bar \alpha}K\left(\frac{\partial t}{\partial t'}\right)^{2}\\
@@ -323,9 +322,9 @@ where ${\tilde \Gamma}^{a}$ is the trace of the conformal Christoffel symbols de
 \end{equation}
 and $\eta$ is a constant parameter. 
 
-We can follow the same strategy to alter the Gamma-driver shift condition, replacing $\partial_{t}\beta^{a}$ by $\mathscr{D}_{t}\beta^{a}$, changing every non-tensorial term on the right hand side to its corresponding tensorial term and balance the transform factor on both sides. Therefore, we have
-\begin{subequations}
-\begin{align}\label{invariant Gamma-driver shift set}
+We can follow the same strategy to alter the Gamma-driver shift condition, replacing $\partial_{t}\beta^{a}$ by $\mathscr{D}_{t}\beta^{a}$, changing every non-tensorial term to its corresponding tensorial term and balance the transformation factor on both sides. Therefore, we have
+\begin{subequations}\label{invariant Gamma-driver shift set}
+\begin{align}
 \partial_{t}\Delta \beta^{a} & = \beta^{b}{\bar D}_{b}\Delta\beta^{a} - \Delta \beta^{b}{\bar D}_{b}{\bar \beta}^{a} + \frac{\Delta\beta^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}) + \frac{3}{4}{\bar \alpha}B^{a}\\
 \partial_{t}B^{a} & = \partial_{t}\Delta {\tilde \Gamma}^{a} + \beta^{b}{\bar D}_{b}(B^{a} - \Delta{\tilde \Gamma}^{a}) - (B^{b} - \Delta{\tilde \Gamma}^{b}){\bar D}_{b}{\bar \beta}^{a} + \frac{B^{a} - \Delta{\tilde \Gamma}^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}) - \eta{\bar \alpha}B^{a}
 \end{align}
@@ -443,7 +442,7 @@ Similarly, for the background Christoffel symbol, we have
 \]
 however, since in this coordinate transformation, $x^{a}$ is a first order function of $x^{a'}$, ${\bar \Gamma}^{a'}_{b'c'}$ vanishes. 
 
-Also, it is easy to check that $|\partial x/\partial x'| = 1$, this result yields that ${\bar g}' = {\bar g} = 1$. According to these results above, the transformed Gamma-driver Shift equation becomes
+Also, it is easy to check that $|\partial x/\partial x'| = 1$, this result yields that ${\bar g}' = {\bar g} = 1$. According to these results above, the transformed Gamma-driver shift condition becomes
 \begin{equation}
 \partial_{t'}\beta^{a'} - \beta^{b'}\partial_{b'}\beta^{a'} + 2\beta^{b'}\partial_{b'}{\bar \beta}^{a'} - {\bar \beta}^{b'}\partial_{b'}{\bar \beta}^{a'} = \frac{3}{4}{\tilde \Gamma}^{a'} - \eta \Delta \beta^{a'}
 \end{equation}
