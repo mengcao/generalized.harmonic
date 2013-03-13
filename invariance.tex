@@ -13,7 +13,7 @@
 \begin{document}
 \special{papersize=8.5in,11in}
 
-\title{Covarian Gauge Conditions for Foliation Preserving Coordinate Transformations}
+\title{Covariant Gauge Conditions for Foliation Preserving Coordinate Transformations}
 \author{J.~David Brown, Meng Cao}
 \affiliation{Department of Physics, North Carolina State University, Raleigh, NC 27695 USA}
 
@@ -31,69 +31,83 @@ This situation leads to our motivation of this paper. We will try to examine the
 The paper is organized as follows. In Sec.~\ref{3+1}, we explain the notation and convention we are going to follow in this paper. Then we briefly review the 3 + 1 splitting formulation while introducing several significant terms which will be used in latter sections. In Sec.~\ref{transform}, we give the definition of foliation preserving coordinate transformation, under which we derive and list the transform pattern of all significant 3 + 1 splitting physical quantities. The ordinary gauge conditions, i.e.~1 + log slicing condition and Gamma-driver shift equations, are dicussed in details in Sec.~\ref{gauge}. They are then modified to covariant forms and a guideline of how to implement this covariant gauge condition is provided. Last but not least, in Sec.~\ref{example} we demonstrate how this scheme works in a specific coordinate transformation case, time dependent spatial rotation.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{General covariance}
-Einstein's theory is generally covariant, That is, Einstein's field equations take the same 
-form in any spacetime coordinate system (reference Weinberg, Wald? others?). More precisely, the Einstein 
-equations written in the form $G_{\mu\nu} = 8\pi G T_{\mu\nu}$ are {\em manifestly covariant}. What we mean 
-by manifest covariance is that the transformation properties of each term in the equations makes it obvious that the 
-form of the equations is unchanged when we change coordinate systems. For example, each of the terms $G_{\mu\nu}$ and 
-$T_{\mu\nu}$ transforms as a type $0\choose 2$ tensor under changes of spacetime coordinates. Thus, under the coordinate 
+Einstein's theory is generally covariant---that is, the Einstein field equations take the same 
+form in any spacetime coordinate system (reference Weinberg, Wald? others?). With the 
+Einstein equations written in the form\footnote{We use Greek letter indices $\mu$, $\nu$, ... to denote spacetime indices and Latin 
+letters $a$, $b$, ... for spatial indices. $\nabla_{\mu}$ is the spacetime covariant derivative while $D_{a}$ is the spatial 
+covariant derivative.} $G_{\mu\nu} = 8\pi G\, T_{\mu\nu}$, and given the transformation properties 
+of the individual terms $G_{\mu\nu}$ and $T_{\mu\nu}$, general covariance is trivial to show. To begin, we observe that 
+$G_{\mu\nu}$ and $T_{\mu\nu}$ transform as type $0\choose 2$ tensors under changes of spacetime coordinates. Thus, under the  
 transformation $x^{\mu'} = x^{\mu'}(x^\mu)$, the Einstein tensor becomes
 \begin{equation}
-	G_{\mu\nu} = \frac{\partial x^{\mu'}}{\partial x^{\mu}} \frac{\partial x^{\nu'}}{\partial x^{\nu}} G_{\mu'\nu'} \ .
+	G_{\mu\nu} = \frac{\partial x^{\mu'}}{\partial x^{\mu}} \frac{\partial x^{\nu'}}{\partial x^{\nu}} G_{\mu'\nu'} 
 \end{equation}
-A corresponding expression holds for the stress--energy tensor $T_{\mu\nu}$. By applying the transformation 
+with a corresponding expression for the stress--energy tensor $T_{\mu\nu}$. By applying the coordinate transformation 
 to all terms in the Einstein equations we find that the factors 
 $(\partial x^{\mu'}/\partial x^{\mu}) (\partial x^{\nu'}/\partial x^{\nu})$
-cancel, leaving $G_{\mu'\nu'} = 8\pi G T_{\mu'\nu'}$. 
+cancel, leaving $G_{\mu'\nu'} = 8\pi G\, T_{\mu'\nu'}$. 
 
-Now consider the $3+1$ splitting, with matter fields set to zero for simplicity. We have the ADM (York) equations 
+We refer to equations like $G_{\mu\nu} = 8\pi G T_{\mu\nu}$, which obviously hold in any coordinate system by virtue 
+of the transformation properties of the individual terms, as {\em manifestly covariant}. 
+
+The Einstein equations in $3+1$ form are the Arnowitt--Deser--Misner (ADM) equations (ref), 
+which we write in the form used by Smarr and York (ref):
 \begin{subequations}
 \begin{eqnarray}
 	\partial_t g_{ab} - {\cal L}_\beta g_{ab} & = & -2\alpha K_{ab} \ , \\
 	\partial_t K_{ab} - {\cal L}_\beta K_{ab} & = & \alpha K K_{ab} - 2\alpha K_{ac}K^c_b 
-		+ \alpha R_{ab} - D_a D_b\alpha \ ,
+		+ \alpha R_{ab} - D_a D_b\alpha \ .
 \end{eqnarray}
 \end{subequations}
-where $K_{ab}$, $g_{ab}$, $\alpha$, and $\beta^a$ are the extrinsic curvature, spatial metric, lapse and shift, respectively, 
-and $D_a$ is the spatial covariant derivative. 
-These equations hold in any spacetime coordinate system. However, they are not 
-manifestly covariant because they are written in terms of new 
+Here, $g_{ab}$, $K_{ab}$, $\alpha$, and $\beta^a$ are the spatial metric, extrinsic curvature, lapse function and shift vector, respectively. 
+Matter fields have been set to zero for simplicity.  
+The ADM equations hold in any spacetime coordinate system, so they are generally covariant. However, they are not 
+manifestly covariant. This is because the ADM equations are written in terms of new 
 fields, $K_{ab}$, $g_{ab}$, $\alpha$ and $\beta^a$, that do not transform as tensors under 
-spacetime coordinate transformations. The ADM equations are generally covariant but 
-not manifestly so. 
+spacetime coordinate transformations. 
 
 Although the ADM equations are not manifestly covariant under {\em spacetime} coordinate transformations, they are 
-manifestly covariant under changes of {\em spatial} coordinates. This is seen from the fact that each term 
-transforms as a type $0\choose 2$ tensor under spatial coordinate transformations. In fact, we will show that these 
-equations are manifestly 
-covariant under {\em time--dependent} spatial coordinate tranformations as well as time reparametrizations. Together, these 
-transformations form the subset of spacetime coordinate transformations that preserve the foliation of spacetime 
-into spacelike hypersurfaces. Thus, we refer to these transformations as ``foliation preserving". 
+manifestly covariant under changes of {\em spatial} coordinates. This is because each term in the equations
+transforms as a type $0\choose 2$ tensor under spatial coordinate transformations. In fact, we will show that the ADM  
+equations are manifestly covariant under a wider class of transformations that preserve the foliation of spacetime 
+into spacelike hypersurfaces. These transformations, defined by
+\begin{subequations}\label{foliationpreservingtransf}
+\begin{eqnarray}
+t' & = & t'(t) \ ,\\
+x^{a'} & = & x^{a'}(t,x^{a}) \ ,
+\end{eqnarray}
+\end{subequations}
+consist of time reparametrizations (\ref{foliationpreservingtransf}a) and {\em time--dependent} spatial coordinate transformations 
+(\ref{foliationpreservingtransf}b). We will often refer to Eqs.~(\ref{foliationpreservingtransf}) as ``foliation preserving" transformations. 
 
-The 3+1 split equations is the starting point for the initial value problem and the Hamiltonian formulation. And 
-of course numerical treatments. The lack of manifest covariance is not a problem. The point of view has shifted. 
-We now view the theory as a set of fields on 3d space, that evolve in time. Thus the emphasis on invariance is 
-in space. But just as the spatial fields evolve in time, so can the coordinate system. And the time labels 
-are not physical, so we should be able to relabel these. Thus we focus on the 
-``foliation preserving" transformations. 
+The ADM equations provide the foundation for interpreting Einstein's theory as an initial value problem, 
+and for solving the Einstein equations numerically. 
+The lack of manifest spacetime covariance is not a problem in this context, because the point of view has shifted away from 
+spacetime fields to {\em time--dependent} fields on space. The manifest invariance of the ADM equations, namely, 
+invariance under time reparametrizations and time--dependent 
+spatial coordinate transformations, supports and helps motivate this new point of view. 
 
-Say words about what invariance means in the 3+1 context. Really, a coordinate system has little meaning apart from 
-topological restrictions. For example, if our manifold is Real 4, or $S^4$ in which case we would need periodic identifications. 
-What does have definite meaning is the comparison of two different coordinate systems. Say $x^{\mu}$ and $x^{\mu'}$ are 
-related by $x^{\mu'} = x^{\mu'}(x^\mu)$. We want to evolve in one coordinate system, then the other. We want the results of the 
-two simulations to be related by the given transformation. We do this by using the transformation to relate the data at the 
-intial time. Let's assume that the initial time is $t = t' = 0$, so the initial slices coincide. Then we need to use the 
-transformation to show how the lapse and shift are related. In the end we should be able to 
-relate the results according to the transformation. We also assume at this stage that the foliations coincide? If not, the comparison 
-is very difficult; we would need to construct the 4D metric. Practically speaking, we restrict ourselves to the same slices, 
-we again are focused on foliation preserving transformations. Then we compare spatial metric and extrinsic curvature. 
+Before continuing, we should discuss more carefully the concept of general covariance in the $3+1$ context. 
+In general relativity, the coordinate systems themselves have little meaning apart from 
+global or topological restrictions that they might impose. For example, if the coordinate $x^3$ ranges from $0$ to $2\pi$ 
+with boundary conditions $x^3(0) = x^3(2\pi)$, then the $x^3$ coordinate lines are topologically circles. 
 
-Display the coordinate transformation: 
-\begin{align*}
-t' & = t'(t)\\
-x^{a'} & = x^{a'}(t,x^{a})
-\end{align*}
-These are foliation preserving. 
+What does have definite meaning is the comparison of fields using two different coordinate systems. Let's say $t,x^{a}$ and $t',x^{a'}$ are 
+two different coordinate systems, related as in Eq.~(\ref{foliationpreservingtransf}). We want to carry out two separate simulations, 
+evolving the fields in the unprimed and primed coordinate systems, and then relate the results to one another.  We do this as follows. 
+First prepare the initial data (the data at time $t_i$) and call the coordinates $x^a$. Then use the spatial transformation 
+$x^{a'} = x^{a'}(t_i,x^a)$ to transform this data to the primed system. The transformed data is the initial data (the data at time $t'_i = t'(t_i)$) 
+in the primed coordinates. Now we evolve each set of data---if the evolution equations are generally covariant, then the equaions 
+take the same form in both coordinate systems. We must be careful to specify the lapse function and shift vector correctly. In particular, 
+the lapse and shift in the two coordinate systems must be related according to the transformation rules---we spell these out explicitly 
+below for foliation preserving tranformations. 
+
+Then we compare spatial metric and extrinsic curvature. 
+
+When we say the ADM equations are spacetime covariant, we assume that the lapse and shift (along with the metric and extrinsic 
+curvature) transforms appropriately when we change coordinates. For example, for a purely spatial coordinate transformation, $\alpha$ is a 
+scalar and $\beta^a$ is a contravariant vector. We will show later how the lapse and shift behave under foliation--preserving 
+tranformations. 
 
 Now with BSSN, we introduce object as independent variables that are not spatial tensors $\tilde\Gamma^a$. 
 And $\tilde g$ is a scalar, which means $\tilde g_{ab}$ is a type $0\choose 2$ tensor density of 
@@ -114,11 +128,8 @@ can no longer compare results from two different coordinate systems.
 Our goal is to restore manifest covariance to the gauge and non--guage equations, under 
 foliation preserving transformations. 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{3 + 1 Splitting}\label{3+1}
-Throughout this paper, we use Greek letter indices $\mu$, $\nu$, ... to denote spacetime indices and Latin letters $a$, $b$, ... to denote spatial indices. $\nabla_{\mu}$ stands for the spacetime covariant derivative while $D_{a}$ is the spatial covariant derivative.
-
 In 3 + 1 formulation, we have
 \begin{equation*}
 	{}^{(4)}g_{\mu\nu} = (-\alpha^2 + \beta^{c}\beta_{c})\delta_\mu^0\delta_\nu^0 
