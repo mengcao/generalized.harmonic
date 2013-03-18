@@ -14,7 +14,7 @@
 \special{papersize=8.5in,11in}
 
 \title{Covariant Gauge Conditions for Foliation Preserving Coordinate Transformations}
-\author{J.~David Brown, Meng Cao}
+\author{Meng Cao, J.~David Brown}
 \affiliation{Department of Physics, North Carolina State University, Raleigh, NC 27695 USA}
 
 \begin{abstract}
@@ -130,8 +130,6 @@ foliation preserving transformations.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{3 + 1 Splitting}\label{3+1}
-Throughout this paper, we use Greek letter indices $\mu$, $\nu$, ... to denote spacetime indices and Latin letters $a$, $b$, ... to denote spatial indices. $\nabla_{\mu}$ stands for the spacetime covariant derivative while $D_{a}$ is the spatial covariant derivative.
-
 In 3 + 1 formulation, we have
 \begin{equation*}
 	{}^{(4)}g_{\mu\nu} = (-\alpha^2 + \beta^{c}\beta_{c})\delta_\mu^0\delta_\nu^0 
@@ -266,7 +264,7 @@ and if $\mu' = a'$, since $\partial t/\partial x^{a'} = 0$, we have
 \begin{equation}\label{spatial derivative}
 \partial_{a'} = \frac{\partial x^{c}}{\partial x^{a'}}\partial_{c}
 \end{equation}
-From Eq.~\ref{time derivative} and Eq.~\ref{spatial derivative} we can tell that the spatial derivative transforms just like a type $0 \choose 1$ tensor without introducing any extra terms. On the other hand, in the time derivative transformations, there are one extra term $(\partial t/\partial t')\partial_{t}$ involved, since $\partial t/\partial t' \ne 0$. According to this analysis, the spatial Christoffel symbol transforms regularly, since it is only constructed by the spatial metric and its spatial derivatives. 
+From Eq.~\ref{time derivative} and Eq.~\ref{spatial derivative} we can tell that the spatial derivative transforms just like a type $0 \choose 1$ tensor without introducing any extra terms. On the other hand, in the time derivative transformations, there are one extra term $(\partial t/\partial t')\partial_{t}$ involved, since $\partial t/\partial t' \ne 0$. According to this analysis, the spatial Christoffel symbols transform regularly, since it is only constructed by the spatial metric and its spatial derivatives. 
 \begin{equation}
 \Gamma^{a'}_{~b'c'} = \Gamma^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}} + \frac{\partial x^{a'}}{\partial x^{d}}\frac{\partial^{2} x^{d}}{\partial x^{b'}\partial x^{c'}}
 \end{equation}
@@ -316,7 +314,7 @@ and hence the difference between $\beta^{a}$ and ${\bar \beta}^{a}$ transform as
 \end{equation}
 where $\Delta \beta^{a} \equiv \beta^{a} - {\bar \beta}^{a}$.
 
-In addition, the tensorial form of Christoffel symbol is $\Delta \Gamma^{a}_{~bc} \equiv \Gamma^{a}_{~bc} - {\bar \Gamma}^{a}_{~bc}$ and
+In addition, the tensorial form of Christoffel symbols is $\Delta \Gamma^{a}_{~bc} \equiv \Gamma^{a}_{~bc} - {\bar \Gamma}^{a}_{~bc}$ and
 \begin{equation}
 \Delta \Gamma^{a'}_{~b'c'} = \Delta \Gamma^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}}
 \end{equation}
@@ -433,11 +431,11 @@ where
 \begin{equation}
 \Delta {\tilde \Gamma}^{a} = {\bar \alpha}\sqrt{\frac{g}{{\bar g}}}^{2/3}\left(\Delta \Gamma^{a}_{~bc}g^{bc} + \frac{1}{3}g^{ab}\Delta \Gamma^{c}_{~bc}\right)
 \end{equation}
-In some literatures, the Equation Set \ref{Gamma-driver shift set} can be integrated with the initial condition $\beta^{a}(t=0) = B^{a}(t=0) = {\tilde \Gamma}^{a}(t = 0) = 0$ and yields a single first order equation of Gamma-driver shift condition
+In some literatures, the Eqs.~\ref{Gamma-driver shift set} can be integrated with the initial condition $\beta^{a}(t=0) = B^{a}(t=0) = {\tilde \Gamma}^{a}(t = 0) = 0$ and yields a single first order equation of Gamma-driver shift condition
 \begin{equation}\label{Gamma-driver shift}
 \partial_{t}\beta^{a} = \beta^{b}\partial_{b}\beta^{a} + \frac{3}{4}{\tilde \Gamma}^{a} - \eta \beta^{a}
 \end{equation} 
-Similarly, we can also integrate the Equation Set \ref{invariant Gamma-driver shift set} with the same initial condition mentioned before to get the invariant form of Eq.~\ref{Gamma-driver shift}
+Similarly, we can also integrate the Eqs.~\ref{invariant Gamma-driver shift set} with the same initial condition mentioned before to get the invariant form of Eq.~\ref{Gamma-driver shift}
 \begin{equation}\label{invariant Gamma-driver shift}
 \mathscr{D}_{t}\beta^{a} = \frac{3}{4}{\bar \alpha}\Delta {\tilde \Gamma}^{a} - \eta {\bar \alpha}\Delta\beta^{a}
 \end{equation}
@@ -536,7 +534,7 @@ Therefore, for each component, we have
 {\bar \beta}^{2'} & = \omega x'\\
 {\bar \beta}^{3'} & = 0
 \end{align*}
-Similarly, for the background Christoffel symbol, we have
+Similarly, for the background Christoffel symbols, we have
 \[
 {\bar \Gamma}^{a'}_{b'c'} = \frac{\partial x^{a'}}{\partial x^{d}}\frac{\partial x^{d}}{\partial x^{b'}\partial x^{c'}}
 \]
