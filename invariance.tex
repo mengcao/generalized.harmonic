@@ -217,7 +217,7 @@ g' = |g_{a'b'}| = |g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^
 \end{equation}
 where $|\partial x/\partial x'|$ stands for the Jacobian matrix determinant of this coordinate transformation. This shows that $g$ transforms as a weight +2 density under the spatial diffeomorphism and a scalar under the time reparameterization. 
  
-Besides the spatial metric, the lapse $\alpha$ and the shift vector $\beta^{a}$ are two significant variables in 3 + 1 splitting scheme. 
+Besides the spatial metric, the lapse function $\alpha$ and the shift vector $\beta^{a}$ are two significant variables in 3 + 1 splitting scheme. 
 
 From equations [\ref{normal covector}-\ref{spacetime metric 3 + 1}], we have that
 \begin{align}
@@ -231,7 +231,7 @@ According to Eq.~\ref{lapse} and Eq.~\ref{spacetime metric}, we have
 & = g_{ab}(\delta^{b}_{\nu} + \beta^{b}\delta^{0}_{\nu})\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{\nu}}{\partial t'}\notag\\
 & = \beta_{a}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial t}{\partial t'} + g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial t'}\label{shift covector transform}
 \end{align}
-Use the results from Eq.~\ref{spatial metric} and Eq.~\ref{shift covector transform}, we can easily derive the transform rule of the shift vector
+Use the results from Eq.~\ref{spatial metric} and Eq.~\ref{shift covector transform}, we can easily derive the transformation rule of the shift vector
 \begin{align}
 \beta^{a'} & = \beta_{b'}g^{a'b'}\notag\\
 & = \left(\beta_{b}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial t}{\partial t'} + g_{cd}\frac{\partial x^{d}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial t'}\right)g^{ab}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b'}}{\partial x^{b}}\notag\\
@@ -239,7 +239,7 @@ Use the results from Eq.~\ref{spatial metric} and Eq.~\ref{shift covector transf
 \end{align}
 From the calculation above we can tell that both the shift vector $\beta^{a}$ and the shift covector $\beta_{a}$ do not transform tensorially under this coordinate transformation and we will come back to this issue in the next section. 
 
-Use the result from Eq.~\ref{shift vector transform} along with Eq.~\ref{lapse} and Eq.~\ref{spacetime metric}, we can derive the transform rule of the lapse function. 
+Use the result from Eq.~\ref{shift vector transform} along with Eq.~\ref{lapse} and Eq.~\ref{spacetime metric}, we can derive the transformation rule of the lapse function. 
 \begin{align*}
 \alpha'^{2} & = - (g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu})\frac{\partial x^{\mu}}{\partial t'}\frac{\partial x^{\nu}}{\partial t'} + g_{a'b'}\beta^{a'}\beta^{b'}\notag\\ 
 & = \alpha^2\left(\frac{\partial t}{\partial t'}\right)^{2}
@@ -250,7 +250,7 @@ Therefore we have
 \end{equation}
 and hence the lapse function transforms as a scalar under the spatial diffeomorphism and a weight +1 density under the time reparameterization. 
  
-Now we have investigated the transform rule of the terms without any derivatives. However, since the 1 + log slicing condition and Gamma-driver shift condition are both first order partial differential equations, we still need to learn how partial derivative terms transform under the foliation preserving coordinate transformation. 
+Now we have investigated the transformation rule of the terms without any derivatives. However, since the 1 + log slicing condition and Gamma-driver shift condition are both first order partial differential equations, we still need to learn how partial derivative terms transform under the foliation preserving coordinate transformation. 
 
 In order to study how partial derivatives transform, let's review the chain rule for this diffeomorphism briefly. The chain rule in spacetime domain states as below
 \begin{equation*}
@@ -275,23 +275,25 @@ D_{a'}\beta_{b'} &= D_{a'}\left(\beta^{b}\frac{\partial x^{b}}{\partial x^{b'}}\
 & = \frac{\partial t}{\partial t'}D_{a'}\left(\beta_{b}\frac{\partial x^{b}}{\partial x^{b'}}\right) + D_{a'}\left(g_{b'c'}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'}\right)\notag\\
 & = D_{a}\beta^{b}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial t}{\partial t'} + g_{b'c'}D_{a'}\left(\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'}\right)
 \end{align} 
-The spatial partial derivative of $\alpha$, which appears in the advection term of the 1 + log slicing equation, transforms as 
+The spatial partial derivative of $\alpha$, which appears in the advection term of the 1 + log slicing condition, transforms as 
 \begin{align}
-\partial_{a'}\alpha' & = \frac{\partial x^{c}}{\partial x^{a'}}\partial_{c}\left(\alpha \frac{\partial t}{\partial t'}\right)\\
+\partial_{a'}\alpha' & = \partial_{a'}\left(\alpha \frac{\partial t}{\partial t'}\right)\\
+& = \frac{\partial t}{\partial t'}\partial_{a'}\alpha\\
 & = \frac{\partial t}{\partial t'}\frac{\partial x^{c}}{\partial x^{a'}}\partial_{c}\alpha
 \end{align}
 It is a type $0 \choose 1$ tensor under spatial diffeomorphism and a weight +1 density under time reparameterization.
 
-Now let's examine the time derivative of the spatial metric
-\begin{align}
-\partial_{t'}g_{a'b'} & = (\partial_{t'}g_{ab})\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\partial_{t'}\left(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\right)\notag\\
-& =  (\partial_{t}g_{ab})\frac{\partial t}{\partial t'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + (\partial_{c}g_{ab})\frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\partial_{t'}\left(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\right)
-\end{align}
 Due to the extra term introduced by time derivative transformation, the time derivative of $\alpha$ raises a more interesting case, 
 \begin{align}
 \partial_{t'}\alpha' & = \partial_{t'}\left(\alpha\frac{\partial t}{\partial t'}\right)\notag\\
 & = \frac{\partial t}{\partial t'}\partial_{t'}\alpha + \alpha\frac{\partial^{2}t}{\partial {t'}^{2}}\notag\\
 & = \partial_{t}\alpha\left(\frac{\partial t}{\partial t'}\right)^{2} + \partial_{c}\alpha\frac{\partial x^{c}}{\partial t'}\frac{\partial t}{\partial t'} + \alpha\frac{\partial^{2}t}{\partial {t'}^{2}}
+\end{align}
+
+Now let's examine the time derivative of the spatial metric
+\begin{align}
+\partial_{t'}g_{a'b'} & = (\partial_{t'}g_{ab})\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\partial_{t'}\left(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\right)\notag\\
+& =  (\partial_{t}g_{ab})\frac{\partial t}{\partial t'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + (\partial_{c}g_{ab})\frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\partial_{t'}\left(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\right)
 \end{align}
 
 Finally the time derivative of $\beta^{a}$ transforms as
