@@ -316,7 +316,7 @@ and hence the difference between $\beta^{a}$ and ${\bar \beta}^{a}$ transform as
 \end{equation}
 where $\Delta \beta^{a} \equiv \beta^{a} - {\bar \beta}^{a}$.
 
-In addition, the tensorial form of Christoffel symbols is $\Delta \Gamma^{a}_{~bc} \equiv \Gamma^{a}_{~bc} - {\bar \Gamma}^{a}_{~bc}$, which transforms as a type $1 \choose 2$ tensor under spatial diffeomorphism and a scalar under time reparameterization. 
+In addition, the tensorial form of Christoffel symbols is $\Delta \Gamma^{a}_{~bc} \equiv \Gamma^{a}_{~bc} - {\bar \Gamma}^{a}_{~bc}$ and
 \begin{equation}
 \Delta \Gamma^{a'}_{~b'c'} = \Delta \Gamma^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}}
 \end{equation}
@@ -340,7 +340,7 @@ it transforms as a type $0 \choose 2$ tensor under the spatial diffeomorphism an
 K_{a'b'} = K_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}
 \end{equation}
 
-In order to construct an invariant form of the time derivative of the lapse function $\mathscr{D}_{t}\alpha$ such that it transforms as a scalar under spatial diffeomorphism and a weight +2 density under time reparameterization.
+In order to construct an invariant form of the time derivative of the lapse function $\mathscr{D}_{t}\alpha$ such that it transforms as a scalar under spatial diffeomorphism and a weight +2 density under time reparameterization
 \[
 \mathscr{D}_{t'}\alpha' = \mathscr{D}_{t}\alpha\left(\frac{\partial t}{\partial t'}\right)^{2}
 \]
@@ -390,7 +390,9 @@ In the rest of this paper, we take $\sigma = -1$ since there is one $-\beta^{c}\
 \begin{equation}
 \mathscr{D}_{t}\beta^{a} \equiv \partial_{t}\Delta \beta^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}) - \beta^{b}{\bar D}_{b}\Delta \beta^{a} + \Delta \beta^{b}{\bar D}_{b}{\bar \beta}^{a}
 \end{equation}
-\section{Invariant Gauge Condition}\label{gauge}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Covariant Gauge Condition}\label{gauge}
 We studied the transformation rules of all the important variables in 3 + 1 splitting mechanism under the foliation preserving coordinate transformation in Sec.~\ref{transform} and Sec.~\ref{tensorial}, now we will use these results to construct the invariant form of the 1 + log slicing condition and Gamma-driver shift equation. 
 
 The regular 1 + log slicing condition reads as
@@ -431,7 +433,7 @@ We can follow the same strategy to alter the Gamma-driver shift condition, repla
 \end{subequations}
 where
 \begin{equation}
-\Delta {\tilde \Gamma}^{a} = {\bar \alpha}\sqrt{\frac{g}{{\bar g}}}^{2/3}\left(\Delta \Gamma^{a}_{~bc}g^{bc} + \frac{1}{3}g^{ab}\Delta \Gamma^{c}_{~bc}\right)
+\Delta {\tilde \Gamma}^{a} \equiv {\bar \alpha}\sqrt{\frac{g}{{\bar g}}}^{2/3}\left(\Delta \Gamma^{a}_{~bc}g^{bc} + \frac{1}{3}g^{ab}\Delta \Gamma^{c}_{~bc}\right)
 \end{equation}
 In some literatures \cite{vanMeter:2006vi}, the Eqs.~\ref{Gamma-driver shift set} can be integrated with the initial condition $\beta^{a}(t=0) = B^{a}(t=0) = {\tilde \Gamma}^{a}(t = 0) = 0$ and yields a single first order equation of Gamma-driver shift condition
 \begin{equation}\label{Gamma-driver shift}
@@ -441,6 +443,8 @@ Similarly, we can also integrate the Eqs.~\ref{invariant Gamma-driver shift set}
 \begin{equation}\label{invariant Gamma-driver shift}
 \mathscr{D}_{t}\beta^{a} = \frac{3}{4}{\bar \alpha}\Delta {\tilde \Gamma}^{a} - \eta {\bar \alpha}\Delta\beta^{a}
 \end{equation}
+Due to its simplicity, we focus our discussion on Eq.~\ref{invariant Gamma-driver shift} instead of Eqs.~\ref{invariant Gamma-driver shift set} in the rest of this paper.
+
 Writing down these invariant gauge conditions creates more possibilities for numerical simulation. When the need of evolving the system in a different coordinates system rises, one can just use the following equations as gauge conditions
 \begin{align*}
 \mathscr{D}_{t'}\alpha' & = -2\alpha'{\bar \alpha}'K'\\
@@ -572,7 +576,7 @@ Plug Eq.~\ref{alpha to alpha prime}, Eq.~\ref{beta to beta prime} and Eq.~\ref{K
 \end{align}
 Hereby we reached the identical equation as Eq.~\ref{transformed 1 + log slicing}.
 
-Now let's plug equations [\ref{beta to beta prime} - \ref{gamma to gamma prime}] into Eq.~\ref{Gamma-driver shift} and write the regular Gamma-driver shift equation in terms of the transformed variables. 
+Now let's plug equations [\ref{beta to beta prime} - \ref{gamma to gamma prime}] into Eq.~\ref{Gamma-driver shift} and write the regular Gamma-driver shift condition in terms of the transformed variables. 
 
 Since this is a long equation, let's first examine the left hand side, 
 \begin{align}
