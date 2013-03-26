@@ -18,13 +18,13 @@
 \affiliation{Department of Physics, North Carolina State University, Raleigh, NC 27695 USA}
 
 \begin{abstract}
-The transformation rules of 3 + 1 splitting variables, such as the lapse function, shift vector, extrinsic curvature and etc., under a foliation preserving coordinate transformation are presented. The covariant forms of time derivative of the lapse function and time derivative of the shift vector are given. The invariant forms of 1 + log slicing condition and Gamma-driver shift condition are derived from those covariant time derivatives. Utilizing these invariant gauge conditions allows one to evolve the same system with two different coordinate systems and reach the same result. A time dependent spatial rotation coordinate transformation is discussed in details as a specific example of this case.  
+The transformation rules of 3 + 1 splitting variables, such as the lapse function, shift vector, extrinsic curvature and etc., under a foliation preserving coordinate transformation are presented. The covariant forms of time derivative of the lapse function and time derivative of the shift vector are given. The covariant forms of 1 + log slicing condition and Gamma-driver shift condition are derived from those covariant time derivatives. Utilizing these covariant gauge conditions allows one to evolve the same system with two different coordinate systems and reach the same result. A time dependent spatial rotation coordinate transformation is discussed in details as a specific example of this case.  
 \end{abstract}
 \maketitle
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-The Einstein's equations are in the covariant form under spacetime diffeomorphism, which means the equations are invariant under spacetime coordinate transformations. 3 + 1 splitting mechanism slices the spacetime into a family of spacelike hypersurfaces which is referred as foliations. On each foliation, a timelike parameter t is constant. By breaking the symmetry of time and space domain, the 3 + 1 formulation makes it possible to evolve a general relativity system along with time numerically. On the other hand, although it still preserves the invariant property, it is not manifest in the equations anymore. While constructing numerical simulations, either in ADM formulation \cite{ADM:Witten} or BSSN({\color{red}reference BSSN?}) formulation, people use gauge conditions(such as 1 + log slicing and Gamma-driver shift condition) to evolve the lapse function and shift vector along with time. Unfortunately, these gauge condition equations are neither explicitly nor implicitly covariant. This scheme works sufficiently accurate if the system is evolved in one single coordinate system. However, if the same system is evolved with two different coordinate systems to the same time under this kind of gauge conditions, it is not guaranteed that we can get the same results. 
+The Einstein's equations are in the covariant form under spacetime diffeomorphism, which means the equations are invariant under spacetime coordinate transformations. 3 + 1 splitting mechanism slices the spacetime into a family of spacelike hypersurfaces which is referred as foliations. On each foliation, a timelike parameter t is constant. By breaking the symmetry of time and space domain, the 3 + 1 formulation makes it possible to evolve a general relativity system along with time numerically. On the other hand, although it still preserves the covariant property, it is not manifest in the equations anymore. While constructing numerical simulations, either in ADM formulation \cite{ADM:Witten} or BSSN({\color{red}reference BSSN?}) formulation, people use gauge conditions(such as 1 + log slicing and Gamma-driver shift condition) to evolve the lapse function and shift vector along with time. Unfortunately, these gauge condition equations are neither explicitly nor implicitly covariant. This scheme works sufficiently accurate if the system is evolved in one single coordinate system. However, if the same system is evolved with two different coordinate systems to the same time under this kind of gauge conditions, it is not guaranteed that we can get the same results. 
 
 This situation leads to our motivation of this paper. We will try to examine the transformation rules of physical variables in 3 + 1 splitting system under a so called ``foliation preserving coordinate transformation'', which includes time reparamerization and time dependent spatial deffeomorphism while the structure of foliations is preserved. Then we will try to write down the covariant form of the gauge conditions under this coordinate transformation and give the guideline of how to implement this into numerical simulation. 
 
@@ -213,7 +213,7 @@ which is a type $2 \choose 0$ tensor under the spatial diffeomorphism and a scal
 
 Let $g$ denote the determinant of the spatial metric $g_{ab}$. It transforms as
 \begin{equation}
-g' = |g_{a'b'}| = |g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}| = |g_{ab}||\frac{\partial x^{a}}{\partial x^{a'}}||\frac{\partial x^{b}}{\partial x^{b'}}| = g|\frac{\partial x}{\partial x'}|^{2}
+g' = |g_{a'b'}| = |g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}|  = g|\frac{\partial x}{\partial x'}|^{2}
 \end{equation}
 where $|\partial x/\partial x'|$ stands for the Jacobian matrix determinant of this coordinate transformation. This shows that $g$ transforms as a weight +2 density under the spatial diffeomorphism and a scalar under the time reparameterization. 
  
@@ -322,7 +322,7 @@ In addition, the tensorial form of Christoffel symbols is $\Delta \Gamma^{a}_{~b
 \end{equation}
 As we can tell, it transforms as a type $1 \choose 2$ tensor under spatial diffeomorphism and a scalar under time reparameterization. 
 
-The invariant time derivative of the spatial metric is defined as
+The covariant time derivative of the spatial metric is defined as
 \begin{equation}
 \mathscr{D}_{t}g_{ab} \equiv \partial_{t}g_{ab} - 2D_{(a}\beta_{b)}
 \end{equation}
@@ -340,7 +340,7 @@ it transforms as a type $0 \choose 2$ tensor under the spatial diffeomorphism an
 K_{a'b'} = K_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}
 \end{equation}
 
-In order to construct an invariant form of the time derivative of the lapse function $\mathscr{D}_{t}\alpha$ such that it transforms as a scalar under spatial diffeomorphism and a weight +2 density under time reparameterization
+In order to construct an covariant form of the time derivative of the lapse function $\mathscr{D}_{t}\alpha$ such that it transforms as a scalar under spatial diffeomorphism and a weight +2 density under time reparameterization
 \[
 \mathscr{D}_{t'}\alpha' = \mathscr{D}_{t}\alpha\left(\frac{\partial t}{\partial t'}\right)^{2}
 \]
@@ -355,7 +355,7 @@ and check how it transforms
 & - \frac{\alpha}{{\bar \alpha}}\left[\partial_{t}{\bar \alpha}\left(\frac{\partial t}{\partial t'}\right)^{2} + \partial_{c}{\bar \alpha}\frac{\partial x^{c}}{\partial t'}\frac{\partial t}{\partial t'} + {\bar \alpha}\frac{\partial^{2}t}{\partial {t'}^{2}} - \left({\bar\beta}^{c}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial t}{\partial t'} + \frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'}\right)\frac{\partial t}{\partial t'}\frac{\partial x^{d}}{\partial x^{c'}}\partial_{d}{\bar\alpha}\right]\notag\\
 & = \mathscr{D}_{t}\alpha\left(\frac{\partial t}{\partial t'}\right)^{2}
 \end{align}
-For formulating the invariant form of the shift vector's time derivative, $\partial_{t}\Delta \beta^{a}$ would be a suitable candidate, since $\Delta \beta^{a}$ itself behaves tensorially already. Let's try to transform $\partial_{t} \Delta \beta^{a}$
+For formulating the covariant form of the shift vector's time derivative, $\partial_{t}\Delta \beta^{a}$ would be a suitable candidate, since $\Delta \beta^{a}$ itself behaves tensorially already. Let's try to transform $\partial_{t} \Delta \beta^{a}$
 \begin{align}\label{time derivative delta beta} 
 \partial_{t'}\Delta \beta^{a'} & = \left(\partial_{t'}\Delta \beta^{a}\right)\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \Delta \beta^{a}\partial_{t'}\left(\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'}\right)\notag\\
 & = \partial_{t}\Delta \beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\left(\frac{\partial t}{\partial t'}\right)^{2} + \partial_{c}\Delta \beta^{a}\frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'}\notag\\
@@ -393,7 +393,7 @@ In the rest of this paper, we take $\sigma = -1$ since there is one $-\beta^{c}\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Covariant Gauge Condition}\label{gauge}
-We studied the transformation rules of all the important variables in 3 + 1 splitting mechanism under the foliation preserving coordinate transformation in Sec.~\ref{transform} and Sec.~\ref{tensorial}, now we will use these results to construct the invariant form of the 1 + log slicing condition and Gamma-driver shift equation. 
+We studied the transformation rules of all the important variables in 3 + 1 splitting mechanism under the foliation preserving coordinate transformation in Sec.~\ref{transform} and Sec.~\ref{tensorial}, now we will use these results to construct the covariant form of the 1 + log slicing condition and Gamma-driver shift equation. 
 
 The regular 1 + log slicing condition reads as
 \begin{equation}\label{1 + log slicing}
@@ -406,8 +406,8 @@ Due to the analysis in Sec.~\ref{transform}, one can notice that neither the rig
 & = -2\left(\alpha\frac{\partial t}{\partial t'}\right)\left({\bar \alpha}\frac{\partial t}{\partial t'}\right)K\\
 & = -2\alpha'{\bar \alpha}'K'
 \end{align*}
-Therefore, we have reached the invariant form of 1 + log slicing condition as below
-\begin{equation}\label{invariant 1 + log slicing}
+Therefore, we have reached the covariant form of 1 + log slicing condition as below
+\begin{equation}\label{covariant 1 + log slicing}
 \mathscr{D}_{t}\alpha = -2\alpha{\bar \alpha}K
 \end{equation}
 
@@ -425,7 +425,7 @@ where ${\tilde \Gamma}^{a}$ is the trace of the conformal Christoffel symbols de
 and $\eta$ is a constant parameter. 
 
 We can follow the same strategy to alter the Gamma-driver shift condition, replacing $\partial_{t}\beta^{a}$ by $\mathscr{D}_{t}\beta^{a}$, changing every non-tensorial term to its corresponding tensorial term and balance the transformation factor on both sides. Therefore, we have
-\begin{subequations}\label{invariant Gamma-driver shift set}
+\begin{subequations}\label{covariant Gamma-driver shift set}
 \begin{align}
 \partial_{t}\Delta \beta^{a} & = \beta^{b}{\bar D}_{b}\Delta\beta^{a} - \Delta \beta^{b}{\bar D}_{b}{\bar \beta}^{a} + \frac{\Delta\beta^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}) + \frac{3}{4}{\bar \alpha}B^{a}\\
 \partial_{t}B^{a} & = \partial_{t}\Delta {\tilde \Gamma}^{a} + \beta^{b}{\bar D}_{b}(B^{a} - \Delta{\tilde \Gamma}^{a}) - (B^{b} - \Delta{\tilde \Gamma}^{b}){\bar D}_{b}{\bar \beta}^{a} + \frac{B^{a} - \Delta{\tilde \Gamma}^{a}}{{\bar \alpha}}(\partial_{t}{\bar \alpha} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}) - \eta{\bar \alpha}B^{a}
@@ -439,13 +439,13 @@ In some literatures \cite{vanMeter:2006vi}, the Eqs.~\ref{Gamma-driver shift set
 \begin{equation}\label{Gamma-driver shift}
 \partial_{t}\beta^{a} = \beta^{b}\partial_{b}\beta^{a} + \frac{3}{4}{\tilde \Gamma}^{a} - \eta \beta^{a}
 \end{equation} 
-Similarly, we can also integrate the Eqs.~\ref{invariant Gamma-driver shift set} with the same initial condition mentioned before to get the invariant form of Eq.~\ref{Gamma-driver shift}
-\begin{equation}\label{invariant Gamma-driver shift}
+Similarly, we can also integrate the Eqs.~\ref{covariant Gamma-driver shift set} with the same initial condition mentioned before to get the covariant form of Eq.~\ref{Gamma-driver shift}
+\begin{equation}\label{covariant Gamma-driver shift}
 \mathscr{D}_{t}\beta^{a} = \frac{3}{4}{\bar \alpha}\Delta {\tilde \Gamma}^{a} - \eta {\bar \alpha}\Delta\beta^{a}
 \end{equation}
-Due to its simplicity, we focus our discussion on Eq.~\ref{invariant Gamma-driver shift} instead of Eqs.~\ref{invariant Gamma-driver shift set} in the rest of this paper.
+Due to its simplicity, we focus our discussion on Eq.~\ref{covariant Gamma-driver shift} instead of Eqs.~\ref{covariant Gamma-driver shift set} in the rest of this paper.
 
-Writing down these invariant gauge conditions creates more possibilities for numerical simulation. When the need of evolving the system in a different coordinates system rises, one can just use the following equations as gauge conditions
+Writing down these covariant gauge conditions creates more possibilities for numerical simulation. When the need of evolving the system in a different coordinates system rises, one can just use the following equations as gauge conditions
 \begin{align*}
 \mathscr{D}_{t'}\alpha' & = -2\alpha'{\bar \alpha}'K'\\
 \mathscr{D}_{t'}\beta^{a'} & = \frac{3}{4}{\bar \alpha}'\Delta {\tilde \Gamma}^{a'} - \eta {\bar \alpha}'\Delta\beta^{a'}
@@ -468,7 +468,7 @@ where the index $A$ ranges over the number of conditions. Since the gauge condit
 	F^A(v',\bar v') = \xi^A_B F^B(v,\bar v)
 \end{equation}
 where $\xi^A_B$ is an invertible matrix. That is, 
-\begin{equation}\label{invariant equivalence}
+\begin{equation}\label{covariant equivalence}
 	 F^A(v,\bar v) = 0 \Longleftrightarrow F^A(v',\bar v') = 0
 \end{equation}
 In the original coordinate system, the gauge condition is $F^A(v,\bar v) = 0$ and in the transformed coordinate system, the 
@@ -493,12 +493,12 @@ These two results are equivalent. That is,
 \begin{equation}
 	F^A(T^{-1}(v'),\bar c) = 0 \Longleftrightarrow F^A(v',T(\bar c)) = 0
 \end{equation}
-This is guaranteed by the Eq.~\ref{invariant equivalence} above. In Eq.~\ref{invariant equivalence}, just let $v = T^{-1}(v')$ and $\bar v = \bar c$, which implies $\bar v' = T(\bar c)$.
+This is guaranteed by the Eq.~\ref{covariant equivalence} above. In Eq.~\ref{covariant equivalence}, just let $v = T^{-1}(v')$ and $\bar v = \bar c$, which implies $\bar v' = T(\bar c)$.
  
 We will explain how this scheme works in detail with a specific example in the next section. 
 
 \section{Time Dependent Spatial Rotation Coordinate Transformation}\label{example}
-In this section, we examine a specific kind of coordinate transformation, the time dependent spatial rotation coordinate transformation, and demonstrate how the invariant gauge conditions work in action. 
+In this section, we examine a specific kind of coordinate transformation, the time dependent spatial rotation coordinate transformation, and demonstrate how the covariant gauge conditions work in action. 
 
 In this coordinate transformation, we keep the $t$ coordinate intact while let the spatial coordinate rotates around the $z$ axis at a constant angular speed $\omega$. Hence the transformed coordinates can be expressed in terms of the original terms as below
 \begin{align}
@@ -520,11 +520,11 @@ We also assume that the background metric is trivial
 {\bar \alpha} & = 1\notag\\
 {\bar \beta} & = 0 
 \end{align}
-Under this transformation, we have $\partial t/\partial t' = 1$, therefore ${\bar \alpha}' = {\bar \alpha} = 1$ and hence the invariant time derivative of $\alpha$ will collapse to
+Under this transformation, we have $\partial t/\partial t' = 1$, therefore ${\bar \alpha}' = {\bar \alpha} = 1$ and hence the covariant time derivative of $\alpha$ will collapse to
 \begin{equation}
 \mathscr{D}_{t}\alpha = \partial_{t}\alpha - \beta^{a}\partial_{a}\alpha
 \end{equation}
-Then the invariant 1 + log slicing condition under this transformation becomes
+Then the covariant 1 + log slicing condition under this transformation becomes
 \begin{equation}\label{transformed 1 + log slicing}
 \partial_{t'}\alpha' - \beta^{a'}\partial_{a'}\alpha' = -2\alpha'K'
 \end{equation}
@@ -556,9 +556,9 @@ and for each component, we have
 \partial_{t'}\beta^{2'} - \beta^{b'}\partial_{b'}\beta^{2'} + 2\omega\beta^{1'} + \omega^{2}y' &= \frac{3}{4}{\tilde \Gamma}^{2'} - \eta (\beta^{2'} - \omega x')\label{transformed Gamma-driver shift y}\\
 \partial_{t'}\beta^{3'} - \beta^{b'}\partial_{b'}\beta^{3'} & = \frac{3}{4}{\tilde \Gamma}^{3'} - \eta \beta^{3'}\label{transformed Gamma-driver shift z}
 \end{align}
-To verify the transformed gauge conditions(Eq.~\ref{transformed 1 + log slicing} and equations [\ref{transformed Gamma-driver shift x}-\ref{transformed Gamma-driver shift z}]) obtained by the invariant gauge conditions, we try to write down the transformed gauge conditions by transforming the variables in the regular gauge conditions explicitly and compare with the equations we already have. 
+To verify the transformed gauge conditions(Eq.~\ref{transformed 1 + log slicing} and equations [\ref{transformed Gamma-driver shift x}-\ref{transformed Gamma-driver shift z}]) obtained by the covariant gauge conditions, we try to write down the transformed gauge conditions by transforming the variables in the regular gauge conditions explicitly and compare with the equations we already have. 
 
-According to the transform rules we obtained in Sec.~\ref{transform}, let's write the untransformed variables in terms of the transformed variables. 
+According to the transformation rules we obtained in Sec.~\ref{transform}, let's write the untransformed variables in terms of the transformed variables. 
 \begin{align}
 \alpha & = \alpha'\frac{\partial t'}{\partial t} = \alpha'\label{alpha to alpha prime}\\
 \beta^{a} & = \left(\beta^{a'} - \frac{\partial x^{a'}}{\partial x^{b}}\frac{\partial x^{b}}{\partial t'}\right)\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial t'}{\partial t} =   \left(\beta^{a'} - \frac{\partial x^{a'}}{\partial x^{b}}\frac{\partial x^{b}}{\partial t'}\right)\frac{\partial x^{a}}{\partial x^{a'}}\label{beta to beta prime}\\
@@ -595,7 +595,7 @@ Multiply $\partial x^{a'}/\partial x^{a}$ on both sides of the equation, we have
 \end{equation}
 and one can easily check that Eq.~\ref{inverted Gamma-driver shift} is equivalent to equations [\ref{transformed Gamma-driver shift x} - \ref{transformed Gamma-driver shift z}].
 \section{Conclusions}
-In this paper, we have investigated the transformation rules of 3 + 1 variables under foliation preserving coordinate transformation. The non-tensor terms are modified to their covariant counterparts so that we are able to formulate the covariant gauge conditions. We have presented the covariant 1 + log slicing and Gamma-driver shift conditions. In the last part of this paper, a specific coordinate transformation example is given as a guideline for people want to implement these invariant gauge conditions in their numerical work. In the future, we plan to use the results in this paper to achieve a symmetric hyperbolic generalized harmonic formulation for general relativity.  
+In this paper, we have investigated the transformation rules of 3 + 1 variables under foliation preserving coordinate transformation. The non-tensor terms are modified to their covariant counterparts so that we are able to formulate the covariant gauge conditions. We have presented the covariant 1 + log slicing and Gamma-driver shift conditions. In the last part of this paper, a specific coordinate transformation example is given as a guideline for people want to implement these covariant gauge conditions in their numerical work. In the future, we plan to use the results in this paper to achieve a symmetric hyperbolic generalized harmonic formulation for general relativity.  
 
 \bibliographystyle{plain}
 \bibliography{references}
