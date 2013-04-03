@@ -24,11 +24,11 @@ The transformation rules of 3 + 1 splitting variables, such as the lapse functio
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-The Einstein's equations are generally covariant under spacetime diffeomorphism, which means the equations are invariant under spacetime coordinate transformations. 3 + 1 splitting mechanism of the Arnowitt--Deser--Misner(ADM) formulation\cite{ADM:Witten} slices the spacetime into a family of spacelike hypersurfaces which is referred as foliations. On each foliation, a timelike parameter t is constant. By breaking the symmetry of time and space domain, ADM formulation makes it possible to evolve a general relativity system along with time numerically. However, the covariant property is not manifest in the ADM equations anymore. Furthermore, in Baumgarte--Shapiro--Shibata--Nakamura(BSSN) formulation\cite{Shibata:1995we,Baumgarte:1998te}, people use moving puncture gauge conditions(1 + log slicing and Gamma-driver shift)\cite{Bona:1994dr, Alcubierre:2002kk} to evolve the lapse function and shift vector along with time. Unfortunately, these gauge condition equations are neither explicitly nor implicitly covariant. This scheme works sufficiently accurate if the system is evolved in one single coordinate system. However, if the same system is evolved with two different coordinate systems to the same time under this kind of gauge conditions, it is not guaranteed that we can get the same results.
+The Einstein's equations are generally covariant under spacetime diffeomorphism, which means the equations are invariant under spacetime coordinate transformations. 3 + 1 splitting mechanism of the Arnowitt--Deser--Misner(ADM) formulation\cite{ADM:Witten} slices the spacetime into a family of spacelike hypersurfaces which is referred as foliations. On each foliation, a timelike parameter t is constant. By breaking the symmetry of time and space domain, ADM formulation makes it possible to evolve a general relativity system along with time numerically. However, the covariant property is not manifest in the ADM equations anymore. Likewise, both of nowadays mainstream numerical formulations of general relativity, Baumgarte--Shapiro--Shibata--Nakamura(BSSN) formulation\cite{Shibata:1995we,Baumgarte:1998te} and generalized harmonic(GH) formulations\cite{Friedrich:1985,Garfinkle:2001ni, Pretorius:2006tp,Lindblom:2005qh}, introduce nontenor terms in their equations and hence break the general covariance. Furthermore, the gauge conditions they use, moving puncture gauge condition\cite{Bona:1994dr,Alcubierre:2002kk} in BSSN and damped-wave gauge condition\cite{Szilagyi:2009qz} in GH, are neither explicitly nor implicitly covariant. Those numerical schemes work sufficiently accurate if the system is evolved in one single coordinate system. However, if the same system is evolved with two different coordinate systems to the same time, it is not guaranteed that we can get the same results.
 
-This situation leads to our motivation of this paper. We will try to examine the transformation rules of physical variables in 3 + 1 splitting system under a so called ``foliation preserving coordinate transformation'', which includes time reparamerization and time dependent spatial deffeomorphism while the structure of foliations is preserved. Then we will try to write down the covariant form of the gauge conditions under this coordinate transformation and give the guideline of how to implement this into numerical simulation. 
+This situation leads to our motivation of this paper. We will try to examine the transformation rules of the terms introduced in those numerical formulations under a so called ``foliation preserving coordinate transformation'', which includes time reparamerization and time dependent spatial deffeomorphism while the structure of foliations is preserved. Then we will try to write down the covariant form of the two major kinds of gauge conditions under this coordinate transformation and give the guideline of how to implement this into numerical simulation. 
 
-The paper is organized as follows. First of all, we will present the idea of general covariance and how it is broken in ADM and BSSN formulations in Sec.~\ref{covariance}. In Sec.~\ref{3+1}, we briefly review the 3 + 1 splitting formulation while introducing several significant terms which will be used in latter sections. In Sec.~\ref{transform}, we give the definition of foliation preserving coordinate transformation, under which we derive and list the transformation rules of all significant 3 + 1 splitting physical variables. The ordinary gauge conditions, i.e.~1 + log slicing condition and Gamma-driver shift equations, are dicussed in details in Sec.~\ref{gauge}. They are then modified to covariant forms and a guideline of how to implement this covariant gauge condition is provided. Last but not least, in Sec.~\ref{example} we demonstrate how this scheme works in a specific coordinate transformation case, time dependent spatial rotation.
+The paper is organized as follows. First of all, we will present the idea of general covariance and how it is broken in ADM, BSSN and GH formulations in Sec.~\ref{covariance}. In Sec.~\ref{3+1}, we briefly review the 3 + 1 splitting while introducing several significant terms which will be used in latter sections. In Sec.~\ref{transform}, we give the definition of foliation preserving coordinate transformation, under which we derive and list the transformation rules of all significant 3 + 1 splitting physical variables. The ordinary moving puncture gauge condition and damped-wave gauge condition are dicussed in details in Sec.~\ref{gauge}. They are then modified to covariant forms and a guideline of how to implement this covariant gauge condition is provided. Last but not least, in Sec.~\ref{example} we demonstrate how this scheme works in a specific coordinate transformation case, time dependent spatial rotation.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{General covariance}\label{covariance}
 Einstein's theory is generally covariant---that is, the Einstein field equations take the same 
@@ -115,8 +115,8 @@ system, but it is difficult to  compare results unless we re-combine into simple
 We thus loose manifest covariance under foliation preserving transformations. All this assumes that we choose the 
 lapse and shift in the appropriate way, as dictated by the spacetime coordinate transformation. 
 
-Much the same for generalized harmonic(GH) equations\cite{Friedrich:1985,Garfinkle:2001ni, Pretorius:2006tp,Lindblom:2005qh}. In spacetime form, introduce 
-a nontensor; in 3+1 form we have non spatial tensor $\Gamma^a$. Part of the purpose of this paper is to rewrite 
+Much the same for GH equations. In spacetime form, introduce 
+a nontensor; in 3+1 form\cite{Brown:2011qg} we have non spatial tensor $\Gamma^a$. Part of the purpose of this paper is to rewrite 
 these equations in such a way that manifest covariance is restored. (Done in my other papers, right?) 
 
 Note we are not dealing with gauge conditions yet. Gauge conditions break invariance. In particular, the 
@@ -132,7 +132,7 @@ foliation preserving transformations.
 In 3 + 1 formulation, we have
 \begin{equation*}
 	{}^{\left(4\right)}g_{\mu\nu} = \left(-\alpha^2 + \beta^{c}\beta_{c}\right)\delta_\mu^0\delta_\nu^0 
-	+ 2\beta_{b}\delta_{(\mu}^a\delta_{\nu)}^0 + g_{ab} \delta^a_\mu \delta^b_\nu \ ,
+	+ 2\beta_{a}\delta_{(\mu}^a\delta_{\nu)}^0 + g_{ab} \delta^a_\mu \delta^b_\nu \ ,
 \end{equation*}
 where $\alpha$ is called the lapse function, $\beta^{a}$ the shift vector and $g_{ab}$ the spatial metric. The covariant normal to each foliation is denoted as
 \begin{equation}\label{normal covector}
@@ -142,7 +142,7 @@ n_{\mu} = -\alpha\delta^{0}_{\mu}
 \begin{equation}\label{normal vector}
 n^{\mu} = \left(\delta^{\mu}_{0} - \beta^{c}\delta^{\mu}_{c}\right)/\alpha
 \end{equation}
-so that we have $n_{\mu}n^{\mu} = 1$. 
+so that we have $n_{\mu}n^{\mu} = -1$. 
 
 There is also the projection operator
 \begin{equation}\label{projection 1}
@@ -153,7 +153,6 @@ that projects a spacetime covector into a spacelike covector. Its covariant form
 X^{a}_{\mu} = \delta^{a}_{\mu} + \beta^{a}\delta^{0}_{\mu}
 \end{equation}
 so that we have $X^{\mu}_{a}X^{b}_{\mu} = \delta^{b}_{a}$ and $X^{\mu}_{a}n_{\mu} = 0$. 
-
 With these definitions, the spacetime metric can be written in terms of the spatial metric, the normal and the projection operator as
 \begin{equation}\label{spacetime metric 3 + 1}
 ^{\left(4\right)}g_{\mu\nu} = g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu}
@@ -164,6 +163,12 @@ Another important quantity in 3 + 1 splitting, the extrinsic curvature is define
 \begin{equation}\label{extrinsic}
 K_{ab} = - \frac{1}{2\alpha}\left[\partial_{t}g_{ab} - 2D_{(a}\beta_{b)}\right]
 \end{equation}
+
+In GH formulation, the gauge source vector $H^{\mu}$ is introduced and it is further splitted in 3 + 1 form as $H^{a}$ and $H_{\perp}$, where
+\begin{align}
+H^{a} & \equiv H^{\mu}X^{a}_{\mu}\\
+H_{\perp} & \equiv n_{\mu}H^{\mu}
+\end{align}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Foliation Preserving Coordinate Transformation}\label{transform}
@@ -202,13 +207,11 @@ g_{a'b'} & = \left(g_{ab}X^{a}_{\mu}X^{b}_{\nu} - n_{\mu}n_{\nu}\right)\frac{\pa
 \end{align}
 According to the result above, the spatial metric $g_{ab}$ transforms as a type $0 \choose 2$ tensor under the spatial diffeomorphism and a scalar under the time reparameterization.
 
- 
 And its inverse transforms as
 \begin{equation}
 g^{a'b'} = g^{ab}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b'}}{\partial x^{b}}\label{spatial metric}
 \end{equation}
 which is a type $2 \choose 0$ tensor under the spatial diffeomorphism and a scalar under the time reparameterization. 
-
 
 Let $g$ denote the determinant of the spatial metric $g_{ab}$. It transforms as
 \begin{equation}
@@ -295,13 +298,33 @@ Now let's examine the time derivative of the spatial metric
 & =  \left(\partial_{t}g_{ab}\right)\frac{\partial t}{\partial t'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + \left(\partial_{c}g_{ab}\right)\frac{\partial x^{c}}{\partial t'}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}} + g_{ab}\partial_{t'}\left(\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\right)
 \end{align}
 
-Finally the time derivative of $\beta^{a}$ transforms as
+The time derivative of $\beta^{a}$ transforms as
 \begin{align}
 \partial_{t'}\beta^{a'} & = \partial_{t'}\left(\beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}\right)\notag\\
 & = \frac{\partial t}{\partial t'}\partial_{t}\left(\beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}\right) + \frac{\partial x^{c}}{\partial t'}\partial_{c}\left(\beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}\right)\notag\\
 & = \partial_{t}\beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\left(\frac{\partial t}{\partial t'}\right)^{2} + \beta^{a}\frac{\partial t}{\partial t'}\partial_{t}\left(\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'}\right) + \frac{\partial t}{\partial t'}\partial_{t}\left(\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}\right)\notag\\
 & + \frac{\partial x^{c}}{\partial t'}\partial_{c}\left(\beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial t}{\partial t'} + \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}\right)
 \end{align}
+
+Consider the GH gauge sources, we have
+\begin{align}
+H_{a'} & = H_{\mu'}X^{\mu'}_{a'}\\
+& = H_{\mu}\frac{\partial x^{\mu}}{\partial x^{\mu'}}\delta^{\mu'}_{a'}\\
+& = H_{a}\frac{\partial x^{a}}{\partial x^{a'}}
+\end{align}
+Therefore, $H_{a}$ transforms as a $0 \choose 1$ tensor under spatial diffeomorphism and a scalar under time reparameterization. And we can easily conclude that $H^{a}$ transforms as a $1 \choose 0$ tensor under spatial diffeomorphism and a scalar under time reparameterization
+\begin{equation}
+H^{a'} = H^{a}\frac{\partial x^{a'}}{\partial x^{a}}
+\end{equation}
+For $H_{\perp}$, we have
+\begin{align}
+H_{\perp'} & = n_{\mu'}H^{\mu'}\\
+& = - \alpha' \delta^{0'}_{\mu'}H^{\mu}\frac{\partial x^{\mu'}}{\partial x^{\mu}}\\
+& = - \alpha\frac{\partial t}{\partial t'}\delta^{0}_{\mu}H^{\mu}\frac{\partial t'}{\partial t}\\
+& = H_{\perp}
+\end{align}
+Hence we have that $H_{\perp}$ acts as a scalar under both spatial diffeomorphism and time reparemeterization. 
+%%%%%%%%%%%%%%%%%
 \section{Tensorial Variables}\label{tensorial}
 In Sec.~\ref{transform}, we listed the transformation rules of all the important 3 + 1 variables and as one can easily notice that some of them do not transform tensorially. In order to solve this, we introduce the backgrond metric denoted as ${\bar g}_{\mu\nu}$. The background metric was initially introduced to make the Christoffel symbols transform as a tensor and it is usually defined as a trivial metric, i.e., ${\bar g}_{\mu\nu} = diag\left(-1,1,1,1\right)$. Therefore, we have ${\bar g} = 1, $${\bar \Gamma}^{a}_{~bc} = 0$, ${\bar \alpha} = 1$ and ${\bar \beta}^{a} = 0$. 
 
@@ -392,8 +415,8 @@ In the rest of this paper, we take $\sigma = -1$ since there is one $-\beta^{c}\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Covariant Gauge Condition}\label{gauge}
-We studied the transformation rules of all the important variables in 3 + 1 splitting mechanism under the foliation preserving coordinate transformation in Sec.~\ref{transform} and Sec.~\ref{tensorial}, now we will use these results to construct the covariant form of the 1 + log slicing condition and Gamma-driver shift equation. 
-
+We studied the transformation rules of all the important variables in 3 + 1 splitting mechanism under the foliation preserving coordinate transformation in Sec.~\ref{transform} and Sec.~\ref{tensorial}, now we will use these results to construct the covariant form of moving puncture gauge condition and damped-wave gauge condition. 
+\subsection{Moving puncture gauge condition}
 The regular 1 + log slicing condition reads as
 \begin{equation}\label{1 + log slicing}
 \partial_{t}\alpha - \beta^{c}\partial_{c}\alpha = -2\alpha K
@@ -458,6 +481,29 @@ while the transformed background metric terms are associated with the original t
 {\bar \Gamma}^{a'}_{~b'c'} & = {\bar \Gamma}^{a}_{~bc}\frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial x^{c}}{\partial x^{c'}} + \frac{\partial x^{a'}}{\partial x^{d}}\frac{\partial x^{d}}{\partial x^{b'}\partial x^{c'}}
 \end{align}
 
+\subsection{Damped-wave gauge condition}
+By contrast, due to the fact that the gauge sources $H^{a}$ and $H_{\perp}$ already transform tensorially, the damped-wave gauge condition is much easier to make covariant. What we need to do is just altering the right hand side of those equations to match the transformation rule of the left hand side. 
+
+Let us begin by considering the damped-wave gauge condition for $H^{a}$
+\begin{equation}\label{damped gauge vector}
+H^{a} = -\mu_{S}\frac{\beta^{a}}{\alpha}
+\end{equation}
+where $\mu_{S}$ is a numerical damping factor. 
+
+The only non-tensor term in Eq.~(\ref{damped gauge vector}) is the shift vector $\beta^{a}$ and we can easily fix it by replacing $\beta^{a}$ with $\Delta \beta^{a}$. Since both $\Delta \beta^{a}$ and $\alpha$ act as a weight +1 tensor density under time reparameterization, $\Delta \beta^{a}/\alpha$ simply transforms as a scalar under time reparameterization, which is the same case for $H^{a}$. Therefore, we can write the covariant version of Eq.~(\ref{damped gauge vector}) as
+\begin{equation}\label{covariant damped gauge vector}
+H^{a} = -\mu_{S}\frac{\Delta \beta^{a}}{\alpha}
+\end{equation}
+For the other gauge source $H_{\perp}$, the gauge condition is
+\begin{equation}\label{damped gauge scalar}
+H_{\perp} = -\mu_{L}\log\left(\frac{\sqrt{g}}{\alpha}\right)
+\end{equation}
+Since $H_{\perp}$ transforms as a scalar under both time-dependent spatial diffeomorphism and time reparameterization, it is obvious that we can modify Eq.~(\ref{damped gauge scalar}) as following
+\begin{equation}\label{covariant damped gauge scalar}
+H_{\perp} = -\mu_{L}\log\left(\frac{\sqrt{g/{\bar g}}}{\alpha/{\bar \alpha}}\right)
+\end{equation} 
+so that it becomes covariant. 
+\subsection{Another way to achieve covariant gauge condition}
 We can also achieve the transformed gauge conditions from the regular gauge conditions. All we need to do is using the transformation rules we derived above to write the non-transformed variables in terms of the transformed terms. And we argue as following that these two methods should yield identical transformed gauge conditions. 
 
 Assume we have some variables $v$. Under a change of coordinates, they transform to $v' = T\left(v\right)$ where $T$ is some function. We also introduce a 
@@ -496,6 +542,7 @@ This is guaranteed by the Eq.~(\ref{covariant equivalence}) above. In Eq.~(\ref{
  
 We will explain how this scheme works in detail with a specific example in the next section. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Time Dependent Spatial Rotation Coordinate Transformation}\label{example}
 In this section, we examine a specific kind of coordinate transformation, the time dependent spatial rotation coordinate transformation, and demonstrate how the covariant gauge conditions work in action. 
 
@@ -519,7 +566,7 @@ We also assume that the background metric is trivial
 {\bar \alpha} & = 1\notag\\
 {\bar \beta} & = 0 
 \end{align}
-Under this transformation, we have $\partial t/\partial t' = 1$, therefore ${\bar \alpha}' = {\bar \alpha} = 1$ and hence the covariant time derivative of $\alpha$ will collapse to
+Under this transformation, let us first review the moving puncture gauge condition. Since $\partial t/\partial t' = 1$, ${\bar \alpha}' = {\bar \alpha} = 1$ and hence the covariant time derivative of $\alpha$ will collapse to
 \begin{equation}
 \mathscr{D}_{t}\alpha = \partial_{t}\alpha - \beta^{a}\partial_{a}\alpha
 \end{equation}
@@ -593,6 +640,22 @@ Multiply $\partial x^{a'}/\partial x^{a}$ on both sides of the equation, we have
 \partial_{t'}\beta^{a'} - \beta^{b'}\partial_{b'}\beta^{a'} - 2\beta^{b'}\frac{\partial x^{c}}{\partial x^{b'}}\frac{\partial^{2}x^{a'}}{\partial x^{c}\partial t} + \frac{\partial^{2} x^{a'}}{\partial t^{2}} +  2\frac{\partial^{2} x^{a'}}{\partial t\partial x^{c}}\frac{\partial x^{c}}{\partial t'} = \frac{3}{4}{\tilde \Gamma}^{a'} - \eta\left(\beta^{a'} - \frac{\partial x^{a'}}{\partial x^{b}}\frac{\partial x^{b}}{\partial t'}\right)\label{inverted Gamma-driver shift}
 \end{equation}
 and one can easily check that Eq.~(\ref{inverted Gamma-driver shift}) is equivalent to Eqs.~(\ref{transformed Gamma-driver shift x} - \ref{transformed Gamma-driver shift z}).
+
+The damped-wave gauge condition is easier to derive and check. Due to the transformed results of $\alpha'$, $\beta^{a'}$ and $g'$ we list above, the transformed damped-wave gauge condition is
+\begin{subequations}\label{transformed damped gauge}
+\begin{align}
+H^{a'} & = -\mu_{S}\frac{\beta^{a'} - \frac{\partial x^{a'}}{\partial x^{a}}\frac{\partial x^{a}}{\partial t'}}{\alpha'}\\
+H_{\perp'} & = -\mu_{L}\log\left(\frac{\sqrt{g'}}{\alpha'}\right)
+\end{align}
+\end{subequations}
+Using Eqs.~(\ref{beta to beta prime} - \ref{gamma to gamma prime}), we can write the transformed damped-gauge condition from Eq.~(\ref{damped gauge vector}) and Eq.~(\ref{damped gauge scalar}) as well
+\begin{subequations}\label{inverted damped gauge}
+\begin{align}
+H^{a'}\frac{\partial x^{a}}{\partial x^{a'}} & = - \mu_{S}\frac{\left( \beta^{a'} - \frac{\partial x^{a'}}{\partial x^{b}}\frac{\partial x^{b}}{\partial t'}\right)\frac{\partial x^{a}}{\partial x^{a'}}}{\alpha'}\\
+H_{\perp'} & = - \mu_{L}\log\left(\frac{\sqrt{g'}}{\alpha'}\right)
+\end{align}
+\end{subequations}
+It is obvious that Eqs.~(\ref{transformed damped gauge}) and Eqs.~(\ref{inverted damped gauge}) are equivalent to each except for an overall factor $\partial x^{a}/\partial x^{a'}$. 
 \section{Conclusions}
 In this paper, we have investigated the transformation rules of 3 + 1 variables under foliation preserving coordinate transformation. The non-tensor terms are modified to their covariant counterparts so that we are able to formulate the covariant gauge conditions. We have presented the covariant 1 + log slicing and Gamma-driver shift conditions. In the last part of this paper, a specific coordinate transformation example is given as a guideline for people want to implement these covariant gauge conditions in their numerical work. In the future, we plan to use the results in this paper to achieve a symmetric hyperbolic generalized harmonic formulation for general relativity.  
 
