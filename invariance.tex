@@ -346,36 +346,36 @@ As we can tell, it transforms as a type $1 \choose 2$ tensor under spatial diffe
 
 The covariant time derivative of the spatial metric is defined as
 \begin{equation}
-\mathscr{D}_{t}g_{ab} \equiv \partial_{t}g_{ab} - 2D_{(a}\beta_{b)}
+D_{t}g_{ab} \equiv \partial_{t}g_{ab} - 2D_{(a}\beta_{b)}
 \end{equation}
-The calculation is tedious but one can always check that $\mathscr{D}_{t}g_{ab}$ transforms as a type $0 \choose 2$ tensor under spatial diffeomorphism and a weight +1 density under time reparameterization. 
+The calculation is tedious but one can always check that $D_{t}g_{ab}$ transforms as a type $0 \choose 2$ tensor under spatial diffeomorphism and a weight +1 density under time reparameterization. 
 \begin{equation}
-\mathscr{D}_{t'}g_{a'b'} = \mathscr{D}_{t}g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial t}{\partial t'}
+D_{t'}g_{a'b'} = D_{t}g_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}\frac{\partial t}{\partial t'}
 \end{equation}
 
 As a result, since the extrinsic curvature is defined as
 \begin{equation}
-K_{ab} = -\frac{1}{2\alpha}\left[\partial_{t}g_{ab} - 2D_{(a}\beta_{b)}\right] = -\frac{1}{2\alpha}\mathscr{D}_{t}g_{ab}
+K_{ab} = -\frac{1}{2\alpha}\left[\partial_{t}g_{ab} - 2D_{(a}\beta_{b)}\right] = -\frac{1}{2\alpha}D_{t}g_{ab}
 \end{equation}
 it transforms as a type $0 \choose 2$ tensor under the spatial diffeomorphism and a scalar under the time reparameterization
 \begin{equation}
 K_{a'b'} = K_{ab}\frac{\partial x^{a}}{\partial x^{a'}}\frac{\partial x^{b}}{\partial x^{b'}}
 \end{equation}
 
-In order to construct an covariant form of the time derivative of the lapse function $\mathscr{D}_{t}\alpha$ such that it transforms as a scalar under spatial diffeomorphism and a weight +2 density under time reparameterization
+In order to construct an covariant form of the time derivative of the lapse function $D_{t}\alpha$ such that it transforms as a scalar under spatial diffeomorphism and a weight +2 density under time reparameterization
 \[
-\mathscr{D}_{t'}\alpha' = \mathscr{D}_{t}\alpha\left(\frac{\partial t}{\partial t'}\right)^{2}
+D_{t'}\alpha' = D_{t}\alpha\left(\frac{\partial t}{\partial t'}\right)^{2}
 \]
-We define $\mathscr{D}_{t}\alpha$ as
+We define $D_{t}\alpha$ as
 \begin{equation}
-\mathscr{D}_{t}\alpha \equiv \partial_{t}\alpha - \beta^{c}\partial_{c}\alpha - \frac{\alpha}{{\bar \alpha}}\left(\partial_{t}{\bar \alpha} - {\bar \beta}^{c}\partial_{c}{\bar \alpha}\right)
+D_{t}\alpha \equiv \partial_{t}\alpha - \beta^{c}\partial_{c}\alpha - \frac{\alpha}{{\bar \alpha}}\left(\partial_{t}{\bar \alpha} - {\bar \beta}^{c}\partial_{c}{\bar \alpha}\right)
 \end{equation}
 and check how it transforms
 \begin{align}
-\mathscr{D}_{t'}\alpha' & = \partial_{t'}\alpha' - \beta^{c'}\partial_{c'}\alpha' - \frac{\alpha'}{{\bar \alpha}'}\left(\partial_{t'}{\bar \alpha}' - {\bar \beta}^{c'}\partial_{c'}{\bar \alpha}'\right)\notag\\
+D_{t'}\alpha' & = \partial_{t'}\alpha' - \beta^{c'}\partial_{c'}\alpha' - \frac{\alpha'}{{\bar \alpha}'}\left(\partial_{t'}{\bar \alpha}' - {\bar \beta}^{c'}\partial_{c'}{\bar \alpha}'\right)\notag\\
 & = \partial_{t}\alpha\left(\frac{\partial t}{\partial t'}\right)^{2} + \partial_{c}\alpha\frac{\partial x^{c}}{\partial t'}\frac{\partial t}{\partial t'} + \alpha\frac{\partial^{2}t}{\partial {t'}^{2}} - \left(\beta^{c}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial t}{\partial t'} + \frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'}\right)\frac{\partial t}{\partial t'}\frac{\partial x^{d}}{\partial x^{c'}}\partial_{d}\alpha\notag\\
 & - \frac{\alpha}{{\bar \alpha}}\left[\partial_{t}{\bar \alpha}\left(\frac{\partial t}{\partial t'}\right)^{2} + \partial_{c}{\bar \alpha}\frac{\partial x^{c}}{\partial t'}\frac{\partial t}{\partial t'} + {\bar \alpha}\frac{\partial^{2}t}{\partial {t'}^{2}} - \left({\bar\beta}^{c}\frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial t}{\partial t'} + \frac{\partial x^{c'}}{\partial x^{c}}\frac{\partial x^{c}}{\partial t'}\right)\frac{\partial t}{\partial t'}\frac{\partial x^{d}}{\partial x^{c'}}\partial_{d}{\bar\alpha}\right]\notag\\
-& = \mathscr{D}_{t}\alpha\left(\frac{\partial t}{\partial t'}\right)^{2}
+& = D_{t}\alpha\left(\frac{\partial t}{\partial t'}\right)^{2}
 \end{align}
 For formulating the covariant form of the shift vector's time derivative, $\partial_{t}\Delta \beta^{a}$ would be a suitable candidate, since $\Delta \beta^{a}$ itself behaves tensorially already. Let's try to transform $\partial_{t} \Delta \beta^{a}$
 \begin{align}\label{time derivative delta beta} 
@@ -385,13 +385,13 @@ For formulating the covariant form of the shift vector's time derivative, $\part
 \end{align}
 As we expected, there are several extra terms in Eq.~(\ref{time derivative delta beta}) prevent $\partial_{t}\Delta\beta^{a}$ from being a tensor density. 
 
-By observing the transformation rules of $\partial_{t}\Delta\beta^{a}$, $\beta^{a}$, $D_{a}\beta_{b}$ and $\partial_{a}\alpha$, we propose an ansatz of $\mathscr{D}_{t}\beta^{a}$ such that $\mathscr{D}_{t}\beta^{a}$ transforms as a type $1 \choose 0$ tensor under spatial diffeomorphism and a weight +2 density under time reparameterization, 
+By observing the transformation rules of $\partial_{t}\Delta\beta^{a}$, $\beta^{a}$, $D_{a}\beta_{b}$ and $\partial_{a}\alpha$, we propose an ansatz of $D_{t}\beta^{a}$ such that $D_{t}\beta^{a}$ transforms as a type $1 \choose 0$ tensor under spatial diffeomorphism and a weight +2 density under time reparameterization, 
 \begin{equation}
-\mathscr{D}_{t'}\beta^{a'} = \mathscr{D}_{t}\beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\left(\frac{\partial t}{\partial t'}\right)^{2}
+D_{t'}\beta^{a'} = D_{t}\beta^{a}\frac{\partial x^{a'}}{\partial x^{a}}\left(\frac{\partial t}{\partial t'}\right)^{2}
 \end{equation}
-where $\mathscr{D}_{t}\beta^{a}$ is defined as
+where $D_{t}\beta^{a}$ is defined as
 \begin{equation}
-\mathscr{D}_{t}\beta^{a} \equiv \partial_{t}\Delta \beta^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}\left(\partial_{t}{\bar \alpha} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}\right) + c_{1}\beta^{b}{\bar D}_{b}\beta^{a} + c_{2}\beta^{b}{\bar D}_{b}{\bar \beta}^{a} + c_{3}{\bar \beta}^{b}{\bar D}_{b}\beta^{a} + c_{4}{\bar \beta}^{b}{\bar D}_{b}{\bar \beta}^{a}
+D_{t}\beta^{a} \equiv \partial_{t}\Delta \beta^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}\left(\partial_{t}{\bar \alpha} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}\right) + c_{1}\beta^{b}{\bar D}_{b}\beta^{a} + c_{2}\beta^{b}{\bar D}_{b}{\bar \beta}^{a} + c_{3}{\bar \beta}^{b}{\bar D}_{b}\beta^{a} + c_{4}{\bar \beta}^{b}{\bar D}_{b}{\bar \beta}^{a}
 \end{equation}
 and $c_{1}$, $c_{2}$, $c_{3}$ and $c_{4}$ are all constants. 
 
@@ -402,15 +402,15 @@ c_{2} + c_{4} & = 1\\
 c_{1} + c_{2} & = 1\\
 c_{3} + c_{4} & = -1 
 \end{align*}
-so that $\mathscr{D}_{t} \beta^{a}$ transforms as a tensor density. 
+so that $D_{t} \beta^{a}$ transforms as a tensor density. 
 
-Therefore, we define $\sigma \equiv c_{1}$ and write the rest of those constants in terms of $\sigma$ to get the final formulation of $\mathscr{D}_{t}\beta^{a}$ as below
+Therefore, we define $\sigma \equiv c_{1}$ and write the rest of those constants in terms of $\sigma$ to get the final formulation of $D_{t}\beta^{a}$ as below
 \begin{equation}
-\mathscr{D}_{t}\beta^{a} \equiv \partial_{t}\Delta \beta^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}\left(\partial_{t}{\bar \alpha} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}\right) + \sigma\beta^{b}{\bar D}_{b}\beta^{a} + \left(1-\sigma\right)\beta^{b}{\bar D}_{b}{\bar \beta}^{a} - \left(1 + \sigma\right){\bar \beta}^{b}{\bar D}_{b}\beta^{a} + \sigma{\bar \beta}^{b}{\bar D}_{b}{\bar \beta}^{a}
+D_{t}\beta^{a} \equiv \partial_{t}\Delta \beta^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}\left(\partial_{t}{\bar \alpha} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}\right) + \sigma\beta^{b}{\bar D}_{b}\beta^{a} + \left(1-\sigma\right)\beta^{b}{\bar D}_{b}{\bar \beta}^{a} - \left(1 + \sigma\right){\bar \beta}^{b}{\bar D}_{b}\beta^{a} + \sigma{\bar \beta}^{b}{\bar D}_{b}{\bar \beta}^{a}
 \end{equation}
-In the rest of this paper, we take $\sigma = -1$ since there is one $-\beta^{c}\partial_{c}\beta^{a}$ term in the regular Gamma-driver shift condition. Hence the definition of $\mathscr{D}_{t}\beta^{a}$ becomes
+In the rest of this paper, we take $\sigma = -1$ since there is one $-\beta^{c}\partial_{c}\beta^{a}$ term in the regular Gamma-driver shift condition. Hence the definition of $D_{t}\beta^{a}$ becomes
 \begin{equation}
-\mathscr{D}_{t}\beta^{a} \equiv \partial_{t}\Delta \beta^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}\left(\partial_{t}{\bar \alpha} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}\right) - \beta^{b}{\bar D}_{b}\Delta \beta^{a} + \Delta \beta^{b}{\bar D}_{b}{\bar \beta}^{a}
+D_{t}\beta^{a} \equiv \partial_{t}\Delta \beta^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}\left(\partial_{t}{\bar \alpha} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}\right) - \beta^{b}{\bar D}_{b}\Delta \beta^{a} + \Delta \beta^{b}{\bar D}_{b}{\bar \beta}^{a}
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -421,16 +421,16 @@ The regular 1 + log slicing condition reads as
 \begin{equation}\label{1 + log slicing}
 \partial_{t}\alpha - \beta^{c}\partial_{c}\alpha = -2\alpha K
 \end{equation}
-Due to the analysis in Sec.~\ref{transform}, one can notice that neither the right hand side nor the left hand side transforms tensorially. We start by replacing the left hand side by $\mathscr{D}_{t}\alpha$. Since $\mathscr{D}_{t'}\alpha' = \mathscr{D}_{t}\alpha\left(\partial t/\partial t'\right)^{2}$, in order to balance the right hand side, we modify it to be $-2\alpha {\bar \alpha}K$. After this modification, we have
+Due to the analysis in Sec.~\ref{transform}, one can notice that neither the right hand side nor the left hand side transforms tensorially. We start by replacing the left hand side by $D_{t}\alpha$. Since $D_{t'}\alpha' = D_{t}\alpha\left(\partial t/\partial t'\right)^{2}$, in order to balance the right hand side, we modify it to be $-2\alpha {\bar \alpha}K$. After this modification, we have
 \begin{align*}
-\mathscr{D}_{t'}\alpha' & = \mathscr{D}_{t}\alpha\left(\frac{\partial t}{\partial t'}\right)^{2}\\
+D_{t'}\alpha' & = D_{t}\alpha\left(\frac{\partial t}{\partial t'}\right)^{2}\\
 & = -2\alpha{\bar \alpha}K\left(\frac{\partial t}{\partial t'}\right)^{2}\\
 & = -2\left(\alpha\frac{\partial t}{\partial t'}\right)\left({\bar \alpha}\frac{\partial t}{\partial t'}\right)K\\
 & = -2\alpha'{\bar \alpha}'K'
 \end{align*}
 Therefore, we have reached the covariant form of 1 + log slicing condition as below
 \begin{equation}\label{covariant 1 + log slicing}
-\mathscr{D}_{t}\alpha = -2\alpha{\bar \alpha}K
+D_{t}\alpha = -2\alpha{\bar \alpha}K
 \end{equation}
 
 The Gamma-driver shift condition is usually written as a system of two first order equations
@@ -446,7 +446,7 @@ where ${\tilde \Gamma}^{a}$ is the trace of the conformal Christoffel symbols de
 \end{equation}
 and $\eta$ is a constant parameter. 
 
-We can follow the same strategy to alter the Gamma-driver shift condition, replacing $\partial_{t}\beta^{a}$ by $\mathscr{D}_{t}\beta^{a}$, changing every non-tensorial term to its corresponding tensorial term and balance the transformation factor on both sides. Therefore, we have
+We can follow the same strategy to alter the Gamma-driver shift condition, replacing $\partial_{t}\beta^{a}$ by $D_{t}\beta^{a}$, changing every non-tensorial term to its corresponding tensorial term and balance the transformation factor on both sides. Therefore, we have
 \begin{subequations}\label{covariant Gamma-driver shift set}
 \begin{align}
 \partial_{t}\Delta \beta^{a} & = \beta^{b}{\bar D}_{b}\Delta\beta^{a} - \Delta \beta^{b}{\bar D}_{b}{\bar \beta}^{a} + \frac{\Delta\beta^{a}}{{\bar \alpha}}\left(\partial_{t}{\bar \alpha} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}\right) + \frac{3}{4}{\bar \alpha}B^{a}\\
@@ -463,14 +463,14 @@ In some literatures \cite{vanMeter:2006vi}, the Eqs.~(\ref{Gamma-driver shift se
 \end{equation} 
 Similarly, we can also integrate the Eqs.~(\ref{covariant Gamma-driver shift set}) with the same initial condition mentioned before to get the covariant form of Eq.~(\ref{Gamma-driver shift})
 \begin{equation}\label{covariant Gamma-driver shift}
-\mathscr{D}_{t}\beta^{a} = \frac{3}{4}{\bar \alpha}\Delta {\tilde \Gamma}^{a} - \eta {\bar \alpha}\Delta\beta^{a}
+D_{t}\beta^{a} = \frac{3}{4}{\bar \alpha}\Delta {\tilde \Gamma}^{a} - \eta {\bar \alpha}\Delta\beta^{a}
 \end{equation}
 Due to its simplicity, we focus our discussion on Eq.~(\ref{covariant Gamma-driver shift}) instead of Eqs.~(\ref{covariant Gamma-driver shift set}) in the rest of this paper.
 
 Writing down these covariant gauge conditions creates more possibilities for numerical simulation. When the need of evolving the system in a different coordinates system rises, one can just use the following equations as gauge conditions
 \begin{align*}
-\mathscr{D}_{t'}\alpha' & = -2\alpha'{\bar \alpha}'K'\\
-\mathscr{D}_{t'}\beta^{a'} & = \frac{3}{4}{\bar \alpha}'\Delta {\tilde \Gamma}^{a'} - \eta {\bar \alpha}'\Delta\beta^{a'}
+D_{t'}\alpha' & = -2\alpha'{\bar \alpha}'K'\\
+D_{t'}\beta^{a'} & = \frac{3}{4}{\bar \alpha}'\Delta {\tilde \Gamma}^{a'} - \eta {\bar \alpha}'\Delta\beta^{a'}
 \end{align*}
 while the transformed background metric terms are associated with the original terms as below
 \begin{align}
@@ -568,7 +568,7 @@ We also assume that the background metric is trivial
 \end{align}
 Under this transformation, let us first review the moving puncture gauge condition. Since $\partial t/\partial t' = 1$, ${\bar \alpha}' = {\bar \alpha} = 1$ and hence the covariant time derivative of $\alpha$ will collapse to
 \begin{equation}
-\mathscr{D}_{t}\alpha = \partial_{t}\alpha - \beta^{a}\partial_{a}\alpha
+D_{t}\alpha = \partial_{t}\alpha - \beta^{a}\partial_{a}\alpha
 \end{equation}
 Then the covariant 1 + log slicing condition under this transformation becomes
 \begin{equation}\label{transformed 1 + log slicing}
