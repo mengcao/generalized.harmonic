@@ -444,7 +444,7 @@ since $\delta g = g g^{ab}\delta g_{ab}$, $\delta R = $
 D_{t} P^{ab} & = - \frac{\delta \mathscr{H}}{\delta g_{ab}}\\
 &  = \frac{\alpha g^{ab}}{2\sqrt{g}}\left(P^{cd}P_{cd} - \frac{P^{2}}{2} - \frac{\alpha \pi P}{2} + \frac{\alpha^{2}\pi^{2}}{8} - \frac{\alpha^{2}}{2}\rho^{c}\rho_{c}\right)\\
 & + \frac{\alpha}{\sqrt{g}}\left(-2P^{ac}P^{bd}g_{cd} + PP^{ab} + \frac{\alpha \pi}{2}P^{ab} + \frac{\alpha^{2}}{2}\rho^{a}\rho^{b}\right)\\
-& + \alpha^{2}\rho_{e}\Delta \Gamma^{e}_{~cd}g^{ac}g^{bd} - D^{(a}\left(\rho^{b)}\alpha^{2}\right) + \frac{1}{2}g^{ab}D_{c}\left(\rho^{c}\alpha^{2}\right)\\
+& + \alpha^{2}\rho_{e}\Delta \Gamma^{e}_{~cd}g^{ac}g^{bd} + D^{(a}\left(\rho^{b)}\alpha^{2}\right) - \frac{1}{2}g^{ab}D_{c}\left(\rho^{c}\alpha^{2}\right)\\
 & - \alpha \rho^{(a}\partial^{b)}\alpha\\
 & - \alpha \sqrt{g}G^{ab} + \sqrt{g}D^{a}D^{b}\alpha - \sqrt{g}g^{ab}D^{c}D_{c}\alpha\\
 & - \frac{\partial \Lambda}{\partial g_{ab}}\Omega + \partial_{d}\left(\frac{\partial \Lambda}{\partial~\partial_{d}g_{ab}}\Omega\right) - \frac{\partial \Lambda^{c}}{\partial g_{ab}}\Omega_{c} + \partial_{d}\left(\frac{\partial \Lambda^{c}}{\partial~\partial_{d}g_{ab}}\Omega_{c}\right)
@@ -453,7 +453,7 @@ D_{t} P^{ab} & = - \frac{\delta \mathscr{H}}{\delta g_{ab}}\\
 D_{t}\alpha = \frac{\delta \mathscr{H}}{\delta \pi} = - \frac{\alpha^{2}}{2\sqrt{g}}P + \frac{\alpha^{3}\pi}{4\sqrt{g}} - \alpha^{2}H_{\perp} + \frac{\partial \Lambda}{\partial \pi}\Omega + \frac{\partial \Lambda^{a}}{\partial \pi}\Omega_{a}
 \]
 \begin{align*}
-D_{t} \pi & = -\frac{\mathscr{H}}{\delta \alpha}\\
+D_{t} \pi & = -\frac{\delta \mathscr{H}}{\delta \alpha}\\
 & = - \frac{P^{ab}P_{ab}}{\sqrt{g}} + \frac{P^{2}}{2\sqrt{g}} + \frac{\alpha \pi P}{\sqrt{g}} - \frac{3\alpha^{2}\pi^{2}}{8\sqrt{g}} + \frac{3\alpha^{2}\rho^{a}\rho_{a}}{2\sqrt{g}}- 2\alpha H^{a}\rho_{a} + 2\alpha \pi H_{\perp} - 2\alpha\rho_{a}\Delta \Gamma^{a}_{~bc}g^{bc} - \alpha \partial_{a}\rho^{a} + \sqrt{g}R\\
 & - \frac{\partial \Lambda}{\partial \alpha}\Omega + \partial_{c}\left(\frac{\partial \Lambda}{\partial~\partial_{c}\alpha}\Omega\right) - \frac{\partial \Lambda^{a}}{\partial \alpha}\Omega_{a} + \partial_{c}\left(\frac{\partial \Lambda^{a}}{\partial~\partial_{c}\alpha}\Omega_{a}\right)
 \end{align*}
@@ -494,7 +494,7 @@ D_{t}\pi & = -\frac{\delta \left(P^{cd} D_{t}g_{cd} + \pi D_{t}\alpha + \rho_{c}
 \begin{align*}
 D_{t}\rho_{a} & = -\frac{\delta \left(P^{cd} D_{t}g_{cd} + \pi D_{t}\alpha + \rho_{c} D_{t}\beta^{c} + \Omega D_{t}H_{\perp} + \Omega_{b}D_{t}H^{b}\right)}{\delta \beta^{a}}\\
 & = {\dot \rho}_{a} - {\bar D}_{b}\left(\beta^{b}\rho_{a}\right) - \left({\bar D}_{a}{\bar \beta}^{b}\right)\rho_{b}  + \left({\bar D}_{a}\Delta \beta^{b}\right)\rho_{b} + \frac{\rho_{a}}{{\bar \alpha}}\left({\dot {\bar \alpha}} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}\right)\\
-& + P^{bc}\partial_{a}g_{bc} - 2\partial_{c}\left(P^{bc}g_{ab}\right) + \pi \partial_{a}\alpha\\
+& + P^{bc}\partial_{a}g_{bc} - 2\partial_{c}\left(P^{bc}g_{ab}\right) + \pi \partial_{a}\alpha  + \Omega\partial_{a}H_{\perp} + \Omega_{b}\partial_{a}H^{b} + \partial_{b}\left(H^{b}\Omega_{a}\right)\\
 & = {\dot \rho}_{a} - \mathscr{L}_{\beta}\rho_{a}  + 2\left({\bar D}_{a}\Delta \beta^{b}\right)\rho_{b} + \frac{\rho_{a}}{{\bar \alpha}}\left({\dot {\bar \alpha}} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}\right)\\
 & + P^{bc}\partial_{a}g_{bc} - 2\partial_{c}\left(P^{bc}g_{ab}\right) + \pi \partial_{a}\alpha + \Omega\partial_{a}H_{\perp} + \Omega_{b}\partial_{a}H^{b} + \partial_{b}\left(H^{b}\Omega_{a}\right)
 \end{align*}
@@ -534,21 +534,546 @@ Therefore, we should construct $\Lambda$ as a +1 weight density in time reparame
 \]
 Then we compute the following derivatives
 \[
-\frac{\partial \Lambda}{\partial g_{ab}} = C_{1}\frac{\alpha P^{ab}}{\sqrt{g}} - C_{1}\frac{\alpha P g^{ab}}{2\sqrt{g}} - C_{2}\frac{\alpha^{2} \pi g^{ab}}{2\sqrt{g}} - C_{3}\frac{\alpha \Omega g^{ab}}{2\sqrt{g}}
+\frac{\delta (\Lambda \Omega)}{\delta g_{ab}} = \left(C_{1}\frac{\alpha P^{ab}}{\sqrt{g}} - C_{1}\frac{\alpha P g^{ab}}{2\sqrt{g}} - C_{2}\frac{\alpha^{2} \pi g^{ab}}{2\sqrt{g}} - C_{3}\frac{\alpha \Omega g^{ab}}{2\sqrt{g}}\right)\Omega
 \]
 \[
-\frac{\partial \Lambda}{\partial P^{ab}} = C_{1}\frac{\alpha g_{ab}}{\sqrt{g}}
+\frac{\delta (\Lambda \Omega)}{\delta P^{ab}} = C_{1}\frac{\alpha g_{ab}}{\sqrt{g}}\Omega
 \]
 \[
-\frac{\partial \Lambda}{\partial \alpha} = C_{1}\frac{P}{\sqrt{g}} + 2C_{2}\frac{\alpha \pi}{\sqrt{g}} + C_{3}\frac{\Omega}{\sqrt{g}}
+\frac{\delta (\Lambda \Omega)}{\delta \alpha} = \left(C_{1}\frac{P}{\sqrt{g}} + 2C_{2}\frac{\alpha \pi}{\sqrt{g}} + C_{3}\frac{\Omega}{\sqrt{g}}\right)\Omega
 \]
 \[
-\frac{\partial \Lambda}{\partial \pi} = C_{2}\frac{\alpha^{2}}{\sqrt{g}}
+\frac{\delta (\Lambda \Omega) }{\delta \pi} = C_{2}\frac{\alpha^{2}}{\sqrt{g}}\Omega
 \]
 \[
-\frac{\partial \Lambda}{\partial \beta^{a}} = 0
+\frac{\delta (\Lambda \Omega)}{\delta \beta^{a}} = 0
 \]
 \[
-\frac{\partial \Lambda}{\partial \rho_{a}} = 0
+\frac{\delta (\Lambda \Omega)}{\delta \rho_{a}} = 0
+\]
+\[
+\frac{\delta (\Lambda \Omega)}{\delta H_{\perp}} = 0;
+\]
+\[
+\frac{\delta (\Lambda \Omega)}{\delta H^{a}} = 0
+\]
+\[
+\frac{\delta (\Lambda \Omega)}{\delta \Omega} = \Lambda + C_{3}\frac{\alpha \Omega}{\sqrt{g}}
+\]
+\[
+\frac{\delta (\Lambda \Omega)}{\delta \Omega_{a}} = 0
+\]
+\begin{align*}
+\frac{\delta (\Lambda^{c}\Omega_{c})}{\delta g_{ab}} & = -C_{4}D^{(a}\left(\Omega^{b)}\alpha\right) - C_{4}\alpha \Delta \Gamma^{c}_{~de}g^{ad}g^{be}\Omega_{c} - C_{5}\alpha \Delta \Gamma^{d}_{~cd}\Omega^{(a}g^{b)c} + \frac{1}{2}\left(C_{4} - C_{5}\right)g^{ab}g^{cd}D_{c}\left(\Omega_{d}\alpha\right)\\
+& - C_{6} \Omega^{(a}D^{b)}\alpha - \frac{1}{2}C_{7} \frac{\alpha^{2}\rho^{c}\Omega_{c}}{\sqrt{g}}g^{ab} - C_{7}\frac{\alpha^{2}\rho^{(a}\Omega^{b)}}{\sqrt{g}} - \frac{1}{2}C_{8}\frac{\alpha^{2}\Omega^{c}\Omega_{c}}{\sqrt{g}}g^{ab} - C_{8}\frac{\alpha^{2}\Omega^{a}\Omega^{b}}{\sqrt{g}}
+\end{align*}
+\[
+\frac{\delta (\Lambda^{c}\Omega_{c})}{\delta P^{ab}} = 0
+\]
+\[
+\frac{\delta \left( \Lambda^{a} \Omega_{a}\right)}{\delta \alpha} = C_{4}\Delta \Gamma^{a}_{~bc}g^{bc}\Omega_{a} + C_{5}\Delta \Gamma^{b}_{~bc}g^{bc}\Omega_{c} - C_{6}D^{a}\Omega_{a} + 2C_{7}\frac{\alpha \rho^{a}}{\sqrt{g}} + C_{8}\frac{\Omega^{a}}{\sqrt{g}}
+\]
+\[
+\frac{\delta \left(\Lambda^{c}\Omega_{c}\right)}{\delta \pi} = 0
+\]
+\[
+\frac{\delta \left(\Lambda^{c}\Omega_{c}\right)}{\delta \beta^{a}} = 0
+\]
+\[
+\frac{\delta \left(\Lambda^{c}\Omega_{c}\right)}{\delta \rho_{a}} = C_{7}\frac{\alpha^{2}\Omega^{a}}{\sqrt{g}}
+\]
+\[
+\frac{\delta \left(\Lambda^{c}\Omega_{c}\right)}{\delta H_{\perp}} = 0
+\]
+\[
+\frac{\delta \left(\Lambda^{c}\Omega_{c}\right)}{\delta H^{a}} = 0
+\]
+\[
+\frac{\delta \left(\Lambda^{c}\Omega_{c}\right)}{\delta \Omega} = 0
+\]
+\[
+\frac{\delta \left(\Lambda^{c}\Omega_{c}\right)}{\delta \Omega_{a}} = \Lambda^{a} + C_{8}\frac{\alpha \Omega^{a}}{\sqrt{g}}
+\]
+Therefore, the complete Hamilton equations are
+\begin{align*}
+D_{t}g_{ab} & = \frac{2\alpha P_{ab}}{\sqrt{g}} - \frac{\alpha P g_{ab}}{\sqrt{g}} - \frac{\alpha^{2} \pi g_{ab}}{2 \sqrt{g}} + \frac{\delta \Lambda \Omega}{\delta P^{ab}} + \frac{\delta \Lambda^{c}\Omega_{c}}{\delta P^{ab}}\\
+& = \frac{2\alpha P_{ab}}{\sqrt{g}} - \frac{\alpha P g_{ab}}{\sqrt{g}} - \frac{\alpha^{2} \pi g_{ab}}{2 \sqrt{g}} + C_{1}\frac{\alpha g_{ab}\Omega}{\sqrt{g}}
+\end{align*}
+\begin{align*}
+D_{t}P^{ab} & = \frac{\alpha g^{ab}}{2\sqrt{g}}\left(P^{cd}P_{cd} - \frac{P^{2}}{2} - \frac{\alpha \pi P}{2} + \frac{\alpha^{2}\pi^{2}}{8} - \frac{\alpha^{2}}{2}\rho^{c}\rho_{c}\right)\\
+& + \frac{\alpha}{\sqrt{g}}\left(-2P^{ac}P^{bd}g_{cd} + PP^{ab} + \frac{\alpha \pi}{2}P^{ab} + \frac{\alpha^{2}}{2}\rho^{a}\rho^{b}\right)\\
+& + \alpha^{2}\rho_{e}\Delta \Gamma^{e}_{~cd}g^{ac}g^{bd} + D^{(a}\left(\rho^{b)}\alpha^{2}\right) - \frac{1}{2}g^{ab}D_{c}\left(\rho^{c}\alpha^{2}\right)\\
+& - \alpha \rho^{(a}\partial^{b)}\alpha\\
+& - \alpha \sqrt{g}G^{ab} + \sqrt{g}D^{a}D^{b}\alpha - \sqrt{g}g^{ab}D^{c}D_{c}\alpha\\
+& - \frac{\delta \Lambda \Omega}{\delta g_{ab}} - \frac{\delta \Lambda^{c}\Omega_{c}}{\delta g_{ab}}\\
+& = \frac{\alpha g^{ab}}{2\sqrt{g}}\left(P^{cd}P_{cd} - \frac{P^{2}}{2} - \frac{\alpha \pi P}{2} + \frac{\alpha^{2}\pi^{2}}{8} - \frac{\alpha^{2}}{2}\rho^{c}\rho_{c}\right)\\
+& + \frac{\alpha}{\sqrt{g}}\left(-2P^{ac}P^{bd}g_{cd} + PP^{ab} + \frac{\alpha \pi}{2}P^{ab} + \frac{\alpha^{2}}{2}\rho^{a}\rho^{b}\right)\\
+& + \alpha^{2}\rho_{e}\Delta \Gamma^{e}_{~cd}g^{ac}g^{bd} + D^{(a}\left(\rho^{b)}\alpha^{2}\right) - \frac{1}{2}g^{ab}D_{c}\left(\rho^{c}\alpha^{2}\right)\\
+& - \alpha \rho^{(a}\partial^{b)}\alpha\\
+& - \alpha \sqrt{g}G^{ab} + \sqrt{g}D^{a}D^{b}\alpha - \sqrt{g}g^{ab}D^{c}D_{c}\alpha\\
+& - \left(C_{1}\frac{\alpha P^{ab}}{\sqrt{g}} - C_{1}\frac{\alpha P g^{ab}}{2\sqrt{g}} - C_{2}\frac{\alpha^{2} \pi g^{ab}}{2\sqrt{g}} - C_{3}\frac{\alpha \Omega g^{ab}}{2\sqrt{g}}\right)\Omega\\
+&  + C_{4}D^{(a}\left(\Omega^{b)}\alpha\right) + C_{4}\alpha \Delta \Gamma^{c}_{~de}g^{ad}g^{be}\Omega_{c} + C_{5}\alpha \Delta \Gamma^{d}_{~cd}\Omega^{(a}g^{b)c} - \frac{1}{2}\left(C_{4} - C_{5}\right)g^{ab}g^{cd}D_{c}\left(\Omega_{d}\alpha\right)\\
+& + C_{6} \Omega^{(a}D^{b)}\alpha + \frac{1}{2}C_{7} \frac{\alpha^{2}\rho^{c}\Omega_{c}}{\sqrt{g}}g^{ab} + C_{7}\frac{\alpha^{2}\rho^{(a}\Omega^{b)}}{\sqrt{g}} + \frac{1}{2}C_{8}\frac{\alpha^{2}\Omega^{c}\Omega_{c}}{\sqrt{g}}g^{ab} + C_{8}\frac{\alpha^{2}\Omega^{a}\Omega^{b}}{\sqrt{g}}
+\end{align*}
+\begin{align*}
+D_{t}\alpha & = - \frac{\alpha^{2}}{2\sqrt{g}}P + \frac{\alpha^{3}\pi}{4\sqrt{g}} - \alpha^{2}H_{\perp} + \frac{\delta \Lambda \Omega}{\delta \pi} + \frac{\delta \Lambda^{c}\Omega_{c}}{\delta \pi}\\
+& = - \frac{\alpha^{2}}{2\sqrt{g}}P + \frac{\alpha^{3}\pi}{4\sqrt{g}} - \alpha^{2}H_{\perp} + C_{2}\frac{\alpha^{2}}{\sqrt{g}}\Omega 
+\end{align*}
+\begin{align*}
+D_{t}\pi & = -\frac{\delta \mathscr{H}}{\delta \alpha}\\
+& = - \frac{P^{ab}P_{ab}}{\sqrt{g}} + \frac{P^{2}}{2\sqrt{g}} + \frac{\alpha \pi P}{\sqrt{g}} - \frac{3\alpha^{2}\pi^{2}}{8\sqrt{g}} + \frac{3\alpha^{2}\rho^{a}\rho_{a}}{2\sqrt{g}}- 2\alpha H^{a}\rho_{a} + 2\alpha \pi H_{\perp} - 2\alpha\rho_{a}\Delta \Gamma^{a}_{~bc}g^{bc} - \alpha \partial_{a}\rho^{a} + \sqrt{g}R\\
+& - \frac{\delta \Lambda \Omega}{\delta \alpha} - \frac{\delta \Lambda^{c}\Omega_{c}}{\delta \alpha}\\
+& = - \frac{P^{ab}P_{ab}}{\sqrt{g}} + \frac{P^{2}}{2\sqrt{g}} + \frac{\alpha \pi P}{\sqrt{g}} - \frac{3\alpha^{2}\pi^{2}}{8\sqrt{g}} + \frac{3\alpha^{2}\rho^{a}\rho_{a}}{2\sqrt{g}}- 2\alpha H^{a}\rho_{a} + 2\alpha \pi H_{\perp} - 2\alpha\rho_{a}\Delta \Gamma^{a}_{~bc}g^{bc} - \alpha \partial_{a}\rho^{a} + \sqrt{g}R\\
+& - \left(C_{1}\frac{P}{\sqrt{g}} + 2C_{2}\frac{\alpha \pi}{\sqrt{g}} + C_{3}\frac{\Omega}{\sqrt{g}}\right)\Omega\\
+&  - C_{4}\Delta \Gamma^{a}_{~bc}g^{bc}\Omega_{a} - C_{5}\Delta \Gamma^{b}_{~bc}g^{bc}\Omega_{c} + C_{6}D^{a}\Omega_{a} - 2C_{7}\frac{\alpha \rho^{a}}{\sqrt{g}} - C_{8}\frac{\Omega^{a}}{\sqrt{g}}
+\end{align*}
+\begin{align*}
+D_{t}\beta^{a} & = \frac{\delta \mathscr{H}}{\delta \rho_{a}} = -\frac{\alpha^{3}}{\sqrt{g}}\rho^{a} + \alpha^{2}H^{a} + \alpha^{2}\Delta \Gamma^{a}_{~bc}g^{bc} - \alpha g^{ab}\partial_{b}\alpha + \frac{\delta \Lambda \Omega}{\delta \rho_{a}} + \frac{\delta \Lambda^{c}\Omega_{c}}{\delta \rho_{a}}\\
+&  = -\frac{\alpha^{3}}{\sqrt{g}}\rho^{a} + \alpha^{2}H^{a} + \alpha^{2}\Delta \Gamma^{a}_{~bc}g^{bc} - \alpha g^{ab}\partial_{b}\alpha + C_{7}\frac{\alpha^{2}\Omega^{a}}{\sqrt{g}}
+\end{align*}
+\begin{align*}
+D_{t}\rho_{a} & = - \frac{\delta \Lambda \Omega}{\delta \beta^{a}} - \frac{\delta \Lambda^{c}\Omega_{c}}{\delta \beta^{a}}\\
+& = 0
+\end{align*}
+\begin{align*}
+D_{t}H_{\perp} & = \frac{\delta \Lambda \Omega}{\delta \Omega} + \frac{\delta \Lambda^{c}\Omega_{c}}{\delta \Omega}\\
+& = \Lambda + C_{3}\frac{\alpha \Omega}{\sqrt{g}}
+\end{align*}
+\begin{align*}
+D_{t}\Omega & = \alpha^{2}\pi - \frac{\delta \Lambda \Omega}{\delta H_{\perp}} - \frac{\delta \Lambda^{c}\Omega_{c}}{\delta H_{\perp}}\\
+& = \alpha^{2}\pi 
+\end{align*}
+\begin{align*}
+D_{t}H^{a} & = \frac{\delta \Lambda\Omega}{\delta \Omega_{a}} + \frac{\delta \Lambda^{c}\Omega_{c} }{\delta \Omega_{a}}\\
+& = \Lambda^{a} + C_{8}\frac{\alpha \Omega^{a}}{\sqrt{g}}
+\end{align*}
+\begin{align*}
+D_{t}\Omega_{a} & = -\alpha^{2}\rho_{a} - \frac{\delta \Lambda\Omega}{\delta H^{a}} - \frac{\delta \Lambda^{c}\Omega_{c}}{\delta H^{a}}\\
+& = -\alpha^{2}\rho_{a}
+\end{align*}
+Principle Terms Equation:
+\[
+{\hat \partial}_{0} = \partial_{t} - \beta^{c}\partial_{c}
+\]
+\[
+{\hat \partial}_{0}g_{ab} \approx 2g_{c(a}\partial_{b)}\beta^{c} + \frac{2\alpha}{\sqrt{g}}P_{ab} - \frac{\alpha g_{ab}}{\sqrt{g}}P - \frac{\alpha^{2}g_{ab}}{2\sqrt{g}}\pi + C_{1}\frac{\alpha g_{ab}}{\sqrt{g}}\Omega
+\]
+\begin{align*}
+{\hat \partial}_{0}P^{ab} & \approx \frac{\alpha \sqrt{g}}{2}g^{ac}g^{bd}g^{ef}\left(\partial_{c}\partial_{d}g_{ef} + \partial_{e}\partial_{f}g_{cd} - 2\partial_{e}\partial_{(c}g_{d)f}\right) + \frac{\alpha \sqrt{g}}{2}g^{ab}g^{cd}g^{ef}\left(\partial_{c}\partial_{e}g_{df} - \partial_{c}\partial_{d}g_{ef}\right)\\
+& + \sqrt{g}\left(g^{ac}g^{bd} - g^{ab}g^{cd}\right)\partial_{c}\partial_{d}\alpha\\
+& + \left(\alpha^{2}g^{c(a}g^{b)d} - \frac{1}{2}\alpha^{2}g^{ab}g^{cd}\right)\partial_{c}\rho_{d}\\
+& + \left(C_{4}\alpha g^{c(a}g^{b)d} - \frac{1}{2}(C_{4} - C_{5})\alpha g^{ab}g^{cd}\right)\partial_{c}\Omega_{d}
+\end{align*}
+\[
+{\hat \partial}_{0}\alpha \approx -\frac{\alpha^{2}}{2\sqrt{g}}P + \frac{\alpha^{3}}{4\sqrt{g}}\pi + C_{2}\frac{\alpha^{2}}{\sqrt{g}}\Omega
+\]
+\begin{align*}
+{\hat \partial}_{0}\pi & \approx  -\alpha g^{ab}\partial_{a}\rho_{b} + \sqrt{g}g^{ab}g^{cd}\left(\partial_{a}\partial_{c}g_{bd} - \partial_{a}\partial_{b}g_{cd}\right)\\
+& \approx  -\alpha g^{ab}\partial_{a}\rho_{b} + \sqrt{g}\left(g^{ac}g^{bd} - g^{ab}g^{cd}\right)\partial_{a}\partial_{b}g_{cd}
+\end{align*}
+\begin{align*}
+{\hat \partial}_{0}\beta^{a} & \approx - \alpha g^{ab}\partial_{b}\alpha -\frac{\alpha^{3}}{\sqrt{g}}g^{ab} \rho_{b} + C_{7}\frac{\alpha^{2}}{\sqrt{g}}g^{ab}\Omega_{b} + \frac{1}{2}\alpha^{2}g^{bc}g^{ad}\left(2\partial_{b}g_{cd}  - \partial_{d}g_{bc}\right)\\
+& \approx - \alpha g^{ab}\partial_{b}\alpha -\frac{\alpha^{3}}{\sqrt{g}}g^{ab} \rho_{b} + C_{7}\frac{\alpha^{2}}{\sqrt{g}}g^{ab}\Omega_{b} + \alpha^{2}\left(g^{ac}g^{bd} - \frac{1}{2}g^{ab}g^{cd}\right)\partial_{b}g_{cd}
+\end{align*}
+\[
+{\hat \partial}_{0}\rho_{a} \approx 2g_{ab}\partial_{c}P^{bc}
+\]
+\[
+{\hat \partial}_{0}H_{\perp} \approx C_{1}\frac{\alpha}{\sqrt{g}}P + C_{2}\frac{\alpha^{2}}{\sqrt{g}}\pi + 2C_{3}\frac{\alpha}{\sqrt{g}}\Omega
+\]
+\[
+{\hat \partial}_{0}\Omega \approx 0
+\]
+\[
+{\hat \partial}_{0}H^{a} \approx \left(C_{4}\alpha g^{ac}g^{bd} + \frac{1}{2}(C_{5}-C_{4})\alpha g^{ab}g^{cd}\right)\partial_{b}g_{cd} + C_{6}g^{ab}\partial_{b}\alpha + C_{7}\frac{\alpha^{2}g^{ab}}{\sqrt{g}}\rho_{b} + 2C_{8}\frac{\alpha g^{ab}}{\sqrt{g}}\Omega_{b}
+\]
+\[
+{\hat \partial}_{0}\Omega_{a} \approx 0
+\]
+Eigen system, coefficients divided by $\alpha$
+\[
+g_{ab} = n_{a}n_{b} + e^{A}_{a}e^{B}_{b}\delta_{AB}
+\]
+\[
+n^{a}g_{ab}n^{b} = 1
+\]
+\[
+n^{a}e_{a}^{A} = 0
+\]
+\[
+e^{a}_{A}e^{b}_{B}g_{ab} = \delta_{AB}
+\]
+\[
+\delta_{AB}\delta^{AB} = 2
+\]
+\[
+{\bar q}_{ab}n^{a} = {\bar q}_{nb}
+\]
+
+\[
+\mu {\bar g}_{ab} = \frac{2}{\alpha}n_{(a}{\bar \beta}_{b)} + \frac{2}{\sqrt{g}}{\bar P}_{ab} - \frac{g_{ab}}{\sqrt{g}}\left({\bar P}_{nn} + {\bar P}_{AB}\delta^{AB}\right) - \frac{\alpha g_{ab}}{2\sqrt{g}}{\bar \pi} + C_{1}\frac{g_{ab}}{\sqrt{g}}{\bar \Omega}
+\]
+
+\begin{align*}
+\mu {\bar P}_{ab} & = \frac{\sqrt{g}}{2}n_{a}n_{b}\left({\bar g}_{nn} + {\bar g}_{AB}\delta^{AB}\right) + \frac{\sqrt{g}}{2}{\bar g}_{ab} - \sqrt{g}n_{(a}{\bar g}_{b)n} - \frac{\sqrt{g}}{2}g_{ab} {\bar g}_{AB}\delta^{AB} + \frac{\sqrt{g}}{\alpha}n_{a}n_{b}{\bar \alpha} - \frac{\sqrt{g}}{\alpha}g_{ab}{\bar \alpha} \\
+& + \alpha n_{(a}{\bar \rho}_{d)} - \frac{1}{2}\alpha g_{ab}{\bar \rho}_{n}\\
+& + C_{4}n_{(a}{\bar \Omega}_{b)} - \frac{1}{2}(C_{4} - C_{5})g_{ab}{\bar \Omega}_{n}
+\end{align*}
+\[
+\mu {\bar \alpha} = -\frac{\alpha}{2\sqrt{g}}({\bar P}_{nn} + {\bar P}_{AB}\delta^{AB}) + \frac{\alpha^{2}}{4\sqrt{g}}{\bar \pi} + C_{2}\frac{\alpha}{\sqrt{g}}{\bar \Omega}
+\]
+\[
+\mu {\bar \pi} = -\frac{\sqrt{g}}{\alpha} {\bar g}_{AB}\delta^{AB} - {\bar \rho}_{n}
+\]
+\[
+\mu {\bar \beta}_{a} = - n_{a}{\bar \alpha} - \frac{\alpha^{2}}{\sqrt{g}}{\bar \rho}_{a} + C_{7}\frac{\alpha}{\sqrt{g}}{\bar \Omega}_{a} + \alpha{\bar g}_{an} - \frac{1}{2}\alpha n_{a}({\bar g}_{nn} + {\bar g}_{AB}\delta^{AB})
+\]
+\[
+\mu {\bar \rho}_{a} = \frac{2}{\alpha} {\bar P}_{an}
+\]
+\[
+\mu {\bar H}_{\perp} = \frac{C_{1}}{\sqrt{g}}\left({\bar P}_{nn} + {\bar P}_{AB}\delta^{AB}\right) + C_{2}\frac{\alpha}{\sqrt{g}}{\bar \pi} + 2\frac{C_{3}}{\sqrt{g}}{\bar \Omega}
+\]
+\[
+\mu {\bar \Omega} = 0
+\]
+\[
+\mu {\bar H}_{a} = C_{4}{\bar g}_{an} + \frac{1}{2}(C_{5} - C_{4})n_{a}({\bar g}_{nn} + {\bar g}_{AB}\delta^{AB}) + \frac{C_{6}}{\alpha}n_{a}{\bar \alpha} + C_{7}\frac{\alpha}{\sqrt{g}}{\bar \rho}_{a} + 2\frac{C_{8}}{\sqrt{g}}{\bar \Omega}_{a} 
+\]
+\[
+\mu {\bar \Omega}_{a} = 0
+\]
+Split into blocks
+
+SCALAR BLOCK
+\[
+\mu {\bar g}_{nn} = \frac{2}{\alpha} {\bar \beta}_{n} + \frac{1}{\sqrt{g}}{\bar P}_{nn} - \frac{1}{\sqrt{g}}{\bar P}_{AB}\delta^{AB} - \frac{\alpha}{2\sqrt{g}}{\bar \pi} + \frac{C_{1}}{\sqrt{g}}{\bar \Omega}
+\]
+\[
+\mu {\bar g}_{AB}\delta^{AB} = -\frac{2}{\sqrt{g}}{\bar P}_{nn} - \frac{\alpha}{\sqrt{g}}{\bar \pi} + \frac{2C_{1}}{\sqrt{g}}{\bar \Omega} 
+\]
+\[
+\mu {\bar P}_{nn} = \frac{1}{2}\alpha {\bar \rho}_{n} + \frac{1}{2}(C_{4} + C_{5}){\bar \Omega}_{n}
+\]
+\[
+\mu {\bar P}_{AB}\delta^{AB} = -\frac{\sqrt{g}}{2}{\bar g}_{AB}\delta^{AB} - \frac{2}{\alpha}\sqrt{g}{\bar \alpha} - \alpha {\bar \rho}_{n} - \alpha(C_{4} - C_{5}){\bar \Omega}_{n} 
+\]
+\[
+\mu {\bar \alpha} = -\frac{\alpha}{2\sqrt{g}}({\bar P}_{nn} + {\bar P}_{AB}\delta^{AB}) + \frac{\alpha^{2}}{4\sqrt{g}}{\bar \pi} + C_{2}\frac{\alpha}{\sqrt{g}}{\bar \Omega}
+\]
+\[
+\mu {\bar \pi} = -\frac{\sqrt{g}}{\alpha} {\bar g}_{AB}\delta^{AB} - {\bar \rho}_{n}
+\]
+\[
+\mu {\bar \beta}_{n} = - {\bar \alpha} - \frac{\alpha^{2}}{\sqrt{g}}{\bar \rho}_{n} + C_{7}\frac{\alpha}{\sqrt{g}}{\bar \Omega}_{n} + \frac{1}{2}\alpha {\bar g}_{nn} - \frac{1}{2}\alpha {\bar g}_{AB}\delta^{AB}
+\]
+\[
+\mu {\bar \rho}_{n} = \frac{2}{\alpha}{\bar P}_{nn}
+\]
+\[
+\mu {\bar H}_{\perp} = \frac{C_{1}}{\sqrt{g}}\left({\bar P}_{nn} + {\bar P}_{AB}\delta^{AB}\right) + C_{2}\frac{\alpha}{\sqrt{g}}{\bar \pi} + 2\frac{C_{3}}{\sqrt{g}}{\bar \Omega}
+\]
+\[
+\mu {\bar \Omega} = 0
+\]
+\[
+\mu {\bar H}_{n} = \frac{1}{2}(C_{5} + C_{4}){\bar g}_{nn} + \frac{1}{2}(C_{5} - C_{4}){\bar g}_{AB}\delta^{AB} + \frac{C_{6}}{\alpha}{\bar \alpha} + C_{7}\frac{\alpha}{\sqrt{g}}{\bar \rho}_{n} + \frac{2C_{8}}{\sqrt{g}}{\bar \Omega}_{n}
+\]
+\[
+\mu {\bar \Omega}_{n} = 0
+\]
+VECTOR SECTOR
+\[
+\mu {\bar g}_{nA} = \frac{1}{\alpha}{\bar \beta}_{A} + \frac{2}{\sqrt{g}}{\bar P}_{nA}
+\]
+\[
+\mu {\bar P}_{nA} = \frac{\alpha}{2}{\bar \rho}_{A} + \frac{1}{2}C_{4}{\bar \Omega}_{A}
+\]
+\[
+\mu {\bar \beta}_{A} = -\frac{\alpha^{2}}{\sqrt{g}}{\bar \rho}_{A} + C_{7}\frac{\alpha}{\sqrt{g}}{\bar \Omega}_{A} + \alpha {\bar g}_{nA}
+\]
+\[
+\mu {\bar \rho}_{A} = \frac{2}{\alpha}{\bar P}_{nA}
+\]
+\[
+\mu {\bar H}_{A} = C_{4}{\bar g}_{nA} + C_{7}\frac{\alpha}{\sqrt{g}}{\bar \rho}_{A} + 2\frac{C_{8}}{\sqrt{g}}{\bar \Omega}_{A}
+\]
+\[
+\mu {\bar \Omega}_{A} = 0
+\]
+
+TRACE-FREE SECTOR
+\[
+\mu {\bar g}^{tf}_{AB} = \frac{2}{\sqrt{g}}{\bar P}^{tf}_{AB} 
+\]
+\[
+\mu {\bar P}^{tf}_{AB} = \frac{\sqrt{g}}{2}{\bar g}^{tf}_{AB}
+\]
+\section{Matrix}
+SCALAR SECTOR MATRIX
+\[
+v =( {\bar g}_{nn}, {\bar g}_{AB}\delta^{AB}, {\bar P}_{nn}, {\bar P}_{AB}\delta^{AB}, {\bar \alpha}, {\bar \pi}, {\bar \beta}_{n}, {\bar \rho}_{n}, {\bar H}_{\perp}, {\bar \Omega}, {\bar H}_{n}, {\bar \Omega}_{n})^{T}
+\] 
+NO GOOD, NON-COMPLETE EIGENVECTORS
+
+\section{Hyperbolicity, Take 2}
+$H_{\perp}$ and $H^{a}$ is decoupled from other variables, so we just need to construct a simple $\Lambda$ and $\Lambda^{a}$
+\[
+\Lambda = C_{1}\alpha D_{a}H^{a}
+\]
+\[
+\Lambda^{a} = C_{2}\alpha g^{ab}D_{b}H_{\perp}
+\]
+Principle terms:
+\[
+{\hat \partial}_{0}g_{ab} \approx 2g_{c(a}\partial_{b)}\beta^{c} + \frac{2\alpha}{\sqrt{g}}P_{ab} - \frac{\alpha g_{ab}}{\sqrt{g}}P - \frac{\alpha^{2}g_{ab}}{2\sqrt{g}}\pi
+\]
+\begin{align*}
+{\hat \partial}_{0}P_{ab} &\approx \frac{\alpha\sqrt{g}}{2}g^{cd}\left(\partial_{a}\partial_{b}g_{cd} + \partial_{c}\partial_{d}g_{ab} - 2\partial_{c}\partial_{(a}g_{b)d}\right)\\
+& + \frac{\alpha\sqrt{g}}{2}g_{ab}g^{cd}g^{ef}\left(\partial_{c}\partial_{e}g_{df} - \partial_{c}\partial_{d}g_{ef}\right)\\
+& + \sqrt{g}\partial_{a}\partial_{b}\alpha - \sqrt{g}g_{ab}g^{cd}\partial_{c}\partial_{d}\alpha + \alpha^{2}\partial_{(a}\rho_{b)} - \frac{\alpha^2}{2}g_{ab}g^{cd}\partial_{c}\rho_{d}
+\end{align*}
+\[
+{\hat \partial}_{0}\alpha \approx -\frac{\alpha^{2}}{2\sqrt{g}}P + \frac{\alpha^{3}}{4\sqrt{g}}\pi
+\]
+\begin{align*}
+{\hat \partial}_{0}\pi & \approx  -\alpha g^{ab}\partial_{a}\rho_{b} + \sqrt{g}g^{ab}g^{cd}\left(\partial_{a}\partial_{c}g_{bd} - \partial_{a}\partial_{b}g_{cd}\right)\\
+& \approx  -\alpha g^{ab}\partial_{a}\rho_{b} + \sqrt{g}\left(g^{ac}g^{bd} - g^{ab}g^{cd}\right)\partial_{a}\partial_{b}g_{cd}
+\end{align*}
+\begin{align*}
+{\hat \partial}_{0}\beta^{a} & \approx - \alpha g^{ab}\partial_{b}\alpha -\frac{\alpha^{3}}{\sqrt{g}}g^{ab} \rho_{b} + \frac{1}{2}\alpha^{2}g^{bc}g^{ad}\left(2\partial_{b}g_{cd} - \partial_{d}g_{bc}\right)\\
+& \approx - \alpha g^{ab}\partial_{b}\alpha -\frac{\alpha^{3}}{\sqrt{g}}g^{ab} \rho_{b} + \alpha^{2}\left(g^{ac}g^{bd} - \frac{1}{2}g^{ab}g^{cd}\right)\partial_{b}g_{cd}
+\end{align*}
+\[
+{\hat \partial}_{0}\rho_{a} \approx 2g_{ab}\partial_{c}P^{bc}
+\]
+\[
+{\hat \partial}_{0}H_{\perp} \approx C_{1}\alpha \partial_{a}H^{a} 
+\]
+\[
+{\hat \partial}_{0}\Omega \approx C_{2}\alpha g^{ab}\partial_{a}\Omega_{b}
+\]
+\[
+{\hat \partial}_{0}H_{a} \approx C_{2}\alpha \partial_{a}H_{\perp} 
+\]
+\[
+{\hat \partial}_{0}\Omega_{a} \approx C_{1}\alpha \partial_{a}\Omega
+\]
+Now the SCALAR SECTOR becomes
+\[
+\mu {\bar g}_{nn} = \frac{2}{\alpha} {\bar \beta}_{n} + \frac{1}{\sqrt{g}}{\bar P}_{nn} - \frac{1}{\sqrt{g}}{\bar P}_{AB}\delta^{AB} - \frac{\alpha}{2\sqrt{g}}{\bar \pi}
+\]
+\[
+\mu {\bar g}_{AB}\delta^{AB} = -\frac{2}{\sqrt{g}}{\bar P}_{nn} - \frac{\alpha}{\sqrt{g}}{\bar \pi} 
+\]
+\[
+\mu {\bar P}_{nn} = \frac{1}{2}\alpha {\bar \rho}_{n}
+\]
+\[
+\mu {\bar P}_{AB}\delta^{AB} = -\frac{\sqrt{g}}{2}{\bar g}_{AB}\delta^{AB} - \frac{2}{\alpha}\sqrt{g}{\bar \alpha} - \alpha {\bar \rho}_{n}
+\]
+\[
+\mu {\bar \alpha} = -\frac{\alpha}{2\sqrt{g}}({\bar P}_{nn} + {\bar P}_{AB}\delta^{AB}) + \frac{\alpha^{2}}{4\sqrt{g}}{\bar \pi}
+\]
+\[
+\mu {\bar \pi} = -\frac{\sqrt{g}}{\alpha} {\bar g}_{AB}\delta^{AB} - {\bar \rho}_{n}
+\]
+\[
+\mu {\bar \beta}_{n} = - {\bar \alpha} - \frac{\alpha^{2}}{\sqrt{g}}{\bar \rho}_{n}  + \frac{1}{2}\alpha {\bar g}_{nn} - \frac{1}{2}\alpha {\bar g}_{AB}\delta^{AB}
+\]
+\[
+\mu {\bar \rho}_{n} = \frac{2}{\alpha}{\bar P}_{nn}
+\]
+\[
+\mu {\bar H}_{\perp} = C_{1}{\bar H}_{n}
+\]
+\[
+\mu {\bar \Omega} = C_{2}{\bar \Omega}_{n}
+\]
+\[
+\mu {\bar H}_{n} = C_{2}{\bar H}_{\perp}
+\]
+\[
+\mu {\bar \Omega}_{n} = C_{1}{\bar \Omega}
+\]
+VECTOR SECTOR is
+\[
+\mu {\bar g}_{nA} = \frac{1}{\alpha}{\bar \beta}_{A} + \frac{2}{\sqrt{g}}{\bar P}_{nA}
+\]
+\[
+\mu {\bar P}_{nA} = \frac{\alpha}{2}{\bar \rho}_{A}
+\]
+\[
+\mu {\bar \beta}_{A} = -\frac{\alpha^{2}}{\sqrt{g}}{\bar \rho}_{A}  + \alpha {\bar g}_{nA}
+\]
+\[
+\mu {\bar \rho}_{A} = \frac{2}{\alpha}{\bar P}_{nA}
+\]
+\[
+\mu {\bar H}_{A} = 0
+\]
+\[
+\mu {\bar \Omega}_{A} = 0
+\]
+
+TRACE-FREE SECTOR
+\[
+\mu {\bar g}^{tf}_{AB} = \frac{2}{\sqrt{g}}{\bar P}^{tf}_{AB} 
+\]
+\[
+\mu {\bar P}^{tf}_{AB} = \frac{\sqrt{g}}{2}{\bar g}^{tf}_{AB}
+\]
+The eigen values of scalar sector is $\pm 1$ and $\pm \sqrt{C_{1}C_{2}}$, eigen vectors are complete. \\
+\\
+The eigen values of vector sector is $\pm 1$ and 0, eigen vectors are complete. \\
+\\
+The eign values of trace-free sector is $\pm 1$, eign vectors are complete. 
+\\
+\\
+HENCE THE SYSTEM IS STRONGLY HYPERBOLIC. 
+\section{Symmetric Hyperbolic}
+Make the following definition
+\[
+g_{cab} \equiv \partial_{c}g_{ab}
+\]
+\[
+\alpha_{a} \equiv \partial_{a}\alpha
+\]
+\[
+\beta_{ab} \equiv g_{ac}\partial_{b}\beta^{c}
+\]
+\[
+H_{\perp a} \equiv \partial_{a}H_{\perp}
+\]
+\[
+H_{ab} \equiv g_{ac}\partial_{b}H^{c}
+\]
+Rewrite the principle terms equation set
+\[
+\partial_{t}g_{ab} \approx \beta^{d}g_{dab} + 2\beta_{(ab)} + \frac{2\alpha}{\sqrt{g}}P_{ab} - \frac{\alpha}{\sqrt{g}}g_{ab}P - \frac{\alpha^{2}}{2 \sqrt{g}}g_{ab}\pi
+\]
+\begin{align*}
+\partial_{t}P_{ab} & \approx \beta^{d}\partial_{d}P_{ab} + \frac{\alpha\sqrt{g}}{2}g^{cd}\left(\partial_{a}g_{bcd} + \partial_{c}g_{dab} - 2\partial_{c}g_{(ab)d}\right)\\
+& + \frac{\alpha\sqrt{g}}{2}g_{ab}g^{cd}g^{ef}\left(\partial_{c}g_{edf} - \partial_{c}g_{def}\right)\\
+& + \sqrt{g}\partial_{a}\alpha_{b} - \sqrt{g}g_{ab}g^{cd}\partial_{c}\alpha_{d} + \alpha^{2}\partial_{(a}\rho_{b)} - \frac{\alpha^2}{2}g_{ab}g^{cd}\partial_{c}\rho_{d} 
+\end{align*}
+\[
+\partial_{t}\alpha \approx \beta^{d}\alpha_{d} -\frac{\alpha^{2}}{2\sqrt{g}}P + \frac{\alpha^{3}}{4\sqrt{g}}\pi
+\]
+\[
+\partial_{t}\pi \approx  \beta^{d}\partial_{d}\pi -\alpha g^{ab}\partial_{a}\rho_{b} + \sqrt{g}\left(g^{ac}g^{bd} - g^{ab}g^{cd}\right)\partial_{a}g_{bcd}
+\]
+\[
+\partial_{t}\beta_{a} \approx \beta^{d}\beta_{da} - \alpha \alpha_{a} - \frac{\alpha^{3}}{\sqrt{g}}\rho_{a} + \alpha^{2}\left(g^{bd}g_{bad} - \frac{1}{2}g^{bd}g_{abd}\right)
+\]
+\[
+\partial_{t}\rho_{a} \approx \beta^{c}\partial_{c}\rho_{a} + 2g_{ab}\partial_{c}P^{bc}
+\]
+\[
+\partial_{t}H_{\perp} \approx \beta^{c}H_{\perp c} + C_{1}\alpha H_{ab}g^{ab} 
+\]
+\[
+\partial_{t}\Omega \approx \beta^{c}\partial_{c}\Omega + C_{2}\alpha g^{ab}\partial_{a}\Omega_{b}
+\]
+\[
+\partial_{t}H_{a} \approx \beta^{c}H_{ca} + C_{2}\alpha H_{\perp a} 
+\]
+\[
+\partial_{t}\Omega_{a} \approx \beta^{c}\partial_{c}\Omega_{a} + C_{1}\alpha \partial_{a}\Omega
+\]
+Compute the time derivative of $g_{abc}, \alpha_{a}, \beta_{ab}, H_{\perp a}, H_{ab}$, only leave the terms proportional to $\partial_{a}g_{bcd}, \partial_{a}P_{cd}, \partial_{a}\alpha_{b}, \partial_{a}\pi, \partial_{a}\beta_{cd}, \partial_{a}\rho_{b}, \partial_{a}H_{\perp b}, \partial_{a}\Omega, \partial_{a}H_{bc}$ and $\partial_{a}\Omega_{b}$, absorb the $\beta^{c}\partial_{c}$ terms into the left hand side, since they won't affect the symmetric hyperbolic analysis
+\[
+{\hat \partial}_{0}g_{cab} \approx 2\partial_{c}\beta_{(ab)} + \frac{2\alpha}{\sqrt{g}}\partial_{c}P_{ab} - \frac{\alpha}{\sqrt{g}}g_{ab}g^{de}\partial_{c}P_{de} - \frac{\alpha^2}{2\sqrt{g}}g_{ab}\partial_{c}\pi
+\]
+\begin{align*}
+{\hat \partial}_{0}P_{ab} & \approx \frac{\alpha\sqrt{g}}{2}g^{cd}\left(\partial_{a}g_{bcd} + \partial_{c}g_{dab} - 2\partial_{c}g_{(ab)d}\right)\\
+& + \frac{\alpha\sqrt{g}}{2}g_{ab}g^{cd}g^{ef}\left(\partial_{c}g_{edf} - \partial_{c}g_{def}\right)\\
+& + \sqrt{g}\partial_{a}\alpha_{b} - \sqrt{g}g_{ab}g^{cd}\partial_{c}\alpha_{d} + \alpha^{2}\partial_{(a}\rho_{b)} - \frac{\alpha^2}{2}g_{ab}g^{cd}\partial_{c}\rho_{d} 
+\end{align*}
+\[
+{\hat \partial}_{0}\alpha_{a} \approx - \frac{\alpha^{2}}{2\sqrt{g}}g^{cd}\partial_{a}P_{cd} + \frac{\alpha^{3}}{4\sqrt{g}}\partial_{a}\pi
+\]
+\[
+{\hat \partial}_{0}\pi \approx -\alpha g^{ab}\partial_{a}\rho_{b} + \sqrt{g}\left(g^{ac}g^{bd} - g^{ab}g^{cd}\right)\partial_{a}g_{bcd}
+\]
+\[
+{\hat \partial}_{0}\beta_{ab} \approx - \alpha \partial_{a}\alpha_{b} - \frac{\alpha^{3}}{\sqrt{g}}\partial_{a}\rho_{b} + \alpha^{2}\left(g^{cd}\partial_{a}g_{cbd} - \frac{1}{2}g^{cd}\partial_{a}g_{bcd}\right)
+\]
+\[
+{\hat \partial}_{0}\rho_{a} \approx 2g_{ab}\partial_{c}P^{bc}
+\]
+\[
+{\hat \partial}_{0}H_{\perp a} \approx C_{1}\alpha g^{bc}\partial_{a}H_{bc}
+\]
+\[
+{\hat \partial}_{0}\Omega \approx C_{2}\alpha g^{ab}\partial_{a}\Omega_{b}
+\]
+\[
+{\hat \partial}_{0}H_{ab} \approx C_{2}\alpha \partial_{a}H_{\perp b}
+\]
+\[
+{\hat \partial}_{0}\Omega_{a} \approx C_{1}\alpha \partial_{a}\Omega
+\]
+
+Ansatz for the energy: 
+\begin{align*}
+& \epsilon \\
+& = M^{abef}\left[g^{cd}\left(\frac{1}{2}g_{cab} - \frac{\alpha_{c}}{\alpha}g_{ab}\right)\left(\frac{1}{2}g_{def} - \frac{\alpha_{d}}{\alpha}g_{ef}\right) + \left(\frac{P_{ab}}{\sqrt{g}} + \frac{\beta_{(ab)}}{\alpha} - \frac{\alpha}{2\sqrt{g}}g_{ab}\pi \right)\left(\frac{P_{ef}}{\sqrt{g}} + \frac{\beta_{(ef)}}{\alpha} - \frac{\alpha}{2\sqrt{g}}g_{ef}\pi\right)\right]\\
+& + M^{ab}\left[\frac{1}{\alpha^{2}}g^{cd}\beta_{(ac)}\beta_{(bd)} + \left(\frac{\alpha}{\sqrt{g}}\rho_{a} - \Gamma_{acd}g^{cd} + \frac{\alpha_{a}}{\alpha}\right)\left(\frac{\alpha}{\sqrt{g}}\rho_{b} - \Gamma_{bcd}g^{cd} + \frac{\alpha_{b}}{\alpha}\right)\right]\\
+& + M\left(H_{\perp a}H_{\perp b}g^{ab} + H_{ab}H_{cd}g^{ab}g^{cd} + \Omega^{2} + \Omega_{a}\Omega_{b}g^{ab}\right)
+\end{align*}
+\section{Take 3}
+ONLY EXTEND $H_{\perp}$, 
+
+\[
+\Lambda = C_{1}\frac{\alpha}{\sqrt{g}}\Omega + C_{2}\frac{\alpha \sqrt{g}}{\Omega}g^{ab}\partial_{a}H_{\perp}\partial_{b}H_{\perp}
+\]
+Therefore, we have
+\[
+D_{t}H_{\perp} = \frac{\delta \Lambda\Omega}{\delta \Omega} = 2C_{1}\frac{\alpha}{\sqrt{g}}\Omega
+\]
+\[
+D_{t}\Omega = -\frac{\delta \Lambda\Omega}{\delta H_{\perp}} = 2C_{2}\partial_{a}\left(\alpha \sqrt{g} g^{ab}\partial_{b}H_{\perp}\right)
+\]
+Principle terms
+\[
+{\hat \partial}_{0}H_{\perp} \approx 2C_{1}\frac{\alpha}{\sqrt{g}}\Omega
+\]
+\[
+{\hat \partial}_{0}\Omega \approx 2C_{2}\alpha \sqrt{g}g^{ab}\partial_{a}\partial_{b}H_{\perp}
+\]
+Energy term is
+\begin{align*}
+& \epsilon \\
+& = M^{abef}\left[g^{cd}\left(\frac{1}{2}g_{cab} - \frac{\alpha_{c}}{\alpha}g_{ab}\right)\left(\frac{1}{2}g_{def} - \frac{\alpha_{d}}{\alpha}g_{ef}\right) + \left(\frac{P_{ab}}{\sqrt{g}} + \frac{\beta_{(ab)}}{\alpha} - \frac{\alpha}{2\sqrt{g}}g_{ab}\pi \right)\left(\frac{P_{ef}}{\sqrt{g}} + \frac{\beta_{(ef)}}{\alpha} - \frac{\alpha}{2\sqrt{g}}g_{ef}\pi\right)\right]\\
+& + M^{ab}\left[\frac{1}{\alpha^{2}}g^{cd}\beta_{(ac)}\beta_{(bd)} + \left(\frac{\alpha}{\sqrt{g}}\rho_{a} - \Gamma_{acd}g^{cd} + \frac{\alpha_{a}}{\alpha}\right)\left(\frac{\alpha}{\sqrt{g}}\rho_{b} - \Gamma_{bcd}g^{cd} + \frac{\alpha_{b}}{\alpha}\right)\right]\\
+& + M\left(H_{\perp a}H_{\perp b}g^{ab} +\frac{C_{1}}{C_{2}g}\Omega^{2} \right)
+\end{align*}
+{\bf {\color{red} NEED TO DETERMINE THE FACTOR FOR THE LAST TWO TERMS}}
+\section{TAKE 3}
+\[
+{\hat \partial}_{0}H_{\perp} \approx C_{1}\frac{\alpha}{\sqrt{g}}\Omega
+\]
+\[
+{\hat \partial}_{0}\Omega \approx C_{2}\alpha \sqrt{g}g^{ab}\partial_{a}\partial_{b}H_{\perp}
+\]
+\[
+{\hat \partial}_{0}H_{a} \approx C_{3}\frac{\alpha}{\sqrt{g}}\Omega_{a}
+\]
+\[
+{\hat \partial}_{0}\Omega_{a} \approx C_{4}\alpha \sqrt{g} g^{bc}\partial_{b}\partial_{c}H_{a}
+\]
+Energy Term
+\begin{align*}
+& \epsilon \\
+& = M^{abef}\left[g^{cd}\left(\frac{1}{2}g_{cab} - \frac{\alpha_{c}}{\alpha}g_{ab}\right)\left(\frac{1}{2}g_{def} - \frac{\alpha_{d}}{\alpha}g_{ef}\right) + \left(\frac{P_{ab}}{\sqrt{g}} + \frac{\beta_{(ab)}}{\alpha} - \frac{\alpha}{2\sqrt{g}}g_{ab}\pi \right)\left(\frac{P_{ef}}{\sqrt{g}} + \frac{\beta_{(ef)}}{\alpha} - \frac{\alpha}{2\sqrt{g}}g_{ef}\pi\right)\right]\\
+& + M^{ab}\Big[\frac{1}{\alpha^{2}}g^{cd}\beta_{(ac)}\beta_{(bd)} - \left(\frac{\alpha}{\sqrt{g}}\rho_{a} - \Gamma_{acd}g^{cd} + \frac{\alpha_{a}}{\alpha}\right)\left(\frac{\alpha}{\sqrt{g}}\rho_{b} - \Gamma_{bcd}g^{cd} + \frac{\alpha_{b}}{\alpha}\right)\\
+& - \frac{1}{\alpha^{2}}g^{cd}\left(\beta_{(ac)} - \frac{\alpha}{C_{4}\sqrt{g}}H_{(a}\Omega_{c)}\right)\left(\beta_{(bd)} - \frac{\alpha}{C_{4}\sqrt{g}}H_{(b}\Omega_{d)}\right)\\
+& + \left(\frac{\alpha}{\sqrt{g}}\rho_{a} - \Gamma_{acd}g^{cd} + \frac{\alpha_{a}}{\alpha} - \frac{1}{C_{3}}H^{c}H_{ca}\right)\left(\frac{\alpha}{\sqrt{g}}\rho_{b} - \Gamma_{bcd}g^{cd} + \frac{\alpha_{b}}{\alpha} - \frac{1}{C_{3}}H^{c}H_{cb}\right) - H_{a}H_{b}g^{cd}g^{ef}H_{(ce)}H_{(df)}\Big]\\
+& + M\left(H_{\perp a}H_{\perp b}g^{ab} +\frac{C_{1}}{C_{2}g}\Omega^{2} \right)
+\end{align*}
+\section{Quick Note}
+\[
+{\hat \partial}_{0}\left(\frac{\alpha}{\sqrt{g}}\rho_{a} - \Gamma_{acd}g^{cd} + \frac{\alpha_{a}}{\alpha} \right) = -g^{cd}\partial_{a}\beta_{(cd)} - H^{c}\partial_{c}\Omega_{a}
 \]
 \end{document}
