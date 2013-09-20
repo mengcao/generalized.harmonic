@@ -6,16 +6,144 @@
 \usepackage{float}
 \usepackage{courier}
 \usepackage{color}
+\usepackage{mathrsfs}
 
 \begin{document}
 \special{papersize=8.5in, 11in}
 
-\title{Hamiltonian Equations of Generalized Harmonic Formulation}
+\title{Hamiltonian Equations of Generalized Harmonic Formulation of General Relativity}
 \author{Meng Cao, J.~David Brown}
 \affiliation{Department of Physics, North Carolina State University, Raleigh, NC 27695 USA}
 
 \begin{abstract}
-
+The Hamilton's equations of generalized harmonic general relativity formulation are derived. The result is a system of partial differential equations with first order time and first order space derivatives for the spatial metric, lapse function, shift vector, gauge source vector and their conjugate momenta. This partial differential euqations system is further proved to be symmetric hyperbolic. Possible extentions of the formulation without spoiling its symmetric hyperbolicity is discussed. 
 \end{abstract}
 \maketitle
+\section{Introduction}
+Currently there are two widely employed formulations of Einstein equations in the numerical relativity community. One is the Baumgarte–Shapiro–Shibata–Nakamura (BSSN) system along with moving puncture gauge conditions, the other is the generalized harmonic (GH) formulation. The predecessor of BSSN formulation, the Arnowitt–Deser–Misner (ADM) equations are obtained from a 3 + 1 splitting of the Einstein equations. It is a system of partial differential equations with first order time and second order space derivatives of the 3 + 1 variables, the spatial metric, extrinsic curvature, lapse function and the shift vector. BSSN formulation employs a different set of variables and introduces new independent variables called the conformal connection functions. BSSN formulation is often implemented with the moving puncture gauge conditions which govern the evolution of the lapse function and shift vector. The 3 + 1 equations of GH formulation is presented in Ref.~\cite{Brown:2011qg} so that the relation of GH equations and BSSN equations is revealed explicitly. 
+
+In this paper, the Hamiltonian approach is taken toward the GH equations of general relativity. Hamiltonian formulation is proved to be successful in providing guiding insights in various physics fields. {\color{red} talk about importance of Hamiltonian formulation }
+
+We present the notation and convention used throughout this paper in Sec.~\ref{notation}. A brief review of the action principle discussed in Refs.~\cite{Brown:2010rya} is presented in Sec.~\ref{action}. The Hamilton's equations of GH formulation and the formula of Hamiltonian are derived in Sec.~\ref{hamiltonian}. The hyperbolicity of the Hamilton's equations system is further analyzed in Sec.~\ref{hyperbolicity}. In Sec.~\ref{extension}, in order to achieve the evolution equations for gauge source vector for constructing appropriate gauge conditions, we propose a possible extenstion of the Hamiltonian scheme to include the gauge source condition as dynamic variables in the system. The hyperbolicity of this extended system is discussed later in this section. A brief summary is provided in Sec.~\ref{summary}. 
+\section{Notation and Convention}\label{notation}
+In this paper, we use Greek letter indices $\mu$, $\nu$, ... to denote spacetime indices and Latin letters $a$, $b$, ... for spatial indices. $\nabla_{\mu}$ is the spacetime covariant derivative while $D_{a}$ is the spatial covariant derivative. And $D_{t}$ stands for the covariant time derivative\cite{Meng} which is discussed later in the paper.
+
+We introduce a set of background fields that allows us to group non-tensor terms so that they transform tensorially as a whole under a change of spacetime coordinates. The background fields are denoted with a bar on top. We also use a prefix $\Delta$ to denote the difference bewteen the physical field and its corresponding background field. For example, we use ${\bar \Gamma}^{\alpha}_{~\mu\nu}$ to denote the torsion-free background connection and we define
+\begin{equation}
+\Delta \Gamma^{\alpha}_{~\mu\nu} \equiv \Gamma^{\alpha}_{~\mu\nu} - {\bar \Gamma}^{\alpha}_{~\mu\nu}.
+\end{equation}
+Note that by subtracting ${\bar \Gamma}^{\alpha}_{~\mu\nu}$ from $\Gamma^{\alpha}_{~\mu\nu}$, we manage to compensate the inhomogeneity in the transformation rule for $\Gamma^{\alpha}_{~\mu\nu}$, the resulting $\Delta \Gamma^{\alpha}_{~\mu\nu}$ is a type ${1}\choose{2}$ tensor.  
+\section{Action For GH Formulation}\label{action}
+As presented in Ref.~\cite{Brown:2010rya}, the Lagrangian for generalized harmonic gravity is the following function of the spacetime metric $g_{\mu\nu}$ and the gauge source vector $H_{\mu}$. 
+\begin{equation}
+\mathscr{L}\left( g_{\mu\nu}, H_{\mu}\right) = \sqrt{-^{(4)}g} \left(^{(4)}R - \frac{1}{2}C_{\mu}C^{\mu}\right), 
+\end{equation}
+and the action is a functional of $g_{\mu\nu}$ and $H_{\mu}$
+\begin{equation}
+S\left[g_{\mu\nu}, H_{\mu}\right] = \int \mathscr{L} d^{4}x.
+\end{equation}
+In the Lagrangian, $^{(4)}g$ is the determinant of the spacetime metric, $^{(4)}R$ is the spacetime Ricci scalar and $C_{\mu}$ is the generalized harmonic constrains defined as
+\begin{equation}
+C_{\mu} = H_{\mu} + \Delta \Gamma^{~~~\beta}_{\mu\beta}
+\end{equation}
+where $H_{\mu}$ is the gauge source vector. 
+
+{\color{red} maybe include an appendix for 3 + 1 splitting }\\
+With the 3 + 1 splitting of the spacetime metric $g_{\mu\nu}$ into spatial metric $g_{ab}$, lapse function $\alpha$ and shift vector $\beta^{a}$, the gauge source vector $H_{\mu}$ into its time-like component $H_{\perp}$ and spatial component $H_{a}$, the action turns into the following form
+\begin{equation}\label{action}
+S\left[g_{ab}, \alpha, \beta^{a}, H_{\perp}, H_{a}\right] = \int d^{4}x~~\alpha \sqrt{g} \left( R + K^{ab}K_{ab} - K^{2} - \frac{1}{2}C^{a}C_{a} + \frac{1}{2}C_{\perp}^{2}\right).
+\end{equation}
+In this formula, $R$ is the spatial Ricci scalar, $K_{ab}$ is the extrinsic curvature defined as
+\begin{equation}
+K_{ab} \equiv -\frac{1}{2\alpha}\left(\partial_{t}g_{ab} - \mathcal{L}_{\beta}g_{ab}\right),  
+\end{equation}
+where $\mathcal{L}_{\beta}$ is the Lie derivative along the shift vector and $K$ is the trace of extrinsic curvature. 
+
+The splitting of $C_{\mu}$ is more delicate. According to the 3 + 1 splitting discussed in Appendix \ref{3 + 1}, we split $C_{\mu}$ into $C_{\perp}$ and $C_{a}$, where
+\begin{equation}
+C_{\perp} = {\tilde H}_{\perp} + K + \frac{1}{\alpha^{2}}D_{t}\alpha
+\end{equation}
+and
+\begin{equation}
+C_{a} = {\tilde H}_{a} + \Delta \Gamma^{b}_{cd}g^{cd}g_{ab} - \frac{\partial_{a}\alpha}{\alpha} - \frac{g_{ab}}{\alpha^2}D_{t}\beta^{b}.
+\end{equation}
+Here, $D_{t}\alpha$ and $D_{t}\beta^{a}$ are the covariant time derivative of the lapse function and shift vector, respectively\cite{Meng}. They are defined as following
+\begin{subequations}\label{covariant lapse and shift}
+\begin{align}
+D_{t}\alpha &\equiv \partial_{t}\alpha - \beta^{c}\partial_{c}\alpha - \frac{\alpha}{{\bar \alpha}}\left(\partial_{t}{\bar \alpha} - {\bar \beta}^{c}\partial_{c}{\bar \alpha}\right), \\
+D_{t}\beta^{a} &\equiv \partial_{t}\Delta \beta^{a} - \frac{\Delta \beta^{a}}{{\bar \alpha}}\left(\partial_{t}{\bar \alpha} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}\right) - \beta^{b}{\bar D}_{b}\Delta \beta^{a} + \Delta \beta^{b}{\bar D}_{b}{\bar \beta}^{a}.
+\end{align}
+\end{subequations}
+One can check that they are invariant under the coordinate transformation we call Foliation Preserving coordinate transformation, where $t' = t'(t)$ and $x^{a'} = x^{a'}(x^{a})$. In addition, the covariant derivative of the spatial metric is defined as
+\begin{equation}\label{covariant spatial metric}
+D_{t}g_{ab} \equiv {\dot g}_{ab} - \mathcal{L}_{\beta}g_{ab} = -2\alpha K_{ab}.
+\end{equation}
+
+${\tilde H}_{\perp}$ and ${\tilde H}_{a}$ are the modified gauge source vector components, where
+\begin{subequations}
+\begin{align}
+{\tilde H}_{\perp} & \equiv H_{\perp} - \frac{\alpha}{{\bar \alpha}}{\bar K}_{ab}g^{ab} + \frac{{\bar K}_{ab}}{\alpha{\bar \alpha}}\Delta \beta^{a} \Delta \beta^{b} + \frac{2}{\alpha {\bar \alpha}}\Delta \beta^{a} \partial_{a}{\bar \alpha}, \\
+{\tilde H}_{a} & \equiv H_{a} + \frac{{\bar \alpha}}{\alpha^2}g_{ab}{\bar g}^{bc}\partial_{c}{\bar \alpha} + \frac{g_{ab}\Delta \beta^{b}}{\alpha^2 {\bar \alpha}}(\alpha^2g^{cd}{\bar K}_{cd} - 2\Delta\beta^{c}\partial_{c}{\bar \alpha}) - \frac{g_{ab}{\bar K}_{cd}\Delta \beta^{c}}{\alpha^2{\bar \alpha}}(\Delta \beta^{b}\Delta \beta^{d} - 2{\bar \alpha}^2{\bar g}^{bd}).
+\end{align}
+\end{subequations}
+Since absorbing terms that depend on the physical fields $g_{ab}$, $\alpha$, $\beta^{a}$, the background fields ${\bar g}_{ab}$, ${\bar \alpha}$, ${\bar \beta}^{a}$ and the derivatives of the background fields into $H_{\perp}$ and $H_{a}$ won't change the hyperbolicity of the GH formulation, later in the paper, we refer ${\tilde H}_{\perp}$ and ${\tilde H}_{a}$ as $H_{\perp}$ and $H_{a}$, respectively. Therefore, we rewrite the splitting of $C_{\perp}$ and $C_{a}$ as following
+\begin{subequations}
+\begin{align}
+C_{\perp} & = H_{\perp} + K + \frac{1}{\alpha^{2}}D_{t}\alpha\\
+C_{a} & = H_{a} + \Delta \Gamma^{b}_{cd}g^{cd}g_{ab} - \frac{\partial_{a}\alpha}{\alpha} - \frac{g_{ab}}{\alpha^2}D_{t}\beta^{b}.
+\end{align}
+\end{subequations}
+\section{Hamilton's Equations}\label{hamiltonian}
+In this section, we derive the Hamilton's equations for the GH system. 
+According to Eq.~(\ref{action}), we have that the Lagrangian in 3 + 1 form is
+\begin{equation}
+\mathscr{L}(g_{ab}, \alpha, \beta^{a}, H_{\perp}, H_{a}) = \alpha \sqrt{g} \left( R + K^{ab}K_{ab} - K^{2} - \frac{1}{2}C^{a}C_{a} + \frac{1}{2}C_{\perp}^{2}\right).
+\end{equation}
+This allows us to compute the conjugate momenta of the dynamical variables $g_{ab}$, $\alpha$, $\beta^{a}$, $H_{\perp}$ and $H_{a}$ as following
+\begin{subequations}\label{momenta}
+\begin{align}
+P^{ab} & \equiv \frac{\partial \mathscr{L}}{\partial {\dot g}_{ab}} = \sqrt{g}\left(Kg^{ab} - K^{ab} - \frac{C_{\perp}}{2}g^{ab}\right)\\
+\pi & \equiv \frac{\partial \mathscr{L}}{\partial {\dot \alpha}} = \frac{\sqrt{g}}{\alpha}C_{\perp}\\
+\rho_{a} & \equiv \frac{\partial \mathscr{L}}{\partial {\dot \beta}^{a}} = \frac{\sqrt{g}}{\alpha}C_{a}\\
+\Omega & \equiv \frac{\partial \mathscr{L}}{\partial {\dot H}_{\perp}} = 0\\
+\Omega^{a} & \equiv \frac{\partial \mathscr{L}}{\partial {\dot H}_{a}} = 0.  
+\end{align}
+\end{subequations}
+By definition of Hamiltonian, we have
+\begin{equation}
+\mathscr{H}( g_{ab}, P^{ab}, \alpha, \pi, \beta^{a}, \rho_{a}, H_{\perp}, \Omega, H_{a}, \Omega^{a} ) \equiv \int d^{3}x \left(P^{ab}{\dot g}_{ab} + \pi{\dot \alpha} + \rho_{a}{\dot \beta}^{a} + \Omega {\dot H}_{\perp} + \Omega^{a}{\dot H}_{a} - \mathscr{L} \right). 
+\end{equation}
+To obtain the explicit expression of $\mathscr{H}$, we need to invert Eqs.~(\ref{momenta}) to write the first order time derivatives of the metric in terms of the metric and their corresponding momenta as following
+\begin{subequations}
+\begin{align}
+D_{t}g_{ab} & = \frac{2\alpha P_{ab}}{\sqrt{g}} - \frac{\alpha P g_{ab}}{\sqrt{g}} - \frac{\alpha^{2}\pi g_{ab}}{2\sqrt{g}}\\
+D_{t}\alpha & = \frac{\alpha^{3}\pi}{4\sqrt{g}} - \alpha^{2}H_{\perp} - \frac{\alpha^{2}P}{2\sqrt{g}}\\
+D_{t}\beta^{a} & = \alpha^{2}H^{a} + \alpha^{2}\Delta \Gamma^{a}_{bc}g^{bc} - \alpha g^{ab}\partial_{b}\alpha - \frac{\alpha^{3}}{\sqrt{g}}\rho^{a}.
+\end{align}
+\end{subequations}
+We write the equations above in such a way that, the terms on either side of the equation are grouped to be general covariant\cite{Meng}. Note that the terms on the lefthand side are the covariant time derivative of $g_{ab}$, $\alpha$ and $\beta^{a}$, which are defined in Eq.~(\ref{covariant spatial metric}) and Eqs.~(\ref{covariant lapse and shift}). 
+
+In addition, the last two equations in Eqs.~(\ref{momenta}), $\Omega = 0$ and $\Omega^{a} = 0$, serve as the primary constraints and we write ${\dot H}_{\perp}$ and ${\dot H}_{a}$ as arbitrary multipliers of these constraints
+\begin{subequations}
+\begin{align}
+{\dot H}_{\perp} & = \Lambda\\
+{\dot H}_{a} & = \Lambda_{a}.
+\end{align}
+\end{subequations}
+The resulting Hamiltonian is $\mathscr{H} \equiv \int d^{3}x \left( P^{ab}{\dot g}_{ab} + \pi {\dot \alpha} + \rho_{a}{\dot \beta}^{a} + \Omega \Lambda + \Omega^{a}\Lambda_{a} - \mathscr{L} \right)$. Wirte it down explicitly, we have
+\begin{align}
+\begin{split}
+\mathscr{H}( g_{ab}, P^{ab}, \alpha, \pi, \beta^{a}, \rho_{a}, H_{\perp}, \Omega, H_{a}, \Omega^{a}) &= \int d^{3}x~~ \frac{\alpha}{\sqrt{g}}\left(P^{ab}P_{ab} - \frac{P^{2}}{2} - \frac{\alpha P \pi}{2} + \frac{\alpha^{2}\pi^{2}}{8} - \frac{\alpha^{2}}{2}\rho_{a}\rho^{a}\right)\\
+& -\alpha^{2}\pi H_{\perp} + \alpha^{2}\rho_{a}H^{a} + P^{ab} \mathcal{L}_{\beta}g_{ab} + \pi \mathcal{L}_{\beta}\alpha + \rho_{a}\left(\beta^{b}{\bar D}_{b}\Delta \beta^{a} - \Delta \beta^{b} {\bar D}_{b}{\bar \beta}^{a}\right)\\
+& + \alpha^{2}\Delta\Gamma^{a}_{~bc}g^{bc}\rho_{a} - \alpha \rho^{a}\partial_{a}\alpha + \rho_{a}{\dot {\bar \beta}}^{a} + \frac{1}{{\bar \alpha}}\left(\rho_{a}\Delta \beta^{a} + \pi \alpha \right)\left({\dot {\bar \alpha}} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}\right)\\
+& + \Omega \Lambda + \Omega^{a}\Lambda_{a}
+\end{split}
+\end{align}
+\section{Hyperbolicity Analysis}\label{hyperbolicity}
+\section{Extension Discussion}\label{extension}
+\section{Summary}\label{summary}
+\appendix
+\section{3 + 1 splitting}\label{3 + 1}
+\bibliographystyle{plain}
+\bibliography{references}
 \end{document}
