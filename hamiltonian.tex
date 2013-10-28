@@ -36,11 +36,11 @@ Note that by subtracting ${\bar \Gamma}^{\alpha}_{~\mu\nu}$ from $\Gamma^{\alpha
 \section{Action For GH Formulation}\label{action}
 As presented in Ref.~\cite{Brown:2010rya}, the Lagrangian for generalized harmonic gravity is the following function of the spacetime metric $g_{\mu\nu}$ and the gauge source vector $H_{\mu}$. 
 \begin{equation}
-\mathscr{L}\left( g_{\mu\nu}, H_{\mu}\right) = \sqrt{-^{(4)}g} \left(^{(4)}R - \frac{1}{2}C_{\mu}C^{\mu}\right), 
+\mathscr{L} = \sqrt{-^{(4)}g} \left(^{(4)}R - \frac{1}{2}C_{\mu}C^{\mu}\right), 
 \end{equation}
-and the action is a functional of $g_{\mu\nu}$ and $H_{\mu}$
+and the action is a functional of $g_{\mu\nu}$ and $H^{\mu}$
 \begin{equation}
-S\left[g_{\mu\nu}, H_{\mu}\right] = \int \mathscr{L} d^{4}x.
+S\left[g_{\mu\nu}, H^{\mu}\right] = \int \mathscr{L} d^{4}x.
 \end{equation}
 In the Lagrangian, $^{(4)}g$ is the determinant of the spacetime metric, $^{(4)}R$ is the spacetime Ricci scalar and $C_{\mu}$ is the generalized harmonic constrains defined as
 \begin{equation}
@@ -51,7 +51,7 @@ where $H_{\mu}$ is the gauge source vector.
 {\color{red} maybe include an appendix for 3 + 1 splitting }\\
 With the 3 + 1 splitting of the spacetime metric $g_{\mu\nu}$ into spatial metric $g_{ab}$, lapse function $\alpha$ and shift vector $\beta^{a}$, the gauge source vector $H_{\mu}$ into its time-like component $H_{\perp}$ and spatial component $H_{a}$, the action turns into the following form
 \begin{equation}\label{action}
-S\left[g_{ab}, \alpha, \beta^{a}, H_{\perp}, H_{a}\right] = \int d^{4}x~~\alpha \sqrt{g} \left( R + K^{ab}K_{ab} - K^{2} - \frac{1}{2}C^{a}C_{a} + \frac{1}{2}C_{\perp}^{2}\right).
+S\left[g_{ab}, \alpha, \beta^{a}, H_{\perp}, H^{a}\right] = \int d^{4}x~~\alpha \sqrt{g} \left( R + K^{ab}K_{ab} - K^{2} - \frac{1}{2}C^{a}C_{a} + \frac{1}{2}C_{\perp}^{2}\right).
 \end{equation}
 In this formula, $R$ is the spatial Ricci scalar, $K_{ab}$ is the extrinsic curvature defined as
 \begin{equation}
@@ -67,7 +67,7 @@ and
 \begin{equation}
 C_{a} = {\tilde H}_{a} + \Delta \Gamma^{b}_{cd}g^{cd}g_{ab} - \frac{\partial_{a}\alpha}{\alpha} - \frac{g_{ab}}{\alpha^2}D_{t}\beta^{b}.
 \end{equation}
-Here, $D_{t}\alpha$ and $D_{t}\beta^{a}$ are the covariant time derivative of the lapse function and shift vector, respectively\cite{Meng}. They are defined as following
+Here, $D_{t}\alpha$ and $D_{t}\Delta \beta^{a}$ are the covariant time derivative of the lapse function and shift vector, respectively\cite{Meng}. They are defined as following
 \begin{subequations}\label{covariant lapse and shift}
 \begin{align}
 D_{t}\alpha &\equiv \partial_{t}\alpha - \beta^{c}\partial_{c}\alpha - \frac{\alpha}{{\bar \alpha}}\left(\partial_{t}{\bar \alpha} - {\bar \beta}^{c}\partial_{c}{\bar \alpha}\right), \\
@@ -93,32 +93,39 @@ C_{\perp} & = H_{\perp} + K + \frac{1}{\alpha^{2}}D_{t}\alpha\\
 C_{a} & = H_{a} + \Delta \Gamma^{b}_{cd}g^{cd}g_{ab} - \frac{\partial_{a}\alpha}{\alpha} - \frac{g_{ab}}{\alpha^2}D_{t}\beta^{b}.
 \end{align}
 \end{subequations}
+From Ref.~\cite{Meng}, we also derived the covariant time derivatives of the newly defined $H_{\perp}$ and $H_{a}$, as following
+\begin{subequations}
+\begin{align}
+D_{t}H_{\perp} & \equiv {\dot H}_{\perp} - \mathcal{L}_{\beta}H_{\perp}\\
+D_{t}H_{a} & \equiv {\dot H}_{a} - \mathcal{L}_{\beta}H_{a}.
+\end{align}
+\end{subequations}
 \section{Hamilton's Equations}\label{hamiltonian}
 In this section, we derive the Hamilton's equations for the GH system. 
 According to Eq.~(\ref{action}), we have that the Lagrangian in 3 + 1 form is
 \begin{equation}
-\mathscr{L}(g_{ab}, \alpha, \beta^{a}, H_{\perp}, H_{a}) = \alpha \sqrt{g} \left( R + K^{ab}K_{ab} - K^{2} - \frac{1}{2}C^{a}C_{a} + \frac{1}{2}C_{\perp}^{2}\right).
+\mathscr{L} = \alpha \sqrt{g} \left( R + K^{ab}K_{ab} - K^{2} - \frac{1}{2}C^{a}C_{a} + \frac{1}{2}C_{\perp}^{2}\right).
 \end{equation}
-This allows us to compute the conjugate momenta of the dynamical variables $g_{ab}$, $\alpha$, $\beta^{a}$, $H_{\perp}$ and $H_{a}$ as following
+This allows us to compute the conjugate momenta of the dynamical variables $g_{ab}$, $\alpha$, $\beta^{a}$, $H_{\perp}$ and $H^{a}$ as following
 \begin{subequations}\label{momenta}
 \begin{align}
 P^{ab} & \equiv \frac{\partial \mathscr{L}}{\partial {\dot g}_{ab}} = \sqrt{g}\left(Kg^{ab} - K^{ab} - \frac{C_{\perp}}{2}g^{ab}\right)\\
 \pi & \equiv \frac{\partial \mathscr{L}}{\partial {\dot \alpha}} = \frac{\sqrt{g}}{\alpha}C_{\perp}\\
 \rho_{a} & \equiv \frac{\partial \mathscr{L}}{\partial {\dot \beta}^{a}} = \frac{\sqrt{g}}{\alpha}C_{a}\\
 \Omega & \equiv \frac{\partial \mathscr{L}}{\partial {\dot H}_{\perp}} = 0\\
-\Omega^{a} & \equiv \frac{\partial \mathscr{L}}{\partial {\dot H}_{a}} = 0.  
+\Omega_{a} & \equiv \frac{\partial \mathscr{L}}{\partial {\dot H}^{a}} = 0.  
 \end{align}
 \end{subequations}
 By definition of Hamiltonian, we have
 \begin{equation}
-\mathscr{H}( g_{ab}, P^{ab}, \alpha, \pi, \beta^{a}, \rho_{a}, H_{\perp}, \Omega, H_{a}, \Omega^{a} ) \equiv \int d^{3}x \left(P^{ab}{\dot g}_{ab} + \pi{\dot \alpha} + \rho_{a}{\dot \beta}^{a} + \Omega {\dot H}_{\perp} + \Omega^{a}{\dot H}_{a} - \mathscr{L} \right). 
+\mathscr{H} \equiv \int d^{3}x \left(P^{ab}{\dot g}_{ab} + \pi{\dot \alpha} + \rho_{a}{\dot \beta}^{a} + \Omega {\dot H}_{\perp} + \Omega_{a}{\dot H}^{a} - \mathscr{L} \right). 
 \end{equation}
 To obtain the explicit expression of $\mathscr{H}$, we need to invert Eqs.~(\ref{momenta}) to write the first order time derivatives of the metric in terms of the metric and their corresponding momenta as following
 \begin{subequations}
 \begin{align}
 D_{t}g_{ab} & = \frac{2\alpha P_{ab}}{\sqrt{g}} - \frac{\alpha P g_{ab}}{\sqrt{g}} - \frac{\alpha^{2}\pi g_{ab}}{2\sqrt{g}}\\
 D_{t}\alpha & = \frac{\alpha^{3}\pi}{4\sqrt{g}} - \alpha^{2}H_{\perp} - \frac{\alpha^{2}P}{2\sqrt{g}}\\
-D_{t}\beta^{a} & = \alpha^{2}H^{a} + \alpha^{2}\Delta \Gamma^{a}_{bc}g^{bc} - \alpha g^{ab}\partial_{b}\alpha - \frac{\alpha^{3}}{\sqrt{g}}\rho^{a}.
+D_{t}\beta^{a} & = \alpha^{2}H^{a} + \alpha^{2}\Delta \Gamma^{a}_{~bc}g^{bc} - \alpha g^{ab}\partial_{b}\alpha - \frac{\alpha^{3}}{\sqrt{g}}\rho^{a}.
 \end{align}
 \end{subequations}
 We write the equations above in such a way that, the terms on either side of the equation are grouped to be general covariant\cite{Meng}. Note that the terms on the lefthand side are the covariant time derivative of $g_{ab}$, $\alpha$ and $\beta^{a}$, which are defined in Eq.~(\ref{covariant spatial metric}) and Eqs.~(\ref{covariant lapse and shift}). 
@@ -127,19 +134,242 @@ In addition, the last two equations in Eqs.~(\ref{momenta}), $\Omega = 0$ and $\
 \begin{subequations}
 \begin{align}
 {\dot H}_{\perp} & = \Lambda\\
-{\dot H}_{a} & = \Lambda_{a}.
+{\dot H}^{a} & = \Lambda^{a}.
 \end{align}
 \end{subequations}
-The resulting Hamiltonian is $\mathscr{H} \equiv \int d^{3}x \left( P^{ab}{\dot g}_{ab} + \pi {\dot \alpha} + \rho_{a}{\dot \beta}^{a} + \Omega \Lambda + \Omega^{a}\Lambda_{a} - \mathscr{L} \right)$. Wirte it down explicitly, we have
+The resulting Hamiltonian is $\mathscr{H} \equiv \int d^{3}x \left( P^{ab}{\dot g}_{ab} + \pi {\dot \alpha} + \rho_{a}{\dot \beta}^{a} + \Omega \Lambda + \Omega_{a}\Lambda^{a} - \mathscr{L} \right)$. Wirte it down explicitly, we have
 \begin{align}
 \begin{split}
-\mathscr{H}( g_{ab}, P^{ab}, \alpha, \pi, \beta^{a}, \rho_{a}, H_{\perp}, \Omega, H_{a}, \Omega^{a}) &= \int d^{3}x~~ \frac{\alpha}{\sqrt{g}}\left(P^{ab}P_{ab} - \frac{P^{2}}{2} - \frac{\alpha P \pi}{2} + \frac{\alpha^{2}\pi^{2}}{8} - \frac{\alpha^{2}}{2}\rho_{a}\rho^{a}\right)\\
+\mathscr{H} &= \int d^{3}x~~ \frac{\alpha}{\sqrt{g}}\left(P^{ab}P_{ab} - \frac{P^{2}}{2} - \frac{\alpha P \pi}{2} + \frac{\alpha^{2}\pi^{2}}{8} - \frac{\alpha^{2}}{2}\rho_{a}\rho^{a}\right)\\
 & -\alpha^{2}\pi H_{\perp} + \alpha^{2}\rho_{a}H^{a} + P^{ab} \mathcal{L}_{\beta}g_{ab} + \pi \mathcal{L}_{\beta}\alpha + \rho_{a}\left(\beta^{b}{\bar D}_{b}\Delta \beta^{a} - \Delta \beta^{b} {\bar D}_{b}{\bar \beta}^{a}\right)\\
-& + \alpha^{2}\Delta\Gamma^{a}_{~bc}g^{bc}\rho_{a} - \alpha \rho^{a}\partial_{a}\alpha + \rho_{a}{\dot {\bar \beta}}^{a} + \frac{1}{{\bar \alpha}}\left(\rho_{a}\Delta \beta^{a} + \pi \alpha \right)\left({\dot {\bar \alpha}} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}\right)\\
-& + \Omega \Lambda + \Omega^{a}\Lambda_{a}
+& + \alpha^{2}\Delta\Gamma^{a}_{~bc}g^{bc}\rho_{a} - \alpha \rho^{a}\partial_{a}\alpha + \rho_{a}{\dot {\bar \beta}}^{a} + \frac{1}{{\bar \alpha}}\left(\rho_{a}\Delta \beta^{a} + \pi \alpha \right)\left({\dot {\bar \alpha}} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}\right) - \alpha\sqrt{g}R\\
+& + \Omega \Lambda + \Omega_{a}\Lambda^{a}.
 \end{split}
 \end{align}
+Consequently, we can write the action in Hamiltonian form as ({\color{red} implicit indices to save space, OK?})
+\begin{equation}
+S[g, P, \alpha, \pi, \beta, \rho, H, \Omega, \Lambda ] = \int d^{4}x \left(P^{ab}{\dot g}_{ab} + \pi {\dot \alpha} + \rho_{a}{\dot \beta}^{a} + \Omega{\dot H_{\perp}} + \Omega_{a}{\dot H}^{a} - \mathscr{H}\right)
+\end{equation}
+By varying this action $\delta S = 0$, we can obtain the Hamilton's equations of motion
+\begin{subequations}\label{non covariant hamilton}
+\begin{align}
+{\dot g}_{ab} & = \frac{\partial \mathscr{H}}{\partial P^{ab}} = \mathcal{L}_{\beta}g_{ab} + \frac{2\alpha}{\sqrt{g}}P_{ab} - \frac{\alpha P}{\sqrt{g}}g_{ab} - \frac{\alpha^{2}\pi}{2\sqrt{g}}g_{ab}\\
+\begin{split}
+{\dot P}^{ab} & = -\frac{\partial \mathscr{H}}{\partial g_{ab}} = \mathcal{L}_{\beta}P^{ab} - \frac{2\alpha}{\sqrt{g}}P^{ac}P^{bd}g_{cd} + \frac{\alpha}{\sqrt{g}}PP^{ab} + \frac{\alpha^{2}\pi}{2\sqrt{g}
+}P^{ab} - \frac{\alpha^{3}}{2\sqrt{g}}\rho^{a}\rho^{b}\\
+& + \frac{\alpha}{2\sqrt{g}}P^{cd}P_{cd}g^{ab} - \frac{\alpha P^{2}}{4\sqrt{g}}g^{ab} - \frac{\alpha^{2}P\pi}{4\sqrt{g}}g^{ab} + \frac{\alpha^{2}\pi^{3}}{16\sqrt{g}}g^{ab} - \frac{\alpha^{3}}{4\sqrt{g}}\rho^{c}\rho_{c}g^{ab}\\
+& + \alpha^{2}\rho_{e}\Delta \Gamma^{e}_{~cd}g^{ac}g^{bd} - \frac{1}{2}D_{c}\left(\rho^{c}\alpha^{2}\right)g^{ab} + D^{(a}\left(\rho^{b)}\alpha^{2}\right) - \frac{1}{2}\rho^{(a}D^{b)}\alpha^{2}\\
+& - \alpha \sqrt{g}G^{ab} + \sqrt{g}D^{a}D^{b}\alpha - \sqrt{g}g^{ab}D_{c}D^{c}\alpha
+\end{split}\\
+{\dot \alpha} & = \frac{\partial \mathscr{H}}{\partial \pi} = \mathcal{L}_{\beta}\alpha  + \frac{\alpha}{{\bar \alpha}}\left({\dot {\bar \alpha}} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}\right) - \frac{\alpha^{2}}{2\sqrt{g}}P + \frac{\alpha^{3}\pi}{4\sqrt{g}} - \alpha^{2}H_{\perp}\\
+\begin{split}
+{\dot \pi} & = - \frac{\partial \mathscr{H}}{\partial \alpha} = \mathcal{L}_{\beta}\pi - \frac{\pi}{{\bar \alpha}}\left({\dot {\bar \alpha}} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}\right) + 2\alpha\pi H_{\perp} - 2\alpha \rho_{a}H^{a} - 2\alpha\Delta \Gamma^{a}_{~bc}g^{bc}\rho_{a}\\
+&- \frac{1}{\sqrt{g}}P^{ab}P_{ab} + \frac{P^{2}}{2\sqrt{g}} + \frac{\alpha P \pi}{\sqrt{g}} - \frac{3\alpha^{2}\pi^{2}}{8\sqrt{g}} + \frac{3\alpha^{2}}{2\sqrt{g}}\rho_{a}\rho^{a} - \alpha \partial_{a}\rho^{a} + \sqrt{g}R
+\end{split}\\
+\begin{split}
+{\dot \beta}^{a} & = \frac{\partial \mathscr{H}}{\partial \rho_{a}} = {\dot {\bar \beta}}^{a} + \left(\beta^{b}{\bar D}_{b}\Delta \beta^{a} - \Delta \beta^{b} {\bar D}_{b}{\bar \beta}^{a}\right) + \frac{\Delta \beta^{a}}{{\bar \alpha}}\left({\dot {\bar \alpha}} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}\right) - \frac{\alpha^{3}}{\sqrt{g}}\rho^{a} + \alpha^{2}H^{a}\\
+& + \alpha^{2}\Delta \Gamma^{a}_{~bc}g^{bc} - \alpha g^{ab}\partial_{b}\alpha
+\end{split}\\
+\begin{split}
+{\dot \rho}_{a} & = -\frac{\partial \mathscr{H}}{\partial \beta^{a}} = - \rho_{b}{\bar D}_{a}\Delta\beta^{b} + \partial_{b}\left(\rho_{a}\beta^{b}\right) - \rho_{c}\beta^{b}{\bar \Gamma}^{c}_{~ab} + \rho_{b}{\bar D}_{a}{\bar \beta}^{b} - \frac{\rho_{a}}{{\bar \alpha}}\left({\dot {\bar \alpha}} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}\right)\\
+& - P^{bc}\partial_{a}g_{bc} + 2\partial_{b}\left(P^{bc}g_{ac}\right) - \pi \partial_{a}\alpha
+\end{split}\\
+{\dot H}_{\perp} & = \frac{\partial \mathscr{H}}{\partial \Omega } = \Lambda\\
+{\dot \Omega} & = - \frac{\partial \mathscr{H}}{\partial H_{\perp}} = \alpha^{2}\pi\\
+{\dot H}^{a} & = \frac{\partial \mathscr{H}}{\partial \Omega_{a}} = \Lambda^{a}\\
+{\dot \Omega}_{a} & = - \frac{\partial \mathscr{H}}{\partial H^{a}} = -\alpha^{2}\rho_{a}.
+\end{align}
+\end{subequations}
+One may notice that Eqs.~(\ref{non covariant hamilton}) are not explicit covariant under Foliation Preserving coordinate transformations. Terms on the left hand side are regular time derivatives instead of covariant derivatives and terms on the right hand side won't group into covariant combinations. In order to achieve a set of covariant Hamilton's equations, we need to revisit our expression for the action in Hamiltonian form $S = \int d^{4}x\left( P^{ab}{\dot g}_{ab} + \pi{\dot \alpha} + \rho_{a}{\dot \beta}^{a} + \Omega {\dot H}_{\perp} + \Omega_{a}{\dot H}^{a} - \mathscr{H}\right)$. A brief observation reveals that, non-coincidentally,  certain terms can be extracted from $\mathscr{H}$ and combined with $P^{ab}{\dot g}_{ab}$, $\pi{\dot \alpha}$ and $\rho_{a}{\dot \beta}^{a}$ to make them $P^{ab}D_{t}g_{ab}$, $\pi D_{t}\alpha$ and $\rho_{a} D_{t}\beta^{a}$. For $\Omega {\dot H}_{\perp}$ and $\Omega_{a} {\dot H}^{a}$, we need to add and subtract some terms from the action manually to make them covariant. The resulting explicitly covariant action is in the following form
+\begin{equation}
+S[g, P, \alpha, \pi, \beta, \rho, H, \Omega, \Lambda ] = \int d^{4}x \left( P^{ab}D_{t}g_{ab} + \pi D_{t}\alpha + \rho_{a}D_{t}\Delta \beta^{a} + \Omega D_{t}H_{\perp} + \Omega_{a}D_{t}H^{a} - \tilde{\mathscr{H}}\right)
+\end{equation}
+where
+\begin{align}
+\begin{split}
+\tilde{\mathscr{H}} & = \int d^{3}x~~~~\frac{\alpha}{\sqrt{g}}\left(P^{ab}P_{ab} - \frac{P^{2}}{2} - \frac{\alpha P \pi}{2} + \frac{\alpha^{2}\pi^{2}}{8} - \frac{\alpha^{2}}{2}\rho_{a}\rho^{a}\right)\\
+& -\alpha^{2}\pi H_{\perp} + \alpha^{2}\rho_{a}H^{a} + \alpha^{2}\Delta\Gamma^{a}_{~bc}g^{bc}\rho_{a} - \alpha \rho^{a}\partial_{a}\alpha - \alpha\sqrt{g}R\\
+& + \Omega \left(\Lambda - \mathcal{L}_{\beta}H_{\perp}\right) + \Omega_{a} \left( \Lambda^{a} - \mathcal{L}_{\beta}H^{a}\right)
+\end{split}
+\end{align}
+is the modified Hamiltonian. 
+
+Also notice that we use $D_{t}\Delta \beta^{a} = D_{t}\beta^{a} - D_{t}{\bar \beta}^{a}$ to couple with $\rho_{a}$. The reason is we want everything under the $D_{t}$ operator to be a tensor and $\beta^{a}$ is not one, therefore we complete it by making it $\Delta \beta^{a}$. This operation is legal since $D_{t}{\bar \beta}^{a}$ vanishes according to the definition of $D_{t}\beta^{a}$. Another reason to do the substitution is that we want to make $\rho_{a}\Delta \beta^{a}$ a scalar under time reparameterization and a weight 1 density under spatial diffeomorphism. The covariant derivative of such kind of quantity $\sigma$, a scalar under time reparameterization and weight 1 density under spatial diffeomorphism, takes a simple form as following
+\begin{equation}\label{covariant derivative}
+D_{t}\sigma = \dot{\sigma} - \mathcal{L}_{\beta}\sigma = \dot{\sigma} - \partial_{a}\left( \beta^{a}\sigma \right).
+\end{equation}
+From Eq.~(\ref{covariant derivative}) we can tell that such a covariant derivative yields a total derivative term and hence we can treat it as a boundary term in the action. We also require the covariant time derivative has the same product rule as regular derivatices, i.e., 
+\begin{equation}
+D_{t}\left(p q\right) = p D_{t}q + q D_{t}p
+\end{equation}
+where $q$ and $p$ are some generic coordinate variable and its conjugate momentum, respectively. This means when we varying the new action, we can use the integrate by parts method to eliminate those terms ({\color{red} needs elaboration}). 
+
+This leads to the definitions of covariant derivatives of momenta as following
+\begin{subequations}
+\begin{align}
+D_{t}P^{ab} & \equiv {\dot P}^{ab} - \mathcal{L}_{\beta}P^{ab}\\
+D_{t}\pi & \equiv {\dot \pi} - \mathcal{L}_{\beta}\pi + \frac{\pi}{{\bar \alpha}}\left({\dot {\bar \alpha}} - {\bar \beta}^{a}\partial_{a}{\bar \alpha}\right)\\
+D_{t}\rho_{a} & \equiv {\dot \rho}_{a} - \partial_{b}\left(\beta^{b}\rho_{a}\right) + \frac{\rho_{a}}{{\bar \alpha}}\left({\dot {\bar \alpha}} - {\bar \beta}^{b}\partial_{b}{\bar \alpha}\right) + \rho_{c}\beta^{b}{\bar \Gamma}^{c}_{ab} - \rho_{b}{\bar D}_{a}{\bar \beta}^{b}\\
+D_{t}\Omega & \equiv {\dot \Omega} - \mathcal{L}_{\beta}\Omega\\
+D_{t}\Omega_{a} & \equiv {\dot \Omega}_{a} - \mathcal{L}_{\beta}\Omega_{a}
+\end{align}
+\end{subequations}
+Therefore, for the explicit covariant Hamilton's equations, we have
+\begin{subequations}\label{covariant hamilton}
+\begin{align}
+D_{t}g_{ab} & = \frac{2\alpha}{\sqrt{g}}P_{ab} - \frac{\alpha P}{\sqrt{g}}g_{ab} - \frac{\alpha^{2}\pi}{2\sqrt{g}}g_{ab}\\
+\begin{split}
+D_{t} P^{ab} & = - \frac{2\alpha}{\sqrt{g}}P^{ac}P^{bd}g_{cd} + \frac{\alpha}{\sqrt{g}}PP^{ab} + \frac{\alpha^{2}\pi}{2\sqrt{g}
+}P^{ab} - \frac{\alpha^{3}}{2\sqrt{g}}\rho^{a}\rho^{b}\\
+& + \frac{\alpha}{2\sqrt{g}}P^{cd}P_{cd}g^{ab} - \frac{\alpha P^{2}}{4\sqrt{g}}g^{ab} - \frac{\alpha^{2}P\pi}{4\sqrt{g}}g^{ab} + \frac{\alpha^{2}\pi^{3}}{16\sqrt{g}}g^{ab} - \frac{\alpha^{3}}{4\sqrt{g}}\rho^{c}\rho_{c}g^{ab}\\
+& + \alpha^{2}\rho_{e}\Delta \Gamma^{e}_{~cd}g^{ac}g^{bd} - \frac{1}{2}D_{c}\left(\rho^{c}\alpha^{2}\right)g^{ab} + D^{(a}\left(\rho^{b)}\alpha^{2}\right) - \frac{1}{2}\rho^{(a}D^{b)}\alpha^{2}\\
+& - \alpha \sqrt{g}G^{ab} + \sqrt{g}D^{a}D^{b}\alpha - \sqrt{g}g^{ab}D_{c}D^{c}\alpha
+\end{split}\\
+D_{t}\alpha & = - \frac{\alpha^{2}}{2\sqrt{g}}P + \frac{\alpha^{3}\pi}{4\sqrt{g}} - \alpha^{2}H_{\perp}\\
+\begin{split}
+D_{t}\pi & = 2\alpha\pi H_{\perp} - 2\alpha \rho_{a}H^{a} - 2\alpha\Delta \Gamma^{a}_{~bc}g^{bc}\rho_{a} - \frac{1}{\sqrt{g}}P^{ab}P_{ab} + \frac{P^{2}}{2\sqrt{g}} + \frac{\alpha P \pi}{\sqrt{g}}\\
+& - \frac{3\alpha^{2}\pi^{2}}{8\sqrt{g}} + \frac{3\alpha^{2}}{2\sqrt{g}}\rho_{a}\rho^{a} - \alpha \partial_{a}\rho^{a} + \sqrt{g}R
+\end{split}\\
+D_{t}\Delta \beta^{a} & = - \frac{\alpha^{3}}{\sqrt{g}}\rho^{a} + \alpha^{2}H^{a} + \alpha^{2}\Delta \Gamma^{a}_{~bc}g^{bc} - \alpha g^{ab}\partial_{b}\alpha\\
+D_{t}\rho_{a} & = - \rho_{b}{\bar D}_{a}\Delta\beta^{b} - P^{bc}\partial_{a}g_{bc} + 2\partial_{b}\left(P^{bc}g_{ac}\right) - \pi \partial_{a}\alpha\\
+D_{t}H_{\perp} & = \Lambda - \mathcal{L}_{\beta}H_{\perp}\\
+D_{t}\Omega & = \alpha^{2}\pi \label{omega}\\
+D_{t}H^{a} & = \Lambda^{a} - \mathcal{L}_{\beta}H^{a}\\
+D_{t}\Omega_{a} & = -\alpha^{2}\rho_{a} \label{omega_a}.
+\end{align}
+\end{subequations}
+Theoretically, Eqs.~(\ref{omega}, \ref{omega_a}) should be $D_{t}\Omega = \alpha^{2}\pi - \mathcal{L}_{\beta}\Omega$ and $D_{t}\Omega_{a} = -\alpha^{2}\rho_{a} - \mathcal{L}_{\beta}\Omega_{a}$, respectively. However, since we have the constraints that $\Omega = 0$ and $\Omega_{a} = 0$, it is harmless to get rid of the Lie derivatives so that those two equations are covariant.
+
+It is easy to check that Eqs.~(\ref{non covariant hamilton}) and Eqs.~(\ref{covariant hamilton}) are mathematically identical. The only difference is that, the terms in Eqs.~(\ref{covariant hamilton}) are rearranged from Eqs.~(\ref{non covariant hamilton}) so that we have covariant time derivative instead of regular time derivative on the left hand side and all terms on the right hand side are covariant as well. 
 \section{Hyperbolicity Analysis}\label{hyperbolicity}
+In this section, we will analyze the hyperbolicity of the Eqs.~(\ref{covariant hamilton}) and Eqs.~(\ref{non covariant hamilton}). In order to analyze the hyperbolicity of the system, according to Ref.~\cite{Brown:2008cca}, we first need to extract the principal terms from the Hamilton's equations. The principal parts of the ${\dot q}$ equations are the terms proportional to $p$'s and first spatial derivative of $q$'s. The principal parts of the ${\dot p}$ equations are the terms proportional to first spatial derivative of $p$'s and second spatial derivative of $q$'s. Therefore we have the principal parts of Eqs.~(\ref{non covariant hamilton}) and Eqs.~(\ref{covariant hamilton}) are
+\begin{subequations}\label{principal hamilton}
+\begin{align}
+\partial_{\perp}g_{ab} &\cong 2g_{c(a}\partial_{b)}\beta^{c} + \frac{2\alpha}{\sqrt{g}}P_{ab} - \frac{\alpha P}{\sqrt{g}}g_{ab} - \frac{\alpha^{2}\pi}{2\sqrt{g}}g_{ab}\\
+\begin{split}
+\partial_{\perp}P^{ab} &\cong \frac{\alpha\sqrt{g}}{2}g^{ac}g^{bd}g^{ef}\left(\partial_{c}\partial_{d}g_{ef} + \partial_{e}\partial_{f}g_{cd} - 2\partial_{e}\partial_{(c}g_{d)f}\right)\\
+& + \frac{\alpha\sqrt{g}}{2}g^{ab}g^{cd}g^{ef}\left(\partial_{c}\partial_{e}g_{df} - \partial_{c}\partial_{d}g_{ef}\right)\\
+& + \sqrt{g}\left(g^{ac}g^{bd} - g^{ab}g^{cd}\right)\partial_{c}\partial_{d}\alpha\\
+& + \alpha^{2}\left(g^{c(a}g^{b)d} - \frac{1}{2}g^{ab}g^{cd}\right)\partial_{c}\rho_{d}
+\end{split}\\
+\partial_{\perp}\alpha & \cong -\frac{\alpha^{2}}{2\sqrt{g}}P + \frac{\alpha^{3}}{4\sqrt{g}}\pi\\
+\partial_{\perp}\pi & \cong -\alpha g^{ab}\partial_{a}\rho_{b} + \sqrt{g}\left(g^{ac}g^{bd} - g^{ab}g^{cd}\right)\partial_{a}\partial_{b}g_{cd}\\
+\partial_{\perp}\beta^{a} & \cong -\alpha g^{ab}\partial_{b}\alpha - \frac{\alpha^{3}}{\sqrt{g}}g^{ab}\rho_{b} + \alpha^{2}\left(g^{ac}g^{bd} - \frac{1}{2}g^{ab}g^{cd}\right)\partial_{b}g_{cd}\\
+\partial_{\perp}\rho_{a} & \cong 2g_{ab}\partial_{c}P^{bc}\\
+\partial_{\perp}H_{\perp} & \cong - \beta^{a}\partial_{a}H_{\perp}\\
+\partial_{\perp}\Omega & \cong 0\\
+\partial_{\perp}H^{a} & \cong - \beta^{b}\partial_{b}H^{a}\\
+\partial_{\perp}\Omega_{a} & \cong 0.
+\end{align}
+\end{subequations}
+The $\cong$ symbol denotes equality up to non principal terms. These equations are expressed in terms of the operator $\partial_{\perp} \equiv \partial_{t} - \beta^{a}\partial_{a}$ so that the characteristic speeds are defined with respect to observers who are at rest in the spacelike slices. 
+
+Then we start to construct the eigenvalue problem $\mu v = A v$, where $\mu$ is the eigenvalue and $v$ is the eigenvector. $A$ is the principal symbol and it is found from the coefficients on the right-hand sides of Eqs.~(\ref{principal hamilton}). We also divide these coefficients by a factor of $\alpha$ so that the characteristic speeds will be expressed in terms of proper time rather that coordinate time. While constructing the eigensystem, we make the following replacement of the principal terms
+\begin{subequations}
+\begin{align}
+p & \rightarrow {\bar p}\\
+\partial_{a}q &\rightarrow n_{a}{\bar q}\\
+\partial_{a}p & \rightarrow n_{a}{\bar p}\\
+\partial_{a}\partial_{b}p & \rightarrow n_{a}n_{b}{\bar p}
+\end{align}
+\end{subequations}
+where $n_{a}$ is the normalized normal to each spacelike foliation and $n_{a}g^{ab}n_{b} = 1$.
+
+{\color{red}Do we need to explain this much about how to construct the eigenvalue problem system or we just need to refer to the paper?}
+The resulting eigenvalue problem is
+\begin{subequations}\label{eigensystem}
+\begin{align}
+\mu {\bar g}_{ab} & = \frac{2}{\alpha}n_{(a}{\bar \beta}_{b)} + \frac{2}{\sqrt{g}}{\bar P}_{ab} - \frac{g_{ab}}{\sqrt{g}}\left({\bar P}_{nn} + {\bar P}_{AB}\delta^{AB}\right) - \frac{\alpha g_{ab}}{2\sqrt{g}}{\bar \pi}\\
+\begin{split}
+\mu {\bar P}_{ab} & = \frac{\sqrt{g}}{2}n_{a}n_{b}\left({\bar g}_{nn} + {\bar g}_{AB}\delta^{AB}\right) + \frac{\sqrt{g}}{2}{\bar g}_{ab} - \sqrt{g} n_{(a}{\bar g}_{b)n} - \frac{\sqrt{g}}{2}g_{ab}{\bar g}_{AB}\delta^{AB}\\
+& + \frac{\sqrt{g}}{\alpha}n_{a}n_{b}{\bar \alpha} - \frac{\sqrt{g}}{\alpha}g_{ab}{\bar \alpha} + \alpha n_{(a}{\bar \rho}_{b)} - \frac{1}{2}\alpha g_{ab}{\bar \rho}_{n}
+\end{split}\\
+\mu {\bar \alpha} & = -\frac{\alpha}{2\sqrt{g}}\left({\bar P}_{nn} + {\bar P}_{AB}\delta^{AB}\right) + \frac{\alpha^{2}}{4\sqrt{g}}{\bar \pi}\\
+\mu {\bar \beta}_{a} & = -n_{a}{\bar \alpha} - \frac{\alpha^{2}}{\sqrt{g}}{\bar \rho}_{a} + {\bar \alpha}{\bar g}_{nn} - \frac{1}{2}\alpha n_{a}\left({\bar g}_{nn} + {\bar g}_{AB}\delta^{AB}\right)\\
+\mu {\bar \rho}_{a} & = \frac{2}{\alpha}{\bar P}_{an}\\
+\mu {\bar H}_{\perp} & = - \left(\beta \cdot n \right){\bar H}_{\perp}\\
+\mu {\bar \Omega} & = 0\\
+\mu {\bar H}_{a} & = - \left(\beta \cdot n \right){\bar H}_{a}\\
+\mu {\bar \Omega}_{a} & = 0
+\end{align}
+\end{subequations}
+For the system above, the eigenvector $v = [{\bar g}_{ab}, {\bar P}_{ab}, {\bar \alpha}, {\bar \pi}, {\bar \beta}_{a}, {\bar \rho}_{a}, {\bar H}_{\perp}, {\bar \Omega}, {\bar H}_{a}, {\bar \Omega}_{a}]^{T}$. In these equations, a subscript $n$ denotes contraction with $n^{a}$. We have also introduced an orthonormal diad $e^{a}_{A}$ with $A = 1, 2$ in the subspace orthogonal to $n_{a}$, which means $n_{a}e^{a}_{A} = 0$ and $e^{a}_{A}g^{ab}e^{b}_{B} = \delta^{AB}$. A subscript A denotes contraction with $e^{a}_{A}$.
+
+We can further split the eigensystem (\ref{eigensystem}) into scalar, vector and trace-free tensor blocks by contracting the equations with $n^{a}$ and $e^{a}_{A}$. The scalar block is
+\begin{subequations}
+\begin{align}
+\mu {\bar g}_{nn} & = \frac{2}{\alpha}{\bar \beta}_{n} + \frac{1}{\sqrt{g}}{\bar P}_{nn} - \frac{1}{\sqrt{g}}{\bar P}_{AB}\delta^{AB} - \frac{\alpha}{2\sqrt{g}}{\bar \pi}\\
+\mu {\bar g}_{AB}\delta^{AB} & = - \frac{2}{\sqrt{g}}{\bar P}_{nn} - \frac{\alpha}{\sqrt{g}}{\bar \pi}\\
+\mu {\bar P}_{nn} & = \frac{1}{2}\alpha{\bar \rho}_{n}\\
+\mu {\bar P}_{AB}\delta^{AB} & = -\frac{\sqrt{g}}{2}{\bar g}_{AB}\delta^{AB} - \frac{2}{\alpha}\sqrt{g} {\bar \alpha} - \alpha {\bar \rho}_{n}\\
+\mu {\bar \alpha} & = - \frac{\alpha}{2\sqrt{g}}\left({\bar P}_{nn} + {\bar P}_{AB}\delta^{AB}\right) + \frac{\alpha^{2}}{4\sqrt{g}}{\bar \pi}\\
+\mu {\bar \pi} & = -\frac{\sqrt{g}}{\alpha}{\bar g}_{AB}\delta^{AB} - {\bar \rho}_{n}\\
+\mu {\bar \beta}_{n} & = - {\bar \alpha} - \frac{\alpha^{2}}{\sqrt{g}}{\bar \rho}_{n} + \frac{\alpha}{2}{\bar g}_{nn} - \frac{\alpha}{2}{\bar g}_{AB}\delta^{AB}\\
+\mu {\bar \rho}_{n} & = \frac{2}{\alpha}{\bar P}_{nn}\\
+\mu {\bar H}_{\perp} & = - \left( \beta \cdot n \right){\bar H}_{\perp}\\
+\mu {\bar \Omega} & = 0\\
+\mu {\bar H}_{n} & = - \left( \beta \cdot n \right){\bar H}_{n}\\
+\mu {\bar \Omega}_{n} & = 0.
+\end{align}
+\end{subequations}
+The vector sector is
+\begin{subequations}
+\begin{align}
+\mu {\bar g}_{nA} & = \frac{2}{\sqrt{g}}{\bar P}_{nA} + \frac{1}{\alpha}{\bar \beta}_{A}\\
+\mu {\bar P}_{nA} & = \frac{\alpha}{2}{\bar \rho}_{A}\\
+\mu {\bar \beta}_{A} & = \alpha {\bar g}_{nA} - \frac{\alpha^{2}}{\sqrt{g}}{\bar \rho}_{A}\\
+\mu {\bar \rho}_{A} & = \frac{2}{\alpha}{\bar P}_{nA}\\
+\mu {\bar H}_{A} & = - \left( \beta \cdot n \right) {\bar H}_{A}\\
+\mu {\bar \Omega}_{A} & = 0.
+\end{align}
+\end{subequations}
+At last, the trace-free tensor sector is
+\begin{subequations}
+\begin{align}
+\mu {\bar g}^{tf}_{AB} & = \frac{2}{\sqrt{g}}{\bar P}^{tf}_{AB}\\
+\mu {\bar P}^{tf}_{AB} & = \frac{\sqrt{g}}{2}{\bar g}^{tf}_{AB}.
+\end{align}
+\end{subequations}
+The eigenvalues for the scalar sector are $\pm 1$, $-\left( \beta \cdot n \right)$ and 0, each with multiplicity two. The eigenvalues for the vector sector are $\pm 1$ with multiplicity two, $-\left( \beta \cdot n \right)$ and 0. The eigenvalues for the trace-free tensor sector are $\pm 1$. The eigenvectors for all the three sectors are complete, which yields to the conclusion that the system is strongly hyperbolic. 
+
+To further prove this system is symmetric hyperbolic, we apply Gundlach and Matrtin-Garcia\cite{Gundlach:2005ta}'s definition of symmetric hyperbolicity that applies to quasilinear systems of partial differential equations with first-order time and second-order space derivatives and follow the analysis described in Ref.~\cite{Brown:2011qg}. To begin with, we introduce the spatial derivates of the 3 + 1 coordinate terms $g_{ab}, \alpha, \beta^{a}, H_{\perp}$ and $H^{a}$ as a new set of variables
+\begin{subequations}
+\begin{align}
+g_{cab} & \equiv \partial_{c}g_{ab}\\
+\alpha_{a} & \equiv \partial_{a}\alpha\\
+\beta_{ab} & \equiv g_{ac}\partial_{b}\beta^{c}\\
+H_{\perp a} & \equiv \partial_{a}H_{\perp}\\
+H_{ab} & \equiv g_{ac}\partial_{b}H^{c}.
+\end{align}
+\end{subequations}
+Then we compute the equations of motion for this new set of variables by differentiating Eqs.~(\ref{covariant hamilton}). Combine the resulting equations of motion with the equations of motion for the momenta, we obtain a new set of equations of montion as following(up to the principal terms)
+\begin{subequations}\label{symmetric hamilton}
+\begin{align}
+\partial_{\perp}g_{cab} & \cong 2\partial_{c}\beta_{(ab)} + \frac{2\alpha}{\sqrt{g}}\partial_{c}P_{ab} - \frac{\alpha}{\sqrt{g}}g_{ab}g^{de}\partial_{c}P_{de} - \frac{\alpha^{2}}{2\sqrt{g}}g_{ab}\partial_{c}\pi\\
+\begin{split}
+\partial_{\perp}P_{ab} & \cong \frac{\alpha\sqrt{g}}{2}g^{cd}\left(\partial_{a}g_{bcd} + \partial_{c}g_{dab} - 2\partial_{c}g_{(ab)d}\right)\\
+& + \frac{\alpha \sqrt{g}}{2}g_{ab}g^{cd}g^{ef}\left(\partial_{c}g_{def} - \partial_{c}g_{def}\right)\\
+& + \sqrt{g}\left(\partial_{a}\alpha_{b} - g_{ab}g^{cd}\partial_{c}\alpha_{d}\right) + \alpha^{2}\left(\partial_{(a}\rho_{b)} - \frac{1}{2}g_{ab}g^{cd}\partial_{c}\rho_{d}\right)
+\end{split}\\
+\partial_{\perp}\alpha_{a} & \cong -\frac{\alpha^{2}}{2\sqrt{g}}g^{cd}\partial_{a}P_{cd} + \frac{\alpha^{3}}{4\sqrt{g}}\partial_{a}\pi\\
+\partial_{\perp}\pi & \cong - \alpha g^{ab}\partial_{a}\rho_{b} + \sqrt{g}\left(g^{ac}g^{bd} - g^{ab}g^{cd}\right)\partial_{a}g_{bcd}\\
+\partial_{\perp}\beta_{ab} & \cong -\alpha \partial_{a}\alpha_{b} - \frac{\alpha^{3}}{\sqrt{g}}\partial_{a}\rho_{b} + \alpha^{2}\left(g^{cd}\partial_{a}g_{cbd} - \frac{1}{2}g^{cd}\partial_{a}g_{bcd}\right)\\
+\partial_{\perp}\rho_{a} & \cong 2g^{bc}\partial_{c}P_{ab}\\
+\partial_{\perp}H_{\perp a} & \cong -\beta^{b}\partial_{b}H_{\perp a}\\
+\partial_{\perp}\Omega & \cong 0\\
+\partial_{\perp}H_{ab} & \cong - \beta^{c}\partial_{c}H_{ab}\\
+\partial_{\perp}\Omega_{a} & \cong 0.
+\end{align}
+\end{subequations}
+Then we define the quadratic form
+\begin{align}
+\begin{split}
+\epsilon = & \\
+& M^{abef}\left[g^{cd}\left(\frac{1}{2}g_{cab} - \frac{\alpha_{c}}{\alpha}\right)\left(\frac{1}{2}g_{def} - \frac{\alpha_{d}}{\alpha}g_{ef}\right) + \left(\frac{P_{ab}}{\sqrt{g}} + \frac{\beta_{(ab)}}{\alpha} - \frac{\alpha \pi}{2\sqrt{g}}g_{ab}\right)\left(\frac{P_{ef}}{\sqrt{g}} + \frac{\beta_{(ef)}}{\alpha} - \frac{\alpha \pi}{2\sqrt{g}}g_{ef}\right)\right]\\
+& + M^{ab}\left[\frac{1}{\alpha^{2}}g^{cd}\beta_{(ac)}\beta_{(bd)} + \left(\frac{\alpha}{\sqrt{g}}\rho_{a} - \Gamma_{acd}g^{cd} + \frac{\alpha_{a}}{\alpha}\right) \left(\frac{\alpha}{\sqrt{g}}\rho_{b} - \Gamma_{bcd}g^{cd} + \frac{\alpha_{b}}{\alpha}\right)\right]
+\end{split}
+\end{align}
+where the tensors $M^{abef}$ and $M^{ij}$ are positive definite. Using Eqs.~(\ref{symmetric hamilton}) shows that the time derivative of $epsilon$ has a principal part that can be written as the gradient of a vector $\phi^{a}$; that is, ${\dot \epsilon} \cong \partial_{a}\phi^{a}$. This shows that $\epsilon$ is a quadratic, positive-definite energy density with flux $\phi^{a}$. According to Gundlach and Martin-Garcia\cite{Gundlach:2005ta} that the system (\ref{non covariant hamilton})  and (\ref{covariant hamilton}) are symmetric hyperbolic. 
 \section{Extension Discussion}\label{extension}
 \section{Summary}\label{summary}
 \appendix

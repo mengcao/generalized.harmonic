@@ -157,7 +157,7 @@ So we have the following Hamilton's Equations
 \begin{align*}
 {\dot P}^{ab} &= -\frac{\delta \mathcal{H}}{\delta g_{ab}} \\ &
 = \mathcal{L}_{\beta}P^{ab} + \frac{\alpha}{\sqrt{g}}(\frac{1}{2}P^{cd}P_{cd}g^{ab} - \frac{1}{4}P^{2}g^{ab} - 2P^{ac}P^{bd}g_{cd} + PP^{ab} \\
-&-\frac{1}{4}\alpha \pi P g^{ab} + \frac{1}{16}\alpha^2 \pi^2 g^{ab} - \frac{1}{4}\alpha^2 \rho^{c}\rho_{c}g^{ab} + \frac{1}{2}\alpha \pi P^{ab} + \frac{1}{2}\alpha^2\rho^{a}\rho^{b}) \\
+&-\frac{1}{4}\alpha \pi P g^{ab} + \frac{1}{16}\alpha^2 \pi^2 g^{ab} - \frac{1}{4}\alpha^2 \rho^{c}\rho_{c}g^{ab} + \frac{1}{2}\alpha \pi P^{ab} - \frac{1}{2}\alpha^2\rho^{a}\rho^{b}) \\
 &+ \alpha^2 \rho_{e}\Delta \Gamma^{e}_{~cd}g^{ac}g^{bd} - \frac{1}{2}D_{c}(\rho^{c} \alpha^2)g^{ab} + D^{(a}(\rho^{b)} \alpha^2) - \frac{1}{2}\rho^{(a}D^{b)}\alpha^2\\
 & - \alpha \sqrt{g}G^{ab} + \sqrt{g} D^{a}D^{b}\alpha - \sqrt{g}g^{ab}D_{c}D^{c} \alpha
 \end{align*}
@@ -214,7 +214,7 @@ Therefore, the new set of Hamilton's equations are
 \begin{align*}
 {\dot P^{ab}} & = -\frac{\delta \mathcal{H}}{\delta g_{ab}} \\ &
 = \mathcal{L}_{\beta}P^{ab} + \frac{\alpha}{\sqrt{g}}(\frac{1}{2}P^{cd}P_{cd}g^{ab} - \frac{1}{4}P^{2}g^{ab} - 2P^{ac}P^{bd}g_{cd} + PP^{ab} \\
-&-\frac{1}{4}\alpha \pi P g^{ab} + \frac{1}{16}\alpha^2 \pi^2 g^{ab} - \frac{1}{4}\alpha^2 \rho^{c}\rho_{c}g^{ab} + \frac{1}{2}\alpha \pi P^{ab} + \frac{1}{2}\alpha^2\rho^{a}\rho^{b}) \\
+&-\frac{1}{4}\alpha \pi P g^{ab} + \frac{1}{16}\alpha^2 \pi^2 g^{ab} - \frac{1}{4}\alpha^2 \rho^{c}\rho_{c}g^{ab} + \frac{1}{2}\alpha \pi P^{ab} - \frac{1}{2}\alpha^2\rho^{a}\rho^{b}) \\
 &+ \alpha^2 \rho_{e}\Delta \Gamma^{e}_{~cd}g^{ac}g^{bd} - \frac{1}{2}D_{c}(\rho^{c} \alpha^2)g^{ab} + D^{(a}(\rho^{b)} \alpha^2) - \frac{1}{2}\rho^{(a}D^{b)}\alpha^2\\
 & - \alpha \sqrt{g}G^{ab} + \sqrt{g} D^{a}D^{b}\alpha - \sqrt{g}g^{ab}D_{c}D^{c} \alpha\\
 & - \frac{\partial {\hat \lambda}}{\partial g_{ab}}\Omega - \frac{\partial {\hat \omega}^{c}}{\partial g_{ab}}\Omega_{c}\\
@@ -443,7 +443,7 @@ since $\delta g = g g^{ab}\delta g_{ab}$, $\delta R = $
 \begin{align*}
 D_{t} P^{ab} & = - \frac{\delta \mathscr{H}}{\delta g_{ab}}\\
 &  = \frac{\alpha g^{ab}}{2\sqrt{g}}\left(P^{cd}P_{cd} - \frac{P^{2}}{2} - \frac{\alpha \pi P}{2} + \frac{\alpha^{2}\pi^{2}}{8} - \frac{\alpha^{2}}{2}\rho^{c}\rho_{c}\right)\\
-& + \frac{\alpha}{\sqrt{g}}\left(-2P^{ac}P^{bd}g_{cd} + PP^{ab} + \frac{\alpha \pi}{2}P^{ab} + \frac{\alpha^{2}}{2}\rho^{a}\rho^{b}\right)\\
+& + \frac{\alpha}{\sqrt{g}}\left(-2P^{ac}P^{bd}g_{cd} + PP^{ab} + \frac{\alpha \pi}{2}P^{ab} - \frac{\alpha^{2}}{2}\rho^{a}\rho^{b}\right)\\
 & + \alpha^{2}\rho_{e}\Delta \Gamma^{e}_{~cd}g^{ac}g^{bd} + D^{(a}\left(\rho^{b)}\alpha^{2}\right) - \frac{1}{2}g^{ab}D_{c}\left(\rho^{c}\alpha^{2}\right)\\
 & - \alpha \rho^{(a}\partial^{b)}\alpha\\
 & - \alpha \sqrt{g}G^{ab} + \sqrt{g}D^{a}D^{b}\alpha - \sqrt{g}g^{ab}D^{c}D_{c}\alpha\\
@@ -601,13 +601,13 @@ D_{t}g_{ab} & = \frac{2\alpha P_{ab}}{\sqrt{g}} - \frac{\alpha P g_{ab}}{\sqrt{g
 \end{align*}
 \begin{align*}
 D_{t}P^{ab} & = \frac{\alpha g^{ab}}{2\sqrt{g}}\left(P^{cd}P_{cd} - \frac{P^{2}}{2} - \frac{\alpha \pi P}{2} + \frac{\alpha^{2}\pi^{2}}{8} - \frac{\alpha^{2}}{2}\rho^{c}\rho_{c}\right)\\
-& + \frac{\alpha}{\sqrt{g}}\left(-2P^{ac}P^{bd}g_{cd} + PP^{ab} + \frac{\alpha \pi}{2}P^{ab} + \frac{\alpha^{2}}{2}\rho^{a}\rho^{b}\right)\\
+& + \frac{\alpha}{\sqrt{g}}\left(-2P^{ac}P^{bd}g_{cd} + PP^{ab} + \frac{\alpha \pi}{2}P^{ab} - \frac{\alpha^{2}}{2}\rho^{a}\rho^{b}\right)\\
 & + \alpha^{2}\rho_{e}\Delta \Gamma^{e}_{~cd}g^{ac}g^{bd} + D^{(a}\left(\rho^{b)}\alpha^{2}\right) - \frac{1}{2}g^{ab}D_{c}\left(\rho^{c}\alpha^{2}\right)\\
 & - \alpha \rho^{(a}\partial^{b)}\alpha\\
 & - \alpha \sqrt{g}G^{ab} + \sqrt{g}D^{a}D^{b}\alpha - \sqrt{g}g^{ab}D^{c}D_{c}\alpha\\
 & - \frac{\delta \Lambda \Omega}{\delta g_{ab}} - \frac{\delta \Lambda^{c}\Omega_{c}}{\delta g_{ab}}\\
 & = \frac{\alpha g^{ab}}{2\sqrt{g}}\left(P^{cd}P_{cd} - \frac{P^{2}}{2} - \frac{\alpha \pi P}{2} + \frac{\alpha^{2}\pi^{2}}{8} - \frac{\alpha^{2}}{2}\rho^{c}\rho_{c}\right)\\
-& + \frac{\alpha}{\sqrt{g}}\left(-2P^{ac}P^{bd}g_{cd} + PP^{ab} + \frac{\alpha \pi}{2}P^{ab} + \frac{\alpha^{2}}{2}\rho^{a}\rho^{b}\right)\\
+& + \frac{\alpha}{\sqrt{g}}\left(-2P^{ac}P^{bd}g_{cd} + PP^{ab} + \frac{\alpha \pi}{2}P^{ab} - \frac{\alpha^{2}}{2}\rho^{a}\rho^{b}\right)\\
 & + \alpha^{2}\rho_{e}\Delta \Gamma^{e}_{~cd}g^{ac}g^{bd} + D^{(a}\left(\rho^{b)}\alpha^{2}\right) - \frac{1}{2}g^{ab}D_{c}\left(\rho^{c}\alpha^{2}\right)\\
 & - \alpha \rho^{(a}\partial^{b)}\alpha\\
 & - \alpha \sqrt{g}G^{ab} + \sqrt{g}D^{a}D^{b}\alpha - \sqrt{g}g^{ab}D^{c}D_{c}\alpha\\
